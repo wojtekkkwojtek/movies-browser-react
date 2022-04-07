@@ -4,7 +4,7 @@ function App() {
     <div>
       <p>
         Movies browser application in development
-      </p> 
+      </p>
     </div>
   );
 }
