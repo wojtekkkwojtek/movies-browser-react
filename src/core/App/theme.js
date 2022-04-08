@@ -1,6 +1,6 @@
 export const theme = {
     color: {
-        candleelight: "#FCD420",
+        candlelight: "#FCD420",
         white: "#FFFFFF",
         mystic: "#E4E6F0",
         whisper: "#F5F5FA",
