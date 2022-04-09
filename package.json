@@ -18,6 +18,12 @@
     "styled-normalize": "^8.0.7",
     "web-vitals": "^2.1.4"
   },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
