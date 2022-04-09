@@ -6,20 +6,22 @@ import {
     Wrapper,
     Input,
     Label,
-    ReactLogo1,
+    NavContainer,
+    SearchIcon,
 } from './styled'
-import videoIcon from '../App/assets/videoIcon.svg'
 
 const Header = () => {
     return (
         <Wrapper>
             <Container>
-                <IconVideo src={videoIcon} alt="icon video" />
-                <Title>movies browser</Title>
-                <Button>movies</Button>
-                <Button>people</Button>
+                <NavContainer>
+                    <IconVideo />
+                    <Title>movies browser</Title>
+                    <Button>movies</Button>
+                    <Button>people</Button>
+                </NavContainer>
                 <Label>
-                    <ReactLogo1 />
+                    <SearchIcon />
                     <Input type="text" placeholder="Search for movies..." />
                 </Label>
             </Container>
