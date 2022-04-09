@@ -70,7 +70,7 @@ export const Label = styled.label`
 
 export const SearchIcon = styled(Magnifier)`
     position: absolute;
-    right: -30px;
+    right: -50px;
     width: 18.76px;
     height: 19.22px;
     margin-left: 26.76px;
