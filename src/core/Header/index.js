@@ -1,11 +1,16 @@
-import { Container, Wrapper } from './styled';
+import { Container, IconVideo, Title, Wrapper } from './styled'
+
+import videoIcon from '../App/assets/videoIcon.svg'
 
 const Header = () => {
-  return (
-    <Wrapper>
-      <Container></Container>
-    </Wrapper>
-  );
-};
+    return (
+        <Wrapper>
+            <Container>
+                <IconVideo src={videoIcon} alt="icon" />
+                <Title>Movies Browser</Title>
+            </Container>
+        </Wrapper>
+    )
+}
 
-export default Header;
+export default Header
