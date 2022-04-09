@@ -1,7 +1,11 @@
-import { Wrapper } from './styled';
+import { Container, Wrapper } from './styled';
 
 const Header = () => {
-  return <Wrapper>test</Wrapper>;
+  return (
+    <Wrapper>
+      <Container></Container>
+    </Wrapper>
+  );
 };
 
 export default Header;
