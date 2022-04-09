@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+// import searchIcon from '../App/assets/searchIcon.svg'
+import { ReactComponent as Magnifier } from '../App/assets/searchIcon.svg'
 
 export const Wrapper = styled.div`
     height: 94px;
@@ -52,16 +54,41 @@ export const Button = styled.button`
         border: 1px solid ${({ theme }) => theme.color.white};
     }
 `
-
-export const Input = styled.input`
+export const Label = styled.label`
+    display: flex;
+    align-items: center;
+    margin-left: 400px;
     width: 432px;
     height: 48px;
     background-color: ${({ theme }) => theme.color.white};
     border: 1px solid ${({ theme }) => theme.color.mystic};
     border-radius: 33px;
+    /* &:before {
+        content: 'a';
+        position: absolute;
+        left: 30px;
+        top: 0;
+        bottom: 0;
+        width: 40px;
+        color: ${({ theme }) => theme.color.black};
+
+        background: url('https://github.com/wojtekkkwojtek/movies-browser-react/blob/header-begining/src/core/App/assets/searchIcon.svg')
+            center / contain no-repeat;
+        background-color: ${({ theme }) => theme.color.candlelight}; */
+    /* } */
 `
 
-export const searchIcon = styled.img`
+export const ReactLogo1 = styled(Magnifier)`
     width: 18.76px;
     height: 19.22px;
+    margin-left: 26.76px;
+    stroke-width: 3px;
+    stroke: red;
+`
+
+export const Input = styled.input`
+    /* padding: 10px 30px; */
+    margin-left: 70px;
+    border: none;
+    margin-left: 20px;
 `
