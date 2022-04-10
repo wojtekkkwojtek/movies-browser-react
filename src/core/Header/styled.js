@@ -8,6 +8,9 @@ export const Wrapper = styled.div`
     height: 94px;
     color: white;
     background-color: ${({ theme }) => theme.color.black};
+    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+        height: 160px;
+    }
 `
 
 export const Container = styled.div`
@@ -16,12 +19,23 @@ export const Container = styled.div`
     width: 1400px;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+        flex-direction: column;
+        height: fit-content;
+        justify-content: center;
+        width: 100%;
+        margin: 20px auto;
+    }
 `
 export const NavContainer = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding-left: 10px;
+    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+        /* justify-content: center; */
+    }
 `
 
 export const IconVideo = styled(Camera)`
@@ -66,30 +80,35 @@ export const Label = styled.label`
     align-items: center;
     position: relative;
     left: -440px;
+    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+        top: 30px;
+    }
 `
 
 export const SearchIcon = styled(Magnifier)`
     position: absolute;
-    right: -50px;
+    right: -45px;
     width: 18.76px;
     height: 19.22px;
     margin-left: 26.76px;
-    stroke-width: 3px;
-    stroke: red;
     z-index: 1000;
+    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+        left: calc(50% + 220px);
+    }
 `
 
 export const Input = styled.input`
-    /* padding: 10px 30px; */
-    /* margin-left: 70px;
-    border: none;*/
-    padding-left: 60px;
     position: absolute;
-    /* margin-left: 400px; */
+    padding-left: 64px;
     width: 432px;
     height: 48px;
     background-color: ${({ theme }) => theme.color.white};
     border: 1px solid ${({ theme }) => theme.color.mystic};
     border-radius: 33px;
     outline: none;
+    font-weight: 400;
+    font-size: 16px;
+    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+        left: calc(50% + 220px);
+    }
 `
