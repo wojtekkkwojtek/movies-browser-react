@@ -10,6 +10,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-      
+      fill: currentColor;   // a property used in spinner.svg
+      color: ${({ theme }) => theme.color.black};
+      background-color: ${({ theme }) => theme.color.whisper};
     }
-;`
+`;
