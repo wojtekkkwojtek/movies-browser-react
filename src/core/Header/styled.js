@@ -27,7 +27,6 @@ export const Container = styled.div`
         width: 100%;
     }
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
-        /* position: relative; */
     }
 `
 export const NavContainer = styled.div`
@@ -36,7 +35,10 @@ export const NavContainer = styled.div`
     align-items: center;
     padding-left: 10px;
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-        padding-left: 16px;
+        padding-left: 0;
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+        justify-content: center;
     }
 `
 
@@ -56,18 +58,14 @@ export const Title = styled.h1`
     line-height: 40px;
     letter-spacing: -1.5px;
     text-transform: capitalize;
-    /* top: calc(50% - 40px / 2); */
     margin-left: 16.58px;
     margin-right: 80px;
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
         width: 95px;
         height: 100%;
-
         font-size: 13px;
         margin-left: 10px;
         margin-right: auto;
-        /* margin-top: 32px; */
-        /* line-height: 130%; */
     }
 `
 
@@ -92,11 +90,9 @@ export const Button = styled.button`
     }
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
         display: flex;
-        /* flex-direction: row; */
         align-items: center;
         width: 70px;
         margin: 32px 10px;
-
         height: 34px;
         font-size: 12px;
         line-height: 18px;
@@ -108,16 +104,12 @@ export const Label = styled.div`
     display: flex;
     align-items: center;
     position: relative;
-    left: -440px;
+    left: -450px;
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
         top: 30px;
     }
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
         position: static;
-
-        top: -10px;
-        width: 288px;
-        height: 44px;
     }
 `
 
@@ -129,12 +121,13 @@ export const SearchIcon = styled(Magnifier)`
     margin-left: 26.76px;
     z-index: 1000;
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-        left: calc(50% + 220px);
+        left: calc(50% + 216px);
     }
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+        margin-left: 18px;
         width: 16px;
         height: 16px;
-        /* position: static; */
+        left: calc(50% - 144px);
     }
 `
 
@@ -150,10 +143,13 @@ export const Input = styled.input`
     font-weight: 400;
     font-size: 16px;
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-        left: calc(50% + 220px);
+        left: calc(50% + 216px);
     }
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+        font-size: 13px;
+        padding-left: 45px;
         width: 288px;
         height: 44px;
+        left: calc(50% - 144px);
     }
 `
