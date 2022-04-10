@@ -12,6 +12,10 @@ to{
 
 export const StyledSpinner = styled(Spinner)`
     animation: 1.8s infinite linear ${loaderAnimation};
+    
+    @media (max-width: ${({theme})=>theme.breakpoints.mobileMax}px){
+        height: 40px;
+    }
 `;
 
 export const Wrapper = styled.div`
