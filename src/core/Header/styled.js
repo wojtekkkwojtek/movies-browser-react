@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
     color: white;
     background-color: ${({ theme }) => theme.color.black};
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-        height: 160px;
+        height: 142px;
     }
 `
 
@@ -25,7 +25,6 @@ export const Container = styled.div`
         height: fit-content;
         justify-content: center;
         width: 100%;
-        margin: 20px auto;
     }
 `
 export const NavContainer = styled.div`
@@ -42,6 +41,10 @@ export const IconVideo = styled(Camera)`
     height: 40px;
     width: 40px;
     top: calc(50% - 40px / 2);
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+        width: 17px;
+        height: 17px;
+    }
 `
 
 export const Title = styled.h1`
@@ -53,6 +56,9 @@ export const Title = styled.h1`
     top: calc(50% - 40px / 2);
     margin-left: 16.58px;
     margin-right: 80px;
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+        font-size: 13px;
+    }
 `
 
 export const Button = styled.button`
@@ -73,6 +79,16 @@ export const Button = styled.button`
     &:hover,
     &:focus {
         border: 1px solid ${({ theme }) => theme.color.white};
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+        width: 70px;
+        margin: 0px 10px;
+
+        height: 34px;
+        font-size: 12px;
+        line-height: 18px;
+        padding: 8px 12px;
+        border-radius: 29px;
     }
 `
 export const Label = styled.label`
