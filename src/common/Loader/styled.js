@@ -11,11 +11,8 @@ to{
 `;
 
 export const StyledSpinner = styled(Spinner)`
-    animation-name: ${loaderAnimation};
-    animation-duration: 1.8s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  `;
+    animation: 1.8s infinite linear ${loaderAnimation};
+`;
 
 export const Wrapper = styled.div`
     display: flex;
