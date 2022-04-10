@@ -26,6 +26,9 @@ export const Container = styled.div`
         justify-content: center;
         width: 100%;
     }
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+        /* position: relative; */
+    }
 `
 export const NavContainer = styled.div`
     display: flex;
@@ -101,7 +104,7 @@ export const Button = styled.button`
         border-radius: 29px;
     }
 `
-export const Label = styled.label`
+export const Label = styled.div`
     display: flex;
     align-items: center;
     position: relative;
@@ -110,12 +113,11 @@ export const Label = styled.label`
         top: 30px;
     }
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
-        /* position: absolute;
-        margin-left: auto;
-        margin-right: auto;
-        left: 0;
-        right: 0;
-        text-align: center; */
+        position: static;
+
+        top: -10px;
+        width: 288px;
+        height: 44px;
     }
 `
 
@@ -132,6 +134,7 @@ export const SearchIcon = styled(Magnifier)`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
         width: 16px;
         height: 16px;
+        /* position: static; */
     }
 `
 
