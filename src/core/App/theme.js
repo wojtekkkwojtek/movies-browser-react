@@ -9,7 +9,8 @@ export const theme = {
         black: '#000000',
     },
     breakpoint: {
-        mobileMax: '550px',
+        mobileNormal: '550px',
+        mobileMax: 767,
         tablet: '980px',
     },
 }

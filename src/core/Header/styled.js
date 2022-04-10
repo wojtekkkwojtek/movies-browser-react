@@ -41,7 +41,7 @@ export const IconVideo = styled(Camera)`
     height: 40px;
     width: 40px;
     top: calc(50% - 40px / 2);
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
         width: 17px;
         height: 17px;
     }
@@ -56,8 +56,11 @@ export const Title = styled.h1`
     top: calc(50% - 40px / 2);
     margin-left: 16.58px;
     margin-right: 80px;
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
         font-size: 13px;
+        margin-left: 10px;
+        margin-right: 32px;
+        margin-top: 32px;
     }
 `
 
@@ -80,7 +83,7 @@ export const Button = styled.button`
     &:focus {
         border: 1px solid ${({ theme }) => theme.color.white};
     }
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
         width: 70px;
         margin: 0px 10px;
 
@@ -99,6 +102,14 @@ export const Label = styled.label`
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
         top: 30px;
     }
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+        /* position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center; */
+    }
 `
 
 export const SearchIcon = styled(Magnifier)`
@@ -110,6 +121,10 @@ export const SearchIcon = styled(Magnifier)`
     z-index: 1000;
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
         left: calc(50% + 220px);
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+        width: 16px;
+        height: 16px;
     }
 `
 
@@ -126,5 +141,9 @@ export const Input = styled.input`
     font-size: 16px;
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
         left: calc(50% + 220px);
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+        width: 288px;
+        height: 44px;
     }
 `
