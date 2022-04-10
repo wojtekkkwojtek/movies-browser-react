@@ -33,7 +33,7 @@ export const NavContainer = styled.div`
     align-items: center;
     padding-left: 10px;
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-        /* justify-content: center; */
+        padding-left: 16px;
     }
 `
 
@@ -53,14 +53,18 @@ export const Title = styled.h1`
     line-height: 40px;
     letter-spacing: -1.5px;
     text-transform: capitalize;
-    top: calc(50% - 40px / 2);
+    /* top: calc(50% - 40px / 2); */
     margin-left: 16.58px;
     margin-right: 80px;
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+        width: 95px;
+        height: 100%;
+
         font-size: 13px;
         margin-left: 10px;
-        margin-right: 32px;
-        margin-top: 32px;
+        margin-right: auto;
+        /* margin-top: 32px; */
+        /* line-height: 130%; */
     }
 `
 
@@ -84,8 +88,11 @@ export const Button = styled.button`
         border: 1px solid ${({ theme }) => theme.color.white};
     }
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+        display: flex;
+        /* flex-direction: row; */
+        align-items: center;
         width: 70px;
-        margin: 0px 10px;
+        margin: 32px 10px;
 
         height: 34px;
         font-size: 12px;
