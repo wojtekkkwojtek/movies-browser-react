@@ -13,5 +13,6 @@ export const GlobalStyle = createGlobalStyle`
       fill: currentColor;   // a property used in spinner.svg
       color: ${({ theme }) => theme.color.black};
       background-color: ${({ theme }) => theme.color.whisper};
+      font-family:'Poppins', sans-serif;
     }
 `;
