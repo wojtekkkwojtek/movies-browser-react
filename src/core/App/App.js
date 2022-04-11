@@ -1,4 +1,4 @@
-import Header from '../Header'
+import Header from '../../common/Header'
 import { Loader } from '../../common/Loader'
 
 function App() {

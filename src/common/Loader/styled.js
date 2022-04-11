@@ -13,7 +13,7 @@ to{
 export const StyledSpinner = styled(Spinner)`
     animation: 1.8s infinite linear ${loaderAnimation};
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
         height: 40px;
     }
 `

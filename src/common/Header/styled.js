@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { ReactComponent as Camera } from '../App/assets/videoIcon.svg'
-import { ReactComponent as Magnifier } from '../App/assets/searchIcon.svg'
+import { ReactComponent as Camera } from '../assets/icons/videoIcon.svg'
+import { ReactComponent as Magnifier } from '../assets/icons/searchIcon.svg'
 
 export const Wrapper = styled.div`
     display: flex;
@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
     height: 94px;
     color: white;
     background-color: ${({ theme }) => theme.color.black};
-    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         height: 142px;
     }
 `
@@ -20,13 +20,13 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         flex-direction: column;
         height: fit-content;
         justify-content: center;
         width: 100%;
     }
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
     }
 `
 export const NavContainer = styled.div`
@@ -34,10 +34,10 @@ export const NavContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     padding-left: 10px;
-    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         padding-left: 0;
     }
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         justify-content: center;
         padding-left: 12px;
     }
@@ -47,7 +47,7 @@ export const IconVideo = styled(Camera)`
     height: 40px;
     width: 40px;
     top: calc(50% - 40px / 2);
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 17px;
         height: 17px;
     }
@@ -61,7 +61,7 @@ export const Title = styled.h1`
     text-transform: capitalize;
     margin-left: 16.58px;
     margin-right: 80px;
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 95px;
         height: 100%;
         font-size: 13px;
@@ -90,7 +90,7 @@ export const Button = styled.button`
     &:focus {
         border: 1px solid ${({ theme }) => theme.color.white};
     }
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
         align-items: center;
         width: 70px;
@@ -107,10 +107,10 @@ export const Label = styled.div`
     align-items: center;
     position: relative;
     left: -450px;
-    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         top: 30px;
     }
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         position: static;
     }
 `
@@ -122,10 +122,10 @@ export const SearchIcon = styled(Magnifier)`
     height: 19.22px;
     margin-left: 26.76px;
     z-index: 1000;
-    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         left: calc(50% + 216px);
     }
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         margin-left: 18px;
         width: 16px;
         height: 16px;
@@ -145,10 +145,10 @@ export const Input = styled.input`
     outline: none;
     font-weight: 400;
     font-size: 16px;
-    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         left: calc(50% + 216px);
     }
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 13px;
         padding-left: 45px;
         width: 288px;
