@@ -64,8 +64,9 @@ export const Title = styled.h1`
         width: 95px;
         height: 100%;
         font-size: 13px;
-        margin-left: 10px;
-        margin-right: auto;
+        margin-left: 8px;
+        margin-right: 19px;
+        letter-spacing: -0.5px;
     }
 `
 
@@ -92,10 +93,10 @@ export const Button = styled.button`
         display: flex;
         align-items: center;
         width: 70px;
-        margin: 32px 10px;
+        margin: 24px 6px;
         height: 34px;
         font-size: 12px;
-        line-height: 18px;
+        /* line-height: 18px; */
         padding: 8px 12px;
         border-radius: 29px;
     }
@@ -128,6 +129,7 @@ export const SearchIcon = styled(Magnifier)`
         width: 16px;
         height: 16px;
         left: calc(50% - 144px);
+        top: 95px;
     }
 `
 
@@ -151,5 +153,7 @@ export const Input = styled.input`
         width: 288px;
         height: 44px;
         left: calc(50% - 144px);
+        top: 82px;
+        font-weight: 400;
     }
 `
