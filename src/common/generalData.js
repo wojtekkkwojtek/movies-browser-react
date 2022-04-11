@@ -1,2 +1,4 @@
-import api_key from './apiKey.env'
-export const apiBase = `https://api.themoviedb.org/3/movie/550?api_key=${api_key}`
+const API_KEY = process.env.REACT_APP_API_KEY
+
+export const apiBase = `https://api.themoviedb.org/3/movie/33?api_key=${API_KEY}`
+console.log(API_KEY)
