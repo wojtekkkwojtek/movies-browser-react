@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { ReactComponent as Spinner } from "./spinner.svg";
+import { ReactComponent as Spinner } from "../../assets/icons/spinner.svg";
 
 const loaderAnimation = keyframes`
 from{

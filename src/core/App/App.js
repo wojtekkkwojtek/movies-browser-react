@@ -1,4 +1,4 @@
-import {Loader} from "../../common/Loader";
+import {Loader} from "../../common/components/Loader";
 
 function App() {
   return (
