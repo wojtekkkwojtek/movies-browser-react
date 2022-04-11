@@ -39,6 +39,7 @@ export const NavContainer = styled.div`
     }
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileNormal}) {
         justify-content: center;
+        padding-left: 12px;
     }
 `
 
