@@ -1,14 +1,15 @@
-import {Loader} from "../../common/Loader";
+import Header from '../../common/Header'
+import { Loader } from '../../common/Loader'
 
 function App() {
-  return (
-    <div>
-<Loader />
-      <p>
-        Movies browser application in development
-      </p>
-    </div>
-  );
+    return (
+        <div>
+            <Header />
+            <p>Movies browser application in development</p>
+            <Loader />
+            <p>Movies browser application in development</p>
+        </div>
+    )
 }
 
-export default App;
+export default App
