@@ -1,19 +1,20 @@
-import Header from '../../common/Header'
-import { Loader } from '../../common/Loader'
-import Main from '../../common/Main'
-
-// import { useEffect } from 'react'
+import { Loader } from "../../common/components/Loader";
+import Header from "../../common//components/Header";
+import Tile from "../../common/components/Tile";
+import Main from "../../common/Main/index";
+import { Container } from "../../common/components/Container";
 
 function App() {
-    return (
-        <div>
-            <Header />
-            <Main>
-                <Loader />
-                <p>Movies browser application in development</p>
-            </Main>
-        </div>
-    )
+  return (
+    <div>
+      <Header />
+      {/* <Loader /> */}
+      <Container>
+        <Tile />
+      </Container>
+      <Main />
+    </div>
+  );
 }
 
-export default App
+export default App;

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { ReactComponent as Camera } from '../assets/icons/videoIcon.svg'
-import { ReactComponent as Magnifier } from '../assets/icons/searchIcon.svg'
+import { ReactComponent as Camera } from '../../assets/icons/videoIcon.svg'
+import { ReactComponent as Magnifier } from '../../assets/icons/searchIcon.svg'
 
 export const Wrapper = styled.div`
     display: flex;
