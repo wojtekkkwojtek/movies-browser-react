@@ -10,6 +10,8 @@ export const TileContainer = styled.div`
   
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        display: flex;
+    flex-direction: column;
        grid-gap: 40px;
     }
 `;
