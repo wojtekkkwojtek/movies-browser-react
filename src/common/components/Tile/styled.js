@@ -11,8 +11,8 @@ export const TileContainer = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
-    flex-direction: column;
-       grid-gap: 40px;
+        flex-direction: column;
+        grid-gap: 40px;
     }
 `;
 
@@ -90,7 +90,7 @@ export const Overview = styled.p`
     margin:  0 8px ;
     line-height: 1.6;
 `;
-export const Info=styled.div`
+export const Info = styled.div`
  font-size: 18px;
     line-height: 1.2;
     color: ${({ theme }) => theme.color.stormGray};
