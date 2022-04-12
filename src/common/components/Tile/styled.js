@@ -36,7 +36,7 @@ export const Title = styled.header`
     font-size: 36px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-       font: 16px;
+       font-size: 16px;
     }
 `;
 
@@ -45,7 +45,8 @@ export const Year = styled.div`
     margin: 24px 0;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-       font: 13px;
+       font-size: 13px;
+       margin: 0;
     }
 `;
 
@@ -67,7 +68,7 @@ export const InfoDetales = styled.li`
     margin: 0 0 8px 10px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-       font: 12px;
+       font-size: 12px;
     }
 `;
 
@@ -77,6 +78,11 @@ export const Genres = styled.li`
     font-size: 14px;
     margin: 16px 8px 8px 8px;
     border-radius: 5px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+       font-size: 10px;
+       line-height: 1.1;
+    }
 `;
 
 export const Icon = styled.img`
@@ -94,18 +100,30 @@ export const Rate = styled.li`
     line-height: 1.3;
     align-items: center;
     margin: 27.09px 8px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+       font-size: 13px;
+    }
 `;
 
 export const Score = styled.li`
     font-size: 14px;
     line-height: 1.2;
     margin: 33px 8px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+       font-size: 13px;
+    }
 `;
 
 export const Overview = styled.p`
     font-size: 20px;
     margin:  0 8px ;
     line-height: 1.6;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+       font-size: 14px;
+    }
 `;
 export const Info = styled.div`
     font-size: 18px;
@@ -114,7 +132,6 @@ export const Info = styled.div`
     margin: 0 0 8px 8px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-       font: 16px;
        display: none;
     }
 `;
