@@ -12,28 +12,41 @@ export const TileContainer = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
         flex-direction: column;
-        grid-gap: 40px;
-    }
+        
+          }
 `;
 
 export const Poster = styled.img`
     width: 312px;
-    height: 464px;
+    height:auto;
     display: block;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        width: 114px;
+        
+          }
 `;
 
 export const Content = styled.div`
-               
+              
 `;
 
 export const Title = styled.header`
     font-weight: 600;
     font-size: 36px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+       font: 16px;
+    }
 `;
 
 export const Year = styled.div`
     font-size: 22px;
     margin: 24px 0;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+       font: 13px;
+    }
 `;
 
 export const Wrapper = styled.span`
@@ -52,6 +65,10 @@ export const InfoDetales = styled.li`
     font-size: 18px;
     line-height: 1.2;
     margin: 0 0 8px 10px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+       font: 12px;
+    }
 `;
 
 export const Genres = styled.li`
@@ -91,10 +108,15 @@ export const Overview = styled.p`
     line-height: 1.6;
 `;
 export const Info = styled.div`
- font-size: 18px;
+    font-size: 18px;
     line-height: 1.2;
     color: ${({ theme }) => theme.color.stormGray};
     margin: 0 0 8px 8px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+       font: 16px;
+       display: none;
+    }
 `;
 
 
