@@ -4,7 +4,7 @@ import {
     InfoDetales, Overview, Genres, Rate, Score, Icon, Info
 } from "./styled";
 import poster from "./poster.png";
-import star from "./star.svg";
+import reteIcon from "./rateIcon.svg";
 
 export const Tile = () => {
     return (
@@ -27,7 +27,7 @@ export const Tile = () => {
                     <Genres>Drama</Genres>
                 </InfoWrapper>
                 <InfoWrapper>
-                    <Icon src={star} alt="" />
+                    <Icon src={reteIcon} alt="" />
                     <Rate>7/8</Rate>
                     <Score>/10</Score>
                     <Score>335 votes</Score>
