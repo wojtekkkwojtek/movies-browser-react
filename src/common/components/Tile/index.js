@@ -1,7 +1,7 @@
 import React from "react";
 import {
-    Wrapper, Poster, Title, Year, TileContainer, TileTags, TagInfo,
-    TagInfoDetales, Overview, TileTag, TagRate, TagScore, TagIcon
+    Content, Poster, Title, Year, TileContainer, InfoWrapper,
+    InfoDetales, Overview, Genres, Rate, Score, Icon, Info
 } from "./styled";
 import poster from "./poster.png";
 import star from "./star.svg";
@@ -10,34 +10,33 @@ export const Tile = () => {
     return (
         <TileContainer>
             <Poster src={poster} alt="" />
-            <Wrapper>
+            <Content>
                 <Title>Mulan</Title>
                 <Year>2020</Year>
-                <TileTags>
-                    <TagInfo>Production:</TagInfo>
-                    <TagInfoDetales>China</TagInfoDetales>
-                </TileTags>
-                <TileTags>
-                    <TagInfo>Release date:</TagInfo>
-                    <TagInfoDetales>24.10.2020</TagInfoDetales>
-                </TileTags>
-                <TileTags>
-                    <TileTag>Action</TileTag>
-                    <TileTag>Adventure</TileTag>
-                    <TileTag>Drama</TileTag>
-                </TileTags>
-                <TileTags>
-                    <TagIcon src={star} alt="" />
-                    <TagRate>7/8</TagRate>
-                    <TagScore>/10</TagScore>
-                    <TagScore>335 votes</TagScore>
-                </TileTags>
+                <InfoWrapper>
+                    <Info>Production:</Info>
+                    <InfoDetales>China</InfoDetales>
+                </InfoWrapper>
+                <InfoWrapper>
+                    <Info>Release date:</Info>
+                    <InfoDetales>24.10.2020</InfoDetales>
+                </InfoWrapper>
+                <InfoWrapper>
+                    <Genres>Action</Genres>
+                    <Genres>Adventure</Genres>
+                    <Genres>Drama</Genres>
+                </InfoWrapper>
+                <InfoWrapper>
+                    <Icon src={star} alt="" />
+                    <Rate>7/8</Rate>
+                    <Score>/10</Score>
+                    <Score>335 votes</Score>
+                </InfoWrapper>
                 <Overview>
                     A young Chinese maiden disguises herself as a male warrior in order to save her father.
-                    Disguises herself as a male warrior in order to save her father. A young Chinese maiden disguises
-                    herself as a male warrior in order to save her father.
+                    Disguises herself as a male warrior in order to save her father.
                 </Overview>
-            </Wrapper>
+            </Content>
         </TileContainer>
     );
 }
