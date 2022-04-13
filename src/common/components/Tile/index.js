@@ -17,37 +17,43 @@ import {
 import poster from './poster.png'
 import star from './star.svg'
 
-export const Tile = () => {
+export const Tile = ({
+    title,
+    year,
+    country,
+    date,
+    genres,
+    rate,
+    score,
+    votes,
+    overview,
+}) => {
     return (
         <TileContainer>
             <Poster src={poster} alt="" />
             <Content>
-                <Title>Mulan</Title>
-                <Year>2020</Year>
+                <Title>{title}</Title>
+                <Year>{year}</Year>
                 <InfoWrapper>
                     <Info>Production:</Info>
-                    <InfoDetails>China</InfoDetails>
+                    <InfoDetails>{country}</InfoDetails>
                 </InfoWrapper>
                 <InfoWrapper>
                     <Info>Release date:</Info>
-                    <InfoDetails>24.10.2020</InfoDetails>
+                    <InfoDetails>{date}</InfoDetails>
                 </InfoWrapper>
                 <InfoWrapper>
-                    <Genres>Action</Genres>
+                    <Genres>{genres}</Genres>
                     <Genres>Adventure</Genres>
                     <Genres>Drama</Genres>
                 </InfoWrapper>
                 <InfoWrapper>
                     <Icon src={star} alt="" />
-                    <Rate>7/8</Rate>
-                    <Score>/10</Score>
-                    <Score>335 votes</Score>
+                    <Rate>{rate}</Rate>
+                    <Score>{score}</Score>
+                    <Score>{votes} votes</Score>
                 </InfoWrapper>
-                <Overview>
-                    A young Chinese maiden disguises herself as a male warrior
-                    in order to save her father. Disguises herself as a male
-                    warrior in order to save her father.
-                </Overview>
+                <Overview>{overview}</Overview>
             </Content>
         </TileContainer>
     )
