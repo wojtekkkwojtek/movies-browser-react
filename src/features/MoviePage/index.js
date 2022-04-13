@@ -15,7 +15,6 @@ const MoviePage = () => {
         })()
     }, [movies])
 
-    // const title = data.results[0].original_title
     return (
         <>
             {isLoading ? (
@@ -25,7 +24,10 @@ const MoviePage = () => {
                     <Tile
                         title={movie.title}
                         date={movie.release_date}
+                        production="Production:"
+                        country={movie.country}
                         rate={movie.vote_average}
+                        score="/10"
                         votes={movie.vote_count}
                     />
                 ))
