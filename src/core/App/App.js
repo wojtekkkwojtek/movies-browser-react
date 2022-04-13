@@ -1,9 +1,9 @@
 import { Loader } from '../../common/components/Loader'
 import Header from '../../common//components/Header'
-import Tile from '../../common/components/Tile'
 import Main from '../../common/Main/index'
 import { Container } from '../../common/components/Container'
 import MoviePage from '../../features/MoviePage'
+import MovieList from '../../features/MovieList'
 
 function App() {
     return (
@@ -11,6 +11,7 @@ function App() {
             <Header />
             {/* <Loader /> */}
             <Container>
+                <MovieList />
                 <MoviePage />
             </Container>
             <Main />
