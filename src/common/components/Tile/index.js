@@ -21,6 +21,7 @@ export const Tile = ({
     title,
     year,
     country,
+    production,
     date,
     genres,
     rate,
@@ -35,7 +36,7 @@ export const Tile = ({
                 <Title>{title}</Title>
                 <Year>{year}</Year>
                 <InfoWrapper>
-                    <Info>Production:</Info>
+                    <Info>{production}</Info>
                     <InfoDetails>{country}</InfoDetails>
                 </InfoWrapper>
                 <InfoWrapper>
