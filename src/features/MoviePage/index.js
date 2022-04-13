@@ -13,7 +13,7 @@ const MoviePage = () => {
             console.log(movies)
             setIsLoading(false)
         })()
-    }, [movies])
+    }, [])
 
     return (
         <>
@@ -29,6 +29,8 @@ const MoviePage = () => {
                         rate={movie.vote_average}
                         score="/10"
                         votes={movie.vote_count}
+                        overview={movie.overview}
+                        genres={movie.genre_ids}
                     />
                 ))
             )}

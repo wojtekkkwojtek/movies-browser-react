@@ -13,7 +13,7 @@ const MovieList = () => {
             console.log(movies)
             setIsLoading(false)
         })()
-    }, [movies])
+    }, [])
 
     return (
         <>
