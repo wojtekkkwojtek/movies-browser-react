@@ -26,6 +26,7 @@ const MovieList = () => {
                         date={movie.release_date.slice(0, 4)}
                         rate={movie.vote_average}
                         votes={movie.vote_count}
+                        genres={movie.genre_ids}
                     />
                 ))
             )}

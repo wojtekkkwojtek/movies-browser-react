@@ -44,9 +44,7 @@ export const Tile = ({
                     <InfoDetails>{date}</InfoDetails>
                 </InfoWrapper>
                 <InfoWrapper>
-                    <Genres>{genres}</Genres>
-                    <Genres>Adventure</Genres>
-                    <Genres>Drama</Genres>
+                    {genres && genres.map((genre) => <Genres>{genre}</Genres>)}
                 </InfoWrapper>
                 <InfoWrapper>
                     <Icon src={star} alt="" />
