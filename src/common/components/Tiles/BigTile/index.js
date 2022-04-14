@@ -6,7 +6,7 @@ import {
     Year,
     TileContainer,
     InfoWrapper,
-    InfoDetales,
+    InfoDetails,
     Overview,
     Genres,
     Rate,

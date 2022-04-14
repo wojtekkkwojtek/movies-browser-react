@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { URLpopularMovies } from '../../common/assets/generalData/fetchedData'
-import Tile from '../../common/components/Tile'
+import { Tile } from '../../common/components/Tiles/BigTile'
 import { Loader } from '../../common/components/Loader'
 
 const MoviePage = () => {
