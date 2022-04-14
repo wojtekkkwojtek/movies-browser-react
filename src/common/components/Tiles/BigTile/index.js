@@ -6,16 +6,16 @@ import {
     Year,
     TileContainer,
     InfoWrapper,
-    InfoDetails,
+    InfoDetales,
     Overview,
     Genres,
     Rate,
     Score,
     Icon,
     Info,
-} from './styled'
-import poster from './poster.png'
-import star from './star.svg'
+} from '../styled'
+import poster from '../poster.png'
+import rateIcon from '../rateIcon.svg'
 
 export const Tile = ({
     title,
@@ -47,15 +47,13 @@ export const Tile = ({
                     {genres && genres.map((genre) => <Genres>{genre}</Genres>)}
                 </InfoWrapper>
                 <InfoWrapper>
-                    <Icon src={star} alt="" />
-                    <Rate>{rate}</Rate>
-                    <Score>{score}</Score>
-                    <Score>{votes} votes</Score>
+                    <Icon src={rateIcon} alt="" />
+                    <Rate>7/8</Rate>
+                    <Score>/10</Score>
+                    <Score>335 votes</Score>
                 </InfoWrapper>
                 <Overview>{overview}</Overview>
             </Content>
         </TileContainer>
     )
 }
-
-export default Tile

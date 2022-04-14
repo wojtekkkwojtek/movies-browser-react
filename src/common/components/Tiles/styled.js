@@ -7,10 +7,23 @@ export const TileContainer = styled.div`
     display: grid;
     grid-template-columns: auto 1fr;
     grid-gap: 40px;
+    margin: 64px 0;
+
+    ${({ little }) =>
+        little &&
+        css`
+            max-width: 208px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            grid-gap: 0px;
+            margin: 0px;
+        `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
         flex-direction: column;
+        padding: 16px;
     }
 `
 
@@ -18,13 +31,28 @@ export const Poster = styled.img`
     width: 312px;
     height: auto;
     display: block;
+    border-radius: 5px;
+
+    ${({ little }) =>
+        little &&
+        css`
+            width: 177px;
+        `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 114px;
     }
 `
 
-export const Content = styled.div``
+export const Content = styled.div`
+    ${({ little }) =>
+        little &&
+        css`
+            text-align: center;
+            margin-right: 8px;
+            padding: 0px;
+        `}
+`
 
 export const Title = styled.header`
     font-weight: 600;
@@ -45,14 +73,29 @@ export const Year = styled.div`
     }
 `
 
-export const Wrapper = styled.span``
-
 export const InfoWrapper = styled.ul`
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     padding-left: 0;
     margin: 16px -8px;
+
+    ${({ little }) =>
+        little &&
+        css`
+            display: flex;
+            flex-direction: column;
+        `}
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+    }
+`
+
+export const Info = styled.div`
+    font-size: 18px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.color.stormGray};
+    margin: 0 0 8px 8px;
 `
 
 export const InfoDetails = styled.li`
@@ -116,15 +159,5 @@ export const Overview = styled.p`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 14px;
-    }
-`
-export const Info = styled.div`
-    font-size: 18px;
-    line-height: 1.2;
-    color: ${({ theme }) => theme.color.stormGray};
-    margin: 0 0 8px 8px;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        display: none;
     }
 `
