@@ -2,13 +2,13 @@ import React from "react";
 import {
     Content, Poster, Title, Year, TileContainer, InfoWrapper,
     InfoDetales, Overview, Genres, Rate, Score, Icon, Info
-} from "./styled";
-import poster from "./poster.png";
-import star from "./star.svg";
+} from "../styled";
+import poster from "../poster.png";
+import rateIcon from "../rateIcon.svg";
 
 export const Tile = () => {
     return (
-        <TileContainer>
+        <TileContainer >
             <Poster src={poster} alt="" />
             <Content>
                 <Title>Mulan</Title>
@@ -27,7 +27,7 @@ export const Tile = () => {
                     <Genres>Drama</Genres>
                 </InfoWrapper>
                 <InfoWrapper>
-                    <Icon src={star} alt="" />
+                    <Icon src={rateIcon} alt="" />
                     <Rate>7/8</Rate>
                     <Score>/10</Score>
                     <Score>335 votes</Score>
@@ -41,4 +41,4 @@ export const Tile = () => {
     );
 }
 
-export default Tile;
+
