@@ -10,7 +10,7 @@ const MovieList = () => {
         ;(async () => {
             const response = await fetch(URLpopularMovies)
             setMovies(await response.json())
-            console.log(movies)
+            // console.log('movies:', movies)
             setIsLoading(false)
         })()
     }, [])
@@ -22,6 +22,7 @@ const MovieList = () => {
             ) : (
                 movies.results.map((movie) => (
                     <Tile
+                        key={movie.title}
                         title={movie.title}
                         date={movie.release_date.slice(0, 4)}
                         rate={movie.vote_average}

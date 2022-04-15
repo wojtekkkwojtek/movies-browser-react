@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Content,
     Poster,
@@ -16,6 +16,7 @@ import {
 } from '../styled'
 import poster from '../poster.png'
 import rateIcon from '../rateIcon.svg'
+import AllGenresData from '../../../assets/generalData/genreData.json'
 
 export const Tile = ({
     title,
@@ -29,6 +30,32 @@ export const Tile = ({
     votes,
     overview,
 }) => {
+    // const [data, setData] = useState([])
+    // const getData = () => {
+    //     fetch('../../../assets/generalData/genreData.json')
+    //         .then(function (response) {
+    //             console.log('ppppp', response)
+    //             return response.text()
+    //         })
+    //         .then(function (myJson) {
+    //             console.log('lllll', myJson)
+    //             setData(myJson)
+    //             console.log(data)
+    //         })
+    // }
+    // useEffect(() => {
+    //     getData()
+    // }, [])
+
+    // useEffect(() => {
+    //     const test = () => {
+    //         fetch(data)
+    //             .then((response) => response.json())
+    //             .then((x) => console.log(x))
+    //     }
+    //     setTimeout(test, 2000)
+    // }, [])
+
     return (
         <TileContainer>
             <Poster src={poster} alt="" />
@@ -44,7 +71,14 @@ export const Tile = ({
                     <InfoDetails>{date}</InfoDetails>
                 </InfoWrapper>
                 <InfoWrapper>
-                    {genres && genres.map((genre) => <Genres>{genre}</Genres>)}
+                    {genres &&
+                        genres.map((genre) => {
+                            return AllGenresData.genres.map((piwo) =>
+                                piwo.id === genre ? (
+                                    <Genres>{piwo.name}</Genres>
+                                ) : null
+                            )
+                        })}
                 </InfoWrapper>
                 <InfoWrapper>
                     <Icon src={rateIcon} alt="" />
