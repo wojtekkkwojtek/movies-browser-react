@@ -23,6 +23,7 @@ const MoviePage = () => {
                 movies.results.map((movie) => (
                     <Tile
                         title={movie.title}
+                        poster={movie.poster_path}
                         date={movie.release_date}
                         production="Production:"
                         country={movie.country}
