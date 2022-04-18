@@ -7,7 +7,7 @@ import { nanoid } from 'nanoid'
 const MovieList = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [movies, setMovies] = useState('')
-    const [test, setTest] = useState(true)
+    const [showAll, setShowAll] = useState(true)
     const [tileIndex, setTileIndex] = useState(null)
 
     const handleOnClick = (index) => {
@@ -16,12 +16,12 @@ const MovieList = () => {
         setTileIndex(index)
         console.log(tileIndex)
         console.log(index)
-        setTest(!test)
-        console.log(test)
+        setShowAll(!showAll)
+        console.log(showAll)
 
-        if (index === tileIndex) {
-            console.log('from if:', tileIndex)
-        }
+        // if (index === tileIndex) {
+        //     console.log('from if:', tileIndex)
+        // }
     }
 
     useEffect(() => {
@@ -35,35 +35,47 @@ const MovieList = () => {
 
     return (
         <>
-            {
-                isLoading ? (
-                    <Loader />
-                ) : test ? (
-                    movies.results.map((movie) => (
-                        <>
+            {isLoading ? (
+                <Loader />
+            ) : showAll ? (
+                movies.results.map((movie) => (
+                    <>
+                        <Tile
+                            key={nanoid()}
+                            onClick={() => handleOnClick(movie.title)}
+                            showAll={showAll}
+                            title={movie.title}
+                            poster={movie.poster_path}
+                            date={movie.release_date.slice(0, 4)}
+                            rate={movie.vote_average}
+                            votes={movie.vote_count}
+                            genres={movie.genre_ids}
+                        />
+                    </>
+                ))
+            ) : (
+                movies.results.map((movie) => {
+                    if (movie.title === tileIndex) {
+                        return (
                             <Tile
+                                little
                                 key={nanoid()}
                                 onClick={() => handleOnClick(movie.title)}
-                                test={test}
                                 title={movie.title}
                                 poster={movie.poster_path}
-                                date={movie.release_date.slice(0, 4)}
+                                date={movie.release_date}
+                                production="Production:"
+                                country={movie.country}
                                 rate={movie.vote_average}
+                                score="/10"
                                 votes={movie.vote_count}
+                                overview={movie.overview}
                                 genres={movie.genre_ids}
                             />
-                        </>
-                    ))
-                ) : (
-                    <Tile title="test" />
-                )
-
-                // : ( movies.result.map((item)) => {
-                //   if(item.title === titleIndex) {
-                //     return (<Tile title={item.title}/>)
-                //   }
-                // })
-            }
+                        )
+                    }
+                })
+            )}
         </>
     )
 }

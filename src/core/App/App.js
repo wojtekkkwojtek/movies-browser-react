@@ -12,7 +12,7 @@ function App() {
             {/* <Loader /> */}
             <Container>
                 <MovieList />
-                <MoviePage />
+                {/* <MoviePage /> */}
             </Container>
             <Main />
         </div>
