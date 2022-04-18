@@ -18,6 +18,7 @@ import rateIcon from '../rateIcon.svg'
 import AllGenresData from '../../../assets/generalData/genreData.json'
 import { URLpopularMovies } from '../../../assets/generalData/fetchedData'
 import { URLimage } from '../../../assets/generalData/fetchedData'
+import { nanoid } from 'nanoid'
 
 export const Tile = ({
     title,
@@ -51,7 +52,7 @@ export const Tile = ({
                         genres.map((genre) => {
                             return AllGenresData.genres.map((item) =>
                                 item.id === genre ? (
-                                    <Genres>{item.name}</Genres>
+                                    <Genres key={nanoid()}>{item.name}</Genres>
                                 ) : null
                             )
                         })}

@@ -8,4 +8,4 @@ export const URLmovie = `${URL}/movie/popular?api_key=${API_KEY}`
 
 console.log(URLpopularMovies)
 
-export const URLimage = `https://image.tmdb.org/t/p/w342`
+export const URLimage = `https://image.tmdb.org/t/p/original`

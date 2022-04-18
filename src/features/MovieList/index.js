@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { URLpopularMovies } from '../../common/assets/generalData/fetchedData'
 import { Tile } from '../../common/components/Tiles/BigTile'
 import { Loader } from '../../common/components/Loader'
+import { nanoid } from 'nanoid'
 
 const MovieList = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -22,7 +23,7 @@ const MovieList = () => {
             ) : (
                 movies.results.map((movie) => (
                     <Tile
-                        key={movie.title}
+                        key={nanoid()}
                         title={movie.title}
                         poster={movie.poster_path}
                         date={movie.release_date.slice(0, 4)}
