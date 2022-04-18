@@ -21,6 +21,7 @@ import { URLimage } from '../../../assets/generalData/fetchedData'
 import { nanoid } from 'nanoid'
 
 export const Tile = ({
+    onClick,
     title,
     poster,
     year,
@@ -34,7 +35,7 @@ export const Tile = ({
     overview,
 }) => {
     return (
-        <TileContainer>
+        <TileContainer onClick={onClick}>
             <Poster src={`${URLimage}${poster}`} alt="" />
             <Content>
                 <Title>{title}</Title>
