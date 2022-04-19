@@ -16,7 +16,6 @@ import {
 } from '../styled'
 import rateIcon from '../rateIcon.svg'
 import AllGenresData from '../../../assets/generalData/genreData.json'
-import { URLpopularMovies } from '../../../assets/generalData/fetchedData'
 import { URLimage } from '../../../assets/generalData/fetchedData'
 import { nanoid } from 'nanoid'
 

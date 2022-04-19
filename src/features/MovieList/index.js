@@ -10,12 +10,12 @@ const MovieList = () => {
     const [showAll, setShowAll] = useState(true)
     const [tileIndex, setTileIndex] = useState(null)
 
-    const handleOnClick = (index) => {
-        console.log(index)
+    const handleOnClick = (id) => {
+        console.log(id)
         // console.log(movies)
-        setTileIndex(index)
+        setTileIndex(id)
         console.log(tileIndex)
-        console.log(index)
+        console.log(id)
         setShowAll(!showAll)
         console.log(showAll)
 
@@ -42,7 +42,7 @@ const MovieList = () => {
                     <>
                         <Tile
                             key={nanoid()}
-                            onClick={() => handleOnClick(movie.title)}
+                            onClick={() => handleOnClick(movie.id)}
                             showAll={showAll}
                             title={movie.title}
                             poster={movie.poster_path}
@@ -55,12 +55,12 @@ const MovieList = () => {
                 ))
             ) : (
                 movies.results.map((movie) => {
-                    if (movie.title === tileIndex) {
+                    if (movie.id === tileIndex) {
                         return (
                             <Tile
                                 little
                                 key={nanoid()}
-                                onClick={() => handleOnClick(movie.title)}
+                                onClick={() => handleOnClick(movie.id)}
                                 title={movie.title}
                                 poster={movie.poster_path}
                                 date={movie.release_date}
