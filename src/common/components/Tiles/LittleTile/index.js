@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react'
 import {
-    Content, Poster, TileContainer, InfoWrapper,
-    InfoDetales
-} from "../styled";
-import poster from "../poster.png";
-import image from "../image.png";
+    Content,
+    Poster,
+    TileContainer,
+    InfoWrapper,
+    InfoDetails,
+} from '../styled'
+import { URLimage } from '../../../assets/generalData/fetchedData'
 
-export const LittleTile = () => {
+export const LittleTile = ({ poster, title }) => {
     return (
         <TileContainer little>
-            <Poster little src={image} alt="" />
+            <Poster little src={`${URLimage}${poster}`} alt="" />
             <Content little>
                 <InfoWrapper little>
-                    <InfoDetales>Name</InfoDetales>
-                    <InfoDetales>Role</InfoDetales>
+                    <InfoDetails>{title}</InfoDetails>
+                    <InfoDetails>Role</InfoDetails>
                 </InfoWrapper>
             </Content>
         </TileContainer>
-    );
+    )
 }
-
-

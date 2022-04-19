@@ -1,44 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from 'react'
 import {
-    Content, Poster, Title, Year, TileContainer, InfoWrapper,
-    InfoDetales, Overview, Genres, Rate, Score, Icon, Info
-} from "../styled";
-import poster from "../poster.png";
-import rateIcon from "../rateIcon.svg";
+    Content,
+    Poster,
+    Title,
+    Year,
+    TileContainer,
+    InfoWrapper,
+    InfoDetails,
+    Overview,
+    Genres,
+    Rate,
+    Score,
+    Icon,
+    Info,
+} from '../styled'
+import rateIcon from '../rateIcon.svg'
+import AllGenresData from '../../../assets/generalData/genreData.json'
+import { URLimage } from '../../../assets/generalData/fetchedData'
+import { nanoid } from 'nanoid'
 
-export const Tile = () => {
+export const Tile = ({
+    onClick,
+    title,
+    poster,
+    year,
+    country,
+    production,
+    date,
+    genres,
+    rate,
+    score,
+    votes,
+    overview,
+}) => {
     return (
-        <TileContainer >
-            <Poster src={poster} alt="" />
+        <TileContainer onClick={onClick}>
+            <Poster src={`${URLimage}${poster}`} alt="" />
             <Content>
-                <Title>Mulan</Title>
-                <Year>2020</Year>
+                <Title>{title}</Title>
+                <Year>{year}</Year>
                 <InfoWrapper>
-                    <Info>Production:</Info>
-                    <InfoDetales>China</InfoDetales>
+                    <Info>{production}</Info>
+                    <InfoDetails>{country}</InfoDetails>
                 </InfoWrapper>
                 <InfoWrapper>
                     <Info>Release date:</Info>
-                    <InfoDetales>24.10.2020</InfoDetales>
+                    <InfoDetails>{date ? date : 'Unknown'}</InfoDetails>
                 </InfoWrapper>
                 <InfoWrapper>
-                    <Genres>Action</Genres>
-                    <Genres>Adventure</Genres>
-                    <Genres>Drama</Genres>
+                    {genres &&
+                        genres.map((genre) => {
+                            return AllGenresData.genres.map((item) =>
+                                item.id === genre ? (
+                                    <Genres key={nanoid()}>{item.name}</Genres>
+                                ) : null
+                            )
+                        })}
                 </InfoWrapper>
                 <InfoWrapper>
                     <Icon src={rateIcon} alt="" />
-                    <Rate>7/8</Rate>
-                    <Score>/10</Score>
-                    <Score>335 votes</Score>
+                    <Rate>{rate}</Rate>
+                    <Score>{score}</Score>
+                    <Score>{votes} votes</Score>
                 </InfoWrapper>
-                <Overview>
-                    A young Chinese maiden disguises herself as a male warrior in order to save her father.
-                    Disguises herself as a male warrior in order to save her father.
-                </Overview>
+                <Overview>{overview}</Overview>
             </Content>
         </TileContainer>
-    );
+    )
 }
-
-
