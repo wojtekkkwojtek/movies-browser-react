@@ -29,7 +29,9 @@ const MovieList = () => {
             const response = await fetch(URLpopularMovies)
             setMovies(await response.json())
             // console.log('movies:', movies)
-            setIsLoading(false)
+            setTimeout(() => {
+                setIsLoading(false)
+            }, 3000)
         })()
     }, [])
 
