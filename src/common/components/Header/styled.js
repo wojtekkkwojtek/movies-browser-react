@@ -4,8 +4,6 @@ import styled from 'styled-components'
 import { ReactComponent as Camera } from '../../assets/icons/videoIcon.svg'
 import { ReactComponent as Magnifier } from '../../assets/icons/searchIcon.svg'
 
-const activeClassName = 'active'
-
 export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
@@ -75,9 +73,7 @@ export const Title = styled.h1`
     }
 `
 
-export const StyledNavLink = styled(NavLink).attrs(() => ({
-    activeClassName,
-}))`
+export const StyledNavLink = styled(NavLink)`
     width: 102px;
     font-weight: 600;
     font-size: 14px;
@@ -97,7 +93,7 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
     &:hover {
         opacity: 0.8;
     }
-    &.${activeClassName} {
+    &.active {
         border: 1px solid ${({ theme }) => theme.color.white};
     }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
