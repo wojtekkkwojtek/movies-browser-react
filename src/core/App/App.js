@@ -4,17 +4,19 @@ import Main from '../../common/Main/index'
 import { Container } from '../../common/components/Container'
 import MoviePage from '../../features/MoviePage'
 import MovieList from '../../features/MovieList'
+import { MovieHeader } from "../../common/components/MovieHeader"
 
 function App() {
     return (
         <div>
             <Header />
             {/* <Loader /> */}
+            <MovieHeader />
             <Container>
-                <MovieList />
-                {/* <MoviePage /> */}
+                {/* <MovieList /> */}
+                <MoviePage />
             </Container>
-            <Main />
+            {/* <Main /> */}
         </div>
     )
 }
