@@ -3,8 +3,8 @@
 import Header from '../../common//components/Header'
 import Main from '../../common/Main/index'
 import { Container } from '../../common/components/Container'
-import MoviePage from '../../features/MoviePage'
-import MovieList from '../../features/MovieList'
+import MoviePage from '../../features/movies/MoviePage'
+import MovieList from '../../features/movies/MovieList'
 import { MovieHeader } from "../../common/components/MovieHeader"
 
 function App() {
