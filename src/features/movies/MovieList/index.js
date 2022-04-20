@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { URLpopularMovies } from '../../common/assets/generalData/fetchedData'
-import { Tile } from '../../common/components/Tiles/BigTile'
-import { Loader } from '../../common/components/Loader'
+import { URLpopularMovies } from '../../../common/assets/generalData/fetchedData'
+import { Tile } from '../../../common/components/Tiles/BigTile'
+import { Loader } from '../../../common/components/Loader'
 import { nanoid } from 'nanoid'
 
 const MovieList = () => {
