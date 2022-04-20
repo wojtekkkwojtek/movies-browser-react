@@ -2,16 +2,15 @@ import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 // import { Loader } from '../../common/components/Loader'
 import Header from '../../common//components/Header'
-import { Container } from '../../common/components/Container'
-import MoviePage from '../../features/MoviePage'
-import MovieList from '../../features/MovieList'
-import PeopleList from '../../features/PeopleList'
+import MoviePage from '../../features/movies/MoviePage'
+import MovieList from '../../features/movies/MovieList'
+import PeopleList from '../../features/people/PeopleList'
 import { toMovie, toMovies, toPeople } from './routes'
 
 function App() {
     return (
         <HashRouter>
-            <Header />
+            <Header />{' '}
             <Routes>
                 <Route path={toMovies()} element={<MovieList />} />
                 <Route path={toMovie()} element={<MoviePage />} />
@@ -23,8 +22,6 @@ function App() {
                 <Route>{/* <PersonPage /> */}</Route>
                 <Route path="/" element={<Navigate to="/movies" />} />
             </Routes>
-
-            <Container></Container>
         </HashRouter>
     )
 }
