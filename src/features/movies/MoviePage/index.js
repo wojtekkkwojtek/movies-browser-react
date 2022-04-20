@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
-import { URLpopularMovies } from '../../common/assets/generalData/fetchedData'
-import { Tile } from '../../common/components/Tiles/BigTile'
-import { Loader } from '../../common/components/Loader'
-import { nanoid } from 'nanoid'
+import { useEffect, useState } from 'react';
+import { URLpopularMovies } from '../../../common/assets/generalData/fetchedData';
+import { Tile } from '../../../common/components/Tiles/BigTile';
+import { Loader } from '../../../common/components/Loader';
+import { nanoid } from 'nanoid';
 
 const MoviePage = () => {
     const [isLoading, setIsLoading] = useState(true)
