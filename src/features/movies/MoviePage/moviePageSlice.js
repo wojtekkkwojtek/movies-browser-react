@@ -36,6 +36,8 @@ export const {
     fetchActors,
 } = moviePageSlice.actions;
 
+const selectMoviePage = state => state.moviePage;
+
 export const selectLoading = state => selectMoviePage(state).loading;
 export const selectError = state => selectMoviePage(state).error;
 export const selectActors = state => selectMoviePage(state).actors;
