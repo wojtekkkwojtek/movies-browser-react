@@ -12,10 +12,10 @@ function App() {
         <div>
             <Header />
             {/* <Loader /> */}
-            <MovieHeader />
+            {/* <MovieHeader /> */}
             <Container>
-                {/* <MovieList /> */}
-                <MoviePage />
+                <MovieList />
+                {/* <MoviePage /> */}
             </Container>
             {/* <Main /> */}
         </div>
