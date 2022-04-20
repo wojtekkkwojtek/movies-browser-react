@@ -1,13 +1,14 @@
+import { toMovies, toPeople } from '../../../core/App/routes'
 import {
     Container,
     IconVideo,
-    Button,
     Title,
     Wrapper,
     Input,
     Label,
     NavContainer,
     SearchIcon,
+    StyledNavLink,
 } from './styled'
 
 const Header = () => {
@@ -17,8 +18,8 @@ const Header = () => {
                 <NavContainer>
                     <IconVideo />
                     <Title>movies browser</Title>
-                    <Button>movies</Button>
-                    <Button>people</Button>
+                    <StyledNavLink to={toMovies}>movies</StyledNavLink>
+                    <StyledNavLink to={toPeople}>people</StyledNavLink>
                 </NavContainer>
                 <Label>
                     <SearchIcon />
