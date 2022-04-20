@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import { URLpopularMovies } from '../../common/assets/generalData/fetchedData'
-import { Tile } from '../../common/components/Tiles/BigTile'
-import { Loader } from '../../common/components/Loader'
 import { nanoid } from 'nanoid'
 import { useParams } from 'react-router-dom'
+import { MovieHeader } from '../../../common/components/MovieHeader'
+import { URLpopularMovies } from '../../../common/assets/generalData/fetchedData'
+import { Tile } from '../../../common/components/Tiles/BigTile'
+import { Loader } from '../../../common/components/Loader'
 
 const MoviePage = () => {
     const params = useParams()
@@ -24,8 +25,10 @@ const MoviePage = () => {
             {isLoading ? (
                 <Loader />
             ) : (
-                <>{params.id}</>
-
+                <>
+                    <MovieHeader />
+                    <>{params.id}</>
+                </>
                 // movies.results.map((movie) => (
                 //     <Tile
                 //         key={nanoid()}
