@@ -18,8 +18,8 @@ const Header = () => {
                 <NavContainer>
                     <IconVideo />
                     <Title>movies browser</Title>
-                    <StyledNavLink to={toMovies}>movies</StyledNavLink>
-                    <StyledNavLink to={toPeople}>people</StyledNavLink>
+                    <StyledNavLink to={toMovies()}>movies</StyledNavLink>
+                    <StyledNavLink to={toPeople()}>people</StyledNavLink>
                 </NavContainer>
                 <Label>
                     <SearchIcon />
