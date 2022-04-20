@@ -6,6 +6,7 @@ import { nanoid } from 'nanoid'
 import { useNavigate } from 'react-router-dom'
 
 import { useParams } from 'react-router-dom'
+import { Container } from '../../../common/components/Container'
 
 const MovieList = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -27,7 +28,7 @@ const MovieList = () => {
     }, [])
 
     return (
-        <>
+        <Container>
             {isLoading ? (
                 <Loader />
             ) : (
@@ -49,7 +50,7 @@ const MovieList = () => {
                     </>
                 ))
             )}
-        </>
+        </Container>
     )
 }
 

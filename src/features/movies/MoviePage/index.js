@@ -5,6 +5,7 @@ import { MovieHeader } from '../../../common/components/MovieHeader'
 import { URLpopularMovies } from '../../../common/assets/generalData/fetchedData'
 import { Tile } from '../../../common/components/Tiles/BigTile'
 import { Loader } from '../../../common/components/Loader'
+import { Container } from '../../../common/components/Container'
 
 const MoviePage = () => {
     const params = useParams()
@@ -21,7 +22,7 @@ const MoviePage = () => {
     }, [])
 
     return (
-        <>
+        <Container>
             {isLoading ? (
                 <Loader />
             ) : (
@@ -29,6 +30,7 @@ const MoviePage = () => {
                     <MovieHeader />
                     <>{params.id}</>
                 </>
+
                 // movies.results.map((movie) => (
                 //     <Tile
                 //         key={nanoid()}
@@ -45,7 +47,7 @@ const MoviePage = () => {
                 //     />
                 // ))
             )}
-        </>
+        </Container>
     )
 }
 
