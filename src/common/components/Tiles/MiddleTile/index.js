@@ -35,30 +35,31 @@ export const MiddleTile = ({
 }) => {
     return (
         <TileContainer onClick={onClick}>
-            <div> <Poster src={`${URLimage}${poster}`} alt="" /></div>
             <Content>
+                <div> <Poster src={`${URLimage}${poster}`} alt="" /></div>
 
                 <div>
-                <Title>{title}</Title>
-                <Year>{year}</Year>
-                <Wrapper>
-                    {genres &&
-                        genres.map((genre) => {
-                            return AllGenresData.genres.map((item) =>
-                                item.id === genre ? (
-                                    <Genres key={nanoid()}>{item.name}</Genres>
-                                ) : null
-                            )
-                        })}
-                </Wrapper>
+                    <Title>{title}</Title>
+                    <Year>{year}</Year>
+                    <Wrapper>
+                        {genres &&
+                            genres.map((genre) => {
+                                return AllGenresData.genres.map((item) =>
+                                    item.id === genre ? (
+                                        <Genres key={nanoid()}>{item.name}</Genres>
+                                    ) : null
+                                )
+                            })}
+                    </Wrapper>
                 </div>
-                <Wrapper>
-                    <Icon src={rateIcon} alt="" />
-                    <Rate>{rate}</Rate>
-                    <Score>{score}</Score>
-                    <Score>{votes} votes</Score>
-                </Wrapper>
             </Content>
+            <Wrapper rates>
+                <Icon src={rateIcon} alt="" />
+                <Rate>{rate}</Rate>
+                <Score>{score}</Score>
+                <Score>{votes} votes</Score>
+            </Wrapper>
+
         </TileContainer>
     )
 }
