@@ -7,10 +7,20 @@ import { useNavigate } from 'react-router-dom'
 
 import { useParams } from 'react-router-dom'
 import { Container } from '../../../common/components/Container'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+    selectMovieList,
+    fetchExample,
+    fetchMovieList,
+    fetchMovieListSuccess,
+    fetchMovieListError,
+} from './movieListSlice'
 
 const MovieList = () => {
-    const [isLoading, setIsLoading] = useState(true)
-    const [movies, setMovies] = useState('')
+    // const isLoading = useSelector(selectLoading)
+    const { error, loading, movieList } = useSelector(selectMovieList)
+    console.log(error, loading, movieList)
+    const dispatch = useDispatch()
 
     const navigate = useNavigate()
     const routeChange = (id) => {
@@ -20,19 +30,16 @@ const MovieList = () => {
     console.log(useParams())
 
     useEffect(() => {
-        ;(async () => {
-            const response = await fetch(URLpopularMovies)
-            setMovies(await response.json())
-            setIsLoading(false)
-        })()
-    }, [])
+        dispatch(fetchExample())
+    }, [dispatch])
 
     return (
         <Container>
-            {isLoading ? (
+            {loading ? (
                 <Loader />
             ) : (
-                movies.results.map((movie) => (
+                movieList &&
+                movieList.map((movie) => (
                     <>
                         <Tile
                             key={nanoid()}
