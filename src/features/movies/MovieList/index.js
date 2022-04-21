@@ -4,6 +4,7 @@ import { Tile } from '../../../common/components/Tiles/BigTile'
 import { Loader } from '../../../common/components/Loader'
 import { nanoid } from 'nanoid'
 import { useNavigate } from 'react-router-dom'
+import { MiddleTile } from '../../../common/components/Tiles/MiddleTile'
 
 import { useParams } from 'react-router-dom'
 import { Container } from '../../../common/components/Container'
@@ -41,7 +42,7 @@ const MovieList = () => {
                 movieList &&
                 movieList.map((movie) => (
                     <>
-                        <Tile
+                        <MiddleTile
                             key={nanoid()}
                             onClick={
                                 () => routeChange(movie.id)
@@ -49,8 +50,9 @@ const MovieList = () => {
                             }
                             title={movie.title}
                             poster={movie.poster_path}
-                            date={movie.release_date.slice(0, 4)}
+                            year={movie.release_date.slice(0, 4)}
                             rate={movie.vote_average}
+                            score="/10"
                             votes={movie.vote_count}
                             genres={movie.genre_ids}
                         />

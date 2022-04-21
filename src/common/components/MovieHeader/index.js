@@ -1,5 +1,4 @@
 import React from 'react'
-// import Overlay from 'react-image-overlay'
 import { Backdrop } from './styled'
 import rateIcon from '../Tiles/rateIcon.svg'
 import { Wrapper } from './styled'
