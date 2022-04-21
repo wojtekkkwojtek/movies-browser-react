@@ -3,46 +3,51 @@ import { URLpopularMovies } from '../../../common/assets/generalData/fetchedData
 import { Tile } from '../../../common/components/Tiles/BigTile'
 import { Loader } from '../../../common/components/Loader'
 import { nanoid } from 'nanoid'
-import { MiddleTile } from "../../../common/components/Tiles/MiddleTile"
+import { useNavigate } from 'react-router-dom'
+import { MiddleTile } from '../../../common/components/Tiles/MiddleTile'
+
+import { useParams } from 'react-router-dom'
+import { Container } from '../../../common/components/Container'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+    selectMovieList,
+    fetchExample,
+    fetchMovieList,
+    fetchMovieListSuccess,
+    fetchMovieListError,
+} from './movieListSlice'
 
 const MovieList = () => {
-    const [isLoading, setIsLoading] = useState(true)
-    const [movies, setMovies] = useState('')
-    const [showAll, setShowAll] = useState(true)
-    const [tileIndex, setTileIndex] = useState(null)
+    // const isLoading = useSelector(selectLoading)
+    const { error, loading, movieList } = useSelector(selectMovieList)
+    console.log(error, loading, movieList)
+    const dispatch = useDispatch()
 
-    const handleOnClick = (id) => {
-        console.log(id)
-        // console.log(movies)
-        setTileIndex(id)
-        console.log(tileIndex)
-        console.log(id)
-        setShowAll(!showAll)
-        console.log(showAll)
+    const navigate = useNavigate()
+    const routeChange = (id) => {
+        navigate(`/movie/${id}`)
     }
 
+    console.log(useParams())
+
     useEffect(() => {
-        ; (async () => {
-            const response = await fetch(URLpopularMovies)
-            setMovies(await response.json())
-            // console.log('movies:', movies)
-            setTimeout(() => {
-                setIsLoading(false)
-            }, 3000)
-        })()
-    }, [])
+        dispatch(fetchExample())
+    }, [dispatch])
 
     return (
-        <>
-            {isLoading ? (
+        <Container>
+            {loading ? (
                 <Loader />
-            ) : showAll ? (
-                movies.results.map((movie) => (
+            ) : (
+                movieList &&
+                movieList.map((movie) => (
                     <>
                         <MiddleTile
                             key={nanoid()}
-                            onClick={() => handleOnClick(movie.id)}
-                            showAll={showAll}
+                            onClick={
+                                () => routeChange(movie.id)
+                                // (window.location.href = `/movies-browser-react#/movie/${movie.id}`)
+                            }
                             title={movie.title}
                             poster={movie.poster_path}
                             year={movie.release_date.slice(0, 4)}
@@ -53,30 +58,8 @@ const MovieList = () => {
                         />
                     </>
                 ))
-            ) : (
-                movies.results.map((movie) => {
-                    if (movie.id === tileIndex) {
-                        return (
-                            <MiddleTile
-
-                                key={nanoid()}
-                                onClick={() => handleOnClick(movie.id)}
-                                title={movie.title}
-                                poster={movie.poster_path}
-                                date={movie.release_date}
-                                production="Production:"
-                                country={movie.country}
-                                rate={movie.vote_average}
-                                score="/10"
-                                votes={movie.vote_count}
-                                overview={movie.overview}
-                                genres={movie.genre_ids}
-                            />
-                        )
-                    }
-                })
             )}
-        </>
+        </Container>
     )
 }
 

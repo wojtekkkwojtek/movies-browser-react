@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom'
+
 import styled from 'styled-components'
 import { ReactComponent as Camera } from '../../assets/icons/videoIcon.svg'
 import { ReactComponent as Magnifier } from '../../assets/icons/searchIcon.svg'
@@ -71,12 +73,14 @@ export const Title = styled.h1`
     }
 `
 
-export const Button = styled.button`
+export const StyledNavLink = styled(NavLink)`
     width: 102px;
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
     text-transform: uppercase;
+    text-decoration: none;
+
     margin: 0px 10px;
     align-items: center;
     padding: 8px 24px;
@@ -86,8 +90,10 @@ export const Button = styled.button`
     color: ${({ theme }) => theme.color.white};
     cursor: pointer;
 
-    &:hover,
-    &:focus {
+    &:hover {
+        opacity: 0.8;
+    }
+    &.active {
         border: 1px solid ${({ theme }) => theme.color.white};
     }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
