@@ -7,7 +7,7 @@ const movieListSlice = createSlice({
         totalPages: null,
         totalResults: null,
         loading: false,
-        error: 'cos',
+        error: 'cos-w-movie',
         movieList: null,
     },
     reducers: {
@@ -29,7 +29,7 @@ const movieListSlice = createSlice({
         },
 
         fetchExample: () => {
-            console.log('test')
+            console.log('test-movie')
         },
         setMovieList: (state, { payload: example }) => {
             state.movieList = example.results
