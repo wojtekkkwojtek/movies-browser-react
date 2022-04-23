@@ -16,23 +16,42 @@ import {
     fetchMovieListSuccess,
     fetchMovieListError,
 } from './movieListSlice'
+import {
+    setId,
+    selectMoviePage,
+    fetchMoviePage,
+} from '../MoviePage/moviePageSlice'
 
 const MovieList = () => {
     // const isLoading = useSelector(selectLoading)
-    const { error, loading, movieList } = useSelector(selectMovieList)
-    console.log(error, loading, movieList)
+
     const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchMovieList())
+    }, [])
+
+    // useEffect(() => {
+    //     dispatch(fetchMoviePage())
+    // }, [])
+
+    const { loading, movieList } = useSelector(selectMovieList)
+    // console.log('w movieList:', error, loading, movieList)
+
+    // const movie_id = useSelector(selectMoviePage)
+    // console.log(movie_id)
 
     const navigate = useNavigate()
     const routeChange = (id) => {
         navigate(`/movie/${id}`)
     }
 
-    console.log(useParams())
+    // console.log(useParams())
 
-    useEffect(() => {
-        dispatch(fetchExample())
-    }, [dispatch])
+    const test = (id) => {
+        dispatch(fetchMoviePage(id))
+        routeChange(id)
+        dispatch(setId(id))
+    }
 
     return (
         <Container>
@@ -44,10 +63,7 @@ const MovieList = () => {
                     <>
                         <MiddleTile
                             key={nanoid()}
-                            onClick={
-                                () => routeChange(movie.id)
-                                // (window.location.href = `/movies-browser-react#/movie/${movie.id}`)
-                            }
+                            onClick={() => test(movie.id)}
                             title={movie.title}
                             poster={movie.poster_path}
                             year={movie.release_date.slice(0, 4)}
@@ -56,6 +72,14 @@ const MovieList = () => {
                             votes={movie.vote_count}
                             genres={movie.genre_ids}
                         />
+                        <button onClick={() => dispatch(setId(movie.id))}>
+                            klik
+                        </button>
+                        <button
+                            onClick={() => dispatch(fetchMoviePage(movie.id))}
+                        >
+                            klik
+                        </button>
                     </>
                 ))
             )}

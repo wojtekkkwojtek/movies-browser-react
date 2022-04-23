@@ -6,12 +6,23 @@ import MoviePage from '../../features/movies/MoviePage'
 import MovieList from '../../features/movies/MovieList'
 import PeopleList from '../../features/people/PeopleList'
 import { toMovie, toMovies, toPeople } from './routes'
-import { fetchMovieList } from '../../features/movies/MovieList/movieListSlice'
+import {
+    fetchExample,
+    fetchMovieList,
+    setMovieList,
+} from '../../features/movies/MovieList/movieListSlice'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+// import { fetchMoviePage } from '../../features/movies/MoviePage/moviePageSlice'
+import movieDetailsSaga from '../../features/movies/MoviePage/moviePageSaga'
 
 function App() {
-    console.log(
-        fetchMovieList({ content: 'test slica', error: false, loading: false })
-    )
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fetchMovieList())
+    }, [])
+
     return (
         <HashRouter>
             <Header />{' '}
