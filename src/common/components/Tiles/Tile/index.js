@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {
     Content,
     Poster,
@@ -20,6 +20,7 @@ import { URLimage } from '../../../assets/generalData/fetchedData'
 import { nanoid } from 'nanoid'
 
 export const Tile = ({
+    list,
     onClick,
     title,
     poster,
@@ -34,20 +35,26 @@ export const Tile = ({
     overview,
 }) => {
     return (
-        <TileContainer onClick={onClick}>
-            <Poster src={`${URLimage}${poster}`} alt="" />
+        <TileContainer list={list} onClick={onClick}>
+            <Poster list={list} src={`${URLimage}${poster}`} alt="" />
             <Content>
                 <Title>{title}</Title>
                 <Year>{year}</Year>
                 <InfoWrapper>
-                    <Info>{production}</Info>
-                    <InfoDetails>{country}</InfoDetails>
+                    <Info>
+                        {production}{' '}
+                        {country &&
+                            country.map((country) => country.name).join(', ')}
+                    </Info>
+                    <InfoDetails>
+                        {/* {country.map((country) => country.name)} */}
+                    </InfoDetails>
                 </InfoWrapper>
                 <InfoWrapper>
                     <Info>Release date:</Info>
                     <InfoDetails>{date ? date : 'Unknown'}</InfoDetails>
                 </InfoWrapper>
-                <InfoWrapper>
+                <InfoWrapper list={list}>
                     {genres &&
                         genres.map((genre) => {
                             return AllGenresData.genres.map((item) =>
@@ -56,6 +63,12 @@ export const Tile = ({
                                 ) : null
                             )
                         })}
+                </InfoWrapper>
+                <InfoWrapper>
+                    {genres &&
+                        genres.map((country) => (
+                            <Genres>{country.name}</Genres>
+                        ))}
                 </InfoWrapper>
                 <InfoWrapper>
                     <Icon src={rateIcon} alt="" />
