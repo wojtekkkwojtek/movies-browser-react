@@ -28,6 +28,8 @@ const movieListSlice = createSlice({
         },
 
         setMovieList: (state, { payload: fetchedData }) => {
+            state.loading = false
+
             state.movieList = fetchedData.results
         },
 

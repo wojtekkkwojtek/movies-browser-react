@@ -53,6 +53,6 @@ export const getMovieList = async () => {
 //     })()
 // }
 
-export const getApi = async (URL) => {
+export const getMovieDetails = async (URL) => {
     return (await axios.get(URL)).data
 }

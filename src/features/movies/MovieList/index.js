@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { URLpopularMovies } from '../../../common/assets/generalData/fetchedData'
-import { Tile } from '../../../common/components/Tiles/BigTile'
+import { Tile } from '../../../common/components/Tiles/Tile'
 import { Loader } from '../../../common/components/Loader'
 import { nanoid } from 'nanoid'
 import { useNavigate } from 'react-router-dom'
-import { MiddleTile } from '../../../common/components/Tiles/MiddleTile'
 
 import { useParams } from 'react-router-dom'
 import { Container } from '../../../common/components/Container'
@@ -20,15 +19,21 @@ import {
     setId,
     selectMoviePage,
     fetchMoviePage,
+    setMovieDetails,
 } from '../MoviePage/moviePageSlice'
+import { Button } from './styled'
+import { Title } from '../../../common/components/Title'
 
 const MovieList = () => {
     // const isLoading = useSelector(selectLoading)
 
     const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(fetchMovieList())
-    }, [])
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         dispatch(fetchMovieList())
+    //     }, 4000)
+    //     return () => clearTimeout(timer)
+    // }, [])
 
     // useEffect(() => {
     //     dispatch(fetchMoviePage())
@@ -50,18 +55,22 @@ const MovieList = () => {
     const test = (id) => {
         dispatch(fetchMoviePage(id))
         routeChange(id)
-        dispatch(setId(id))
+        // setMovieDetails()
     }
 
     return (
         <Container>
+            <Title>Popular movies</Title>
             {loading ? (
                 <Loader />
             ) : (
                 movieList &&
                 movieList.map((movie) => (
-                    <>
-                        <MiddleTile
+                    <React.Fragment key={movie.id}>
+                        {console.log('movie test:', movie.id)}
+                        <Tile
+                            list
+                            // onClick={() => dispatch(fetchMoviePage(movie.id))}
                             key={nanoid()}
                             onClick={() => test(movie.id)}
                             title={movie.title}
@@ -72,15 +81,15 @@ const MovieList = () => {
                             votes={movie.vote_count}
                             genres={movie.genre_ids}
                         />
-                        <button onClick={() => dispatch(setId(movie.id))}>
+                        {/* <Button onClick={() => dispatch(setId(movie.id))}>
                             klik
-                        </button>
-                        <button
+                        </Button> */}
+                        {/* <Button
                             onClick={() => dispatch(fetchMoviePage(movie.id))}
                         >
                             klik
-                        </button>
-                    </>
+                        </Button> */}
+                    </React.Fragment>
                 ))
             )}
         </Container>
