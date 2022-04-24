@@ -6,21 +6,19 @@ import MoviePage from '../../features/movies/MoviePage'
 import MovieList from '../../features/movies/MovieList'
 import PeopleList from '../../features/people/PeopleList'
 import { toMovie, toMovies, toPeople } from './routes'
-import {
-    fetchExample,
-    fetchMovieList,
-    setMovieList,
-} from '../../features/movies/MovieList/movieListSlice'
+import { fetchMovieList } from '../../features/movies/MovieList/movieListSlice'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 // import { fetchMoviePage } from '../../features/movies/MoviePage/moviePageSlice'
-import movieDetailsSaga from '../../features/movies/MoviePage/moviePageSaga'
 
 function App() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(fetchMovieList())
+        const timer = setTimeout(() => {
+            dispatch(fetchMovieList())
+        }, 1000)
+        return () => clearTimeout(timer)
     }, [])
 
     return (
