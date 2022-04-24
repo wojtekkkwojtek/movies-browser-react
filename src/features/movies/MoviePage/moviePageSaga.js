@@ -18,9 +18,7 @@ function* fetchMovieDetailsHandler() {
         const movie = `${URL}/movie/${movieId}?api_key=${API_KEY}`
         // console.log('testtesttest:', movie_id)
         // yield put(setMovieDetails(movieId))
-
-        const movieDetails = yield call(getApi, movie)
-
+        const movieDetails = yield call(getMovieDetails, movie)
         yield put(setMovieDetails(movieDetails))
     } catch (error) {
         yield call(alert, 'cos nie tak z details')
