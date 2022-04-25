@@ -6,7 +6,6 @@ function* fetchExampleHandler() {
     try {
         const exampleMovie = yield call(getExampleTasks)
         yield put(setMovieList(exampleMovie))
-        console.log("pobiera movie")
     } catch (error) {
         yield call(alert, 'cos nie tak')
     }
