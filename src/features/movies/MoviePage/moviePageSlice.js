@@ -29,12 +29,6 @@ const moviePageSlice = createSlice({
         //     state.actors = payload.actors
         // },
 
-        // setId: (state, { payload: id }) => {
-        //     state.loading = false
-
-        //     state.movie_id = id
-        //     console.log('ze strony jedno id:', state.movie_id)
-        // },
         setMovieDetails: (state, { payload: movieDetails }) => {
             state.loading = false
             state.moviePage = movieDetails
@@ -55,8 +49,6 @@ export const {
 export const selectMoviePage = (state) => state.movieOne
 
 export const selectGetEx = (state) => state.movieOne.movie_id
-
-// export const selectGetEx = (state) => selectMoviePage(state).movie_id
 
 // export const selectLoading = (state) => selectMoviePage(state).loading
 // export const selectError = (state) => selectMoviePage(state).error

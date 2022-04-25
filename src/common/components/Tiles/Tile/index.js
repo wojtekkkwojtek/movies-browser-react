@@ -46,9 +46,6 @@ export const Tile = ({
                         {country &&
                             country.map((country) => country.name).join(', ')}
                     </Info>
-                    <InfoDetails>
-                        {/* {country.map((country) => country.name)} */}
-                    </InfoDetails>
                 </InfoWrapper>
                 <InfoWrapper>
                     <Info>Release date:</Info>

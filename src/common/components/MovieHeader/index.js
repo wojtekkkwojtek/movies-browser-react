@@ -11,7 +11,6 @@ export const MovieHeader = ({
     vote_average,
     vote_count,
 }) => {
-    // const movie_id = useSelector(selectGetEx)
     return (
         <Wrapper>
             <Backdrop img={`${URLimage}${backdrop_path}`} alt="">

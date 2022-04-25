@@ -13,7 +13,6 @@ const movieListSlice = createSlice({
     reducers: {
         fetchMovieList: (state) => {
             state.loading = false
-            // state.error = false
         },
         // fetchMovieListSuccess: (state, { payload }) => {
         //     state.loading = false
@@ -29,13 +28,8 @@ const movieListSlice = createSlice({
 
         setMovieList: (state, { payload: fetchedData }) => {
             state.loading = false
-
             state.movieList = fetchedData.results
         },
-
-        // setMovieId: (state, { payload: id }) => {
-        //     state.movie_id = id
-        // },
     },
 })
 

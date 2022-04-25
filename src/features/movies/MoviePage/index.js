@@ -1,54 +1,15 @@
 import { nanoid } from 'nanoid'
-import { useParams } from 'react-router-dom'
 import { MovieHeader } from '../../../common/components/MovieHeader'
-import { URLpopularMovies } from '../../../common/assets/generalData/fetchedData'
 import { Tile } from '../../../common/components/Tiles/Tile'
 import { Loader } from '../../../common/components/Loader'
 import { Container } from '../../../common/components/Container'
-import { useDispatch, useSelector } from 'react-redux'
-import {
-    fetchMovieList,
-    getMovieById,
-    selectMovieId,
-    selectMovieList,
-    setMovieId,
-    setMovieDetails,
-} from '../MovieList/movieListSlice'
+import { useSelector } from 'react-redux'
 
-import { useEffect } from 'react'
-import { fetchMoviePage, selectMoviePage } from './moviePageSlice'
+import { selectMoviePage } from './moviePageSlice'
 import { Title } from '../../../common/components/Title'
 
 const MoviePage = () => {
-    const { error, movieList } = useSelector(selectMovieList)
-    // console.log(error, loading, movie_id, movieList)
-
     const { loading, moviePage } = useSelector(selectMoviePage)
-
-    // const { movie_id } = useSelector(selectGetEx)
-    console.log('czy ładuje:', loading)
-
-    console.log('moviePage:', moviePage)
-    const { id } = useParams()
-
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(fetchMoviePage({ id }))
-    }, [dispatch, id])
-
-    // useEffect(() => {
-    //     fetch(
-    //         `https://api.themoviedb.org/3/movie/${id}?api_key=221fa5279467990c7cfd52f6b2d29b1d`
-    //     )
-    //         .then((res) => res.json())
-    //         .then((details) => console.log('details:', details))
-    // }, [])
-
-    // const { id } = useParams()
-    // console.log('filmy:', useSelector(selectMovieId), movieList)
-    // const movie = useSelector((state) => getMovieById(state, id))
-    // console.log('params:', id, movie)
 
     return (
         <>
