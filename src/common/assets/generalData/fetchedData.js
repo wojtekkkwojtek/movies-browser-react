@@ -10,9 +10,6 @@ export const URLmovie = `${URL}/movie/popular?api_key=${API_KEY}`
 
 export const URLpeople = `${URL}/person/popular?api_key=${API_KEY}`
 
-console.log(URLpopularMovies)
-console.log(URLpopularPeople)
-
 export const URLimage = `https://image.tmdb.org/t/p/original`
 
 
