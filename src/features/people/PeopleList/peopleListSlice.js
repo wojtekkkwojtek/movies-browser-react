@@ -4,7 +4,6 @@ const peopleListSlice = createSlice({
     name: 'people',
     initialState: {
         page: null,
-        name: null,
         totalPages: null,
         totalResults: null,
         loading: false,
