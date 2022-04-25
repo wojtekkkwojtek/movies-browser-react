@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga'
 import { watchFetchExample } from '../features/movies/MovieList/movieListSaga'
+import { watchFetchExample2 } from "../features/people/PeopleList/peopleListSaga"
 import { genresReducer } from '../../src/common/assets/generalData/genresSlice'
 import { movieListReducer } from '../features/movies/MovieList/movieListSlice'
 import { moviePageReducer } from '../features/movies/MoviePage/moviePageSlice'
@@ -19,5 +20,6 @@ const store = configureStore({
     middleware: [sagaMiddleware],
 })
 sagaMiddleware.run(watchFetchExample)
+sagaMiddleware.run(watchFetchExample2)
 
 export default store
