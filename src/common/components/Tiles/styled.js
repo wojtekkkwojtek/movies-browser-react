@@ -1,18 +1,23 @@
 import styled, { css } from 'styled-components'
 
 export const TileContainer = styled.div`
+    width: 1368px;
     background: ${({ theme }) => theme.color.white};
     padding: 40px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
+    /* display: flex;
+    flex-wrap: wrap;
+    gap: 24px; */
     display: grid;
     grid-template-columns: auto 1fr;
     grid-gap: 40px;
-    margin: 64px 0;
+    margin: 64px auto 0;
 
-    ${({ little }) =>
-        little &&
+    ${({ list }) =>
+        list &&
         css`
-            max-width: 208px;
+            width: 324px;
+            height: 650px;
             padding: 16px;
             display: flex;
             flex-direction: column;
@@ -21,23 +26,23 @@ export const TileContainer = styled.div`
         `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        display: flex;
-        flex-direction: column;
+        /* display: flex;
+        flex-direction: column; */
         padding: 16px;
     }
 `
 
 export const Poster = styled.img`
-    width: 312px;
-    height: auto;
+    width: 292px;
+    height: 434px;
     display: block;
     border-radius: 5px;
 
-    ${({ little }) =>
-        little &&
+    /* ${({ list }) =>
+        list &&
         css`
             width: 177px;
-        `}
+        `} */
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 114px;
@@ -45,8 +50,8 @@ export const Poster = styled.img`
 `
 
 export const Content = styled.div`
-    ${({ little }) =>
-        little &&
+    ${({ list }) =>
+        list &&
         css`
             text-align: center;
             margin-right: 8px;
@@ -79,15 +84,17 @@ export const InfoWrapper = styled.ul`
     flex-wrap: wrap;
     padding-left: 0;
     margin: 16px -8px;
-
-    ${({ little }) =>
-        little &&
+    /* 
+    ${({ list }) =>
+        list &&
         css`
             display: flex;
             flex-direction: column;
-        `}
+        `} */
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        display: flex;
+        flex-direction: column;
     }
 `
 
@@ -126,6 +133,12 @@ export const Icon = styled.img`
     height: 22.87px;
     color: ${({ theme }) => theme.color.candlelight};
     margin: 27.09px 0 -8px 8px;
+    ${({ big }) =>
+        big &&
+        css`
+            width: 40px;
+            height: 38.12px;
+        `}
 `
 
 export const Rate = styled.li`
@@ -145,7 +158,7 @@ export const Rate = styled.li`
 export const Score = styled.li`
     font-size: 14px;
     line-height: 1.2;
-    margin: 33px 8px;
+    margin: 33px 12px 33px 0;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 13px;

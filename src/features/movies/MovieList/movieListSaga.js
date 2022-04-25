@@ -1,16 +1,21 @@
 import { takeEvery, call, put } from 'redux-saga/effects'
-import { getExampleTasks } from '../../getApi'
-import { fetchExample, setMovieList } from './movieListSlice'
+import { getMovieList } from '../../getApiData'
+import {
+    setMovieList,
+    fetchMovieList,
+    fetchMovieListError,
+} from './movieListSlice'
 
-function* fetchExampleHandler() {
+function* fetchMovieListHandler() {
     try {
-        const exampleMovie = yield call(getExampleTasks)
-        yield put(setMovieList(exampleMovie))
+        const fetchedMovies = yield call(getMovieList)
+        yield put(setMovieList(fetchedMovies))
     } catch (error) {
-        yield call(alert, 'cos nie tak')
+        yield call(fetchMovieListError())
+        yield call(alert, 'cos nie tak z listy')
     }
 }
 
 export function* watchFetchExample() {
-    yield takeEvery(fetchExample.type, fetchExampleHandler)
+    yield takeEvery(fetchMovieList.type, fetchMovieListHandler)
 }

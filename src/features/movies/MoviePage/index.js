@@ -1,53 +1,51 @@
-import { useEffect, useState } from 'react'
 import { nanoid } from 'nanoid'
-import { useParams } from 'react-router-dom'
 import { MovieHeader } from '../../../common/components/MovieHeader'
-import { URLpopularMovies } from '../../../common/assets/generalData/fetchedData'
-import { Tile } from '../../../common/components/Tiles/BigTile'
+import { Tile } from '../../../common/components/Tiles/Tile'
 import { Loader } from '../../../common/components/Loader'
 import { Container } from '../../../common/components/Container'
+import { useSelector } from 'react-redux'
+
+import { selectMoviePage } from './moviePageSlice'
+import { Title } from '../../../common/components/Title'
 
 const MoviePage = () => {
-    const params = useParams()
-    console.log(params)
-    const [isLoading, setIsLoading] = useState(true)
-    const [movies, setMovies] = useState('')
-    useEffect(() => {
-        ;(async () => {
-            const response = await fetch(URLpopularMovies)
-            setMovies(await response.json())
-            console.log(movies)
-            setIsLoading(false)
-        })()
-    }, [])
+    const { loading, moviePage } = useSelector(selectMoviePage)
 
     return (
-        <Container>
-            {isLoading ? (
+        <>
+            {loading ? (
                 <Loader />
             ) : (
-                <>
-                    <MovieHeader />
-                    <>{params.id}</>
-                </>
-
-                // movies.results.map((movie) => (
-                //     <Tile
-                //         key={nanoid()}
-                //         title={movie.title}
-                //         poster={movie.poster_path}
-                //         date={movie.release_date}
-                //         production="Production:"
-                //         country={movie.country}
-                //         rate={movie.vote_average}
-                //         score="/10"
-                //         votes={movie.vote_count}
-                //         overview={movie.overview}
-                //         genres={movie.genre_ids}
-                //     />
-                // ))
+                { moviePage } && (
+                    <>
+                        <MovieHeader
+                            original_title={moviePage.original_title}
+                            backdrop_path={moviePage.backdrop_path}
+                            vote_average={moviePage.vote_average}
+                            vote_count={moviePage.vote_count}
+                        />
+                        <Container>
+                            <Tile
+                                key={nanoid()}
+                                title={moviePage.title}
+                                poster={moviePage.poster_path}
+                                date={moviePage.release_date}
+                                year={moviePage.release_date.slice(0, 4)}
+                                production="Production:"
+                                country={moviePage.production_countries}
+                                rate={moviePage.vote_average}
+                                score="/10"
+                                votes={moviePage.vote_count}
+                                overview={moviePage.overview}
+                                genres={moviePage.genres}
+                            />
+                            <Title>Cast</Title>
+                            <Title>Crew</Title>
+                        </Container>
+                    </>
+                )
             )}
-        </Container>
+        </>
     )
 }
 
