@@ -6,7 +6,6 @@ function* fetchPeopleListHandler() {
     try {
         const fetchedPeople = yield call(getPeopleList)
         yield put(setPeopleList(fetchedPeople))
-        console.log('people-in-saga')
     } catch (error) {
         yield put(fetchPeopleListError())
         yield call(alert, 'cos nie tak z listy people')

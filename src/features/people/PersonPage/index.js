@@ -17,19 +17,12 @@ import {
 const Person = () => {
     const dispatch = useDispatch();
 
-
-    console.log(loading, person);
-
-
-    // const navigate = useNavigate()
+       // const navigate = useNavigate()
     // const routeChange = (id) => {
     //     navigate(`/people/${id}`)
     // }
 
-
  
-
-
     const routeToPeoplePage = (id) => {
         routeChange(id)
         dispatch(fetchPersonPage(id))

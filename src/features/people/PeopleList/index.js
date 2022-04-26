@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { PersonTile } from '../../../common/components/Tiles/PersonTile';
+import { Title } from "../../../common/components/Title";
 import { Loader } from '../../../common/components/Loader';
 import { nanoid } from 'nanoid';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Container } from '../../../common/components/Container';
 import { fetchPersonPage } from '../PersonPage/personPageSlice';
-
 import {
     selectPeopleList,
     setPeopleList,
@@ -15,6 +15,7 @@ import {
     fetchPeopleListSuccess,
     fetchPeopleListError,
 } from './peopleListSlice';
+
 
 const PeopleList = () => {
     const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const PeopleList = () => {
 
     return (
         <Container>
+            <Title>Popular people</Title>
             {loading ? (
                 <Loader />
             ) : (
