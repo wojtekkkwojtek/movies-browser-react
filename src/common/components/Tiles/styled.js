@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 export const TileContainer = styled.div`
-    width: 1368px;
+ 
     background: ${({ theme }) => theme.color.white};
     padding: 40px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
