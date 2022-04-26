@@ -8,7 +8,7 @@ import {
 } from '../styled'
 import { URLimage } from '../../../assets/generalData/fetchedData'
 
-export const PersonTile = ({ poster, title }) => {
+export const PersonTile = ({ poster, title, name,role }) => {
     return (
         <TileContainer small>
             <Poster little src={`${URLimage}${poster}`} alt="" />
