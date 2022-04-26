@@ -8,9 +8,9 @@ import {
 } from '../styled'
 import { URLimage } from '../../../assets/generalData/fetchedData'
 
-export const LittleTile = ({ poster, title, name, role}) => {
+export const PersonTile = ({ poster, title }) => {
     return (
-        <TileContainer little>
+        <TileContainer small>
             <Poster little src={`${URLimage}${poster}`} alt="" />
             <Content little>
                 <InfoWrapper little>

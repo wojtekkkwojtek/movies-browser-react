@@ -7,6 +7,7 @@ export const theme = {
         stormGray: '#74788B',
         waterloo: '#7E839A',
         black: '#000000',
+        blue: '#0044CC',
     },
     breakpoints: {
         mobileNormal: '550px',

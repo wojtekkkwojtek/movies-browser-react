@@ -1,46 +1,58 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
 const moviePageSlice = createSlice({
-    name: "moviePage",
+    name: 'movieOne',
     initialState: {
         moviePage: null,
         actors: null,
         loading: false,
         error: false,
+        movie_id: null,
     },
-    reducers:{
-        fetchMoviePage: (state) => {
-            state.loading = true;
-            state.error = false;
+    reducers: {
+        fetchMoviePage: (state, { payload: id }) => {
+            state.loading = true
+            state.error = false
+            console.log(' fetchMoviePage ok?', id)
+            state.movie_id = id
         },
-        fetchMoviePageSuccess: (state, {payload}) => {
-            state.loading = false;
-            state.error = false;
-            state.moviePage = payload;
-        },
-        fetchMoviePageError: (state) => {
-            state.loading = false;
-            state.error = true;
-        },
-        fetchActors: (state, {payload}) => {
-            state.actors = payload.actors;
-        },
-    },
+        // fetchMoviePageSuccess: (state, { payload }) => {
+        //     state.loading = false
+        //     state.error = false
+        //     state.moviePage = payload
+        // },
+        // fetchMoviePageError: (state) => {
+        //     state.loading = false
+        //     state.error = true
+        // },
+        // fetchActors: (state, { payload }) => {
+        //     state.actors = payload.actors
+        // },
 
-});
+        setMovieDetails: (state, { payload: movieDetails }) => {
+            state.loading = false
+            state.moviePage = movieDetails
+            console.log('moviePage:', movieDetails)
+        },
+    },
+})
 
 export const {
+    setId,
+    setMovieDetails,
     fetchMoviePage,
     fetchMoviePageSuccess,
     fetchMoviePageError,
     fetchActors,
-} = moviePageSlice.actions;
+} = moviePageSlice.actions
 
-const selectMoviePage = state => state.moviePage;
+export const selectMoviePage = (state) => state.movieOne
 
-export const selectLoading = state => selectMoviePage(state).loading;
-export const selectError = state => selectMoviePage(state).error;
-export const selectActors = state => selectMoviePage(state).actors;
-export const selectMovie = state => selectMoviePage(state).moviePage;
+export const selectGetEx = (state) => state.movieOne.movie_id
 
-export const moviePageReducer = moviePageSlice.reducer;
+// export const selectLoading = (state) => selectMoviePage(state).loading
+// export const selectError = (state) => selectMoviePage(state).error
+// export const selectActors = (state) => selectMoviePage(state).actors
+// export const selectMovie = (state) => selectMoviePage(state).moviePage
+
+export const moviePageReducer = moviePageSlice.reducer
