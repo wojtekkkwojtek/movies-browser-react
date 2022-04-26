@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
-import { LittleTile } from '../../../common/components/Tiles/LittleTile';
+import { useDispatch, useSelector } from 'react-redux';
+import { Tile } from '../../../common/components/Tiles/Tile';
 import { Loader } from '../../../common/components/Loader';
 import { nanoid } from 'nanoid';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Container } from '../../../common/components/Container';
-import { useDispatch, useSelector } from 'react-redux';
+import { fetchPersonPage } from '../PersonPage/personPageSlice';
+
 import {
     selectPeopleList,
-    fetchExample,
     setPeopleList,
     fetchPeopleList,
     fetchPeopleListSuccess,
@@ -16,21 +17,21 @@ import {
 } from './peopleListSlice';
 
 const PeopleList = () => {
-    // const isLoading = useSelector(selectLoading)
-    const { error, loading, peopleList } = useSelector(selectPeopleList);
-    console.log(error, loading, peopleList);
     const dispatch = useDispatch();
+
+    const { loading, peopleList } = useSelector(selectPeopleList);
+    console.log(loading, peopleList);
+
 
     const navigate = useNavigate()
     const routeChange = (id) => {
         navigate(`/people/${id}`)
     }
 
-    console.log(useParams());
-
-    useEffect(() => {
-        dispatch(fetchExample())
-    }, [dispatch]);
+    const routeToPersonPage = (id) => {
+        routeChange(id)
+        dispatch(fetchPersonPage(id))
+    }
 
     return (
         <Container>
@@ -40,12 +41,9 @@ const PeopleList = () => {
                 peopleList &&
                 peopleList.map((people) => (
                     <>
-                        <LittleTile
+                        <Tile
                             key={nanoid()}
-                            onClick={
-                                () => routeChange(people.id)
-                                // (window.location.href = `/peoples-browser-react#/people/${people.id}`)
-                            }
+                            onClick={() => routeChange(people.id)}
                             name={people.name}
                             poster={people.profile_path}
                         />
