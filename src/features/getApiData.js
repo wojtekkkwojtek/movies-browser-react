@@ -11,7 +11,7 @@ import {
 
 export const getMovieList = async () => {
     const response = await fetch(URLpopularMovies)
-
+  
     if (!response.ok) {
         new Error(response.statusText)
     }
@@ -21,7 +21,7 @@ export const getMovieList = async () => {
 
 export const getPeopleList = async () => {
     const response = await fetch(URLpopularPeople)
-
+  
     if (!response.ok) {
         new Error(response.statusText)
     }
