@@ -3,42 +3,37 @@ import { createSlice } from '@reduxjs/toolkit'
 const peopleListSlice = createSlice({
     name: 'people',
     initialState: {
-        page: null,
-        totalPages: null,
-        totalResults: null,
-        loading: false,
-        error: 'cos-w-people',
-        peopleList: null,
+        // page: null,
+        // totalPages: null,
+        // totalResults: null,
+        loading: true,
+        error: false,
+        peopleList: [],
     },
     reducers: {
         fetchPeopleList: (state) => {
-            state.loading = true
-            state.error = false
-            state.peopleList = null
-        },
-        fetchPeopleListSuccess: (state, { payload }) => {
             state.loading = false
-            state.error = false
-            state.peopleList = payload.peopleList
-            state.totalPages = payload.totalPages
-            state.totalResults = payload.totalResults
         },
+        // fetchPeopleListSuccess: (state, { payload }) => {
+        //     state.loading = false
+        //     state.error = false
+        //     state.peopleList = payload.peopleList
+        //     state.totalPages = payload.totalPages
+        //     state.totalResults = payload.totalResults
+        // },
         fetchPeopleListError: (state) => {
             state.loading = false
             state.error = true
         },
 
-        fetchExample: () => {
-            console.log('test-people')
-        },
-        setPeopleList: (state, { payload: example }) => {
-            state.peopleList = example.results
+        setPeopleList: (state, { payload: fetchedData }) => {
+            state.loading = false
+            state.peopleList = fetchedData.results
         },
     },
 })
 
 export const {
-    fetchExample,
     setPeopleList,
     fetchPeopleList,
     fetchPeopleListSuccess,
