@@ -1,16 +1,19 @@
 import { takeEvery, call, put } from 'redux-saga/effects'
-import { getPopularPeople } from '../../getApi'
-import { fetchExample, setPeopleList } from './peopleListSlice'
+import { getPeopleList } from '../../getApiData'
+import { fetchPeopleList, fetchPeopleListError, setPeopleList } from './peopleListSlice'
 
-function* fetchExampleHandler() {
+function* fetchPeopleListHandler() {
     try {
-        const examplePerson = yield call(getPopularPeople)
-        yield put(setPeopleList(examplePerson))
+        const fetchedPeople = yield call(getPeopleList)
+        yield put(setPeopleList(fetchedPeople))
+        console.log('people-in-saga')
     } catch (error) {
-        yield call(alert, 'cos nie tak')
+        yield put(fetchPeopleListError())
+        yield call(alert, 'cos nie tak z listy people')
     }
 }
 
 export function* watchFetchExample2() {
-    yield takeEvery(fetchExample.type, fetchExampleHandler)
+    yield takeEvery(fetchPeopleList.type, fetchPeopleListHandler)
 }
+
