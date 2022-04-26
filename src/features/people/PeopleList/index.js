@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Tile } from '../../../common/components/Tiles/Tile';
+import { PersonTile } from '../../../common/components/Tiles/PersonTile';
 import { Loader } from '../../../common/components/Loader';
 import { nanoid } from 'nanoid';
 import { useNavigate } from 'react-router-dom';
@@ -41,7 +41,7 @@ const PeopleList = () => {
                 peopleList &&
                 peopleList.map((people) => (
                     <>
-                        <Tile
+                        <PersonTile
                             key={nanoid()}
                             onClick={() => routeChange(people.id)}
                             name={people.name}
