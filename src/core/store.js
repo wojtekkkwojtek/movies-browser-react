@@ -15,6 +15,7 @@ const store = configureStore({
         movies: movieListReducer,
         movieOne: moviePageReducer,
         people: peopleListReducer,
+        person: personPageReducer,
     },
     middleware: [sagaMiddleware],
 })
