@@ -5,7 +5,7 @@ import {
     TileContainer,
     InfoWrapper,
     InfoDetails,
-} from '../styled'
+} from './styled'
 import { URLimage } from '../../../assets/generalData/fetchedData'
 
 export const PersonTile = ({ poster, title, name, role }) => {
