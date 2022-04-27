@@ -1,6 +1,10 @@
 import { takeEvery, call, put } from 'redux-saga/effects'
 import { getPeopleList } from '../../getApiData'
-import { fetchPeopleList, fetchPeopleListError, setPeopleList } from './peopleListSlice'
+import {
+    fetchPeopleList,
+    fetchPeopleListError,
+    setPeopleList,
+} from './peopleListSlice'
 
 function* fetchPeopleListHandler() {
     try {
@@ -8,11 +12,10 @@ function* fetchPeopleListHandler() {
         yield put(setPeopleList(fetchedPeople))
     } catch (error) {
         yield put(fetchPeopleListError())
-        yield call(alert, 'cos nie tak z listy people')
+        console.log('cos nie tak z listy people')
     }
 }
 
 export function* watchFetchExample2() {
     yield takeEvery(fetchPeopleList.type, fetchPeopleListHandler)
 }
-

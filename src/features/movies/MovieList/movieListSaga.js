@@ -11,8 +11,8 @@ function* fetchMovieListHandler() {
         const fetchedMovies = yield call(getMovieList)
         yield put(setMovieList(fetchedMovies))
     } catch (error) {
-        yield call(fetchMovieListError())
-        yield call(alert, 'cos nie tak z listy')
+        yield put(fetchMovieListError())
+        console.log('cos nie tak z listy')
     }
 }
 

@@ -22,12 +22,10 @@ const movieListSlice = createSlice({
         //     state.totalResults = payload.totalResults
         // },
         fetchMovieListError: (state) => {
-            state.loading = false
             state.error = true
         },
 
         setMovieList: (state, { payload: fetchedData }) => {
-            state.loading = false
             state.movieList = fetchedData.results
         },
     },

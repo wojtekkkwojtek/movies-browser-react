@@ -55,7 +55,7 @@ export const IconVideo = styled(Camera)`
     }
 `
 
-export const Title = styled.h1`
+export const Title = styled(NavLink)`
     font-weight: 500;
     font-size: 24px;
     line-height: 40px;
@@ -63,6 +63,15 @@ export const Title = styled.h1`
     text-transform: capitalize;
     margin-left: 16.58px;
     margin-right: 80px;
+
+    text-decoration: none;
+    color: ${({ theme }) => theme.color.white};
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 95px;
         height: 100%;
