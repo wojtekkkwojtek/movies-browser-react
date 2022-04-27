@@ -1,35 +1,38 @@
-import React from 'react'
-import { Tile } from '../../../common/components/Tiles/Tile'
-import { Loader } from '../../../common/components/Loader'
-import { nanoid } from 'nanoid'
-import { useNavigate } from 'react-router-dom'
-
-import { Container } from '../../../common/components/Container'
-import { useDispatch, useSelector } from 'react-redux'
-import { selectMovieList } from './movieListSlice'
-import { fetchMoviePage } from '../MoviePage/moviePageSlice'
-import { Title } from '../../../common/components/Title'
+import React from 'react';
+import { Tile } from '../../../common/components/Tiles/Tile';
+import { Loader } from '../../../common/components/Loader';
+import { nanoid } from 'nanoid';
+import { useNavigate } from 'react-router-dom';
+import { Container } from '../../../common/components/Container';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectMovieList } from './movieListSlice';
+import { fetchMoviePage } from '../MoviePage/moviePageSlice';
+import { Title } from '../../../common/components/Title';
+import { selectGenres } from "../../../common/assets/generalData/genresSlice";
+import { NoResultMessage } from "../../../common/components/NoResultMessage";
+import { ErrorMessage } from "../../../common/components/ErrorMessage";
+import { useEffect } from "react";
+import Header from "../../../common/components/Header";
 
 const MovieList = () => {
-    const dispatch = useDispatch()
-
-    const { loading, movieList } = useSelector(selectMovieList)
-
-    const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const { loading, movieList, error } = useSelector(selectMovieList);
+    const navigate = useNavigate();
     const routeChange = (id) => {
         navigate(`/movie/${id}`)
-    }
-
+    };
     const routeToMoviePage = (id) => {
         routeChange(id)
         dispatch(fetchMoviePage(id))
-    }
+    };
 
     return (
         <Container>
             <Title>Popular movies</Title>
             {loading ? (
                 <Loader />
+            ) : error ? ( 
+                <ErrorMessage />
             ) : (
                 movieList &&
                 movieList.map((movie) => (
@@ -47,10 +50,10 @@ const MovieList = () => {
                             genres={movie.genre_ids}
                         />
                     </React.Fragment>
-                ))
-            )}
+                )
+            ))}
         </Container>
-    )
-}
+    );
+};
 
-export default MovieList
+export default MovieList;
