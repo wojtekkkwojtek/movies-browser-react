@@ -3,7 +3,7 @@ import { Tile } from '../../../common/components/Tiles/Tile'
 import { Loader } from '../../../common/components/Loader'
 import { nanoid } from 'nanoid'
 import { useNavigate } from 'react-router-dom'
-
+import { ErrorMessage } from "../../../common/components/ErrorMessage"
 import { Container } from '../../../common/components/Container'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectMovieList } from './movieListSlice'
@@ -13,7 +13,7 @@ import { Title } from '../../../common/components/Title'
 const MovieList = () => {
     const dispatch = useDispatch()
 
-    const { loading, movieList } = useSelector(selectMovieList)
+    const { loading, movieList, error } = useSelector(selectMovieList)
 
     const navigate = useNavigate()
     const routeChange = (id) => {
@@ -27,13 +27,16 @@ const MovieList = () => {
 
     return (
         <Container>
-            <Title>Popular movies</Title>
-            {loading ? (
-                <Loader />
-            ) : (
-                movieList &&
-                movieList.map((movie) => (
-                    <React.Fragment key={movie.id}>
+            {error ? (
+                <ErrorMessage />
+            ) : loading ? (
+                <> 
+                    <Title>Popular movies</Title>
+                    <Loader />
+                </>
+                ) : (
+                    movieList && movieList.map((movie) => (
+                        <React.Fragment key={movie.id}>
                         <Tile
                             list
                             key={nanoid()}
@@ -46,9 +49,9 @@ const MovieList = () => {
                             votes={movie.vote_count}
                             genres={movie.genre_ids}
                         />
-                    </React.Fragment>
-                ))
-            )}
+                        </React.Fragment>
+                    ))
+                )}
         </Container>
     )
 }
