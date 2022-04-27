@@ -5,13 +5,13 @@ import {
     URLpopularMovies,
     URLmovieDetails,
     URLpopularPeople,
-
-
 } from '../common/assets/generalData/fetchedData'
+
+import { URLgenres } from '../common/assets/generalData/fetchedData'
 
 export const getMovieList = async () => {
     const response = await fetch(URLpopularMovies)
-  
+
     if (!response.ok) {
         new Error(response.statusText)
     }
@@ -21,7 +21,7 @@ export const getMovieList = async () => {
 
 export const getPeopleList = async () => {
     const response = await fetch(URLpopularPeople)
-  
+
     if (!response.ok) {
         new Error(response.statusText)
     }
@@ -68,4 +68,8 @@ export const getPeopleList = async () => {
 
 export const getMovieDetails = async (URL) => {
     return (await axios.get(URL)).data
+}
+
+export const getGenres = async (URLgenres) => {
+    return (await axios.get(URLgenres)).data
 }
