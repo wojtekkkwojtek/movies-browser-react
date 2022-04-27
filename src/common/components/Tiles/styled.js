@@ -1,28 +1,23 @@
 import styled, { css } from 'styled-components'
 
 export const TileContainer = styled.div`
-    width: 1368px;
+ 
     background: ${({ theme }) => theme.color.white};
     padding: 40px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
-    /* display: flex;
-    flex-wrap: wrap;
-    gap: 24px; */
     display: grid;
     grid-template-columns: auto 1fr;
     grid-gap: 40px;
     margin: 64px auto 0;
 
-    ${({ list }) =>
-        list &&
-        css`
-            width: 324px;
-            height: 650px;
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            grid-gap: 0px;
-            margin: 0px;
+    ${({ list }) => list &&css`
+        width: 324px;
+        height: auto;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        grid-gap: 0px;
+        margin: 0px;
         `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {

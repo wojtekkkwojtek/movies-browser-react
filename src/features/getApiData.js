@@ -4,11 +4,24 @@ import { useEffect } from 'react'
 import {
     URLpopularMovies,
     URLmovieDetails,
+    URLpopularPeople,
+
+
 } from '../common/assets/generalData/fetchedData'
 
 export const getMovieList = async () => {
     const response = await fetch(URLpopularMovies)
+  
+    if (!response.ok) {
+        new Error(response.statusText)
+    }
 
+    return await response.json()
+}
+
+export const getPeopleList = async () => {
+    const response = await fetch(URLpopularPeople)
+  
     if (!response.ok) {
         new Error(response.statusText)
     }
