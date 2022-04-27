@@ -10,10 +10,10 @@ import { URLimage } from '../../../assets/generalData/fetchedData'
 
 export const PersonTile = ({ poster, title, name, role }) => {
     return (
-        <TileContainer list>
-            <Poster list src={`${URLimage}${poster}`} alt="" />
-            <Content list>
-                <InfoWrapper list>
+        <TileContainer isList>
+            <Poster isList src={`${URLimage}${poster}`} alt="" />
+            <Content isList>
+                <InfoWrapper isList>
                     <InfoDetails>{title}</InfoDetails>
                     <InfoDetails>{name}</InfoDetails>
                     <InfoDetails>{role}</InfoDetails>

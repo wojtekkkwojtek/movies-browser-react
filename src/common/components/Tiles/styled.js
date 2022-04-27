@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components'
 
 export const TileContainer = styled.div`
- 
     background: ${({ theme }) => theme.color.white};
     padding: 40px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
@@ -10,14 +9,16 @@ export const TileContainer = styled.div`
     grid-gap: 40px;
     margin: 64px auto 0;
 
-    ${({ list }) => list &&css`
-        width: 324px;
-        height: auto;
-        padding: 16px;
-        display: flex;
-        flex-direction: column;
-        grid-gap: 0px;
-        margin: 0px;
+    ${({ isList }) =>
+        isList &&
+        css`
+            width: 324px;
+            height: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            grid-gap: 0px;
+            margin: 0px;
         `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
@@ -45,8 +46,8 @@ export const Poster = styled.img`
 `
 
 export const Content = styled.div`
-    ${({ list }) =>
-        list &&
+    ${({ isList }) =>
+        isList &&
         css`
             text-align: center;
             margin-right: 8px;
