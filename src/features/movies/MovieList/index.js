@@ -3,7 +3,6 @@ import { Tile } from '../../../common/components/Tiles/Tile'
 import { Loader } from '../../../common/components/Loader'
 import { nanoid } from 'nanoid'
 import { useNavigate } from 'react-router-dom'
-
 import { Container } from '../../../common/components/Container'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectMovieList } from './movieListSlice'
