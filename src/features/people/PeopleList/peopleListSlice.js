@@ -47,4 +47,7 @@ export const selectPeopleList = (state) => state.people
 // export const selectTotalResults = (state) => selectPeopleList(state).totalResults
 
 // export const getPeopleById = (state, peopleId) =>
+export const getPersonById = (state, personId) =>
+    state.movies.peopleList.find((person) => person.id === Number(personId))     ///////////// not used?
+
 export const peopleListReducer = peopleListSlice.reducer
