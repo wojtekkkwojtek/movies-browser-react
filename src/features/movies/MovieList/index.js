@@ -41,6 +41,7 @@ const MovieList = () => {
                     <React.Fragment key={movie.id}>
                         <Tile
                             isList
+                            nonInList
                             key={nanoid()}
                             onClick={() => routeToMoviePage(movie.id)}
                             title={movie.title}

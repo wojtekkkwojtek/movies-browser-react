@@ -80,13 +80,19 @@ export const InfoWrapper = styled.ul`
     flex-wrap: wrap;
     padding-left: 0;
     margin: 16px -8px;
-    /* 
+
     ${({ list }) =>
         list &&
         css`
             display: flex;
             flex-direction: column;
-        `} */
+        `}
+
+    ${({ nonInList }) =>
+        nonInList &&
+        css`
+            display: none;
+        `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
