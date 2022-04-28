@@ -29,6 +29,7 @@ const MoviePage = () => {
                                 key={nanoid()}
                                 title={moviePage.title}
                                 poster={moviePage.poster_path}
+                                event="Release date:"
                                 date={moviePage.release_date}
                                 year={moviePage.release_date.slice(0, 4)}
                                 production="Production:"
