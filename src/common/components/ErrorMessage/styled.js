@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { ReactComponent as ErrorImage } from "./error.svg";
-import { Link } from "react-router-dom";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -35,14 +34,14 @@ export const Announcement = styled.p`
   }
 `;
 
-export const GoBackButton = styled(Link)`
+export const GoBackButton = styled.button`
   text-decoration: none; 
   display: inline-block;
   padding: 16px 24px;
   font-size: 14px;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.colors.blue};
+  color: ${({ theme }) => theme.color.white};
+  background-color: ${({ theme }) => theme.color.blue};
   border: none;
   border-radius: 5px;
   
