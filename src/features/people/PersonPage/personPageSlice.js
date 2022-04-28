@@ -3,10 +3,9 @@ import { createSlice } from '@reduxjs/toolkit'
 const personPageSlice = createSlice({
     name: 'personOne',
     initialState: {
-        personPage: null,
+        personPage: [],
         loading: false,
         error: false,
-        person_id: null,
     },
     reducers: {
         fetchPersonPage: (state, { payload: id }) => {
