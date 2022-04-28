@@ -5,6 +5,7 @@ import {
     URLpopularMovies,
     URLmovieDetails,
     URLpopularPeople,
+    URLpersonDetails,
 
 
 } from '../common/assets/generalData/fetchedData'
@@ -66,6 +67,13 @@ export const getPeopleList = async () => {
 //     })()
 // }
 
+
 export const getMovieDetails = async (URL) => {
     return (await axios.get(URL)).data
 }
+console.log("getMovieDetails= ", {getMovieDetails})/////////////////////
+
+export const getPersonDetails = async (URL) => {
+    return (await axios.get(URL)).data
+}
+console.log("getPersonDetails= ",{getPersonDetails})////////////////////
