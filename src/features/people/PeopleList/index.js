@@ -37,10 +37,9 @@ const PeopleList = () => {
                 peopleList &&
                 peopleList.map((people) => (
                     <React.Fragment key={people.id}>
-                       peopleId_w_list', {people.id}
                         <PersonTile
                             key={nanoid()}
-                            onClick={() => routeChange(people.id)}
+                            onClick={() => routeToPersonPage(people.id)}
                             name={people.name}
                             poster={people.profile_path}
                         />
