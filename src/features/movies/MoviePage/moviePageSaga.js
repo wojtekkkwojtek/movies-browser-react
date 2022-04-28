@@ -4,12 +4,12 @@ import { call, put, select, takeEvery } from 'redux-saga/effects'
 import { getMovieDetails } from '../../getApiData'
 
 import { fetchMoviePage, selectGetEx, setMovieDetails } from './moviePageSlice'
-
+console.log('selectGetEx= ', selectGetEx)  //////////////////////////////
 function* fetchMovieDetailsHandler() {
     try {
         let movieId = yield select(selectGetEx)
         const movie = `${URL}/movie/${movieId}?api_key=${API_KEY}`
-
+        console.log('movieId ' + { movieId }) /////////////////////////////////////
         const movieDetails = yield call(getMovieDetails, movie)
         yield put(setMovieDetails(movieDetails))
     } catch (error) {
