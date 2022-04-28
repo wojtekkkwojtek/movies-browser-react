@@ -25,10 +25,6 @@ const MovieList = () => {
         dispatch(fetchMoviePage(id))
     }
 
-    // useEffect(()=> {
-
-    // })
-
     return (
         <Container>
             {error && !loading && <ErrorMessage />}

@@ -3,14 +3,29 @@ import { MovieHeader } from '../../../common/components/MovieHeader'
 import { Tile } from '../../../common/components/Tiles/Tile'
 import { Loader } from '../../../common/components/Loader'
 import { Container } from '../../../common/components/Container'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { selectMoviePage } from './moviePageSlice'
+import {
+    fetchMoviePage,
+    selectGetEx,
+    selectMoviePage,
+    setMovieDetails,
+} from './moviePageSlice'
 import { Title } from '../../../common/components/Title'
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 const MoviePage = () => {
     const { loading, moviePage } = useSelector(selectMoviePage)
+    const { id } = useParams()
 
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchMoviePage(id))
+    }, [id])
+
+    console.log('id strony:', id)
+    console.log('moviePage z useParams ID:', moviePage)
     return (
         <>
             {loading ? (
@@ -30,7 +45,7 @@ const MoviePage = () => {
                                 title={moviePage.title}
                                 poster={moviePage.poster_path}
                                 date={moviePage.release_date}
-                                year={moviePage.release_date.slice(0, 4)}
+                                // year={moviePage.release_date.slice(0, 4)}
                                 production="Production:"
                                 country={moviePage.production_countries}
                                 rate={moviePage.vote_average}

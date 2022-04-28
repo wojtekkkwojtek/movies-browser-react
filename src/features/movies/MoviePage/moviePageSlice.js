@@ -32,7 +32,7 @@ const moviePageSlice = createSlice({
         setMovieDetails: (state, { payload: movieDetails }) => {
             state.loading = false
             state.moviePage = movieDetails
-            console.log('moviePage:', movieDetails)
+            console.log('moviePage z slice:', movieDetails)
         },
     },
 })
