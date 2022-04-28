@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { nanoid } from 'nanoid';
-import { PersonTile } from '../../../common/components/Tiles/PersonTile';
-import { Title } from "../../../common/components/Title";
-import { Loader } from '../../../common/components/Loader';
-import { Container } from '../../../common/components/Container';
-import { fetchPersonPage } from '../PersonPage/personPageSlice';
-import { selectPeopleList } from './peopleListSlice';
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { nanoid } from 'nanoid'
+import { PersonTile } from '../../../common/components/Tiles/PersonTile'
+import { Title } from '../../../common/components/Title'
+import { Loader } from '../../../common/components/Loader'
+import { Container } from '../../../common/components/Container'
+import { fetchPersonPage } from '../PersonPage/personPageSlice'
+import { selectPeopleList } from './peopleListSlice'
 
 const PeopleList = () => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
-    const { loading, peopleList } = useSelector(selectPeopleList);
-    console.log('loading, peopleList: ' + { loading, peopleList }); ///////////////////////
-
+    const { loading, peopleList } = useSelector(selectPeopleList)
+    console.log('loading, peopleList: ' + { loading, peopleList }) ///////////////////////
 
     const navigate = useNavigate()
     const routeChange = (id) => {
@@ -24,9 +23,8 @@ const PeopleList = () => {
     const routeToPersonPage = (id) => {
         routeChange(id)
         dispatch(fetchPersonPage(id))
-        console.log('id-roote= ' + { id })  /////////////////////////
+        console.log('id-roote= ', id) /////////////////////////
     }
-
 
     return (
         <Container>
@@ -37,10 +35,10 @@ const PeopleList = () => {
                 peopleList &&
                 peopleList.map((people) => (
                     <React.Fragment key={people.id}>
-                       peopleId_w_list', {people.id}
+                        peopleId_w_list', {people.id}
                         <PersonTile
                             key={nanoid()}
-                            onClick={() => routeChange(people.id)}
+                            onClick={() => routeToPersonPage(people.id)}
                             name={people.name}
                             poster={people.profile_path}
                         />
@@ -49,7 +47,6 @@ const PeopleList = () => {
             )}
         </Container>
     )
-};
+}
 
-export default PeopleList;
-
+export default PeopleList

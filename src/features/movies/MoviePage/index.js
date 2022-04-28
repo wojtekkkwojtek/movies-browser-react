@@ -26,6 +26,7 @@ const MoviePage = () => {
                         />
                         <Container>
                             <Tile
+                                big
                                 key={nanoid()}
                                 title={moviePage.title}
                                 poster={moviePage.poster_path}

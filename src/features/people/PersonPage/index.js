@@ -8,7 +8,7 @@ import { Title } from '../../../common/components/Title'
 
 const PersonPage = () => {
     const { loading, personPage } = useSelector(selectPersonPage)
-console.log('personPage w index: '+{personPage})    //////////////////////////
+    console.log('personPage w index: ', personPage) //////////////////////////
     return (
         <>
             {loading ? (
@@ -17,10 +17,14 @@ console.log('personPage w index: '+{personPage})    //////////////////////////
                 { personPage } && (
                     <Container>
                         <Tile
+                            person
                             key={nanoid()}
-                            // name={personPage.name}
+                            title={personPage.name}
+                            event="Date of birth:"
+                            date={personPage.birthday}
                             poster={personPage.profile_path}
-                            country={personPage.place_of_bird}
+                            production="Place of birth:"
+                            country={[personPage.place_of_birth]}
                             overview={personPage.biography}
                         />
                         <Title>Cast</Title>

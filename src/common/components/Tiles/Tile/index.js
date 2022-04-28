@@ -21,6 +21,8 @@ import { nanoid } from 'nanoid'
 
 export const Tile = ({
     list,
+    person,
+    big,
     onClick,
     title,
     poster,
@@ -34,19 +36,22 @@ export const Tile = ({
     score,
     votes,
     overview,
-    name
+    name,
 }) => {
     return (
         <TileContainer list={list} onClick={onClick}>
             <Poster list={list} src={`${URLimage}${poster}`} alt="" />
             <Content>
-                <Title list={list} >{title}</Title>
+                <Title list={list}>{title}</Title>
                 <Year list={list}>{year}</Year>
                 <InfoWrapper>
                     <Info>
                         {production}{' '}
                         {country &&
                             country.map((country) => country.name).join(', ')}
+                    </Info>
+                    <Info person={person}>
+                        {production} {country}
                     </Info>
                 </InfoWrapper>
                 <InfoWrapper>
@@ -58,7 +63,9 @@ export const Tile = ({
                         genres.map((genre) => {
                             return AllGenresData.genres.map((item) =>
                                 item.id === genre ? (
-                                    <Genres list={list} key={nanoid()}>{item.name}</Genres>
+                                    <Genres list={list} key={nanoid()}>
+                                        {item.name}
+                                    </Genres>
                                 ) : null
                             )
                         })}
@@ -69,7 +76,7 @@ export const Tile = ({
                             <Genres list={list}>{country.name}</Genres>
                         ))}
                 </InfoWrapper>
-                <InfoWrapper >
+                <InfoWrapper person={person}>
                     <Icon src={rateIcon} alt="" />
                     <Rate list={list}>{rate}</Rate>
                     <Score>{score}</Score>
