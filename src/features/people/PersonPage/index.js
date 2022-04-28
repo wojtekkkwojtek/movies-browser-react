@@ -1,56 +1,35 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { PersonTile } from '../../../common/components/Tiles/PersonTile';
-import { Loader } from '../../../common/components/Loader';
-import { nanoid } from 'nanoid';
-import { useNavigate } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import { Container } from '../../../common/components/Container';
+import { useSelector } from 'react-redux'
+import { nanoid } from 'nanoid'
+import { Tile } from '../../../common/components/Tiles/Tile'
+import { Loader } from '../../../common/components/Loader'
+import { Container } from '../../../common/components/Container'
+import { selectPersonPage } from './personPageSlice'
+import { Title } from '../../../common/components/Title'
 
-
-import {
-    fetchPersonList,
-    fetchPeopleListSuccess,
-    fetchPeopleListError,
-} from './personPageSlice';
-
-const Person = () => {
-    const dispatch = useDispatch();
-
-       // const navigate = useNavigate()
-    // const routeChange = (id) => {
-    //     navigate(`/people/${id}`)
-    // }
-
- 
-    const routeToPeoplePage = (id) => {
-        routeChange(id)
-        dispatch(fetchPersonPage(id))
-    }
-
+const PersonPage = () => {
+    const { loading, personPage } = useSelector(selectPersonPage)
+console.log('personPage w index: '+{personPage})    //////////////////////////
     return (
-        <Container>
+        <>
             {loading ? (
                 <Loader />
             ) : (
-                peopleList &&
-                peopleList.map((people) => (
-                    <>
-                        <PersonTile
+                { personPage } && (
+                    <Container>
+                        <Tile
                             key={nanoid()}
-                            onClick={
-                                () => routeChange(people.id)
-                                // (window.location.href = `/peoples-browser-react#/people/${people.id}`)
-                            }
-                            name={people.name}
-                            poster={people.profile_path}
+                            // name={personPage.name}
+                            poster={personPage.profile_path}
+                            country={personPage.place_of_bird}
+                            overview={personPage.biography}
                         />
-                    </>
-                ))
+                        <Title>Cast</Title>
+                        <Title>Crew</Title>
+                    </Container>
+                )
             )}
-        </Container>
+        </>
     )
-};
+}
 
-export default PeopleList;
-
+export default PersonPage
