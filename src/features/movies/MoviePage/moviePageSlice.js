@@ -13,7 +13,7 @@ const moviePageSlice = createSlice({
         fetchMoviePage: (state, { payload: id }) => {
             state.loading = true
             state.error = false
-            console.log(' fetchMoviePage ok?', id)
+            console.log(' fetchMoviePage ok?', id) /////////////////////////
             state.movie_id = id
         },
         // fetchMoviePageSuccess: (state, { payload }) => {
@@ -32,7 +32,7 @@ const moviePageSlice = createSlice({
         setMovieDetails: (state, { payload: movieDetails }) => {
             state.loading = false
             state.moviePage = movieDetails
-            console.log('moviePage:', movieDetails)
+            console.log('moviePage:', movieDetails) ////////////////////////
         },
     },
 })
@@ -49,6 +49,8 @@ export const {
 export const selectMoviePage = (state) => state.movieOne
 
 export const selectGetEx = (state) => state.movieOne.movie_id
+
+console.log('selectGetEx: ' + { selectGetEx })
 
 // export const selectLoading = (state) => selectMoviePage(state).loading
 // export const selectError = (state) => selectMoviePage(state).error
