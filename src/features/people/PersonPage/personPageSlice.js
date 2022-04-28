@@ -1,26 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const personPageSlice = createSlice({
-    name: 'person',
+    name: 'personOne',
     initialState: {
         personPage: null,
-        actors: null,
         loading: false,
         error: false,
-        movie_id: null,
+        person_id: null,
     },
     reducers: {
         fetchPersonPage: (state, { payload: id }) => {
             state.loading = true
             state.error = false
-            console.log(' fetchPersonPage ok?', id)
-            state.people_id = id
+            console.log(' fetchPersonPage ok?', 'id= ' + id)     ////////////////////////
+            state.person_id = id
         },
-       
+
         setPersonDetails: (state, { payload: personDetails }) => {
             state.loading = false
             state.personPage = personDetails
-            console.log('personPage:', personDetails)
+            console.log('personPage:', personDetails)      ////////////////////////
         },
     },
 })
@@ -34,9 +33,10 @@ export const {
 
 } = personPageSlice.actions
 
-export const selectPersonPage = (state) => state.person
+export const selectPersonPage = (state) => state.personOne
 
-export const selectGetEx1 = (state) => state.person.people_id //?
+export const selectGetEx1 = (state) => state.personOne.person_id
+console.log('selectGetEx1: ' + { selectGetEx1 })      ///////////////////////
 
 // export const selectLoading = (state) => selectMoviePage(state).loading
 // export const selectError = (state) => selectMoviePage(state).error
