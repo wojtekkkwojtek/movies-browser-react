@@ -18,14 +18,14 @@ import rateIcon from '../rateIcon.svg'
 import { URLimage } from '../../../assets/generalData/fetchedData'
 import { nanoid } from 'nanoid'
 import { useSelector } from 'react-redux'
-import { selectGenres } from '../../../../features/movies/MovieList/movieListSlice'
+import { selectMovieList } from '../../../../features/movies/MovieList/movieListSlice'
 // import {
 //     // fetchGenresList,
 //     selectGenres,
 // } from '../../../../features/genres/genresSlice'
-// import { useSelector } from 'react-redux'
 
 export const Tile = ({
+    nonInList,
     isList,
     onClick,
     title,
@@ -40,6 +40,7 @@ export const Tile = ({
     votes,
     overview,
 }) => {
+    const { genresList } = useSelector(selectMovieList)
     return (
         <TileContainer isList={isList} onClick={onClick}>
             <Poster isList={isList} src={`${URLimage}${poster}`} alt="" />
@@ -57,17 +58,17 @@ export const Tile = ({
                     <Info>Release date:</Info>
                     <InfoDetails>{date ? date : 'Unknown'}</InfoDetails>
                 </InfoWrapper>
-                {/* <InfoWrapper list={list}>
+                <InfoWrapper isList={isList}>
                     {genres &&
                         genres.map((genre) => {
-                            return AllGenresData.genres.map((item) =>
+                            return genresList.map((item) =>
                                 item.id === genre ? (
                                     <Genres key={nanoid()}>{item.name}</Genres>
                                 ) : null
                             )
-                        })} */}
-                {/* </InfoWrapper> */}
-                <InfoWrapper>
+                        })}
+                </InfoWrapper>
+                <InfoWrapper nonInList={nonInList}>
                     {genres &&
                         genres.map((country) => (
                             <Genres>{country.name}</Genres>
