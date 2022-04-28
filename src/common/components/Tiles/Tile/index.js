@@ -50,9 +50,7 @@ export const Tile = ({
                         {country &&
                             country.map((country) => country.name).join(', ')}
                     </Info>
-                    <Info person={person}>
-                        {production} {country}
-                    </Info>
+                    <Info person={person}>{country}</Info>
                 </InfoWrapper>
                 <InfoWrapper>
                     <Info>{event}</Info>
