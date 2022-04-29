@@ -5,13 +5,13 @@ const moviePageSlice = createSlice({
     initialState: {
         moviePage: null,
         actors: null,
-        loading: false,
+        loading: true,
         error: false,
         movie_id: null,
     },
     reducers: {
         fetchMoviePage: (state, { payload: id }) => {
-            state.loading = true
+            state.loading = false
             state.error = false
             console.log(' fetchMoviePage ok?', id)
             state.movie_id = id
