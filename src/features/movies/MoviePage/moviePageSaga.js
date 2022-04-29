@@ -2,7 +2,6 @@ import { API_KEY, URL } from '../../../common/assets/generalData/fetchedData'
 
 import { call, put, select, takeEvery } from 'redux-saga/effects'
 import { getMovieDetails } from '../../getApiData'
-
 import { fetchMoviePage, selectGetEx, setMovieDetails } from './moviePageSlice'
 console.log('selectGetEx= ', selectGetEx)  //////////////////////////////
 function* fetchMovieDetailsHandler() {
