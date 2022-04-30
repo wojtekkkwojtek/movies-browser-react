@@ -11,7 +11,7 @@ import { fetchMoviePage } from '../MoviePage/moviePageSlice'
 import { Title } from '../../../common/components/Title'
 
 const MovieList = () => {
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
     const { loading, movieList, error } = useSelector(selectMovieList)
 
@@ -22,7 +22,7 @@ const MovieList = () => {
 
     const routeToMoviePage = (id) => {
         routeChange(id)
-        dispatch(fetchMoviePage(id))
+        // dispatch(fetchMoviePage(id))
     }
 
     return (

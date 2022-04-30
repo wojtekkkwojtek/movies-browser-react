@@ -19,13 +19,13 @@ const MoviePage = () => {
     const { loading, moviePage } = useSelector(selectMoviePage)
     const { id } = useParams()
 
-    // const dispatch = useDispatch()
-    // useEffect(() => {
-    //     const timer = setTimeout(() => {
-    //         console.log('najnowszy:', id)
-    //         dispatch(fetchMoviePage(id))
-    //     }, 2000)
-    // }, [dispatch, id])
+    const dispatch = useDispatch()
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            console.log('najnowszy:', id)
+            dispatch(fetchMoviePage(id))
+        }, 2000)
+    }, [dispatch, id])
 
     console.log('id strony:', id)
     console.log('moviePage z useParams ID:', moviePage)
