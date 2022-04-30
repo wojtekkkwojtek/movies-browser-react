@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    
+
     Content,
     Poster,
     TileContainer,
@@ -9,16 +9,21 @@ import {
 } from './styled'
 import { URLimage } from '../../../assets/generalData/fetchedData'
 
-export const PersonTile = ({ poster, title, name, role, list, onClick }) => {
+export const PersonTile = ({
+    poster,
+    title,
+    name,
+    role,
+    list,
+    onClick }) => {
     return (
         <TileContainer list onClick={onClick}>
             <Poster list src={`${URLimage}${poster}`} alt="" />
-            <Content list>
-                <InfoWrapper list>
+            <Content>
+                <InfoWrapper >
                     <InfoDetails>{title}</InfoDetails>
                     <InfoDetails>{name}</InfoDetails>
                     <InfoDetails>{role}</InfoDetails>
-                    
                 </InfoWrapper>
             </Content>
         </TileContainer>
