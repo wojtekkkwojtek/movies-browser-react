@@ -15,12 +15,13 @@ console.log('personPage w index: '+{personPage})    //////////////////////////
                 <Loader />
             ) : (
                 { personPage } && (
-                    <Container>
-                        <Tile
+                    <Container >
+                        <Tile person
                             key={nanoid()}
-                            // name={personPage.name}
+                            title={personPage.name}
                             poster={personPage.profile_path}
                             country={personPage.place_of_bird}
+                            date={personPage.birthday}
                             overview={personPage.biography}
                         />
                         <Title>Cast</Title>
