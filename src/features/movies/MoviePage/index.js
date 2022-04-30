@@ -16,18 +16,19 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 const MoviePage = () => {
-    const { loading, moviePage } = useSelector(selectMoviePage)
+    const dispatch = useDispatch()
     const { id } = useParams()
 
-    const dispatch = useDispatch()
+    const { loading, moviePage } = useSelector(selectMoviePage)
     useEffect(() => {
-        const timer = setTimeout(() => {
-            console.log('najnowszy:', id)
-            dispatch(fetchMoviePage(id))
-        }, 2000)
+        console.log('najnowszy:', id)
+        dispatch(fetchMoviePage(id))
+        dispatch(setMovieDetails(id))
     }, [dispatch, id])
 
     console.log('id strony:', id)
+    console.log('loading strony:', loading)
+
     console.log('moviePage z useParams ID:', moviePage)
     return (
         <>
