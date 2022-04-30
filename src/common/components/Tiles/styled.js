@@ -4,8 +4,8 @@ export const TileContainer = styled.div`
     background: ${({ theme }) => theme.color.white};
     padding: 40px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display:block;
+    //grid-template-rows:  1fr auto;
     grid-gap: 40px;
     margin: 64px auto 0;
 
@@ -31,6 +31,8 @@ export const Poster = styled.img`
     height: 434px;
     display: block;
     border-radius: 5px;
+    float: left;
+    margin:  0 16px 0 -16px;
 
     /* ${({ list }) =>
         list &&
@@ -44,6 +46,7 @@ export const Poster = styled.img`
 `;
 
 export const Content = styled.div`
+
     ${({ list }) => list && css`
         text-align: center;
         margin-right: 8px;
@@ -96,6 +99,10 @@ export const InfoWrapper = styled.ul`
         flex-direction: column;
     `} */
 
+    ${({ person }) => person && css`
+        display: none;
+    `}
+
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
         flex-direction: column;
@@ -113,6 +120,10 @@ export const InfoDetails = styled.li`
     font-size: 18px;
     line-height: 1.2;
     margin: 0 0 8px 10px;
+
+    ${({ person }) => person && css`
+       display: none;
+    `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
     font-size: 12px;
@@ -148,6 +159,10 @@ export const Icon = styled.img`
         width: 40px;
         height: 38.12px;
     `}
+
+    ${({ person }) => person && css`
+       display: none;
+    `}
 `;
 
 export const Rate = styled.li`
@@ -165,6 +180,11 @@ export const Rate = styled.li`
         
     `}
 
+    ${({ person }) => person && css`
+       display: none;
+    `}
+
+
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 13px;
     }
@@ -175,6 +195,10 @@ export const Score = styled.li`
     line-height: 1.2;
     margin: 33px 12px 33px 0;
 
+    ${({ person }) => person && css`
+       display: none;
+    `}
+
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
     font-size: 13px;
     }
@@ -184,6 +208,8 @@ export const Overview = styled.p`
     font-size: 20px;
     margin: 0 8px;
     line-height: 1.6;
+
+
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 14px;
