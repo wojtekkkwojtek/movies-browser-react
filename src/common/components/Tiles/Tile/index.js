@@ -34,15 +34,16 @@ export const Tile = ({
     score,
     votes,
     overview,
-    name
+    person
+
 }) => {
     return (
-        <TileContainer list={list} onClick={onClick}>
+        <TileContainer list={list} onClick={onClick}><Content>
             <Poster list={list} src={`${URLimage}${poster}`} alt="" />
-            <Content>
-                <Title list={list} >{title}</Title>
+            <div>
+                <Title person={person} list={list} >{title}</Title>
                 <Year list={list}>{year}</Year>
-                <InfoWrapper>
+                <InfoWrapper person={person}>
                     <Info>
                         {production}{' '}
                         {country &&
@@ -51,9 +52,9 @@ export const Tile = ({
                 </InfoWrapper>
                 <InfoWrapper>
                     <Info>{event}</Info>
-                    <InfoDetails>{date ? date : 'Unknown'}</InfoDetails>
+                    <InfoDetails poster={poster}>{date ? date : 'Unknown'}</InfoDetails>
                 </InfoWrapper>
-                <InfoWrapper list={list}>
+                <InfoWrapper person={person}>
                     {genres &&
                         genres.map((genre) => {
                             return AllGenresData.genres.map((item) =>
@@ -63,20 +64,22 @@ export const Tile = ({
                             )
                         })}
                 </InfoWrapper>
-                <InfoWrapper>
+                <InfoWrapper person={person}>
                     {genres &&
                         genres.map((country) => (
                             <Genres list={list}>{country.name}</Genres>
                         ))}
                 </InfoWrapper>
                 <InfoWrapper >
-                    <Icon src={rateIcon} alt="" />
-                    <Rate list={list}>{rate}</Rate>
-                    <Score>{score}</Score>
-                    <Score>{votes} votes</Score>
+                    <Icon person={person} src={rateIcon} alt="" />
+                    <Rate person={person} list={list}>{rate}</Rate>
+                    <Score person={person}>{score}</Score>
+                    <Score person={person}>{votes} </Score>
                 </InfoWrapper>
+                </div>
+                </Content>
                 <Overview>{overview}</Overview>
-            </Content>
+            
         </TileContainer>
     )
 }
