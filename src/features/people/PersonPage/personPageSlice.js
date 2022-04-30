@@ -20,19 +20,27 @@ const personPageSlice = createSlice({
             state.personPage = personDetails
             console.log('personPage:', personDetails)      ////////////////////////
         },
+
+        setPersonCredits: (state, { payload }) => {
+            state.cast = payload.cast;
+            state.crew = payload.crew;
+        }
     },
 })
 
 export const {
-    setId,
     setPersonDetails,
+    setPersonCredits,
     fetchPersonPage,
     fetchPersonPageSuccess,
     fetchPersonPageError,
 
 } = personPageSlice.actions
 
-export const selectPersonPage = (state) => state.personOne
+export const selectPersonPage = state => state.personOne
+export const selectPersonCast =state=> selectPersonPage(state).cast;
+export const selectPersonCrew =state=> selectPersonPage(state).crew;
+
 
 export const selectGetEx1 = (state) => state.personOne.person_id
 console.log('selectGetEx1: ' + { selectGetEx1 })      ///////////////////////
