@@ -28,8 +28,8 @@ const MovieList = () => {
     return (
         <Container>
             {error && !loading && <ErrorMessage />}
-            <Title>Popular movies</Title>
             {!error && loading && <Loader />}
+            {!error && !loading && <Title>Popular movies</Title>}
             {!error &&
                 !loading &&
                 movieList &&
