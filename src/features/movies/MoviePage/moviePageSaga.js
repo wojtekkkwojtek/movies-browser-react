@@ -3,7 +3,12 @@ import { API_KEY, URL } from '../../../common/assets/generalData/fetchedData'
 import { call, put, select, takeEvery } from 'redux-saga/effects'
 import { getMovieDetails } from '../../getApiData'
 
-import { fetchMoviePage, selectGetEx, setMovieDetails } from './moviePageSlice'
+import {
+    fetchMoviePage,
+    fetchMoviePageError,
+    selectGetEx,
+    setMovieDetails,
+} from './moviePageSlice'
 
 function* fetchMovieDetailsHandler() {
     try {
@@ -13,7 +18,7 @@ function* fetchMovieDetailsHandler() {
         const movieDetails = yield call(getMovieDetails, movie)
         yield put(setMovieDetails(movieDetails))
     } catch (error) {
-        yield call(alert, 'cos nie tak z details')
+        yield call(fetchMoviePageError)
     }
 }
 
