@@ -15,12 +15,13 @@ import {
     fetchPeopleListSuccess,
     fetchPeopleListError,
 } from './peopleListSlice';
+import {ErrorMessage} from "../../../common/components/ErrorMessage";
 
 
 const PeopleList = () => {
     const dispatch = useDispatch();
 
-    const { loading, peopleList } = useSelector(selectPeopleList);
+    const { loading, peopleList, error } = useSelector(selectPeopleList);
     console.log(loading, peopleList);
 
 
@@ -36,25 +37,26 @@ const PeopleList = () => {
 
     return (
         <Container>
-            <Title>Popular people</Title>
-            {loading ? (
-                <Loader />
-            ) : (
-                peopleList &&
-                peopleList.map((people) => (
-                    <>
-                        <PersonTile
-                            key={nanoid()}
-                            onClick={() => routeChange(people.id)}
-                            name={people.name}
-                            poster={people.profile_path}
-                        />
-                    </>
-                ))
-            )}
+            {error ? (
+                <ErrorMessage />
+            ) : loading ? (
+                <>
+                    <Title>Popular people</Title>
+                    <Loader />
+                </>
+            ) : peopleList && peopleList.map((people) => (
+                <>
+                    <PersonTile
+                        key={nanoid()}
+                        onClick={() => routeChange(people.id)}
+                        name={people.name}
+                        poster={people.profile_path}
+                    />
+                </>
+            )
+        )}
         </Container>
     )
 };
 
 export default PeopleList;
-
