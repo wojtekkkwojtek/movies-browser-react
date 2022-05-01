@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Tile } from '../../../common/components/Tiles/Tile'
 import { Loader } from '../../../common/components/Loader'
 import { nanoid } from 'nanoid'
@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { ErrorMessage } from '../../../common/components/ErrorMessage'
 import { Container } from '../../../common/components/Container'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectMovieList } from './movieListSlice'
+import { fetchMovieList, selectMovieList } from './movieListSlice'
 import { fetchMoviePage } from '../MoviePage/moviePageSlice'
 import { Title } from '../../../common/components/Title'
 
@@ -14,7 +14,14 @@ const MovieList = () => {
     // const dispatch = useDispatch()
 
     const { loading, movieList, error } = useSelector(selectMovieList)
+    const dispatch = useDispatch()
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            dispatch(fetchMovieList())
+        }, 2000)
+        return () => clearTimeout(timer)
+    }, [])
     const navigate = useNavigate()
     const routeChange = (id) => {
         navigate(`/movie/${id}`)
@@ -22,7 +29,6 @@ const MovieList = () => {
 
     const routeToMoviePage = (id) => {
         routeChange(id)
-        // dispatch(fetchMoviePage(id))
     }
 
     return (

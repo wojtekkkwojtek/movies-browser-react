@@ -10,16 +10,6 @@ import { useDispatch } from 'react-redux'
 import { fetchPeopleList } from '../../features/people/PeopleList/peopleListSlice'
 
 function App() {
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            dispatch(fetchMovieList())
-            dispatch(fetchPeopleList())
-        }, 1000)
-        return () => clearTimeout(timer)
-    }, [])
-
     return (
         <HashRouter>
             <Header />{' '}
