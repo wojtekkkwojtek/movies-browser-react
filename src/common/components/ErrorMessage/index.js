@@ -1,4 +1,3 @@
-import { toMovies } from '../../../core/App/routes'
 import {
     Announcement,
     GoBackButton,
@@ -6,6 +5,8 @@ import {
     StyledErrorImage,
     Wrapper,
 } from './styled'
+import { Link } from 'react-router-dom'
+import { toMovies } from '../../../core/App/routes'
 
 export const ErrorMessage = () => (
     <Wrapper>
@@ -14,6 +15,8 @@ export const ErrorMessage = () => (
         <Announcement>
             Please check your network connection and try again
         </Announcement>
-        <GoBackButton to={toMovies()}>Back to home page</GoBackButton>
+        <GoBackButton as={Link} to={toMovies()}>
+            Back to home page
+        </GoBackButton>
     </Wrapper>
 )
