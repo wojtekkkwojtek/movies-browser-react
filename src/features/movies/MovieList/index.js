@@ -1,20 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Tile } from '../../../common/components/Tiles/Tile'
 import { Loader } from '../../../common/components/Loader'
 import { nanoid } from 'nanoid'
 import { useNavigate } from 'react-router-dom'
-import { ErrorMessage } from "../../../common/components/ErrorMessage"
+import { ErrorMessage } from '../../../common/components/ErrorMessage'
 import { Container } from '../../../common/components/Container'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectMovieList } from './movieListSlice'
+import { fetchMovieList, selectMovieList } from './movieListSlice'
 import { fetchMoviePage } from '../MoviePage/moviePageSlice'
 import { Title } from '../../../common/components/Title'
 
 const MovieList = () => {
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
     const { loading, movieList, error } = useSelector(selectMovieList)
+    const dispatch = useDispatch()
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            dispatch(fetchMovieList())
+        }, 2000)
+        return () => clearTimeout(timer)
+    }, [])
     const navigate = useNavigate()
     const routeChange = (id) => {
         navigate(`/movie/${id}`)
@@ -22,23 +29,21 @@ const MovieList = () => {
 
     const routeToMoviePage = (id) => {
         routeChange(id)
-        dispatch(fetchMoviePage(id))
     }
 
     return (
         <Container>
-            {error ? (
-                <ErrorMessage />
-            ) : loading ? (
-                <> 
-                    <Title>Popular movies</Title>
-                    <Loader />
-                </>
-                ) : (
-                    movieList && movieList.map((movie) => (
-                        <React.Fragment key={movie.id}>
+            {error && !loading && <ErrorMessage />}
+            {!error && loading && <Loader />}
+            {!error && !loading && <Title>Popular movies</Title>}
+            {!error &&
+                !loading &&
+                movieList &&
+                movieList.map((movie) => (
+                    <React.Fragment key={movie.id}>
                         <Tile
-                            list
+                            isList
+                            nonInList
                             key={nanoid()}
                             onClick={() => routeToMoviePage(movie.id)}
                             title={movie.title}
@@ -49,9 +54,8 @@ const MovieList = () => {
                             votes={movie.vote_count}
                             genres={movie.genre_ids}
                         />
-                        </React.Fragment>
-                    ))
-                )}
+                    </React.Fragment>
+                ))}
         </Container>
     )
 }

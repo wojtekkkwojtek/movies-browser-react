@@ -1,19 +1,17 @@
-import { 
+import {
     Announcement,
     GoBackButton,
     Information,
     StyledErrorImage,
     Wrapper,
-} from "./styled";
-import { Link } from "react-router-dom";
-import { toMovies } from "../../../core/App/routes";
+} from './styled'
+import { Link } from 'react-router-dom'
+import { toMovies } from '../../../core/App/routes'
 
 export const ErrorMessage = () => (
     <Wrapper>
         <StyledErrorImage />
-        <Information>
-            Ooops! Something went wrong...
-        </Information>
+        <Information>Ooops! Something went wrong...</Information>
         <Announcement>
             Please check your network connection and try again
         </Announcement>
@@ -21,4 +19,4 @@ export const ErrorMessage = () => (
             Back to home page
         </GoBackButton>
     </Wrapper>
-);
+)

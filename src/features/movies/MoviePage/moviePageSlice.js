@@ -10,30 +10,22 @@ const moviePageSlice = createSlice({
         movie_id: null,
     },
     reducers: {
-        fetchMoviePage: (state, { payload: id }) => {
+        fetchMoviePage: (state) => {
             state.loading = true
             state.error = false
-            console.log(' fetchMoviePage ok?', id)
-            state.movie_id = id
         },
-        // fetchMoviePageSuccess: (state, { payload }) => {
-        //     state.loading = false
-        //     state.error = false
-        //     state.moviePage = payload
-        // },
-        // fetchMoviePageError: (state) => {
-        //     state.loading = false
-        //     state.error = true
-        // },
+        fetchMoviePageError: (state) => {
+            state.loading = false
+            state.error = true
+        },
+        fetchMoviePageSuccess: (state, { payload }) => {
+            state.loading = false
+            state.error = false
+            state.moviePage = payload
+        },
         // fetchActors: (state, { payload }) => {
         //     state.actors = payload.actors
         // },
-
-        setMovieDetails: (state, { payload: movieDetails }) => {
-            state.loading = false
-            state.moviePage = movieDetails
-            console.log('moviePage:', movieDetails)
-        },
     },
 })
 

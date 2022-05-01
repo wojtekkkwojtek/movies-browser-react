@@ -17,7 +17,7 @@ const Header = () => {
             <Container>
                 <NavContainer>
                     <IconVideo />
-                    <Title>movies browser</Title>
+                    <Title to={toMovies()}>movies browser</Title>
                     <StyledNavLink to={toMovies()}>movies</StyledNavLink>
                     <StyledNavLink to={toPeople()}>people</StyledNavLink>
                 </NavContainer>

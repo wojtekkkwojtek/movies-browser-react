@@ -15,12 +15,18 @@ import {
     Info,
 } from '../styled'
 import rateIcon from '../rateIcon.svg'
-import AllGenresData from '../../../assets/generalData/genreData.json'
 import { URLimage } from '../../../assets/generalData/fetchedData'
 import { nanoid } from 'nanoid'
+import { useSelector } from 'react-redux'
+import { selectMovieList } from '../../../../features/movies/MovieList/movieListSlice'
+// import {
+//     // fetchGenresList,
+//     selectGenres,
+// } from '../../../../features/genres/genresSlice'
 
 export const Tile = ({
-    list,
+    nonInList,
+    isList,
     onClick,
     title,
     poster,
@@ -34,9 +40,10 @@ export const Tile = ({
     votes,
     overview,
 }) => {
+    const { genresList } = useSelector(selectMovieList)
     return (
-        <TileContainer list={list} onClick={onClick}>
-            <Poster list={list} src={`${URLimage}${poster}`} alt="" />
+        <TileContainer isList={isList} onClick={onClick}>
+            <Poster isList={isList} src={`${URLimage}${poster}`} alt="" />
             <Content>
                 <Title>{title}</Title>
                 <Year>{year}</Year>
@@ -51,17 +58,17 @@ export const Tile = ({
                     <Info>Release date:</Info>
                     <InfoDetails>{date ? date : 'Unknown'}</InfoDetails>
                 </InfoWrapper>
-                <InfoWrapper list={list}>
+                <InfoWrapper isList={isList}>
                     {genres &&
                         genres.map((genre) => {
-                            return AllGenresData.genres.map((item) =>
+                            return genresList.map((item) =>
                                 item.id === genre ? (
                                     <Genres key={nanoid()}>{item.name}</Genres>
                                 ) : null
                             )
                         })}
                 </InfoWrapper>
-                <InfoWrapper>
+                <InfoWrapper nonInList={nonInList}>
                     {genres &&
                         genres.map((country) => (
                             <Genres>{country.name}</Genres>
