@@ -14,17 +14,18 @@ import {
 import { Title } from '../../../common/components/Title'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { ErrorMessage } from '../../../common/components/ErrorMessage'
 
 const MoviePage = () => {
     const dispatch = useDispatch()
     const { id } = useParams()
 
-    const { loading, moviePage } = useSelector(selectMoviePage)
     useEffect(() => {
         console.log('najnowszy:', id)
         dispatch(fetchMoviePage(id))
-        dispatch(setMovieDetails(id))
+        // dispatch(setMovieDetails(id))
     }, [dispatch, id])
+    const { error, loading, moviePage } = useSelector(selectMoviePage)
 
     console.log('id strony:', id)
     console.log('loading strony:', loading)
@@ -32,37 +33,36 @@ const MoviePage = () => {
     console.log('moviePage z useParams ID:', moviePage)
     return (
         <>
-            {loading ? (
-                <Loader />
-            ) : (
-                { moviePage } && (
-                    <>
-                        <MovieHeader
-                            original_title={moviePage.original_title}
-                            backdrop_path={moviePage.backdrop_path}
-                            vote_average={moviePage.vote_average}
-                            vote_count={moviePage.vote_count}
+            {error && !loading && <ErrorMessage />}
+            {!error && loading && <Loader />}
+            {!error && !loading}
+            {!error && !loading && moviePage && (
+                <>
+                    <MovieHeader
+                        original_title={moviePage.original_title}
+                        backdrop_path={moviePage.backdrop_path}
+                        vote_average={moviePage.vote_average}
+                        vote_count={moviePage.vote_count}
+                    />
+                    <Container>
+                        <Tile
+                            key={nanoid()}
+                            title={moviePage.title}
+                            poster={moviePage.poster_path}
+                            date={moviePage.release_date}
+                            // year={moviePage.release_date.slice(0, 4)}
+                            production="Production:"
+                            country={moviePage.production_countries}
+                            rate={moviePage.vote_average}
+                            score="/10"
+                            votes={moviePage.vote_count}
+                            overview={moviePage.overview}
+                            genres={moviePage.genres}
                         />
-                        <Container>
-                            <Tile
-                                key={nanoid()}
-                                title={moviePage.title}
-                                poster={moviePage.poster_path}
-                                date={moviePage.release_date}
-                                // year={moviePage.release_date.slice(0, 4)}
-                                production="Production:"
-                                country={moviePage.production_countries}
-                                rate={moviePage.vote_average}
-                                score="/10"
-                                votes={moviePage.vote_count}
-                                overview={moviePage.overview}
-                                genres={moviePage.genres}
-                            />
-                            <Title>Cast</Title>
-                            <Title>Crew</Title>
-                        </Container>
-                    </>
-                )
+                        <Title>Cast</Title>
+                        <Title>Crew</Title>
+                    </Container>
+                </>
             )}
         </>
     )
