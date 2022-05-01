@@ -14,23 +14,17 @@ const moviePageSlice = createSlice({
             state.loading = true
             state.error = false
         },
+        fetchMoviePageError: (state) => {
+            state.loading = false
+            state.error = true
+        },
         fetchMoviePageSuccess: (state, { payload }) => {
             state.loading = false
             state.error = false
             state.moviePage = payload
         },
-        fetchMoviePageError: (state) => {
-            state.loading = false
-            state.error = true
-        },
         // fetchActors: (state, { payload }) => {
         //     state.actors = payload.actors
-        // },
-
-        // setMovieDetails: (state, { payload: movieDetails }) => {
-        //     state.loading = false
-        //     state.moviePage = movieDetails
-        //     console.log('moviePage z slice:', movieDetails)
         // },
     },
 })

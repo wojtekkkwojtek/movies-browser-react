@@ -5,12 +5,7 @@ import { Loader } from '../../../common/components/Loader'
 import { Container } from '../../../common/components/Container'
 import { useDispatch, useSelector } from 'react-redux'
 
-import {
-    fetchMoviePage,
-    selectGetEx,
-    selectMoviePage,
-    setMovieDetails,
-} from './moviePageSlice'
+import { fetchMoviePage, selectMoviePage } from './moviePageSlice'
 import { Title } from '../../../common/components/Title'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
@@ -21,7 +16,6 @@ const MoviePage = () => {
     const { id } = useParams()
 
     useEffect(() => {
-        console.log('najnowszy:', id)
         dispatch(fetchMoviePage(id))
     }, [dispatch, id])
     const { error, loading, moviePage } = useSelector(selectMoviePage)
@@ -49,7 +43,7 @@ const MoviePage = () => {
                             title={moviePage.title}
                             poster={moviePage.poster_path}
                             date={moviePage.release_date}
-                            // year={moviePage.release_date.slice(0, 4)}
+                            year={moviePage.release_date.slice(0, 4)}
                             production="Production:"
                             country={moviePage.production_countries}
                             rate={moviePage.vote_average}
