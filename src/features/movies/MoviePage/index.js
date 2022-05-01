@@ -23,7 +23,6 @@ const MoviePage = () => {
     useEffect(() => {
         console.log('najnowszy:', id)
         dispatch(fetchMoviePage(id))
-        // dispatch(setMovieDetails(id))
     }, [dispatch, id])
     const { error, loading, moviePage } = useSelector(selectMoviePage)
 
