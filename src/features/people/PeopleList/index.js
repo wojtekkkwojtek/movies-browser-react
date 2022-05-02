@@ -6,7 +6,6 @@ import { PersonTile } from '../../../common/components/Tiles/PersonTile';
 import { Title } from "../../../common/components/Title";
 import { Loader } from '../../../common/components/Loader';
 import { Container } from '../../../common/components/Container';
-import { fetchPersonPage } from '../PersonPage/personPageSlice';
 import { selectPeopleList } from './peopleListSlice';
 
 const PeopleList = () => {
@@ -17,14 +16,14 @@ const PeopleList = () => {
 
 
     const navigate = useNavigate()
+    
     const routeChange = (id) => {
         navigate(`/people/${id}`)
     }
 
-    const routeToPersonPage = (id) => {
+    const routeToPerson = (id) => {
         routeChange(id)
-        dispatch(fetchPersonPage(id))
-        console.log('id-roote= ' + { id })  /////////////////////////
+        console.log('personId_in_PeopleList', id)
     }
 
 
@@ -39,7 +38,7 @@ const PeopleList = () => {
                     <React.Fragment key={people.id}>
                         <PersonTile
                             key={nanoid()}
-                            onClick={() => routeToPersonPage(people.id)}
+                            onClick={() => routeToPerson(people.id)}
                             name={people.name}
                             poster={people.profile_path}
                         />
