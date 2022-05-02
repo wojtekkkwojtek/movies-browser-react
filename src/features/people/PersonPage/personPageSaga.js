@@ -1,20 +1,24 @@
-import { API_KEY, URL, URLperson, URLpersonCredits } from '../../../common/assets/generalData/fetchedData';
-import { call, put, select, takeEvery } from 'redux-saga/effects';
-import { getPersonDetails } from '../../getApiData';
-import { fetchPersonPage, selectGetEx1, setPersonDetails, setPersonCredits } from './personPageSlice';
+import { API_KEY, URL, URLpersonDetails, URLpersonCredits } from '../../../common/assets/generalData/fetchedData';
+import { delay, all, call, put, select, takeEvery } from 'redux-saga/effects';
+import { getApiData, getPersonDetails } from '../../getApiData';
+import { fetchPersonPage, fetchPersonPageSuccess, setPersonCredits } from './personPageSlice';
 
-console.log('selectGetEx1= ', selectGetEx1);
-
-function* fetchPersonDetailsHandler() {
+function* fetchPersonDetailsHandler({ payload: personId }) {
+    //const personApiDetails = URLpersonDetails(personId);
+    const personApiDetails = `${URL}/person/${personId}?api_key=${API_KEY}`
+    const personApiCredits = URLpersonCredits(personId);
+    console.log('personId_w_saga', personId)   //////////////////////////////////////
+    
     try {
-        let personId = yield select(selectGetEx1);
-        //  const person = `${URL}/person/${personId}?api_key=${API_KEY}`;
-        const personApiDetails = URLperson(personId);
-        const personApiCredits = URLpersonCredits(personId);
-        const personDetails = yield call(getPersonDetails, personApiDetails);
-        yield put(setPersonDetails(personDetails));
-        const personCredits = yield call(getPersonDetails, personApiCredits);
-        yield put(setPersonCredits(personCredits));
+        yield delay(300)
+
+        const [personDetails, personCredits] = yield all([
+            call(getPersonDetails, personApiDetails),
+            //call(getApiData, personApiCredits)
+        ]);
+console.log('personDetails_inside_saga= ',personDetails)  ////////////////////////////////////
+        yield put(fetchPersonPageSuccess(personDetails));
+        //yield put(setPersonCredits(personCredits));
 
     } catch (error) {
         yield call(alert, 'cos nie tak z person_details');
