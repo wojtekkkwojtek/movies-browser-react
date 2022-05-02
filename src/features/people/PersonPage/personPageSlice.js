@@ -45,9 +45,12 @@ export const {
     fetchPersonPageError,
 } = personPageSlice.actions
 
+
 export const selectPersonPage = state => state.personPage
-export const selectLoading = (state) => state.loading
- export const selectError = (state) => state.error
+
+// export const selectPersonPage = state => state.personPage.personPage
+// export const selectLoading = (state) => state.personPage.loading
+// export const selectError = (state) => state.personPage.error
 
 //export const selectPersonCast = state => selectPersonDetails(state).cast;
 //export const selectPersonCrew = state => selectPersonDetails(state).crew;
