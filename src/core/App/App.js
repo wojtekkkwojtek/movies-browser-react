@@ -21,7 +21,7 @@ function App() {
         const timer = setTimeout(() => {
             dispatch(fetchMovieList())
             dispatch(fetchPeopleList())
-            dispatch(fetchPersonPage()) //?
+            dispatch(fetchPersonPage())
         }, 1000)
         return () => clearTimeout(timer)
     }, [])
