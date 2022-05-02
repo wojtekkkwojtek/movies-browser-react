@@ -13,6 +13,11 @@ const personPageSlice = createSlice({
             state.error = false;
         },
 
+        fetchPersonPageError: state => {
+            state.loading = false
+            state.error = true
+        },
+
         fetchPersonPageSuccess: (state, { payload }) => {
             state.loading = false
             state.error = false
@@ -41,12 +46,12 @@ export const {
 } = personPageSlice.actions
 
 export const selectPersonPage = state => state.personPage
-export const selectPersonPageDetails=state=>selectPersonPage(state);
+export const selectLoading = (state) => state.loading
+ export const selectError = (state) => state.error
 
 //export const selectPersonCast = state => selectPersonDetails(state).cast;
 //export const selectPersonCrew = state => selectPersonDetails(state).crew;
-//export const selectLoading = (state) => selectPersonDetails(state).loading
-// export const selectError = (state) => selectMoviePage(state).error
+
 
 
 export const personPageReducer = personPageSlice.reducer
