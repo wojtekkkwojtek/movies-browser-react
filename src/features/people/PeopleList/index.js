@@ -6,7 +6,7 @@ import { PersonTile } from '../../../common/components/Tiles/PersonTile';
 import { Title } from "../../../common/components/Title";
 import { Loader } from '../../../common/components/Loader';
 import { Container } from '../../../common/components/Container';
-import { fetchPersonPage } from '../PersonPage/personPageSlice';
+
 import {
     selectPeopleList,
     setPeopleList,
@@ -14,19 +14,24 @@ import {
     fetchPeopleListSuccess,
     fetchPeopleListError,
 } from './peopleListSlice';
-import {ErrorMessage} from "../../../common/components/ErrorMessage";
+import { ErrorMessage } from "../../../common/components/ErrorMessage";
 
-import { selectPeopleList } from './peopleListSlice';
+
 
 const PeopleList = () => {
-    const dispatch = useDispatch();
-
-    const { loading, peopleList } = useSelector(selectPeopleList);
+    const { loading, peopleList, error } = useSelector(selectPeopleList);
     console.log('loading, peopleList: ' + { loading, peopleList }); ///////////////////////
 
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            dispatch(fetchPeopleList())
+        }, 2000)
+        return () => clearTimeout(timer)
+    }, [])
 
     const navigate = useNavigate()
-    
+
     const routeChange = (id) => {
         navigate(`/people/${id}`)
     }
@@ -56,7 +61,7 @@ const PeopleList = () => {
                     />
                 </React.Fragment>
             )
-        )}
+            )}
         </Container>
     )
 };
