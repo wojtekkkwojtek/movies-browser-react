@@ -11,22 +11,21 @@ import { ErrorMessage } from '../../../common/components/ErrorMessage'
 
 const PersonPage = () => {
 
-    const personPage  = useSelector(selectPersonPage)
-    const loading = useSelector(selectLoading)
-    const error = useSelector(selectError)
+    const { personPage, loading, error } = useSelector(selectPersonPage)
+
     const dispatch = useDispatch();
 
     const { id } = useParams();
 
     console.log('id__in_PersonPage', id) /////////////////////////
-    console.log('loading strony personPage:', loading) //////////////////////
 
     useEffect(() => {
         dispatch(fetchPersonPage(id));
     }, [id, dispatch])
 
     console.log('personPage in index: ', personPage)
-
+    console.log('loading strony personPage:', loading) //////////////////////
+    console.log('error ', error)
     return (
         <>
             {error && !loading && <ErrorMessage />}
