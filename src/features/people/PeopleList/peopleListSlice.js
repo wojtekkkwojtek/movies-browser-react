@@ -46,5 +46,6 @@ export const selectPeopleList = (state) => state.people
 // export const selectTotalPages = (state) => selectPeopleList(state).totalPages
 // export const selectTotalResults = (state) => selectPeopleList(state).totalResults
 
-// export const getPeopleById = (state, peopleId) =>
+
+
 export const peopleListReducer = peopleListSlice.reducer

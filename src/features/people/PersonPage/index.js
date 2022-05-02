@@ -1,56 +1,50 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { PersonTile } from '../../../common/components/Tiles/PersonTile';
-import { Loader } from '../../../common/components/Loader';
-import { nanoid } from 'nanoid';
-import { useNavigate } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import { Container } from '../../../common/components/Container';
+import { useParams } from "react-router-dom"
+import { useSelector, useDispatch } from 'react-redux'
+import { nanoid } from 'nanoid'
+import { Tile } from '../../../common/components/Tiles/Tile'
+import { Loader } from '../../../common/components/Loader'
+import { Container } from '../../../common/components/Container'
+import { selectPersonPage, fetchPersonPage } from './personPageSlice'
+import { Title } from '../../../common/components/Title'
+import { useEffect } from "react"
 
+const PersonPage = () => {
 
-import {
-    fetchPersonList,
-    fetchPeopleListSuccess,
-    fetchPeopleListError,
-} from './personPageSlice';
-
-const Person = () => {
+    const personDetails = useSelector(selectPersonPage)
+    //const loading = useSelector(selectLoading)
+    const loading=true
     const dispatch = useDispatch();
 
-       // const navigate = useNavigate()
-    // const routeChange = (id) => {
-    //     navigate(`/people/${id}`)
-    // }
+    const { id } = useParams();
+    console.log('id_from_useParams_in_PersonPage', id)
 
- 
-    const routeToPeoplePage = (id) => {
-        routeChange(id)
-        dispatch(fetchPersonPage(id))
-    }
+
+    useEffect(() => {
+        dispatch(fetchPersonPage(id));
+    }, [id, dispatch])
+
 
     return (
-        <Container>
+        <>
             {loading ? (
                 <Loader />
             ) : (
-                peopleList &&
-                peopleList.map((people) => (
-                    <>
-                        <PersonTile
+                { personDetails } && (
+                    <Container>
+                        <Tile
                             key={nanoid()}
-                            onClick={
-                                () => routeChange(people.id)
-                                // (window.location.href = `/peoples-browser-react#/people/${people.id}`)
-                            }
-                            name={people.name}
-                            poster={people.profile_path}
+                            name={personDetails.name}
+                            poster={personDetails.profile_path}
+                            country={personDetails.place_of_bird}
+                            overview={personDetails.biography}
                         />
-                    </>
-                ))
+                        <Title>Cast</Title>
+                        <Title>Crew</Title>
+                    </Container>
+                )
             )}
-        </Container>
+        </>
     )
-};
+}
 
-export default PeopleList;
-
+export default PersonPage

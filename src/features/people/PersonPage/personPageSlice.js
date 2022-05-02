@@ -1,46 +1,52 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const personPageSlice = createSlice({
-    name: 'person',
+    name: 'personPage',
     initialState: {
-        personPage: null,
-        actors: null,
+        personPage: [],
         loading: false,
         error: false,
-        movie_id: null,
     },
     reducers: {
-        fetchPersonPage: (state, { payload: id }) => {
+        fetchPersonPage: state => {
             state.loading = true
-            state.error = false
-            console.log(' fetchPersonPage ok?', id)
-            state.people_id = id
+            state.error = false;
         },
-       
-        setPersonDetails: (state, { payload: personDetails }) => {
+
+        fetchPersonPageSuccess: (state, { payload }) => {
             state.loading = false
-            state.personPage = personDetails
-            console.log('personPage:', personDetails)
+            state.error = false
+            state.personPage = payload
+            console.log('personPage_in_fetch_payload:', payload)      ////////////////////////
         },
+        // setPersonDetails: (state, { payload: personDetails }) => {
+        //     state.loading = false
+        //     state.personPage = personDetails
+        //     console.log('personPage set:', personDetails) ////////////////////////
+        // },
+
+        // setPersonCredits: (state, { payload }) => {
+        //     state.cast = payload.cast;
+        //     state.crew = payload.crew;
+        // }
     },
 })
 
 export const {
-    setId,
     setPersonDetails,
+    setPersonCredits,
     fetchPersonPage,
     fetchPersonPageSuccess,
     fetchPersonPageError,
-
 } = personPageSlice.actions
 
-export const selectPersonPage = (state) => state.person
+export const selectPersonPage = state => state.personPage
+export const selectPersonPageDetails=state=>selectPersonPage(state);
 
-export const selectGetEx1 = (state) => state.person.people_id //?
-
-// export const selectLoading = (state) => selectMoviePage(state).loading
+//export const selectPersonCast = state => selectPersonDetails(state).cast;
+//export const selectPersonCrew = state => selectPersonDetails(state).crew;
+//export const selectLoading = (state) => selectPersonDetails(state).loading
 // export const selectError = (state) => selectMoviePage(state).error
-// export const selectActors = (state) => selectMoviePage(state).actors
-// export const selectMovie = (state) => selectMoviePage(state).moviePage
+
 
 export const personPageReducer = personPageSlice.reducer

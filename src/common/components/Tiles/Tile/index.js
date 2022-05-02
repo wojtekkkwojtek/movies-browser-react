@@ -31,6 +31,7 @@ export const Tile = ({
     title,
     poster,
     year,
+    event,
     country,
     production,
     date,
@@ -39,15 +40,17 @@ export const Tile = ({
     score,
     votes,
     overview,
+    person
+
 }) => {
     const { genresList } = useSelector(selectMovieList)
     return (
-        <TileContainer isList={isList} onClick={onClick}>
-            <Poster isList={isList} src={`${URLimage}${poster}`} alt="" />
-            <Content>
-                <Title>{title}</Title>
-                <Year>{year}</Year>
-                <InfoWrapper>
+        <TileContainer list={list} onClick={onClick}><Content>
+            <Poster list={list} src={`${URLimage}${poster}`} alt="" />
+            <div>
+                <Title person={person} list={list} >{title}</Title>
+                <Year list={list}>{year}</Year>
+                <InfoWrapper person={person}>
                     <Info>
                         {production}{' '}
                         {country &&
@@ -55,33 +58,35 @@ export const Tile = ({
                     </Info>
                 </InfoWrapper>
                 <InfoWrapper>
-                    <Info>Release date:</Info>
-                    <InfoDetails>{date ? date : 'Unknown'}</InfoDetails>
+                    <Info>{event}</Info>
+                    <InfoDetails poster={poster}>{date ? date : 'Unknown'}</InfoDetails>
                 </InfoWrapper>
-                <InfoWrapper isList={isList}>
+                <InfoWrapper person={person}>
                     {genres &&
                         genres.map((genre) => {
                             return genresList.map((item) =>
                                 item.id === genre ? (
-                                    <Genres key={nanoid()}>{item.name}</Genres>
+                                    <Genres list={list} key={nanoid()}>{item.name}</Genres>
                                 ) : null
                             )
                         })}
                 </InfoWrapper>
-                <InfoWrapper nonInList={nonInList}>
+                <InfoWrapper person={person}>
                     {genres &&
                         genres.map((country) => (
-                            <Genres>{country.name}</Genres>
+                            <Genres list={list}>{country.name}</Genres>
                         ))}
                 </InfoWrapper>
-                <InfoWrapper>
-                    <Icon src={rateIcon} alt="" />
-                    <Rate>{rate}</Rate>
-                    <Score>{score}</Score>
-                    <Score>{votes} votes</Score>
+                <InfoWrapper >
+                    <Icon person={person} src={rateIcon} alt="" />
+                    <Rate person={person} list={list}>{rate}</Rate>
+                    <Score person={person}>{score}</Score>
+                    <Score person={person}>{votes} </Score>
                 </InfoWrapper>
+                </div>
+                </Content>
                 <Overview>{overview}</Overview>
-            </Content>
+            
         </TileContainer>
     )
 }
