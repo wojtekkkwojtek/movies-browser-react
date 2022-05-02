@@ -1,5 +1,5 @@
-export const API_KEY = process.env.REACT_APP_API_KEY
-
+//export const API_KEY = process.env.REACT_APP_API_KEY
+export const API_KEY="5a59313a8c2952c7e8707cf61f724f36";
 export const URL = 'https://api.themoviedb.org/3'
 
 export const URLgenres = `${URL}/genre/movie/list?api_key=${API_KEY}`
