@@ -8,7 +8,7 @@ function* fetchPersonDetailsHandler({ payload: personId }) {
     const personApiDetails = `${URL}/person/${personId}?api_key=${API_KEY}`
     const personApiCredits = URLpersonCredits(personId);
     console.log('personId_w_saga', personId)   //////////////////////////////////////
-    
+
     try {
         yield delay(300)
 
@@ -16,7 +16,7 @@ function* fetchPersonDetailsHandler({ payload: personId }) {
             call(getPersonDetails, personApiDetails),
             //call(getApiData, personApiCredits)
         ]);
-console.log('personDetails_inside_saga= ',personDetails)  ////////////////////////////////////
+        console.log('personDetails_inside_saga= ', personDetails)  ////////////////////////////////////
         yield put(fetchPersonPageSuccess(personDetails));
         //yield put(setPersonCredits(personCredits));
 
