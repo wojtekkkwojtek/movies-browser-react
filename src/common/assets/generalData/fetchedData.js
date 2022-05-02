@@ -10,7 +10,7 @@ export const URLmovie = `${URL}/movie/popular?api_key=${API_KEY}`
 
 export const URLpeople = `${URL}/person/popular?api_key=${API_KEY}`
 
-export const URLperson = personId => `${URL}person/${personId}/credits?api_key=${API_KEY}`
+export const URLpersonDetails = personId => `${URL}person/${personId}?api_key=${API_KEY}`
 
 export const URLpersonCredits = personId => `${URL}/${personId}/credits?api_key=${API_KEY}`
 
