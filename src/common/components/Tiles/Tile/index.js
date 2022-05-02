@@ -26,7 +26,7 @@ import { selectMovieList } from '../../../../features/movies/MovieList/movieList
 
 export const Tile = ({
     nonInList,
-    isList,
+    list,
     onClick,
     title,
     poster,
