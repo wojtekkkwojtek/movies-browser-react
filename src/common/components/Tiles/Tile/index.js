@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    list,
+    isList,
     details,
     Content,
     Poster,
@@ -28,7 +28,7 @@ import { selectMovieList } from '../../../../features/movies/MovieList/movieList
 
 export const Tile = ({
     nonInList,
-    list,
+    isList,
     details,
     movie,
     onClick,
@@ -54,11 +54,11 @@ export const Tile = ({
 }) => {
     const { genresList } = useSelector(selectMovieList)
     return (
-        <TileContainer list={list} details={details} onClick={onClick}><Content>
-            <Poster details={details} list={list} src={`${URLimage}${poster}`} alt="" />
+        <TileContainer isList={isList} details={details} onClick={onClick}><Content>
+            <Poster details={details} isList={isList} src={`${URLimage}${poster}`} alt="" />
             <div>
-                <Title details={details} person={person} list={list} >{title}</Title>
-                <Year list={list}>{year}</Year>
+                <Title details={details} person={person} isList={isList} >{title}</Title>
+                <Year isList={isList}>{year}</Year>
                 <Info person={person}>{production}</Info>
                 <Info movie={movie} >  {bird}{date_of_bird ? date_of_bird : 'Unknown'}  </Info>
                 <Info person={person} details={details}>  {release}{release_date ? release_date : 'Unknown'}</Info>
@@ -71,7 +71,7 @@ export const Tile = ({
                         genres.map((genre) => {
                             return genresList.map((item) =>
                                 item.id === genre ? (
-                                    <Genres list={list} key={nanoid()}>{item.name}</Genres>
+                                    <Genres isList={isList} key={nanoid()}>{item.name}</Genres>
                                 ) : null
                             )
                         })}
@@ -79,12 +79,12 @@ export const Tile = ({
                 <InfoWrapper person={person}>
                     {genres &&
                         genres.map((country) => (
-                            <Genres list={list}>{country.name}</Genres>
+                            <Genres isList={isList}>{country.name}</Genres>
                         ))}
                 </InfoWrapper>
                 <InfoWrapper rates >
                     <Icon person={person} src={rateIcon} alt="" />
-                    <Rate person={person} list={list}>{rate}</Rate>
+                    <Rate person={person} isList={isList}>{rate}</Rate>
                     <Score person={person}>{score}</Score>
                     <Score person={person}>{votes} </Score>
                 </InfoWrapper>
