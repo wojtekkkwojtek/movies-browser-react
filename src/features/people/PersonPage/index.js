@@ -34,11 +34,15 @@ const PersonPage = () => {
             {!error && !loading && personPage && (
                 <>
                     <Container>
-                        <Tile
+                        <Tile details person
                             key={nanoid()}
-                            name={personPage.name}
+                            title={personPage.name}
+                            bird="Date of bird: "
+                            date_of_bird={personPage.birthday}
+                            place="Place of bird: "
+                            place_of_bird={personPage.place_of_bird}
                             poster={personPage.profile_path}
-                            country={personPage.place_of_bird}
+
                             overview={personPage.biography}
                         />
                         <Title>Cast</Title>
