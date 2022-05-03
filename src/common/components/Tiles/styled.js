@@ -228,7 +228,6 @@ export const Score = styled.li`
 
 export const Overview = styled.p`
     font-size: 20px;
-    margin: 0 8px;
     line-height: 1.6;
     text-align: justify;
 
