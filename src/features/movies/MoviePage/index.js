@@ -47,7 +47,6 @@ const MoviePage = () => {
                             production="Production:"
                             country={moviePage.production_countries}
                             release={'Release date: '}
-                            release_date={moviePage.release_date}
                             rate={moviePage.vote_average}
                             score="/10"
                             votes={moviePage.vote_count}
