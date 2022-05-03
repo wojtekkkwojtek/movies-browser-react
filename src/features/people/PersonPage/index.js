@@ -21,11 +21,12 @@ const PersonPage = () => {
 
     useEffect(() => {
         dispatch(fetchPersonPage(id));
-    }, [id, dispatch])
 
+    }, [id, dispatch])
+    console.log('fetchPrsonPage(id): ', fetchPersonPage(id))
     console.log('personPage in index: ', personPage)
     console.log('loading strony personPage:', loading) //////////////////////
-    console.log('error ', error)
+    //console.log('error ', error)
     return (
         <>
             {error && !loading && <ErrorMessage />}
