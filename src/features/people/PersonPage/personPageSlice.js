@@ -24,16 +24,12 @@ const personPageSlice = createSlice({
             state.personPage = payload
             console.log('personPage_in_fetch_payload:', payload)      ////////////////////////
         },
-        // setPersonDetails: (state, { payload: personDetails }) => {
-        //     state.loading = false
-        //     state.personPage = personDetails
-        //     console.log('personPage set:', personDetails) ////////////////////////
-        // },
-
-        // setPersonCredits: (state, { payload }) => {
-        //     state.cast = payload.cast;
-        //     state.crew = payload.crew;
-        // }
+       
+        setPersonCredits: (state, { payload }) => {
+            state.cast = payload.cast;
+            state.crew = payload.crew;
+            console.log('credits ', payload)
+        }
     },
 })
 
