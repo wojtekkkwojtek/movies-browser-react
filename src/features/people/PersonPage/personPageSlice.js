@@ -44,6 +44,8 @@ export const {
 
 export const selectPersonPage = state => state.personPage
 
+export const selectPersonCast=state=>state.crew.cast
+
 // export const selectPersonPage = state => state.personPage.personPage
 // export const selectLoading = (state) => state.personPage.loading
 // export const selectError = (state) => state.personPage.error
