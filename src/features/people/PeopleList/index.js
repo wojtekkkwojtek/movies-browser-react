@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { PersonTile } from '../../../common/components/Tiles/PersonTile';
@@ -16,6 +17,7 @@ import {
     fetchPeopleListError,
 } from './peopleListSlice';
 import {ErrorMessage} from "../../../common/components/ErrorMessage";
+import { Pagination } from "../../../common/components/Pagination";
 
 
 const PeopleList = () => {
@@ -36,6 +38,7 @@ const PeopleList = () => {
     }
 
     return (
+        <React.Fragment>
         <Container>
             {error ? (
                 <ErrorMessage />
@@ -52,10 +55,13 @@ const PeopleList = () => {
                         name={people.name}
                         poster={people.profile_path}
                     />
+                    
                 </>
             )
         )}
         </Container>
+        <Pagination />
+        </React.Fragment>
     )
 };
 

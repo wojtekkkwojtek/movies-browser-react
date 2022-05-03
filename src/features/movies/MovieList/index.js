@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchMovieList, selectMovieList } from './movieListSlice'
 import { fetchMoviePage } from '../MoviePage/moviePageSlice'
 import { Title } from '../../../common/components/Title'
+import { Pagination } from "../../../common/components/Pagination"
 
 const MovieList = () => {
     // const dispatch = useDispatch()
@@ -32,6 +33,7 @@ const MovieList = () => {
     }
 
     return (
+        <React.Fragment>
         <Container>
             {error && !loading && <ErrorMessage />}
             {!error && loading && <Loader />}
@@ -57,6 +59,8 @@ const MovieList = () => {
                     </React.Fragment>
                 ))}
         </Container>
+        <Pagination></Pagination>
+        </React.Fragment>    
     )
 }
 
