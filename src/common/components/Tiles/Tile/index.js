@@ -1,6 +1,7 @@
 import React from 'react'
 import {
     list,
+    details,
     Content,
     Poster,
     Title,
@@ -28,39 +29,48 @@ import { selectMovieList } from '../../../../features/movies/MovieList/movieList
 export const Tile = ({
     nonInList,
     list,
+    details,
+    movie,
     onClick,
     title,
     poster,
     year,
-    event,
     country,
     production,
+    release,
+    release_date,
     date,
     genres,
     rate,
     score,
     votes,
     overview,
-    person
+    person,
+    bird,
+    date_of_bird,
+    place,
+    place_of_bird
 
 }) => {
     const { genresList } = useSelector(selectMovieList)
     return (
-        <TileContainer list={list} onClick={onClick}><Content>
-            <Poster list={list} src={`${URLimage}${poster}`} alt="" />
+        <TileContainer list={list} details={details} onClick={onClick}><Content>
+            <Poster details={details} list={list} src={`${URLimage}${poster}`} alt="" />
             <div>
-                <Title person={person} list={list} >{title}</Title>
+                <Title details={details} person={person} list={list} >{title}</Title>
                 <Year list={list}>{year}</Year>
-                <InfoWrapper person={person}>
-                    <Info>
-                        {production}{' '}
-                        {country &&
-                            country.map((country) => country.name).join(', ')}
-                    </Info>
-                </InfoWrapper>
                 <InfoWrapper>
-                    <Info>{event}</Info>
-                    <InfoDetails poster={poster}>{date ? date : 'Unknown'}</InfoDetails>
+                    <Info >{production}</Info>
+                </InfoWrapper>
+
+                <Info movie={movie} person={person}>  {bird}{date_of_bird ? date_of_bird : 'Unknown'}  </Info>
+                <Info details={details}>  {release}{release_date ? release_date : 'Unknown'}</Info>
+
+                <InfoWrapper movie={movie}>  <Info movie={movie} person={person}>{place} {place_of_bird ? place_of_bird : 'Unknown'}</Info> </InfoWrapper>
+
+                <InfoWrapper movie={movie} person={person}>
+
+                    <InfoDetails movie={movie} person={person} poster={poster}>{date ? date : 'Unknown'}</InfoDetails>
                 </InfoWrapper>
                 <InfoWrapper person={person}>
                     {genres &&
@@ -78,16 +88,16 @@ export const Tile = ({
                             <Genres list={list}>{country.name}</Genres>
                         ))}
                 </InfoWrapper>
-                <InfoWrapper >
+                <InfoWrapper rates >
                     <Icon person={person} src={rateIcon} alt="" />
                     <Rate person={person} list={list}>{rate}</Rate>
                     <Score person={person}>{score}</Score>
                     <Score person={person}>{votes} </Score>
                 </InfoWrapper>
-                </div>
-                </Content>
-                <Overview>{overview}</Overview>
-            
+            </div>
+        </Content>
+            <Overview>{overview}</Overview>
+
         </TileContainer>
     )
 }
