@@ -1,7 +1,7 @@
 import { URLpersonDetails, URLpersonCredits } from '../../../common/assets/generalData/fetchedData';
 import { delay, all, call, put, select, takeEvery } from 'redux-saga/effects';
 import { getApiData, getPersonDetails } from '../../getApiData';
-import { fetchPersonPage, fetchPersonPageSuccess, setPersonCredits } from './personPageSlice';
+import { fetchPersonPage, fetchPersonPageError, fetchPersonPageSuccess, setPersonCredits } from './personPageSlice';
 
 function* fetchPersonDetailsHandler({ payload: personId }) {
     const personApiDetails = URLpersonDetails(personId);
@@ -17,10 +17,10 @@ function* fetchPersonDetailsHandler({ payload: personId }) {
         ]);
         console.log('personDetails_inside_saga= ', personDetails)  ////////////////////////////////////
         yield put(fetchPersonPageSuccess(personDetails));
-        //yield put(setPersonCredits(personCredits));
+        yield put(setPersonCredits(personCredits));
         console.log('credits ',personCredits )
     } catch (error) {
-        yield call(alert, 'cos nie tak z person_details');
+        yield call(fetchPersonPageError);
     }
 }
 
