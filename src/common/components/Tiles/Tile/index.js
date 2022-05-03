@@ -60,16 +60,12 @@ export const Tile = ({
                 <Title details={details} person={person} list={list} >{title}</Title>
                 <Year list={list}>{year}</Year>
                 <InfoWrapper>
-                    <Info >{production}</Info>
+                    <Info person={person}>{production}</Info>
                 </InfoWrapper>
-
-                <Info movie={movie} person={person}>  {bird}{date_of_bird ? date_of_bird : 'Unknown'}  </Info>
-                <Info details={details}>  {release}{release_date ? release_date : 'Unknown'}</Info>
-
-                <InfoWrapper movie={movie}>  <Info movie={movie} person={person}>{place} {place_of_bird ? place_of_bird : 'Unknown'}</Info> </InfoWrapper>
-
+                <Info movie={movie} >  {bird}{date_of_bird ? date_of_bird : 'Unknown'}  </Info>
+                <Info person={person} details={details}>  {release}{release_date ? release_date : 'Unknown'}</Info>
+                <Info movie={movie} >{place} {place_of_bird ? place_of_bird : 'Unknown'}</Info>
                 <InfoWrapper movie={movie} person={person}>
-
                     <InfoDetails movie={movie} person={person} poster={poster}>{date ? date : 'Unknown'}</InfoDetails>
                 </InfoWrapper>
                 <InfoWrapper person={person}>
