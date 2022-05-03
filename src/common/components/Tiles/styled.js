@@ -129,7 +129,9 @@ export const Info = styled.div`
         display: none;
     `}
 
-   
+    ${({ person }) => person && css`
+       display: none;
+    `}
 
 `;
 
