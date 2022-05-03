@@ -32,8 +32,7 @@ export const Poster = styled.img`
     display: block;
     border-radius: 5px;
     float: left;
-    margin:  0 16px 0 -16px;
-
+   
     /* ${({ list }) =>
         list &&
         css`
@@ -91,13 +90,6 @@ export const InfoWrapper = styled.ul`
     flex-wrap: wrap;
     padding-left: 0;
     margin: 16p x-8px;
-
-/* ${({ list }) =>
-        list &&
-        css`
-        display: flex;
-        flex-direction: column;
-    `} */
 
     ${({ person }) => person && css`
         display: none;
@@ -177,13 +169,11 @@ export const Rate = styled.li`
     ${({ list }) => list && css`
         font-weight:600;
         font-size: 16px;
-        
     `}
 
     ${({ person }) => person && css`
        display: none;
     `}
-
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 13px;
@@ -208,8 +198,6 @@ export const Overview = styled.p`
     font-size: 20px;
     margin: 0 8px;
     line-height: 1.6;
-
-
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 14px;
