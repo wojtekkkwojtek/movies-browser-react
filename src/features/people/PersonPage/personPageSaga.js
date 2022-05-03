@@ -1,11 +1,10 @@
-import { API_KEY, URL, URLpersonDetails, URLpersonCredits } from '../../../common/assets/generalData/fetchedData';
+import { URLpersonDetails, URLpersonCredits } from '../../../common/assets/generalData/fetchedData';
 import { delay, all, call, put, select, takeEvery } from 'redux-saga/effects';
 import { getApiData, getPersonDetails } from '../../getApiData';
 import { fetchPersonPage, fetchPersonPageSuccess, setPersonCredits } from './personPageSlice';
 
 function* fetchPersonDetailsHandler({ payload: personId }) {
-    //const personApiDetails = URLpersonDetails(personId);
-    const personApiDetails = `${URL}/person/${personId}?api_key=${API_KEY}`
+    const personApiDetails = URLpersonDetails(personId);
     const personApiCredits = URLpersonCredits(personId);
     console.log('personId_w_saga', personId)   //////////////////////////////////////
 
@@ -14,12 +13,12 @@ function* fetchPersonDetailsHandler({ payload: personId }) {
 
         const [personDetails, personCredits] = yield all([
             call(getPersonDetails, personApiDetails),
-            //call(getApiData, personApiCredits)
+            call(getApiData, personApiCredits)
         ]);
         console.log('personDetails_inside_saga= ', personDetails)  ////////////////////////////////////
         yield put(fetchPersonPageSuccess(personDetails));
         //yield put(setPersonCredits(personCredits));
-
+        console.log('credits ',personCredits )
     } catch (error) {
         yield call(alert, 'cos nie tak z person_details');
     }
