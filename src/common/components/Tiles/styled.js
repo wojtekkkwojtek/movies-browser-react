@@ -19,9 +19,13 @@ export const TileContainer = styled.div`
         margin: 0px;
     `}
 
+    ${({ details }) => details && css`
+      
+    `}
+
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        /* display: flex;
-        flex-direction: column; */
+        display: flex;
+        flex-direction: column;
         padding: 16px;
     }
 `;
@@ -38,6 +42,11 @@ export const Poster = styled.img`
         css`
             width: 177px;
         `} */
+
+    ${({ details }) => details && css`
+       float:left;
+       margin-right: 40px;
+    `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 114px;
@@ -89,9 +98,13 @@ export const InfoWrapper = styled.ul`
     display: flex;
     flex-wrap: wrap;
     padding-left: 0;
-    margin: 16p x-8px;
+    margin: 16p -8px;
 
     ${({ person }) => person && css`
+        display: none;
+    `}
+
+    ${({ movie }) => movie && css`
         display: none;
     `}
 
@@ -99,6 +112,11 @@ export const InfoWrapper = styled.ul`
         display: flex;
         flex-direction: column;
     }
+    
+    ${({ rates }) => rates && css`
+       disply: 🌐 
+       grid-tempale:columns ////////////////////////
+    `}
 `;
 
 export const Info = styled.div`
@@ -106,6 +124,13 @@ export const Info = styled.div`
     line-height: 1.2;
     color: ${({ theme }) => theme.color.stormGray};
     margin: 0 0 8px 8px;
+
+    ${({ movie }) => movie && css`
+        display: none;
+    `}
+
+   
+
 `;
 
 export const InfoDetails = styled.li`
@@ -117,16 +142,21 @@ export const InfoDetails = styled.li`
        display: none;
     `}
 
+    ${({ movie }) => movie && css`
+        display: none;
+    `}
+
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
     font-size: 12px;
     }
+
 `;
 
 export const Genres = styled.li`
     padding: 8px 16px;
     background-color: ${({ theme }) => theme.color.mystic};
     font-size: 14px;
-    margin: 16px 8px 8px 8px;
+    margin: 8px 16px 8px 0px;
     border-radius: 5px;
 
     ${({ list }) => list && css`
@@ -145,7 +175,7 @@ export const Icon = styled.img`
     width: 24px;
     height: 22.87px;
     color: ${({ theme }) => theme.color.candlelight};
-    margin: 27.09px 0 - 8px 8px;
+   // margin: 27.09px 0 - 8px 8px;
 
     ${({ big }) => big && css`
         width: 40px;
@@ -198,6 +228,7 @@ export const Overview = styled.p`
     font-size: 20px;
     margin: 0 8px;
     line-height: 1.6;
+    text-align: justify;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 14px;
