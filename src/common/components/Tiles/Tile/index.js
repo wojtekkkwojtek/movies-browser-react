@@ -59,9 +59,7 @@ export const Tile = ({
             <div>
                 <Title details={details} person={person} list={list} >{title}</Title>
                 <Year list={list}>{year}</Year>
-                <InfoWrapper>
-                    <Info person={person}>{production}</Info>
-                </InfoWrapper>
+                <Info person={person}>{production}</Info>
                 <Info movie={movie} >  {bird}{date_of_bird ? date_of_bird : 'Unknown'}  </Info>
                 <Info person={person} details={details}>  {release}{release_date ? release_date : 'Unknown'}</Info>
                 <Info movie={movie} >{place} {place_of_bird ? place_of_bird : 'Unknown'}</Info>

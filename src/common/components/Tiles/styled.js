@@ -114,8 +114,8 @@ export const InfoWrapper = styled.ul`
     }
     
     ${({ rates }) => rates && css`
-       disply: 🌐 
-       grid-tempale:columns ////////////////////////
+     
+       
     `}
 `;
 
@@ -187,6 +187,8 @@ export const Icon = styled.img`
     ${({ person }) => person && css`
        display: none;
     `}
+
+    
 `;
 
 export const Rate = styled.li`
