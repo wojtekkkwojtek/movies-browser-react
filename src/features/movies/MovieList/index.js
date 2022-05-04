@@ -42,7 +42,7 @@ const MovieList = () => {
                 movieList.map((movie) => (
                     <React.Fragment key={movie.id}>
                         <Tile
-                           list
+                           islist
                             nonInList
                             key={nanoid()}
                             onClick={() => routeToMoviePage(movie.id)}
