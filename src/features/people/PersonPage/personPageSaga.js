@@ -13,9 +13,10 @@ function* fetchPersonDetailsHandler({ payload: personId }) {
 
         const [personDetails, personCredits] = yield all([
             call(getPersonDetails, personApiDetails),
-            call(getApiData, personApiCredits)
+            call(getPersonDetails, personApiCredits)
         ]);
         console.log('personDetails_inside_saga= ', personDetails)  ////////////////////////////////////
+        console.log('personCredits_inside_saga= ', personCredits)  ///
         yield put(fetchPersonPageSuccess(personDetails));
         yield put(setPersonCredits(personCredits));
         console.log('credits ',personCredits )
