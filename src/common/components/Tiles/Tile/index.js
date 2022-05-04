@@ -47,7 +47,8 @@ export const Tile = ({
     birth,
     date_of_birth,
     place,
-    place_of_birth
+    place_of_birth,
+    character,
 
 }) => {
     const { genresList } = useSelector(selectMovieList)
@@ -57,7 +58,9 @@ export const Tile = ({
                 <Poster details={details} isList={isList} src={`${URLimage}${poster}`} alt="" />
                 <div>
                     <Title isList={isList} details={details} person={person}  >{title}</Title>
+                    <InfoWrapper><Info  >{character}</Info></InfoWrapper>
                     <Year isList={isList}>{year}</Year>
+
                     <Info isList={isList} person={person}>{production}</Info>
                     <Info isList={isList} movie={movie} >  {birth}{date_of_birth ? date_of_birth : 'Unknown'}  </Info>
                     <Info isList={isList} person={person} details={details}>  {release}{release_date ? release_date : 'Unknown'}</Info>
@@ -65,7 +68,7 @@ export const Tile = ({
                     <InfoWrapper isList={isList} movie={movie} person={person}>
                         <InfoDetails movie={movie} person={person} poster={poster}>{date ? date : 'Unknown'}</InfoDetails>
                     </InfoWrapper>
-                    <InfoWrapper  person={person}>
+                    <InfoWrapper person={person}>
                         {genres &&
                             genres.map((genre) => {
                                 return genresList.map((item) =>
