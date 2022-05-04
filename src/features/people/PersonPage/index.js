@@ -4,15 +4,20 @@ import { nanoid } from 'nanoid'
 import { Tile } from '../../../common/components/Tiles/Tile'
 import { Loader } from '../../../common/components/Loader'
 import { Container } from '../../../common/components/Container'
-import { selectPersonPage, fetchPersonPage, selectError, selectLoading } from './personPageSlice'
+import { selectPersonPage, fetchPersonPage, selectPersonCast } from './personPageSlice'
 import { Title } from '../../../common/components/Title'
 import { useEffect } from "react"
 import { ErrorMessage } from '../../../common/components/ErrorMessage'
+import {PersonCast} from './PersonCast'
+import { PersonInfo } from "./PersonInfo"
 
 const PersonPage = () => {
 
-    const { personPage, loading, error } = useSelector(selectPersonPage)
+    const {personPage, loading, error } = useSelector(selectPersonPage)
+    const personCast= useSelector(selectPersonCast)
 
+console.log('personCast in index: ', personCast )
+//console.log('personCast(id) in index: ', personCast )
     const dispatch = useDispatch();
 
     const { id } = useParams();
@@ -46,6 +51,7 @@ const PersonPage = () => {
 
                             overview={personPage.biography}
                         />
+                        {/* <PersonInfo /> */}
                         <Title>Cast</Title>
                         <Title>Crew</Title>
                     </Container>
