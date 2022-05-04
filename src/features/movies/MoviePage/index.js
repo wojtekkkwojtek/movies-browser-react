@@ -10,6 +10,7 @@ import { Title } from '../../../common/components/Title'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { ErrorMessage } from '../../../common/components/ErrorMessage'
+import { PersonTile } from '../../../common/components/Tiles/PersonTile'
 
 const MoviePage = () => {
     const dispatch = useDispatch()
@@ -18,7 +19,7 @@ const MoviePage = () => {
     useEffect(() => {
         dispatch(fetchMoviePage(id))
     }, [dispatch, id])
-    const { error, loading, moviePage } = useSelector(selectMoviePage)
+    const { error, loading, moviePage, actors } = useSelector(selectMoviePage)
 
     console.log('id strony:', id)
     console.log('loading strony:', loading)
@@ -38,7 +39,9 @@ const MoviePage = () => {
                         vote_count={moviePage.vote_count}
                     />
                     <Container>
-                        <Tile details movie
+                        <Tile
+                            details
+                            movie
                             key={nanoid()}
                             title={moviePage.title}
                             poster={moviePage.poster_path}
@@ -54,6 +57,10 @@ const MoviePage = () => {
                             genres={moviePage.genres}
                         />
                         <Title>Cast</Title>
+                        <PersonTile
+                            title={actors.original_name}
+                            isName={actors.name}
+                        />
                         <Title>Crew</Title>
                     </Container>
                 </>

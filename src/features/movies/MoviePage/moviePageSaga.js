@@ -4,6 +4,7 @@ import { call, delay, put, takeLatest } from 'redux-saga/effects'
 import { getMovieDetails } from '../../getApiData'
 
 import {
+    fetchActors,
     fetchMoviePage,
     fetchMoviePageError,
     fetchMoviePageSuccess,
@@ -18,6 +19,7 @@ function* fetchMovieDetailsHandler({ payload: id }) {
 
         const cast = `${URL}/movie/${id}/credits?api_key=${API_KEY}`
         const castInMovie = yield call(getMovieDetails, cast)
+        yield put(fetchActors(castInMovie))
         console.log(castInMovie)
     } catch (error) {
         yield call(fetchMoviePageError)
