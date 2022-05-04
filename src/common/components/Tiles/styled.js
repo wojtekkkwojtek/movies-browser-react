@@ -9,7 +9,7 @@ export const TileContainer = styled.div`
     grid-gap: 40px;
     margin: 64px auto 0;
 
-    ${({ list }) => list && css`
+    ${({ isList }) => isList && css`
         width: 324px;
         height: auto;
         padding: 16px;
@@ -37,8 +37,8 @@ export const Poster = styled.img`
     border-radius: 5px;
     float: left;
    
-    /* ${({ list }) =>
-        list &&
+    /* ${({ isList }) =>
+        isList &&
         css`
             width: 177px;
         `} */
@@ -55,7 +55,7 @@ export const Poster = styled.img`
 
 export const Content = styled.div`
 
-    ${({ list }) => list && css`
+    ${({ isList }) => isList && css`
         text-align: center;
         margin-right: 8px;
         padding: 0px;
@@ -66,7 +66,7 @@ export const Title = styled.header`
     font-weight: 600;
     font-size: 36px;
 
-    ${({ list }) => list && css`
+    ${({ isList }) => isList && css`
         font-weight:500;
         font-size: 22px;
         margin: 8px 0 8px;
@@ -81,7 +81,7 @@ export const Year = styled.div`
     font-size: 22px;
     margin: 24px 0;
 
-    ${({ list }) => list && css`
+    ${({ isList }) => isList && css`
         font-weight:400;
         font-size: 16px;
         margin: 8px 0 0  0;
@@ -161,7 +161,7 @@ export const Genres = styled.li`
     margin: 8px 16px 8px 0px;
     border-radius: 5px;
 
-    ${({ list }) => list && css`
+    ${({ isList }) => isList && css`
         font-weight:400;
         font-size: 14px;
         margin: 8px 8px 0 0;
@@ -200,7 +200,7 @@ export const Rate = styled.li`
     align-items: center;
     margin: 27.09px 8px;
 
-    ${({ list }) => list && css`
+    ${({ isList }) => isList && css`
         font-weight:600;
         font-size: 16px;
     `}
