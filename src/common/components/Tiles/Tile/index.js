@@ -44,10 +44,10 @@ export const Tile = ({
     votes,
     overview,
     person,
-    bird,
-    date_of_bird,
+    birth,
+    date_of_birth,
     place,
-    place_of_bird
+    place_of_birth
 
 }) => {
     const { genresList } = useSelector(selectMovieList)
@@ -59,9 +59,9 @@ export const Tile = ({
                     <Title isList={isList} details={details} person={person}  >{title}</Title>
                     <Year isList={isList}>{year}</Year>
                     <Info isList={isList} person={person}>{production}</Info>
-                    <Info isList={isList} movie={movie} >  {bird}{date_of_bird ? date_of_bird : 'Unknown'}  </Info>
+                    <Info isList={isList} movie={movie} >  {birth}{date_of_birth ? date_of_birth : 'Unknown'}  </Info>
                     <Info isList={isList} person={person} details={details}>  {release}{release_date ? release_date : 'Unknown'}</Info>
-                    <Info isList={isList} movie={movie} >{place} {place_of_bird ? place_of_bird : 'Unknown'}</Info>
+                    <Info isList={isList} movie={movie} >{place} {place_of_birth ? place_of_birth : 'Unknown'}</Info>
                     <InfoWrapper isList={isList} movie={movie} person={person}>
                         <InfoDetails movie={movie} person={person} poster={poster}>{date ? date : 'Unknown'}</InfoDetails>
                     </InfoWrapper>

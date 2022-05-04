@@ -8,8 +8,8 @@ import { selectPersonPage, fetchPersonPage, selectPersonCast } from './personPag
 import { Title } from '../../../common/components/Title'
 import { useEffect } from "react"
 import { ErrorMessage } from '../../../common/components/ErrorMessage'
-import {PersonCast} from './PersonCast'
-import { PersonInfo } from "./PersonInfo"
+//import {PersonCast} from './PersonCast'
+//import { PersonInfo } from "./PersonInfo"
 
 const PersonPage = () => {
 
@@ -43,10 +43,10 @@ console.log('personCast in index: ', personCast )
                         <Tile details person
                             key={nanoid()}
                             title={personPage.name}
-                            bird="Date of bird: "
-                            date_of_bird={personPage.birthday}
-                            place="Place of bird: "
-                            place_of_bird={personPage.place_of_bird}
+                            birth="Date of birth: "
+                            date_of_birth={personPage.birthday}
+                            place="Place of birth: "
+                            place_of_birth={personPage.place_of_birth}
                             poster={personPage.profile_path}
 
                             overview={personPage.biography}
