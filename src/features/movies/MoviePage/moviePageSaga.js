@@ -15,6 +15,10 @@ function* fetchMovieDetailsHandler({ payload: id }) {
         const movie = `${URL}/movie/${id}?api_key=${API_KEY}`
         const movieDetails = yield call(getMovieDetails, movie)
         yield put(fetchMoviePageSuccess(movieDetails))
+
+        const cast = `${URL}/movie/${id}/credits?api_key=${API_KEY}`
+        const castInMovie = yield call(getMovieDetails, cast)
+        console.log(castInMovie)
     } catch (error) {
         yield call(fetchMoviePageError)
     }
