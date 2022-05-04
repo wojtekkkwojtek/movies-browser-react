@@ -38,14 +38,15 @@ const MoviePage = () => {
                         vote_count={moviePage.vote_count}
                     />
                     <Container>
-                        <Tile
+                        <Tile details movie
                             key={nanoid()}
                             title={moviePage.title}
                             poster={moviePage.poster_path}
-                            date={moviePage.release_date}
+                            release_date={moviePage.release_date}
                             year={moviePage.release_date.slice(0, 4)}
                             production="Production:"
                             country={moviePage.production_countries}
+                            release={'Release date: '}
                             rate={moviePage.vote_average}
                             score="/10"
                             votes={moviePage.vote_count}

@@ -42,6 +42,8 @@ export const selectMoviePage = (state) => state.movieOne
 
 export const selectGetEx = (state) => state.movieOne.movie_id
 
+console.log('selectGetEx: ' + { selectGetEx })
+
 // export const selectLoading = (state) => selectMoviePage(state).loading
 // export const selectError = (state) => selectMoviePage(state).error
 // export const selectActors = (state) => selectMoviePage(state).actors
