@@ -65,7 +65,7 @@ export const Tile = ({
                     <InfoWrapper isList={isList} movie={movie} person={person}>
                         <InfoDetails movie={movie} person={person} poster={poster}>{date ? date : 'Unknown'}</InfoDetails>
                     </InfoWrapper>
-                    <InfoWrapper person={person}>
+                    <InfoWrapper  person={person}>
                         {genres &&
                             genres.map((genre) => {
                                 return genresList.map((item) =>
@@ -75,7 +75,7 @@ export const Tile = ({
                                 )
                             })}
                     </InfoWrapper>
-                    <InfoWrapper person={person}>
+                    <InfoWrapper nonInList={nonInList} person={person}>
                         {genres &&
                             genres.map((country) => (
                                 <Genres>{country.name}</Genres>

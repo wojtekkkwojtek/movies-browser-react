@@ -111,6 +111,10 @@ export const InfoWrapper = styled.ul`
        display: none;
     `}
 
+    ${({ nonInList }) => nonInList && css`
+        display: none;
+    `}
+
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
         flex-direction: column;
