@@ -14,11 +14,11 @@ export const PersonTile = ({
     title,
     name,
     role,
-    list,
+    isList,
     onClick }) => {
     return (
-        <TileContainer list onClick={onClick}>
-            <Poster list src={`${URLimage}${poster}`} alt="" />
+        <TileContainer isList onClick={onClick}>
+            <Poster isList src={`${URLimage}${poster}`} alt="" />
             <Content>
                 <InfoWrapper >
                     <InfoDetails>{title}</InfoDetails>
