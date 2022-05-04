@@ -28,7 +28,7 @@ const personPageSlice = createSlice({
         setPersonCredits: (state, { payload }) => {
             state.cast = payload.cast;
             state.crew = payload.crew;
-            console.log('credits ', payload)
+            console.log('credits in slice ', payload)
         }
     },
 })
@@ -44,7 +44,7 @@ export const {
 
 export const selectPersonPage = state => state.personPage
 
-export const selectPersonCast=state=>state.crew.cast
+export const selectPersonCast=state=>state.personPage.cast
 
 // export const selectPersonPage = state => state.personPage.personPage
 // export const selectLoading = (state) => state.personPage.loading
