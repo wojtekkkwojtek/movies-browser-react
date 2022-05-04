@@ -57,13 +57,13 @@ export const Tile = ({
         <TileContainer isList={isList} details={details} onClick={onClick}><Content>
             <Poster details={details} isList={isList} src={`${URLimage}${poster}`} alt="" />
             <div>
-                <Title details={details} person={person} isList={isList} >{title}</Title>
+                <Title isList={isList} details={details} person={person}  >{title}</Title>
                 <Year isList={isList}>{year}</Year>
-                <Info person={person}>{production}</Info>
-                <Info movie={movie} >  {bird}{date_of_bird ? date_of_bird : 'Unknown'}  </Info>
-                <Info person={person} details={details}>  {release}{release_date ? release_date : 'Unknown'}</Info>
-                <Info movie={movie} >{place} {place_of_bird ? place_of_bird : 'Unknown'}</Info>
-                <InfoWrapper movie={movie} person={person}>
+                <Info isList={isList} person={person}>{production}</Info>
+                <Info isList={isList} movie={movie} >  {bird}{date_of_bird ? date_of_bird : 'Unknown'}  </Info>
+                <Info isList={isList} person={person} details={details}>  {release}{release_date ? release_date : 'Unknown'}</Info>
+                <Info isList={isList} movie={movie} >{place} {place_of_bird ? place_of_bird : 'Unknown'}</Info>
+                <InfoWrapper isList={isList} movie={movie} person={person}>
                     <InfoDetails movie={movie} person={person} poster={poster}>{date ? date : 'Unknown'}</InfoDetails>
                 </InfoWrapper>
                 <InfoWrapper person={person}>
@@ -79,7 +79,7 @@ export const Tile = ({
                 <InfoWrapper person={person}>
                     {genres &&
                         genres.map((country) => (
-                            <Genres isList={isList}>{country.name}</Genres>
+                            <Genres>{country.name}</Genres>
                         ))}
                 </InfoWrapper>
                 <InfoWrapper rates >
