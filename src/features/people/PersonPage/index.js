@@ -48,7 +48,6 @@ console.log('personCast in index: ', personCast )
                             place="Place of birth: "
                             place_of_birth={personPage.place_of_birth}
                             poster={personPage.profile_path}
-
                             overview={personPage.biography}
                         />
                         {/* <PersonInfo /> */}
