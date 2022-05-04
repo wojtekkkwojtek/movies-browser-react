@@ -54,42 +54,43 @@ export const Tile = ({
 }) => {
     const { genresList } = useSelector(selectMovieList)
     return (
-        <TileContainer isList={isList} details={details} onClick={onClick}><Content>
-            <Poster details={details} isList={isList} src={`${URLimage}${poster}`} alt="" />
-            <div>
-                <Title isList={isList} details={details} person={person}  >{title}</Title>
-                <Year isList={isList}>{year}</Year>
-                <Info isList={isList} person={person}>{production}</Info>
-                <Info isList={isList} movie={movie} >  {bird}{date_of_bird ? date_of_bird : 'Unknown'}  </Info>
-                <Info isList={isList} person={person} details={details}>  {release}{release_date ? release_date : 'Unknown'}</Info>
-                <Info isList={isList} movie={movie} >{place} {place_of_bird ? place_of_bird : 'Unknown'}</Info>
-                <InfoWrapper isList={isList} movie={movie} person={person}>
-                    <InfoDetails movie={movie} person={person} poster={poster}>{date ? date : 'Unknown'}</InfoDetails>
-                </InfoWrapper>
-                <InfoWrapper person={person}>
-                    {genres &&
-                        genres.map((genre) => {
-                            return genresList.map((item) =>
-                                item.id === genre ? (
-                                    <Genres isList={isList} key={nanoid()}>{item.name}</Genres>
-                                ) : null
-                            )
-                        })}
-                </InfoWrapper>
-                <InfoWrapper person={person}>
-                    {genres &&
-                        genres.map((country) => (
-                            <Genres>{country.name}</Genres>
-                        ))}
-                </InfoWrapper>
-                <InfoWrapper rates >
-                    <Icon person={person} src={rateIcon} alt="" />
-                    <Rate person={person} isList={isList}>{rate}</Rate>
-                    <Score person={person}>{score}</Score>
-                    <Score person={person}>{votes} </Score>
-                </InfoWrapper>
-            </div>
-        </Content>
+        <TileContainer isList={isList} details={details} onClick={onClick}>
+            <Content>
+                <Poster details={details} isList={isList} src={`${URLimage}${poster}`} alt="" />
+                <div>
+                    <Title isList={isList} details={details} person={person}  >{title}</Title>
+                    <Year isList={isList}>{year}</Year>
+                    <Info isList={isList} person={person}>{production}</Info>
+                    <Info isList={isList} movie={movie} >  {bird}{date_of_bird ? date_of_bird : 'Unknown'}  </Info>
+                    <Info isList={isList} person={person} details={details}>  {release}{release_date ? release_date : 'Unknown'}</Info>
+                    <Info isList={isList} movie={movie} >{place} {place_of_bird ? place_of_bird : 'Unknown'}</Info>
+                    <InfoWrapper isList={isList} movie={movie} person={person}>
+                        <InfoDetails movie={movie} person={person} poster={poster}>{date ? date : 'Unknown'}</InfoDetails>
+                    </InfoWrapper>
+                    <InfoWrapper person={person}>
+                        {genres &&
+                            genres.map((genre) => {
+                                return genresList.map((item) =>
+                                    item.id === genre ? (
+                                        <Genres isList={isList} key={nanoid()}>{item.name}</Genres>
+                                    ) : null
+                                )
+                            })}
+                    </InfoWrapper>
+                    <InfoWrapper person={person}>
+                        {genres &&
+                            genres.map((country) => (
+                                <Genres>{country.name}</Genres>
+                            ))}
+                    </InfoWrapper>
+                    <InfoWrapper rates >
+                        <Icon person={person} src={rateIcon} alt="" />
+                        <Rate person={person} isList={isList}>{rate}</Rate>
+                        <Score person={person}>{score}</Score>
+                        <Score person={person}>{votes} </Score>
+                    </InfoWrapper>
+                </div>
+            </Content>
             <Overview>{overview}</Overview>
 
         </TileContainer>
