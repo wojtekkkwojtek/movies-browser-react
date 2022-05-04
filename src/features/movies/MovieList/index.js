@@ -58,8 +58,8 @@ const MovieList = () => {
                         />
                     </React.Fragment>
                 ))}
+            {!error && !loading && <Pagination></Pagination>}
         </Container>
-        <Pagination></Pagination>
         </React.Fragment>    
     )
 }

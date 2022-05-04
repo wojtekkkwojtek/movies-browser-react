@@ -60,7 +60,7 @@ const PeopleList = () => {
             )
         )}
         </Container>
-        <Pagination />
+        {!error && !loading && <Pagination />}
         </React.Fragment>
     )
 };
