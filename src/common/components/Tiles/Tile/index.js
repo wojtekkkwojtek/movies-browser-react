@@ -1,7 +1,5 @@
 import React from 'react'
 import {
-    isList,
-    details,
     Content,
     Poster,
     Title,
