@@ -68,8 +68,7 @@ export const Title = styled.header`
 
     ${({ isList }) => isList && css`
         font-weight:500;
-        font-size: 22px;
-        margin: 8px 0 8px;
+        font-size: 22px;           
     `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
@@ -108,6 +107,10 @@ export const InfoWrapper = styled.ul`
         display: none;
     `}
 
+    ${({ isList }) => isList && css`
+       display: none;
+    `}
+
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
         flex-direction: column;
@@ -130,6 +133,10 @@ export const Info = styled.div`
     `}
 
     ${({ person }) => person && css`
+       display: none;
+    `}
+
+    ${({ isList }) => isList && css`
        display: none;
     `}
 
@@ -166,6 +173,7 @@ export const Genres = styled.li`
         font-size: 14px;
         margin: 8px 8px 0 0;
     `}
+    
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 10px;
