@@ -44,14 +44,11 @@ const PeopleList = () => {
 
     return (
         <Container>
-            {error ? (
-                <ErrorMessage />
-            ) : loading ? (
-                <>
-                    <Title>Popular people</Title>
-                    <Loader />
-                </>
-            ) : peopleList && peopleList.map((people) => (
+            {error && !loading && <ErrorMessage />}
+            {!error && loading && <Loader />}
+            {!error && !loading && <Title>Popular people</Title>}
+            {!error &&
+                !loading && peopleList && peopleList.map((people) => (
                 <React.Fragment key={people.id}>
                     <PersonTile
                         key={nanoid()}
