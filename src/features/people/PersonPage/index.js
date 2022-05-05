@@ -85,8 +85,7 @@ const PersonPage = () => {
                                     />
                                 </React.Fragment>
                             ))}
-                    </Container>
-
+                    </Container>                    
                     <Container>
                         <Title>Movies-Crew ({crew&&crew.length})</Title>
                         {crew &&
