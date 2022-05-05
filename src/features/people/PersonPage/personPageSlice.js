@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const personPageSlice = createSlice({
-    name: 'personPage',
+    name: 'personOne',
     initialState: {
         personPage: [],
         loading: false,
@@ -42,7 +42,7 @@ export const {
 } = personPageSlice.actions;
 
 
-export const selectPersonPage = state => state.personPage;
+export const selectPersonPage = state => state.personOne;
 
 ///export const selectPersonCast = state => selectPersonPage(state).cast;
 
