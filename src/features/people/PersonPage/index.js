@@ -67,7 +67,7 @@ const PersonPage = () => {
                     </Container>
                     <Title>Movies cast()</Title>
                     <Container>
-                        {
+                        {cast&&
                             cast.map((movie) => (
                                 <React.Fragment key={cast.id}>
                                     <Tile isList nonInList
@@ -87,7 +87,7 @@ const PersonPage = () => {
                     </Container>
                     <Title>Movies-Crew()</Title>
                     <Container>
-                        {
+                        {crew&&
                             crew.map((movie) => (
                                 <React.Fragment key={crew.id}>
                                     <Tile isList nonInList
