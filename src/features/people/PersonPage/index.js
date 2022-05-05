@@ -65,9 +65,10 @@ const PersonPage = () => {
                             overview={personPage.biography}
                         />
                     </Container>
-                    <Title>Movies cast()</Title>
+
                     <Container>
-                        {cast&&
+                        <Title>Movies cast({cast.length})</Title>
+                        {cast &&
                             cast.map((movie) => (
                                 <React.Fragment key={cast.id}>
                                     <Tile isList nonInList
@@ -85,9 +86,10 @@ const PersonPage = () => {
                                 </React.Fragment>
                             ))}
                     </Container>
-                    <Title>Movies-Crew()</Title>
+
                     <Container>
-                        {crew&&
+                        <Title>Movies-Crew({crew.length})</Title>
+                        {crew &&
                             crew.map((movie) => (
                                 <React.Fragment key={crew.id}>
                                     <Tile isList nonInList
