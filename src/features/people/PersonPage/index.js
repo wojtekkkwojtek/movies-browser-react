@@ -8,14 +8,10 @@ import { Title } from '../../../common/components/Title';
 import { Tile } from '../../../common/components/Tiles/Tile';
 import { Loader } from '../../../common/components/Loader';
 import { Container } from '../../../common/components/Container';
-import { selectPersonPage, fetchPersonPage, selectPersonCast } from './personPageSlice';
+import { fetchPersonPage, selectPersonPage, selectPersonCast, selectMovieCrew } from './personPageSlice';
 import { ErrorMessage } from '../../../common/components/ErrorMessage';
 
 const PersonPage = () => {
-
-    const { personPage, cast, crew, loading, error } = useSelector(selectPersonPage);
-    //const personCast = useSelector(selectPersonCast)
-    //console.log('personCast(id) in index: ', personCast )
 
     const dispatch = useDispatch();
 
@@ -25,8 +21,21 @@ const PersonPage = () => {
 
     useEffect(() => {
         dispatch(fetchPersonPage(id));
-
     }, [id, dispatch]);
+
+    const { personPage, loading, error, cast, crew } = useSelector(selectPersonPage);
+
+    //const cast = useSelector(selectPersonCast);
+    //const crew = useSelector(selectMovieCrew);
+
+    console.log('fetchPrsonPage(id): ', fetchPersonPage(id))
+    //console.log('personCast(id) in index: ', personCast )
+    console.log('loading strony personPage:', loading) /////////////
+    console.log('personPage in index: ', personPage)
+    console.log('personCast in index: ', cast)
+    console.log('personCrew in index: ', crew)
+    //console.log('personCastlength: ', cast.length)
+    //console.log('error ', error)
 
     const navigate = useNavigate()
     const routeChange = (id) => {
@@ -37,13 +46,6 @@ const PersonPage = () => {
         routeChange(id)
     };
 
-    console.log('loading strony personPage:', loading) /////////////
-    console.log('fetchPrsonPage(id): ', fetchPersonPage(id))
-    console.log('personPage in index: ', personPage)
-    console.log('personCast in index: ', cast)
-    console.log('Crew in index: ', crew)
-    //console.log('personCastlength: ', cast.length)
-    //console.log('error ', error)
     return (
         <>
             {error && !loading && <ErrorMessage />}
@@ -64,13 +66,12 @@ const PersonPage = () => {
                         />
                     </Container>
                     <Title>Movies cast()</Title>
-                    {/* <Title>Movies cast({cast.length})</Title> */}
                     <Container>
                         {
                             cast.map((movie) => (
                                 <React.Fragment key={cast.id}>
                                     <Tile isList nonInList
-                                        //key={nanoid()}
+                                        key={nanoid()}
                                         title={movie.title}
                                         genres={movie.genre_ids}
                                         rate={movie.vote_average}
@@ -87,10 +88,10 @@ const PersonPage = () => {
                     <Title>Movies-Crew()</Title>
                     <Container>
                         {
-                            cast.map((movie) => (
+                            crew.map((movie) => (
                                 <React.Fragment key={crew.id}>
                                     <Tile isList nonInList
-                                        //key={nanoid()}
+                                        key={nanoid()}
                                         title={movie.title}
                                         genres={movie.genre_ids}
                                         rate={movie.vote_average}
