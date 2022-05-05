@@ -1,14 +1,14 @@
 import { nanoid } from 'nanoid'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { fetchMoviePage, selectMoviePage } from './moviePageSlice'
+
 import { MovieHeader } from '../../../common/components/MovieHeader'
 import { Tile } from '../../../common/components/Tiles/Tile'
 import { Loader } from '../../../common/components/Loader'
 import { Container } from '../../../common/components/Container'
-import { useDispatch, useSelector } from 'react-redux'
-
-import { fetchMoviePage, selectMoviePage } from './moviePageSlice'
 import { Title } from '../../../common/components/Title'
-import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
 import { ErrorMessage } from '../../../common/components/ErrorMessage'
 import { PersonTile } from '../../../common/components/Tiles/PersonTile'
 
@@ -19,7 +19,14 @@ const MoviePage = () => {
     useEffect(() => {
         dispatch(fetchMoviePage(id))
     }, [dispatch, id])
-    const { error, loading, moviePage, actors } = useSelector(selectMoviePage)
+    const { error, loading, moviePage, actors, crew } =
+        useSelector(selectMoviePage)
+
+    const navigate = useNavigate()
+
+    const routeChange = (id) => {
+        navigate(`/people/${id}`)
+    }
 
     console.log('id strony:', id)
     console.log('loading strony:', loading)
@@ -57,11 +64,24 @@ const MoviePage = () => {
                             genres={moviePage.genres}
                         />
                         <Title>Cast</Title>
-                        <PersonTile
-                            title={actors.original_name}
-                            isName={actors.name}
-                        />
+                        {actors &&
+                            actors.map((actor) => (
+                                <PersonTile
+                                    onClick={() => routeChange(actor.id)}
+                                    original_name={actor.original_name}
+                                    character={actor.character}
+                                    poster={actor.profile_path}
+                                />
+                            ))}
                         <Title>Crew</Title>
+                        {crew &&
+                            crew.map((person) => (
+                                <PersonTile
+                                    original_name={person.original_name}
+                                    character={person.job}
+                                    poster={person.profile_path}
+                                />
+                            ))}
                     </Container>
                 </>
             )}

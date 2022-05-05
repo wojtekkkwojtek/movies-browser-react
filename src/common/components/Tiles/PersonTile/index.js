@@ -7,22 +7,27 @@ import {
     InfoDetails,
 } from '../styled'
 import { URLimage } from '../../../assets/generalData/fetchedData'
+import { ReactComponent as NoPhoto } from './noPhoto.svg'
 
 export const PersonTile = ({
     poster,
-    title,
-    isName,
+    original_name,
+    character,
     role,
     isList,
     onClick,
 }) => {
     return (
         <TileContainer isList onClick={onClick}>
-            <Poster isList src={`${URLimage}${poster}`} alt="" />
+            {poster ? (
+                <Poster isList src={`${URLimage}${poster}`} alt="" />
+            ) : (
+                <NoPhoto />
+            )}
             <Content>
                 <InfoWrapper>
-                    <InfoDetails>{title}</InfoDetails>
-                    <InfoDetails>{isName}</InfoDetails>
+                    <InfoDetails>{original_name}</InfoDetails>
+                    <InfoDetails>{character}</InfoDetails>
                     <InfoDetails>{role}</InfoDetails>
                 </InfoWrapper>
             </Content>
