@@ -1,36 +1,32 @@
 import React from 'react'
-import {
-    Content,
-    Poster,
-    TileContainer,
-    InfoWrapper,
-    InfoDetails,
-} from '../styled'
+import { Poster, TileContainer, InfoWrapper, InfoDetails } from './styled'
 import { URLimage } from '../../../assets/generalData/fetchedData'
 import { ReactComponent as NoPhoto } from './noPhoto.svg'
 
 export const PersonTile = ({
+    personTile,
     poster,
     original_name,
-    character,
-    role,
-    isList,
+    gray,
+    as,
     onClick,
 }) => {
     return (
-        <TileContainer isList onClick={onClick}>
+        <TileContainer personTile={personTile} onClick={onClick}>
             {poster ? (
-                <Poster isList src={`${URLimage}${poster}`} alt="" />
+                <Poster
+                    src={`${URLimage}${poster}`}
+                    alt=""
+                    personTile={personTile}
+                />
             ) : (
                 <NoPhoto />
             )}
-            <Content>
-                <InfoWrapper>
-                    <InfoDetails>{original_name}</InfoDetails>
-                    <InfoDetails>{character}</InfoDetails>
-                    <InfoDetails>{role}</InfoDetails>
-                </InfoWrapper>
-            </Content>
+
+            <InfoWrapper>
+                <InfoDetails>{original_name}</InfoDetails>
+                <InfoDetails gray={gray}>{as}</InfoDetails>
+            </InfoWrapper>
         </TileContainer>
     )
 }

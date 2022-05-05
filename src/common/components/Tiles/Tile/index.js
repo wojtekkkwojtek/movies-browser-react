@@ -47,30 +47,56 @@ export const Tile = ({
     birth,
     date_of_birth,
     place,
-    place_of_birth
-
+    place_of_birth,
 }) => {
     const { genresList } = useSelector(selectMovieList)
     return (
         <TileContainer isList={isList} details={details} onClick={onClick}>
             <Content>
-                <Poster details={details} isList={isList} src={`${URLimage}${poster}`} alt="" />
+                <Poster
+                    details={details}
+                    isList={isList}
+                    src={`${URLimage}${poster}`}
+                    alt=""
+                />
                 <div>
-                    <Title isList={isList} details={details} person={person}  >{title}</Title>
+                    <Title isList={isList} details={details} person={person}>
+                        {title}
+                    </Title>
                     <Year isList={isList}>{year}</Year>
-                    <Info isList={isList} person={person}>{production}</Info>
-                    <Info isList={isList} movie={movie} >  {birth}{date_of_birth ? date_of_birth : 'Unknown'}  </Info>
-                    <Info isList={isList} person={person} details={details}>  {release}{release_date ? release_date : 'Unknown'}</Info>
-                    <Info isList={isList} movie={movie} >{place} {place_of_birth ? place_of_birth : 'Unknown'}</Info>
+                    <Info isList={isList} person={person}>
+                        {production}
+                    </Info>
+                    <Info isList={isList} movie={movie}>
+                        {' '}
+                        {birth}
+                        {date_of_birth ? date_of_birth : 'Unknown'}{' '}
+                    </Info>
+                    <Info isList={isList} person={person} details={details}>
+                        {' '}
+                        {release}
+                        {release_date ? release_date : 'Unknown'}
+                    </Info>
+                    <Info isList={isList} movie={movie}>
+                        {place} {place_of_birth ? place_of_birth : 'Unknown'}
+                    </Info>
                     <InfoWrapper isList={isList} movie={movie} person={person}>
-                        <InfoDetails movie={movie} person={person} poster={poster}>{date ? date : 'Unknown'}</InfoDetails>
+                        <InfoDetails
+                            movie={movie}
+                            person={person}
+                            poster={poster}
+                        >
+                            {date ? date : 'Unknown'}
+                        </InfoDetails>
                     </InfoWrapper>
-                    <InfoWrapper  person={person}>
+                    <InfoWrapper person={person}>
                         {genres &&
                             genres.map((genre) => {
                                 return genresList.map((item) =>
                                     item.id === genre ? (
-                                        <Genres isList={isList} key={nanoid()}>{item.name}</Genres>
+                                        <Genres isList={isList} key={nanoid()}>
+                                            {item.name}
+                                        </Genres>
                                     ) : null
                                 )
                             })}
@@ -81,16 +107,17 @@ export const Tile = ({
                                 <Genres>{country.name}</Genres>
                             ))}
                     </InfoWrapper>
-                    <InfoWrapper rates >
+                    <InfoWrapper rates>
                         <Icon person={person} src={rateIcon} alt="" />
-                        <Rate person={person} isList={isList}>{rate}</Rate>
+                        <Rate person={person} isList={isList}>
+                            {rate}
+                        </Rate>
                         <Score person={person}>{score}</Score>
                         <Score person={person}>{votes} </Score>
                     </InfoWrapper>
                 </div>
             </Content>
             <Overview>{overview}</Overview>
-
         </TileContainer>
     )
 }
