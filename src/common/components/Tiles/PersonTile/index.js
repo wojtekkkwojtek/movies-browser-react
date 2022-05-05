@@ -7,6 +7,7 @@ export const PersonTile = ({
     personTile,
     poster,
     original_name,
+    name,
     gray,
     as,
     onClick,
@@ -25,6 +26,7 @@ export const PersonTile = ({
 
             <InfoWrapper>
                 <InfoDetails>{original_name}</InfoDetails>
+                <InfoDetails>{name}</InfoDetails>
                 <InfoDetails gray={gray}>{as}</InfoDetails>
             </InfoWrapper>
         </TileContainer>
