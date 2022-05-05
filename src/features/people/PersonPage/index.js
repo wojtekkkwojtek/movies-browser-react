@@ -58,7 +58,7 @@ const PersonPage = () => {
                             key={nanoid()}
                             title={personPage.name}
                             birth="Date of birth: "
-                            date_of_birth={personPage.birthday}
+                            date_of_birth={new Date(personPage.birthday).toLocaleDateString()}
                             place="Place of birth: "
                             place_of_birth={personPage.place_of_birth}
                             poster={personPage.profile_path}
