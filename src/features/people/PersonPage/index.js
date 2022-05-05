@@ -67,7 +67,7 @@ const PersonPage = () => {
                     </Container>
 
                     <Container>
-                        <Title>Movies - cast ({cast&&cast.length})</Title>
+                        <Title>Movies - cast ({cast && cast.length})</Title>
                         {cast &&
                             cast.map((movie) => (
                                 <React.Fragment key={cast.id}>
@@ -85,9 +85,9 @@ const PersonPage = () => {
                                     />
                                 </React.Fragment>
                             ))}
-                    </Container>                    
+                    </Container>
                     <Container>
-                        <Title>Movies-Crew ({crew&&crew.length})</Title>
+                        <Title>Movies-Crew ({crew && crew.length})</Title>
                         {crew &&
                             crew.map((movie) => (
                                 <React.Fragment key={crew.id}>
