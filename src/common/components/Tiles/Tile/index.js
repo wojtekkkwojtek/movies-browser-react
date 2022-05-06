@@ -1,4 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { nanoid } from 'nanoid';
+import rateIcon from '../rateIcon.svg';
+import { URLimage } from '../../../assets/generalData/fetchedData';
+import { selectMovieList } from '../../../../features/movies/MovieList/movieListSlice';
 import {
     Content,
     Poster,
@@ -12,17 +17,8 @@ import {
     Rate,
     Score,
     Icon,
-    Info,
-} from '../styled'
-import rateIcon from '../rateIcon.svg'
-import { URLimage } from '../../../assets/generalData/fetchedData'
-import { nanoid } from 'nanoid'
-import { useSelector } from 'react-redux'
-import { selectMovieList } from '../../../../features/movies/MovieList/movieListSlice'
-// import {
-//     // fetchGenresList,
-//     selectGenres,
-// } from '../../../../features/genres/genresSlice'
+    Info
+} from '../styled';
 
 export const Tile = ({
     nonInList,
@@ -48,8 +44,10 @@ export const Tile = ({
     date_of_birth,
     place,
     place_of_birth,
+    character,
+    job
 }) => {
-    const { genresList } = useSelector(selectMovieList)
+    const { genresList } = useSelector(selectMovieList);
     return (
         <TileContainer isList={isList} details={details} onClick={onClick}>
             <Content>
@@ -60,9 +58,11 @@ export const Tile = ({
                     alt=""
                 />
                 <div>
-                    <Title isList={isList} details={details} person={person}>
+                    <Title isList={isList} details={details} person={person}  >
                         {title}
                     </Title>
+                    <InfoWrapper><Info  >{character}</Info></InfoWrapper>
+                    <InfoWrapper><Info  >{job}</Info></InfoWrapper>
                     <Year isList={isList}>{year}</Year>
                     <Info isList={isList} person={person}>
                         {production}
