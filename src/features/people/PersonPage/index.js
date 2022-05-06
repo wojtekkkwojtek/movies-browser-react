@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
@@ -10,8 +10,12 @@ import { Loader } from '../../../common/components/Loader';
 import { Container } from '../../../common/components/Container';
 import { fetchPersonPage, selectPersonPage, selectPersonCast, selectMovieCrew } from './personPageSlice';
 import { ErrorMessage } from '../../../common/components/ErrorMessage';
+import { StyledButton, Wrapper } from "./styled";
 
 const PersonPage = () => {
+    const [isShownAll, setIsShownAll] = useState(false);
+
+
 
     const dispatch = useDispatch();
 
@@ -28,14 +32,12 @@ const PersonPage = () => {
     //const cast = useSelector(selectPersonCast);
     //const crew = useSelector(selectMovieCrew);
 
-    console.log('fetchPrsonPage(id): ', fetchPersonPage(id))
-    //console.log('personCast(id) in index: ', personCast )
-    console.log('loading strony personPage:', loading) /////////////
-    console.log('personPage in index: ', personPage)
-    console.log('personCast in index: ', cast)
-    console.log('personCrew in index: ', crew)
-    //console.log('personCastlength: ', cast.length)
-    //console.log('error ', error)
+    // console.log('fetchPrsonPage(id): ', fetchPersonPage(id))
+    // console.log('loading strony personPage:', loading) /////////////
+    // console.log('personPage in index: ', personPage)
+    // console.log('personCast in index: ', cast)
+    // console.log('personCrew in index: ', crew)
+
 
     const navigate = useNavigate()
     const routeChange = (id) => {
@@ -45,6 +47,9 @@ const PersonPage = () => {
     const routeToMoviePage = (id) => {
         routeChange(id)
     };
+
+    const shownTiles = isShownAll ? cast.length : 8;
+    const toggleShown = () => setIsShownAll(isShownAll => !isShownAll);
 
     return (
         <>
@@ -69,7 +74,7 @@ const PersonPage = () => {
                     <Container>
                         <Title>Movies - cast ({cast && cast.length})</Title>
                         {cast &&
-                            cast.map((movie) => (
+                            cast.slice(0, shownTiles).map((movie) => (
                                 <React.Fragment key={cast.id}>
                                     <Tile isList nonInList
                                         key={nanoid()}
@@ -85,11 +90,19 @@ const PersonPage = () => {
                                     />
                                 </React.Fragment>
                             ))}
+
                     </Container>
+                    <Wrapper>
+                        <StyledButton
+                        onClick={toggleShown}
+                    >
+                        {isShownAll ? "show less" : "show all"}
+                    </StyledButton>
+                    </Wrapper>
                     <Container>
                         <Title>Movies-Crew ({crew && crew.length})</Title>
                         {crew &&
-                            crew.map((movie) => (
+                            crew.slice(0, 8).map((movie) => (
                                 <React.Fragment key={crew.id}>
                                     <Tile isList nonInList
                                         key={nanoid()}
