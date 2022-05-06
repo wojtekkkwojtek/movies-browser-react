@@ -21,7 +21,7 @@ export const Button = styled.button`
   justify-content: center;
   background-color: ${({ theme }) => theme.color.lightBlue};
   padding: 8px 16px;
-  margin: 0 12px;
+  margin: 0 6px;
   border: none;
   border-radius: 5px;
   color: ${({ theme }) => theme.color.darkGray};
@@ -39,14 +39,15 @@ export const Button = styled.button`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin: 0 8px;
+    margin: 0 4px;
     padding: 8px 12px;
   }
 
 `;
 
 export const Previous = styled.img`
-  margin: 0px 8px;
+  margin-right: 8px;
+  width: 7px;
 `;
 
 export const PreviousMobile = styled(Previous)`
@@ -56,7 +57,8 @@ export const PreviousMobile = styled(Previous)`
 `;
 
 export const Next = styled.img`
-  margin: 0px 8px;
+  margin-left: 8px;
+  width: 7px;
 `;
 
 export const NextMobile = styled(Next)`
@@ -66,7 +68,7 @@ export const NextMobile = styled(Next)`
 `;
 
 export const Text = styled.p`
-  margin: 0 8px;
+  margin: 0;
   font-family: Poppins;
   font-size: 14px;
   line-height: 1.4;
@@ -85,7 +87,7 @@ export const PageInformation = styled.p`
   color: ${({ theme }) => theme.color.darkerGray};
   
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin: 0 8px;
+    margin: 0 4px;
     font-size: 10px;
   }
 `;
