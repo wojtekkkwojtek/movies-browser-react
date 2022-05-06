@@ -6,7 +6,6 @@ import { PersonTile } from '../../../common/components/Tiles/PersonTile';
 import { Title } from "../../../common/components/Title";
 import { Loader } from '../../../common/components/Loader';
 import { Container } from '../../../common/components/Container';
-
 import {
     selectPeopleList,
     setPeopleList,
@@ -16,13 +15,11 @@ import {
 } from './peopleListSlice';
 import { ErrorMessage } from "../../../common/components/ErrorMessage";
 
-
-
 const PeopleList = () => {
     const { loading, peopleList, error } = useSelector(selectPeopleList);
-    console.log('loading, peopleList: ' + { loading, peopleList }); ///////////////////////
 
     const dispatch = useDispatch();
+
     useEffect(() => {
         const timer = setTimeout(() => {
             dispatch(fetchPeopleList())
@@ -38,9 +35,7 @@ const PeopleList = () => {
 
     const routeToPerson = (id) => {
         routeChange(id)
-        console.log('personId_in_PeopleList', id)
     }
-
 
     return (
         <Container>
@@ -49,16 +44,15 @@ const PeopleList = () => {
             {!error && !loading && <Title>Popular people</Title>}
             {!error &&
                 !loading && peopleList && peopleList.map((people) => (
-                <React.Fragment key={people.id}>
-                    <PersonTile
-                        key={nanoid()}
-                        onClick={() => routeChange(people.id)}
-                        name={people.name}
-                        poster={people.profile_path}
-                    />
-                </React.Fragment>
-            )
-            )}
+                    <React.Fragment key={people.id}>
+                        <PersonTile
+                            key={nanoid()}
+                            onClick={() => routeChange(people.id)}
+                            name={people.name}
+                            poster={people.profile_path}
+                        />
+                    </React.Fragment>
+                ))}
         </Container>
     )
 };

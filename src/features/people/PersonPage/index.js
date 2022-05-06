@@ -15,31 +15,15 @@ import { StyledButton, Wrapper } from "./styled";
 const PersonPage = () => {
     const [isShownAll, setIsShownAll] = useState(false);
 
-
-
     const dispatch = useDispatch();
 
     const { id } = useParams();
-
-    console.log('id__in_PersonPage', id) /////////////////////////
 
     useEffect(() => {
         dispatch(fetchPersonPage(id));
     }, [id, dispatch]);
 
-    const { personPage, loading, error, cast, crew } = useSelector(selectPersonPage);
-
-    //const cast = useSelector(selectPersonCast);
-    //const crew = useSelector(selectMovieCrew);
-
-    // console.log('fetchPrsonPage(id): ', fetchPersonPage(id))
-    // console.log('loading strony personPage:', loading) /////////////
-    // console.log('personPage in index: ', personPage)
-    // console.log('personCast in index: ', cast)
-    // console.log('personCrew in index: ', crew)
-
-
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const routeChange = (id) => {
         navigate(`/movie/${id}`);
     };
@@ -48,6 +32,7 @@ const PersonPage = () => {
         routeChange(id)
     };
 
+    const { personPage, loading, error, cast, crew } = useSelector(selectPersonPage);
     const shownTiles = isShownAll ? cast.length : 8;
     const toggleShown = () => setIsShownAll(isShownAll => !isShownAll);
 
@@ -70,7 +55,6 @@ const PersonPage = () => {
                             overview={personPage.biography}
                         />
                     </Container>
-
                     <Container>
                         <Title>Movies - cast ({cast && cast.length})</Title>
                         {cast &&
@@ -90,14 +74,13 @@ const PersonPage = () => {
                                     />
                                 </React.Fragment>
                             ))}
-
                     </Container>
                     <Wrapper>
                         <StyledButton
-                        onClick={toggleShown}
-                    >
-                        {isShownAll ? "show less" : "show all"}
-                    </StyledButton>
+                            onClick={toggleShown}
+                        >
+                            {isShownAll ? "show less" : "show all"}
+                        </StyledButton>
                     </Wrapper>
                     <Container>
                         <Title>Movies-Crew ({crew && crew.length})</Title>

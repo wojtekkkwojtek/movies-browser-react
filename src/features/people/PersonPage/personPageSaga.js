@@ -10,7 +10,6 @@ function* fetchPersonDetailsHandler({ payload: personId }) {
 
     try {
         yield delay(300)
-
         const [personDetails, personCredits] = yield all([
             call(getPersonDetails, personApiDetails),
             call(getPersonDetails, personApiCredits)
@@ -19,7 +18,7 @@ function* fetchPersonDetailsHandler({ payload: personId }) {
         console.log('personCredits_inside_saga= ', personCredits)  ///
         yield put(fetchPersonPageSuccess(personDetails));
         yield put(setPersonCredits(personCredits));
-        console.log('credits in saga ',personCredits )
+        console.log('credits in saga ', personCredits)
     } catch (error) {
         yield call(fetchPersonPageError);
     }
