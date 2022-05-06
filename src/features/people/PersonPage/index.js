@@ -1,29 +1,29 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { nanoid } from 'nanoid'
-import { Title } from '../../../common/components/Title'
-import { Tile } from '../../../common/components/Tiles/Tile'
-import { Loader } from '../../../common/components/Loader'
-import { Container } from '../../../common/components/Container'
-import { fetchPersonPage, selectPersonPage } from './personPageSlice'
-import { ErrorMessage } from '../../../common/components/ErrorMessage'
+import React, { useState } from 'react';
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+import { nanoid } from 'nanoid';
+import { Title } from '../../../common/components/Title';
+import { Tile } from '../../../common/components/Tiles/Tile';
+import { Loader } from '../../../common/components/Loader';
+import { Container } from '../../../common/components/Container';
+import { fetchPersonPage, selectPersonPage } from './personPageSlice';
+import { ErrorMessage } from '../../../common/components/ErrorMessage';
+import { StyledButton, Wrapper } from "./styled";
 
 const PersonPage = () => {
-    const dispatch = useDispatch()
+    const [isShownAll, setIsShownAll] = useState(false);
 
-    const { id } = useParams()
+    const dispatch = useDispatch();
+
+    const { id } = useParams();
 
     useEffect(() => {
-        dispatch(fetchPersonPage(id))
-    }, [id, dispatch])
+        dispatch(fetchPersonPage(id));
+    }, [id, dispatch]);
 
-    const { personPage, loading, error, cast, crew } =
-        useSelector(selectPersonPage)
-
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const routeChange = (id) => {
         navigate(`/movie/${id}`)
     }
@@ -31,6 +31,10 @@ const PersonPage = () => {
     const routeToMoviePage = (id) => {
         routeChange(id)
     }
+
+    const { personPage, loading, error, cast, crew } = useSelector(selectPersonPage);
+    const shownTiles = isShownAll ? cast.length : 8;
+    const toggleShown = () => setIsShownAll(isShownAll => !isShownAll);
 
     return (
         <>
@@ -55,11 +59,10 @@ const PersonPage = () => {
                             overview={personPage.biography}
                         />
                     </Container>
-
                     <Container>
                         <Title>Movies - cast ({cast && cast.length})</Title>
                         {cast &&
-                            cast.map((movie) => (
+                            cast.slice(0, shownTiles).map((movie) => (
                                 <React.Fragment key={cast.id}>
                                     <Tile
                                         isList
@@ -80,10 +83,17 @@ const PersonPage = () => {
                                 </React.Fragment>
                             ))}
                     </Container>
+                    <Wrapper>
+                        <StyledButton
+                            onClick={toggleShown}
+                        >
+                            {isShownAll ? "show less" : "show all"}
+                        </StyledButton>
+                    </Wrapper>
                     <Container>
                         <Title>Movies-Crew ({crew && crew.length})</Title>
                         {crew &&
-                            crew.map((movie) => (
+                            crew.slice(0, 8).map((movie) => (
                                 <React.Fragment key={crew.id}>
                                     <Tile
                                         isList

@@ -17,7 +17,6 @@ function* fetchPersonDetailsHandler({ payload: personId }) {
 
     try {
         yield delay(300)
-
         const [personDetails, personCredits] = yield all([
             call(getData, personApiDetails),
             call(getData, personApiCredits),

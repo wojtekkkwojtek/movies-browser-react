@@ -27,6 +27,10 @@ const PeopleList = () => {
         navigate(`/people/${id}`)
     }
 
+    const routeToPerson = (id) => {
+        routeChange(id)
+    }
+
     return (
         <Container>
             {error && !loading && <ErrorMessage />}
