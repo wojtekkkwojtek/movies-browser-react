@@ -26,7 +26,6 @@ const moviePageSlice = createSlice({
         fetchActorsAndCrew: (state, { payload }) => {
             state.actors = payload.cast
             state.crew = payload.crew
-            console.log('state.crew:', state.crew)
         },
     },
 })

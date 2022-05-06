@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import { ThemeProvider } from 'styled-components'
 import { Provider } from 'react-redux'
 import { GlobalStyle } from './core/App/GlobalStyle'
@@ -9,7 +9,8 @@ import reportWebVitals from './reportWebVitals'
 import store from './core/store'
 import { theme } from './core/App/theme'
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(
     <React.StrictMode>
         <Provider store={store}>
             <ThemeProvider theme={theme}>
@@ -18,8 +19,8 @@ ReactDOM.render(
                 <App />
             </ThemeProvider>
         </Provider>
-    </React.StrictMode>,
-    document.getElementById('root')
+    </React.StrictMode>
+    // document.getElementById('root')
 )
 
 // If you want to start measuring performance in your app, pass a function

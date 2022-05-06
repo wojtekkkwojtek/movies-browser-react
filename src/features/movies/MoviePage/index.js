@@ -28,10 +28,6 @@ const MoviePage = () => {
         navigate(`/people/${id}`)
     }
 
-    console.log('id strony:', id)
-    console.log('loading strony:', loading)
-
-    console.log('moviePage z useParams ID:', moviePage)
     return (
         <>
             {error && !loading && <ErrorMessage />}

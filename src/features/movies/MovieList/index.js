@@ -7,21 +7,16 @@ import { ErrorMessage } from '../../../common/components/ErrorMessage'
 import { Container } from '../../../common/components/Container'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchMovieList, selectMovieList } from './movieListSlice'
-import { fetchMoviePage } from '../MoviePage/moviePageSlice'
 import { Title } from '../../../common/components/Title'
 
 const MovieList = () => {
-    // const dispatch = useDispatch()
-
     const { loading, movieList, error } = useSelector(selectMovieList)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            dispatch(fetchMovieList())
-        }, 2000)
-        return () => clearTimeout(timer)
+        dispatch(fetchMovieList())
     }, [])
+
     const navigate = useNavigate()
     const routeChange = (id) => {
         navigate(`/movie/${id}`)

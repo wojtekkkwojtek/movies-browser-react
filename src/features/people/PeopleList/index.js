@@ -1,28 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { nanoid } from 'nanoid';
-import { PersonTile } from '../../../common/components/Tiles/PersonTile';
-import { Title } from "../../../common/components/Title";
-import { Loader } from '../../../common/components/Loader';
-import { Container } from '../../../common/components/Container';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { nanoid } from 'nanoid'
+import { PersonTile } from '../../../common/components/Tiles/PersonTile'
+import { Title } from '../../../common/components/Title'
+import { Loader } from '../../../common/components/Loader'
+import { Container } from '../../../common/components/Container'
 
-import {
-    selectPeopleList,
-    setPeopleList,
-    fetchPeopleList,
-    fetchPeopleListSuccess,
-    fetchPeopleListError,
-} from './peopleListSlice';
-import { ErrorMessage } from "../../../common/components/ErrorMessage";
-
-
+import { selectPeopleList, fetchPeopleList } from './peopleListSlice'
+import { ErrorMessage } from '../../../common/components/ErrorMessage'
 
 const PeopleList = () => {
-    const { loading, peopleList, error } = useSelector(selectPeopleList);
-    console.log('loading, peopleList: ' + { loading, peopleList }); ///////////////////////
+    const { loading, peopleList, error } = useSelector(selectPeopleList)
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
     useEffect(() => {
         const timer = setTimeout(() => {
             dispatch(fetchPeopleList())
@@ -36,31 +27,26 @@ const PeopleList = () => {
         navigate(`/people/${id}`)
     }
 
-    const routeToPerson = (id) => {
-        routeChange(id)
-        console.log('personId_in_PeopleList', id)
-    }
-
-
     return (
         <Container>
             {error && !loading && <ErrorMessage />}
             {!error && loading && <Loader />}
             {!error && !loading && <Title>Popular people</Title>}
             {!error &&
-                !loading && peopleList && peopleList.map((people) => (
-                <React.Fragment key={people.id}>
-                    <PersonTile
-                        key={nanoid()}
-                        onClick={() => routeChange(people.id)}
-                        name={people.name}
-                        poster={people.profile_path}
-                    />
-                </React.Fragment>
-            )
-            )}
+                !loading &&
+                peopleList &&
+                peopleList.map((people) => (
+                    <React.Fragment key={people.id}>
+                        <PersonTile
+                            key={nanoid()}
+                            onClick={() => routeChange(people.id)}
+                            person_name={people.name}
+                            poster={people.profile_path}
+                        />
+                    </React.Fragment>
+                ))}
         </Container>
     )
-};
+}
 
-export default PeopleList;
+export default PeopleList

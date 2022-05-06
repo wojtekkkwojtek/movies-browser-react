@@ -1,7 +1,7 @@
 import { API_KEY, URL } from '../../../common/assets/generalData/fetchedData'
 
 import { call, delay, put, takeLatest } from 'redux-saga/effects'
-import { getMovieDetails } from '../../getApiData'
+import { getData } from '../../getApiData'
 
 import {
     fetchActorsAndCrew,
@@ -14,13 +14,12 @@ function* fetchMovieDetailsHandler({ payload: id }) {
     try {
         yield delay(1000)
         const movie = `${URL}/movie/${id}?api_key=${API_KEY}`
-        const movieDetails = yield call(getMovieDetails, movie)
+        const movieDetails = yield call(getData, movie)
         yield put(fetchMoviePageSuccess(movieDetails))
 
         const cast = `${URL}/movie/${id}/credits?api_key=${API_KEY}`
-        const castInMovie = yield call(getMovieDetails, cast)
+        const castInMovie = yield call(getData, cast)
         yield put(fetchActorsAndCrew(castInMovie))
-        console.log('castInMovie:', castInMovie)
     } catch (error) {
         yield call(fetchMoviePageError)
     }

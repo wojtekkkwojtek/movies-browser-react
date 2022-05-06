@@ -41,11 +41,5 @@ export const {
 } = peopleListSlice.actions
 
 export const selectPeopleList = (state) => state.people
-// export const selectError = (state) => selectPeopleList(state)
-// export const selectLoading = (state) => selectPeopleList(state).loading
-// export const selectTotalPages = (state) => selectPeopleList(state).totalPages
-// export const selectTotalResults = (state) => selectPeopleList(state).totalResults
-
-
 
 export const peopleListReducer = peopleListSlice.reducer

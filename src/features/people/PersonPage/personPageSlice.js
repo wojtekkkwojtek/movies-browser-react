@@ -8,12 +8,12 @@ const personPageSlice = createSlice({
         error: false,
     },
     reducers: {
-        fetchPersonPage: state => {
+        fetchPersonPage: (state) => {
             state.loading = true
-            state.error = false;
+            state.error = false
         },
 
-        fetchPersonPageError: state => {
+        fetchPersonPageError: (state) => {
             state.loading = false
             state.error = true
         },
@@ -22,14 +22,12 @@ const personPageSlice = createSlice({
             state.loading = false
             state.error = false
             state.personPage = payload
-            console.log('personPage_in_fetch_payload_in_Slice:', payload)      ////////////////////////
         },
 
         setPersonCredits: (state, { payload }) => {
-            state.cast = payload.cast;
-            state.crew = payload.crew;
-            console.log('credits in slice ', payload)
-        }
+            state.cast = payload.cast
+            state.crew = payload.crew
+        },
     },
 })
 
@@ -39,22 +37,8 @@ export const {
     fetchPersonPage,
     fetchPersonPageSuccess,
     fetchPersonPageError,
-} = personPageSlice.actions;
+} = personPageSlice.actions
 
-
-export const selectPersonPage = state => state.personOne;
-
-///export const selectPersonCast = state => selectPersonPage(state).cast;
-
-//export const selectMovieCrew = state => selectPersonPage(state).crew;
-
-// export const selectPersonPage = state => state.personPage.personPage
-// export const selectLoading = (state) => state.personPage.loading
-// export const selectError = (state) => state.personPage.error
-
-//export const selectPersonCast = state => selectPersonDetails(state).cast;
-//export const selectPersonCrew = state => selectPersonDetails(state).crew;
-
-
+export const selectPersonPage = (state) => state.personOne
 
 export const personPageReducer = personPageSlice.reducer
