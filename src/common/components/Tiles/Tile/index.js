@@ -5,6 +5,7 @@ import rateIcon from '../rateIcon.svg'
 import { URLimage } from '../../../assets/generalData/fetchedData'
 import { selectMovieList } from '../../../../features/movies/MovieList/movieListSlice'
 import { ReactComponent as NoPoster } from './noPoster.svg'
+import { ReactComponent as NoPhoto } from '../PersonTile/noPhoto.svg'
 
 import {
     Content,
@@ -60,8 +61,10 @@ export const Tile = ({
                         src={`${URLimage}${poster}`}
                         alt=""
                     />
-                ) : (
+                ) : !person ? (
                     <NoPoster />
+                ) : (
+                    <NoPhoto />
                 )}
                 <div>
                     <Title isList={isList} details={details} person={person}>

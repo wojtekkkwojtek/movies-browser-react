@@ -21,7 +21,7 @@ export const TileContainer = styled.div`
 export const Poster = styled.img`
     border-radius: 5px;
     width: 155px;
-    height: 232px;
+    max-height: 232px;
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 110px;
         height: 165px;
@@ -31,6 +31,7 @@ export const InfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 `
 export const InfoDetails = styled.div`
     display: flex;
@@ -39,7 +40,7 @@ export const InfoDetails = styled.div`
     font-weight: 500;
     font-size: 18px;
     line-height: 130%;
-    margin: 8px 0px;
+    margin: 6px 0px;
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 14px;
     }
