@@ -2,7 +2,7 @@ import { takeEvery, call, put } from 'redux-saga/effects'
 import { URLgenres } from '../../../common/assets/generalData/fetchedData'
 import { setGenres } from './movieListSlice'
 
-import { getMovieList, getGenres } from '../../getApiData'
+import { getMovieList, getData } from '../../getApiData'
 import {
     setMovieList,
     fetchMovieList,
@@ -11,7 +11,7 @@ import {
 
 function* fetchMovieListHandler() {
     try {
-        const fetchedGenres = yield call(getGenres, URLgenres)
+        const fetchedGenres = yield call(getData, URLgenres)
         yield put(setGenres(fetchedGenres))
 
         const fetchedMovies = yield call(getMovieList)

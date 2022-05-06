@@ -8,7 +8,7 @@ import { Title } from '../../../common/components/Title';
 import { Tile } from '../../../common/components/Tiles/Tile';
 import { Loader } from '../../../common/components/Loader';
 import { Container } from '../../../common/components/Container';
-import { fetchPersonPage, selectPersonPage, selectPersonCast, selectMovieCrew } from './personPageSlice';
+import { fetchPersonPage, selectPersonPage } from './personPageSlice';
 import { ErrorMessage } from '../../../common/components/ErrorMessage';
 import { StyledButton, Wrapper } from "./styled";
 
@@ -25,12 +25,12 @@ const PersonPage = () => {
 
     const navigate = useNavigate();
     const routeChange = (id) => {
-        navigate(`/movie/${id}`);
-    };
+        navigate(`/movie/${id}`)
+    }
 
     const routeToMoviePage = (id) => {
         routeChange(id)
-    };
+    }
 
     const { personPage, loading, error, cast, crew } = useSelector(selectPersonPage);
     const shownTiles = isShownAll ? cast.length : 8;
@@ -44,11 +44,15 @@ const PersonPage = () => {
             {!error && !loading && personPage && (
                 <>
                     <Container>
-                        <Tile details person
+                        <Tile
+                            details
+                            person
                             key={nanoid()}
                             title={personPage.name}
                             birth="Date of birth: "
-                            date_of_birth={new Date(personPage.birthday).toLocaleDateString()}
+                            date_of_birth={new Date(
+                                personPage.birthday
+                            ).toLocaleDateString()}
                             place="Place of birth: "
                             place_of_birth={personPage.place_of_birth}
                             poster={personPage.profile_path}
@@ -60,7 +64,9 @@ const PersonPage = () => {
                         {cast &&
                             cast.slice(0, shownTiles).map((movie) => (
                                 <React.Fragment key={cast.id}>
-                                    <Tile isList nonInList
+                                    <Tile
+                                        isList
+                                        nonInList
                                         key={nanoid()}
                                         title={movie.title}
                                         genres={movie.genre_ids}
@@ -70,7 +76,9 @@ const PersonPage = () => {
                                         score="/10"
                                         votes={movie.vote_count}
                                         character={movie.character}
-                                        onClick={() => routeToMoviePage(movie.id)}
+                                        onClick={() =>
+                                            routeToMoviePage(movie.id)
+                                        }
                                     />
                                 </React.Fragment>
                             ))}
@@ -87,7 +95,9 @@ const PersonPage = () => {
                         {crew &&
                             crew.slice(0, 8).map((movie) => (
                                 <React.Fragment key={crew.id}>
-                                    <Tile isList nonInList
+                                    <Tile
+                                        isList
+                                        nonInList
                                         key={nanoid()}
                                         title={movie.title}
                                         genres={movie.genre_ids}
@@ -97,7 +107,9 @@ const PersonPage = () => {
                                         score="/10"
                                         votes={movie.vote_count}
                                         job={movie.job}
-                                        onClick={() => routeToMoviePage(movie.id)}
+                                        onClick={() =>
+                                            routeToMoviePage(movie.id)
+                                        }
                                     />
                                 </React.Fragment>
                             ))}

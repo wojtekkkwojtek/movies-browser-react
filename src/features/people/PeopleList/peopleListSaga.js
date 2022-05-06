@@ -12,7 +12,6 @@ function* fetchPeopleListHandler() {
         yield put(setPeopleList(fetchedPeople))
     } catch (error) {
         yield put(fetchPeopleListError())
-        console.log('cos nie tak z listy people')
     }
 }
 

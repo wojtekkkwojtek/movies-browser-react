@@ -8,12 +8,12 @@ const personPageSlice = createSlice({
         error: false,
     },
     reducers: {
-        fetchPersonPage: state => {
+        fetchPersonPage: (state) => {
             state.loading = true
-            state.error = false;
+            state.error = false
         },
 
-        fetchPersonPageError: state => {
+        fetchPersonPageError: (state) => {
             state.loading = false
             state.error = true
         },
@@ -25,10 +25,9 @@ const personPageSlice = createSlice({
         },
 
         setPersonCredits: (state, { payload }) => {
-            state.cast = payload.cast;
-            state.crew = payload.crew;
-            console.log('credits in slice ', payload)
-        }
+            state.cast = payload.cast
+            state.crew = payload.crew
+        },
     },
 })
 
@@ -38,8 +37,8 @@ export const {
     fetchPersonPage,
     fetchPersonPageSuccess,
     fetchPersonPageError,
-} = personPageSlice.actions;
+} = personPageSlice.actions
 
-export const selectPersonPage = state => state.personOne;
+export const selectPersonPage = (state) => state.personOne
 
 export const personPageReducer = personPageSlice.reducer
