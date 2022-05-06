@@ -1,9 +1,11 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { nanoid } from 'nanoid';
-import rateIcon from '../rateIcon.svg';
-import { URLimage } from '../../../assets/generalData/fetchedData';
-import { selectMovieList } from '../../../../features/movies/MovieList/movieListSlice';
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { nanoid } from 'nanoid'
+import rateIcon from '../rateIcon.svg'
+import { URLimage } from '../../../assets/generalData/fetchedData'
+import { selectMovieList } from '../../../../features/movies/MovieList/movieListSlice'
+import { ReactComponent as NoPoster } from './noPoster.svg'
+
 import {
     Content,
     Poster,
@@ -17,8 +19,8 @@ import {
     Rate,
     Score,
     Icon,
-    Info
-} from '../styled';
+    Info,
+} from '../styled'
 
 export const Tile = ({
     nonInList,
@@ -45,24 +47,32 @@ export const Tile = ({
     place,
     place_of_birth,
     character,
-    job
+    job,
 }) => {
-    const { genresList } = useSelector(selectMovieList);
+    const { genresList } = useSelector(selectMovieList)
     return (
         <TileContainer isList={isList} details={details} onClick={onClick}>
             <Content>
-                <Poster
-                    details={details}
-                    isList={isList}
-                    src={`${URLimage}${poster}`}
-                    alt=""
-                />
+                {poster ? (
+                    <Poster
+                        details={details}
+                        isList={isList}
+                        src={`${URLimage}${poster}`}
+                        alt=""
+                    />
+                ) : (
+                    <NoPoster />
+                )}
                 <div>
-                    <Title isList={isList} details={details} person={person}  >
+                    <Title isList={isList} details={details} person={person}>
                         {title}
                     </Title>
-                    <InfoWrapper><Info  >{character}</Info></InfoWrapper>
-                    <InfoWrapper><Info  >{job}</Info></InfoWrapper>
+                    <InfoWrapper>
+                        <Info>{character}</Info>
+                    </InfoWrapper>
+                    <InfoWrapper>
+                        <Info>{job}</Info>
+                    </InfoWrapper>
                     <Year isList={isList}>{year}</Year>
                     <Info isList={isList} person={person}>
                         {production}
