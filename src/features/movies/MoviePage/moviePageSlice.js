@@ -4,7 +4,8 @@ const moviePageSlice = createSlice({
     name: 'movieOne',
     initialState: {
         moviePage: null,
-        actors: null,
+        actors: [],
+        crew: [],
         loading: false,
         error: false,
         movie_id: null,
@@ -20,31 +21,22 @@ const moviePageSlice = createSlice({
         },
         fetchMoviePageSuccess: (state, { payload }) => {
             state.loading = false
-            state.error = false
             state.moviePage = payload
         },
-        // fetchActors: (state, { payload }) => {
-        //     state.actors = payload.actors
-        // },
+        fetchActorsAndCrew: (state, { payload }) => {
+            state.actors = payload.cast
+            state.crew = payload.crew
+        },
     },
 })
 
 export const {
-    setId,
-    setMovieDetails,
     fetchMoviePage,
     fetchMoviePageSuccess,
     fetchMoviePageError,
-    fetchActors,
+    fetchActorsAndCrew,
 } = moviePageSlice.actions
 
 export const selectMoviePage = (state) => state.movieOne
-
-export const selectGetEx = (state) => state.movieOne.movie_id
-
-// export const selectLoading = (state) => selectMoviePage(state).loading
-// export const selectError = (state) => selectMoviePage(state).error
-// export const selectActors = (state) => selectMoviePage(state).actors
-// export const selectMovie = (state) => selectMoviePage(state).moviePage
 
 export const moviePageReducer = moviePageSlice.reducer

@@ -19,26 +19,29 @@ import {
 import {ErrorMessage} from "../../../common/components/ErrorMessage";
 import { Pagination } from "../../../common/components/Pagination";
 
-
 const PeopleList = () => {
-    const dispatch = useDispatch();
+    const { loading, peopleList, error } = useSelector(selectPeopleList)
 
-    const { loading, peopleList, error } = useSelector(selectPeopleList);
-    console.log(loading, peopleList);
-
+    const dispatch = useDispatch()
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            dispatch(fetchPeopleList())
+        }, 2000)
+        return () => clearTimeout(timer)
+    }, [])
 
     const navigate = useNavigate()
+
     const routeChange = (id) => {
         navigate(`/people/${id}`)
     }
 
-    const routeToPersonPage = (id) => {
+    const routeToPerson = (id) => {
         routeChange(id)
-        dispatch(fetchPersonPage(id))
     }
 
     return (
-        <React.Fragment>
+        <>
         <Container>
             {error ? (
                 <ErrorMessage />
@@ -61,8 +64,8 @@ const PeopleList = () => {
         )}
         </Container>
         {!error && !loading && <Pagination />}
-        </React.Fragment>
+        </>
     )
-};
+}
 
-export default PeopleList;
+export default PeopleList

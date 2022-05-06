@@ -1,4 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { nanoid } from 'nanoid';
+import rateIcon from '../rateIcon.svg';
+import { URLimage } from '../../../assets/generalData/fetchedData';
+import { selectMovieList } from '../../../../features/movies/MovieList/movieListSlice';
 import {
     Content,
     Poster,
@@ -12,76 +17,107 @@ import {
     Rate,
     Score,
     Icon,
-    Info,
-} from '../styled'
-import rateIcon from '../rateIcon.svg'
-import { URLimage } from '../../../assets/generalData/fetchedData'
-import { nanoid } from 'nanoid'
-import { useSelector } from 'react-redux'
-import { selectMovieList } from '../../../../features/movies/MovieList/movieListSlice'
-// import {
-//     // fetchGenresList,
-//     selectGenres,
-// } from '../../../../features/genres/genresSlice'
+    Info
+} from '../styled';
 
 export const Tile = ({
     nonInList,
     isList,
+    details,
+    movie,
     onClick,
     title,
     poster,
     year,
     country,
     production,
+    release,
+    release_date,
     date,
     genres,
     rate,
     score,
     votes,
     overview,
+    person,
+    birth,
+    date_of_birth,
+    place,
+    place_of_birth,
+    character,
+    job
 }) => {
-    const { genresList } = useSelector(selectMovieList)
+    const { genresList } = useSelector(selectMovieList);
     return (
-        <TileContainer isList={isList} onClick={onClick}>
-            <Poster isList={isList} src={`${URLimage}${poster}`} alt="" />
+        <TileContainer isList={isList} details={details} onClick={onClick}>
             <Content>
-                <Title>{title}</Title>
-                <Year>{year}</Year>
-                <InfoWrapper>
-                    <Info>
-                        {production}{' '}
-                        {country &&
-                            country.map((country) => country.name).join(', ')}
+                <Poster
+                    details={details}
+                    isList={isList}
+                    src={`${URLimage}${poster}`}
+                    alt=""
+                />
+                <div>
+                    <Title isList={isList} details={details} person={person}  >
+                        {title}
+                    </Title>
+                    <InfoWrapper><Info  >{character}</Info></InfoWrapper>
+                    <InfoWrapper><Info  >{job}</Info></InfoWrapper>
+                    <Year isList={isList}>{year}</Year>
+                    <Info isList={isList} person={person}>
+                        {production}
                     </Info>
-                </InfoWrapper>
-                <InfoWrapper>
-                    <Info>Release date:</Info>
-                    <InfoDetails>{date ? date : 'Unknown'}</InfoDetails>
-                </InfoWrapper>
-                <InfoWrapper isList={isList}>
-                    {genres &&
-                        genres.map((genre) => {
-                            return genresList.map((item) =>
-                                item.id === genre ? (
-                                    <Genres key={nanoid()}>{item.name}</Genres>
-                                ) : null
-                            )
-                        })}
-                </InfoWrapper>
-                <InfoWrapper nonInList={nonInList}>
-                    {genres &&
-                        genres.map((country) => (
-                            <Genres>{country.name}</Genres>
-                        ))}
-                </InfoWrapper>
-                <InfoWrapper>
-                    <Icon src={rateIcon} alt="" />
-                    <Rate>{rate}</Rate>
-                    <Score>{score}</Score>
-                    <Score>{votes} votes</Score>
-                </InfoWrapper>
-                <Overview>{overview}</Overview>
+                    <Info isList={isList} movie={movie}>
+                        {' '}
+                        {birth}
+                        {date_of_birth ? date_of_birth : 'Unknown'}{' '}
+                    </Info>
+                    <Info isList={isList} person={person} details={details}>
+                        {' '}
+                        {release}
+                        {release_date ? release_date : 'Unknown'}
+                    </Info>
+                    <Info isList={isList} movie={movie}>
+                        {place} {place_of_birth ? place_of_birth : 'Unknown'}
+                    </Info>
+                    <InfoWrapper isList={isList} movie={movie} person={person}>
+                        <InfoDetails
+                            movie={movie}
+                            person={person}
+                            poster={poster}
+                        >
+                            {date ? date : 'Unknown'}
+                        </InfoDetails>
+                    </InfoWrapper>
+                    <InfoWrapper person={person}>
+                        {genres &&
+                            genres.map((genre) => {
+                                return genresList.map((item) =>
+                                    item.id === genre ? (
+                                        <Genres isList={isList} key={nanoid()}>
+                                            {item.name}
+                                        </Genres>
+                                    ) : null
+                                )
+                            })}
+                    </InfoWrapper>
+                    <InfoWrapper nonInList={nonInList} person={person}>
+                        {genres &&
+                            genres.map((country) => (
+                                <Genres>{country.name}</Genres>
+                            ))}
+                    </InfoWrapper>
+                    <InfoWrapper rates>
+                        <Icon person={person} src={rateIcon} alt="" />
+                        <Rate person={person} isList={isList}>
+                            {rate}
+                        </Rate>
+                        <Score person={person}>{score}</Score>
+                        <Score person={person}>{votes} </Score>
+                    </InfoWrapper>
+                </div>
             </Content>
+            <Overview>{overview}</Overview>
         </TileContainer>
     )
 }
