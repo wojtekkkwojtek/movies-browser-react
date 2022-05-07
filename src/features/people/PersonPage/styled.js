@@ -9,8 +9,8 @@ export const StyledButton = styled.button`
     margin: 16px;
     background-color: ${({ theme }) => theme.color.whisper};
     color: ${({ theme }) => theme.color.waterloo};
-cursor: pointer;
+    cursor: pointer;
 `;
 export const Wrapper = styled.div`
-text-align: center;
+    text-align: center;
 `;
