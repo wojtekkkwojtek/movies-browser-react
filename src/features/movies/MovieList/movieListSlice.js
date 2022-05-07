@@ -28,6 +28,7 @@ const movieListSlice = createSlice({
 
         setMovieList: (state, { payload: { results }, type }) => {
             state.movieList = results
+            console.log(state.movieList)
         },
         setGenres: (state, action) => {
             state.error = false
