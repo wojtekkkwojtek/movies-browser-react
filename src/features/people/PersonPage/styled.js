@@ -3,12 +3,12 @@ import { theme } from "../../../core/App/theme";
 
 export const StyledButton = styled.button`
     border: none;
-    height: 40px;
-    width: 130px;
-    font-size: 22px;
+    height:80px;
+    width: 120px;
+    font-size: 20px;
     margin: 16px;
-    background-color: ${({ theme }) => theme.color.blue};
-    color: ${({ theme }) => theme.color.white};
+    background-color: ${({ theme }) => theme.color.whisper};
+    color: ${({ theme }) => theme.color.waterloo};
 cursor: pointer;
 `;
 export const Wrapper = styled.div`

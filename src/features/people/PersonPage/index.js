@@ -11,6 +11,8 @@ import { Container } from '../../../common/components/Container';
 import { fetchPersonPage, selectPersonPage } from './personPageSlice';
 import { ErrorMessage } from '../../../common/components/ErrorMessage';
 import { StyledButton, Wrapper } from "./styled";
+import { ReactComponent as ArrowDown } from "./Arrow_down.svg";
+import { ReactComponent as ArrowUp } from "./Arrow_up.svg";
 
 const PersonPage = () => {
     const [isShownAll, setIsShownAll] = useState(false);
@@ -87,7 +89,11 @@ const PersonPage = () => {
                         <StyledButton
                             onClick={toggleShown}
                         >
-                            {isShownAll ? "show less" : "show all"}
+                            {isShownAll && <ArrowUp />}
+                            <div>
+                                {isShownAll ? "show less" : "show all"}
+                                {!isShownAll && <ArrowDown />}
+                            </div>
                         </StyledButton>
                     </Wrapper>
                     <Container>
