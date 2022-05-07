@@ -8,6 +8,10 @@ export const theme = {
         waterloo: '#7E839A',
         black: '#000000',
         blue: '#0044CC',
+        lightBlue: '#D6E4FF',
+        gray: '#E4E6F0',
+        darkGray: "#333333",
+        darkerGray: "#7E839A",
     },
     breakpoints: {
         mobileNormal: '550px',

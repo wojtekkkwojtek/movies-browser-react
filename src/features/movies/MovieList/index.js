@@ -8,6 +8,7 @@ import { Container } from '../../../common/components/Container'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchMovieList, selectMovieList } from './movieListSlice'
 import { Title } from '../../../common/components/Title'
+import { Pagination } from "../../../common/components/Pagination"
 
 const MovieList = () => {
     const { loading, movieList, error } = useSelector(selectMovieList)
@@ -27,6 +28,7 @@ const MovieList = () => {
     }
 
     return (
+        <React.Fragment>
         <Container>
             {error && !loading && <ErrorMessage />}
             {!error && loading && <Loader />}
@@ -51,7 +53,9 @@ const MovieList = () => {
                         />
                     </React.Fragment>
                 ))}
+            {!error && !loading && <Pagination></Pagination>}
         </Container>
+        </React.Fragment>    
     )
 }
 
