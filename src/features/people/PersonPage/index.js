@@ -16,7 +16,7 @@ import { ReactComponent as ArrowUp } from "./Arrow_up.svg";
 
 const PersonPage = () => {
     const [isShownAll, setIsShownAll] = useState(false);
-
+    const [isShownAllCrew, setIsShownAllCrew] = useState(false);
     const dispatch = useDispatch();
 
     const { id } = useParams();
@@ -36,8 +36,9 @@ const PersonPage = () => {
 
     const { personPage, loading, error, cast, crew } = useSelector(selectPersonPage);
     const shownTiles = isShownAll ? cast.length : 8;
+    const shownTilesCrew = isShownAllCrew ? crew.length : 8;
     const toggleShown = () => setIsShownAll(isShownAll => !isShownAll);
-
+    const toggleShownCrew = () => setIsShownAllCrew(isShownAllCrew => !isShownAllCrew);
     return (
         <>
             {error && !loading && <ErrorMessage />}
@@ -85,7 +86,7 @@ const PersonPage = () => {
                                 </React.Fragment>
                             ))}
                     </Container>
-                    <Wrapper>
+                    {cast && cast.length > 8 && <Wrapper>
                         <StyledButton
                             onClick={toggleShown}
                         >
@@ -95,11 +96,11 @@ const PersonPage = () => {
                                 {!isShownAll && <ArrowDown />}
                             </div>
                         </StyledButton>
-                    </Wrapper>
+                    </Wrapper>}
                     <Container>
                         <Title>Movies-Crew ({crew && crew.length})</Title>
                         {crew &&
-                            crew.slice(0, 8).map((movie) => (
+                            crew.slice(0, shownTilesCrew).map((movie) => (
                                 <React.Fragment key={crew.id}>
                                     <Tile
                                         isList
@@ -114,12 +115,23 @@ const PersonPage = () => {
                                         votes={movie.vote_count}
                                         job={movie.job}
                                         onClick={() =>
-                                            routeToMoviePage(movie.id)
+                                        routeToMoviePage(movie.id)
                                         }
                                     />
                                 </React.Fragment>
                             ))}
                     </Container>
+                    {crew && crew.length > 8 && <Wrapper>
+                        <StyledButton
+                            onClick={toggleShownCrew}
+                        >
+                            {isShownAllCrew && <ArrowUp />}
+                            <div>
+                                {isShownAllCrew ? "show less" : "show all"}
+                                {!isShownAllCrew && <ArrowDown />}
+                            </div>
+                        </StyledButton>
+                    </Wrapper>}
                 </>
             )}
         </>
