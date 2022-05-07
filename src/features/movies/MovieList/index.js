@@ -2,13 +2,13 @@ import React, { useEffect } from 'react'
 import { Tile } from '../../../common/components/Tiles/Tile'
 import { Loader } from '../../../common/components/Loader'
 import { nanoid } from 'nanoid'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { ErrorMessage } from '../../../common/components/ErrorMessage'
 import { Container } from '../../../common/components/Container'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchMovieList, selectMovieList } from './movieListSlice'
 import { Title } from '../../../common/components/Title'
-import { Pagination } from "../../../common/components/Pagination"
+import { Pagination } from '../../../common/components/Pagination'
 
 const MovieList = () => {
     const { loading, movieList, error } = useSelector(selectMovieList)
@@ -26,36 +26,43 @@ const MovieList = () => {
     const routeToMoviePage = (id) => {
         routeChange(id)
     }
+    const location = useLocation()
+    const searchParams = new URLSearchParams(location.search)
+    const query = searchParams.get('szukaj')
+
+    const xy = (movieList) =>
+        movieList.filter(({ content }) => content.includes(query))
 
     return (
         <React.Fragment>
-        <Container>
-            {error && !loading && <ErrorMessage />}
-            {!error && loading && <Loader />}
-            {!error && !loading && <Title>Popular movies</Title>}
-            {!error &&
-                !loading &&
-                movieList &&
-                movieList.map((movie) => (
-                    <React.Fragment key={movie.id}>
-                        <Tile
-                            isList
-                            nonInList
-                            key={nanoid()}
-                            onClick={() => routeToMoviePage(movie.id)}
-                            title={movie.title}
-                            poster={movie.poster_path}
-                            year={movie.release_date.slice(0, 4)}
-                            rate={movie.vote_average}
-                            score="/10"
-                            votes={movie.vote_count}
-                            genres={movie.genre_ids}
-                        />
-                    </React.Fragment>
-                ))}
-            {!error && !loading && <Pagination></Pagination>}
-        </Container>
-        </React.Fragment>    
+            <Container>
+                {error && !loading && <ErrorMessage />}
+                {!error && loading && <Loader />}
+                {!error && !loading && <Title>Popular movies</Title>}
+                {location.pathname}
+                {!error &&
+                    !loading &&
+                    movieList &&
+                    movieList.map((movie) => (
+                        <React.Fragment key={movie.id}>
+                            <Tile
+                                isList
+                                nonInList
+                                key={nanoid()}
+                                onClick={() => routeToMoviePage(movie.id)}
+                                title={movie.title}
+                                poster={movie.poster_path}
+                                year={movie.release_date.slice(0, 4)}
+                                rate={movie.vote_average}
+                                score="/10"
+                                votes={movie.vote_count}
+                                genres={movie.genre_ids}
+                            />
+                        </React.Fragment>
+                    ))}
+                {!error && !loading && <Pagination></Pagination>}
+            </Container>
+        </React.Fragment>
     )
 }
 
