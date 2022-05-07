@@ -73,7 +73,7 @@ export const Title = styled.header`
         font-size: 16px;
     }
 `
-export const Subtitle = styled.h3`
+export const Subtitle = styled.p`
     color: ${({ theme }) => theme.color.stormGray};
     font-size: 16px;
     font-weight: 400;

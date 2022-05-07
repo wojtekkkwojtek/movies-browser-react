@@ -71,10 +71,10 @@ export const Tile = ({
                     <Title isList={isList} details={details} person={person}>
                         {title}
                     </Title>
-                    <Subtitle>
+                    <Subtitle >
                         {(character || job)
                             ? <>
-                                {character ? character : job} {date && `(${release_date})`}
+                                {character ? character : job} {release_date && `(${release_date})`}
                             </>
                             : <>
                                 {release_date}
