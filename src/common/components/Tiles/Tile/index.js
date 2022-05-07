@@ -11,6 +11,7 @@ import {
     Content,
     Poster,
     Title,
+    Subtitle,
     Year,
     TileContainer,
     InfoWrapper,
@@ -70,12 +71,16 @@ export const Tile = ({
                     <Title isList={isList} details={details} person={person}>
                         {title}
                     </Title>
-                    <InfoWrapper>
-                        <Info>{character}</Info>
-                    </InfoWrapper>
-                    <InfoWrapper>
-                        <Info>{job}</Info>
-                    </InfoWrapper>
+                    <Subtitle>
+                        {(character || job)
+                            ? <>
+                                {character ? character : job} {date && `(${release_date})`}
+                            </>
+                            : <>
+                                {release_date}
+                            </>
+                        }
+                    </Subtitle>
                     <Year isList={isList}>{year}</Year>
                     <Info isList={isList} person={person}>
                         {production}

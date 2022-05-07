@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 export const TileContainer = styled.div`
     background: ${({ theme }) => theme.color.white};
@@ -73,7 +73,13 @@ export const Title = styled.header`
         font-size: 16px;
     }
 `
-
+export const Subtitle = styled.h3`
+    color: ${({ theme }) => theme.color.stormGray};
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.5;
+`;
 export const Year = styled.div`
     font-size: 22px;
     margin: 24px 0;
