@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from 'redux-saga/effects'
+import { takeEvery, call, put, delay } from 'redux-saga/effects'
 import { URLgenres } from '../../../common/assets/generalData/fetchedData'
 import { setGenres } from './movieListSlice'
 
@@ -11,6 +11,7 @@ import {
 
 function* fetchMovieListHandler() {
     try {
+        yield delay(1000)
         const fetchedGenres = yield call(getData, URLgenres)
         yield put(setGenres(fetchedGenres))
 

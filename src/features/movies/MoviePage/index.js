@@ -32,7 +32,7 @@ const MoviePage = () => {
         <>
             {error && !loading && <ErrorMessage />}
             {!error && loading && <Loader />}
-            {!error && !loading}
+            {/* {!error && !loading} */}
             {!error && !loading && moviePage && (
                 <>
                     <MovieHeader
