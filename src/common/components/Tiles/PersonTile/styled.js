@@ -40,7 +40,7 @@ export const InfoDetails = styled.div`
     font-weight: 500;
     font-size: 18px;
     line-height: 130%;
-    margin: 6px 0px;
+    margin-top: 5px;
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 14px;
     }
