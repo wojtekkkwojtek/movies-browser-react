@@ -1,4 +1,8 @@
+import { useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { toMovies, toPeople } from '../../../core/App/routes'
+import { URLmovieSearch } from '../../assets/generalData/fetchedData'
+import { getApiData } from '../../../features/getApiData'
 import {
     Container,
     IconVideo,
@@ -10,8 +14,42 @@ import {
     SearchIcon,
     StyledNavLink,
 } from './styled'
+import { fetchMovieList } from '../../../features/movies/MovieList/movieListSlice'
+import { useDispatch } from 'react-redux'
 
 const Header = () => {
+    const location = useLocation()
+    const searchParams = new URLSearchParams(location.search)
+    const query = searchParams.get('search')
+
+    const navigate = useNavigate()
+
+    // useEffect(() => {
+    //     getApiData(`${URLmovieSearch}&${query}`)
+    //     console.log(getApiData())
+    // }, [])
+
+    const dispatch = useDispatch()
+    const searchMovie = (e) => {
+        const searchParams = new URLSearchParams(location.search)
+        if (e.target.value.trim() === '') {
+            searchParams.delete('search')
+        } else {
+            searchParams.set('search', e.target.value)
+            console.log('e.target:', e)
+        }
+        navigate(`${location.pathname}?${searchParams.toString()}`)
+        // navigate(`${URLmovieSearch}&${query}`)
+        // navigate({
+        //     pathname: `/movie?search=${query}`,
+        //     search: searchParams.toString(),
+        // })
+
+        dispatch(fetchMovieList(e.target.value))
+    }
+
+    console.log(query)
+
     return (
         <Wrapper>
             <Container>
@@ -23,7 +61,15 @@ const Header = () => {
                 </NavContainer>
                 <Label>
                     <SearchIcon />
-                    <Input type="text" placeholder="Search for movies..." />
+                    <Input
+                        onChange={searchMovie}
+                        type="search"
+                        placeholder={`Search for ${
+                            location.pathname === '/movies'
+                                ? 'movies...'
+                                : 'people...'
+                        } `}
+                    />
                 </Label>
             </Container>
         </Wrapper>

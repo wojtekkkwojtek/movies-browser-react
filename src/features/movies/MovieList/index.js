@@ -12,6 +12,7 @@ import { Pagination } from '../../../common/components/Pagination'
 
 const MovieList = () => {
     const { loading, movieList, error } = useSelector(selectMovieList)
+
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -26,12 +27,12 @@ const MovieList = () => {
     const routeToMoviePage = (id) => {
         routeChange(id)
     }
-    const location = useLocation()
-    const searchParams = new URLSearchParams(location.search)
-    const query = searchParams.get('szukaj')
+    // const location = useLocation()
+    // const searchParams = new URLSearchParams(location.search)
+    // const query = searchParams.get('szukaj')
 
-    const xy = (movieList) =>
-        movieList.filter(({ content }) => content.includes(query))
+    // const xy = (movieList) =>
+    //     movieList.filter(({ content }) => content.includes(query))
 
     return (
         <React.Fragment>
@@ -39,7 +40,7 @@ const MovieList = () => {
                 {error && !loading && <ErrorMessage />}
                 {!error && loading && <Loader />}
                 {!error && !loading && <Title>Popular movies</Title>}
-                {location.pathname}
+                {/* {location.pathname} */}
                 {!error &&
                     !loading &&
                     movieList &&
