@@ -75,7 +75,7 @@ const PersonPage = () => {
                                         genres={movie.genre_ids}
                                         rate={movie.vote_average}
                                         poster={movie.poster_path}
-                                        //year={movie.release_date.slice(0, 4)}
+                                        release_date={movie.release_date.slice(0, 4)}
                                         score="/10"
                                         votes={movie.vote_count}
                                         character={movie.character}
@@ -115,7 +115,7 @@ const PersonPage = () => {
                                         votes={movie.vote_count}
                                         job={movie.job}
                                         onClick={() =>
-                                        routeToMoviePage(movie.id)
+                                            routeToMoviePage(movie.id)
                                         }
                                     />
                                 </React.Fragment>
