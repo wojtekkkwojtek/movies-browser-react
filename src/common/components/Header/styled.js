@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     height: 94px;
+    width: 100%;
+    position: sticky;
+    z-index: 5;
+    top: 0;
     color: white;
     background-color: ${({ theme }) => theme.color.black};
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
@@ -15,7 +19,7 @@ export const Wrapper = styled.div`
     }
 `
 
-export const Container = styled.div`
+export const Section = styled.div`
     display: flex;
     height: 100%;
     width: 1400px;
