@@ -27,20 +27,13 @@ const MovieList = () => {
     const routeToMoviePage = (id) => {
         routeChange(id)
     }
-    // const location = useLocation()
-    // const searchParams = new URLSearchParams(location.search)
-    // const query = searchParams.get('szukaj')
-
-    // const xy = (movieList) =>
-    //     movieList.filter(({ content }) => content.includes(query))
 
     return (
         <React.Fragment>
             <Container>
                 {error && !loading && <ErrorMessage />}
                 {!error && loading && <Loader />}
-                {!error && !loading && <Title>Popular movies</Title>}
-                {/* {location.pathname} */}
+                {!error && !loading && <Title title="Popular movies" />}
                 {!error &&
                     !loading &&
                     movieList &&

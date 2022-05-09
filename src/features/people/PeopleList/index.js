@@ -33,7 +33,7 @@ const PeopleList = () => {
                     <ErrorMessage />
                 ) : loading ? (
                     <>
-                        <Title>Popular people</Title>
+                        <Title title="Popular people" />
                         <Loader />
                     </>
                 ) : (

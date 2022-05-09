@@ -32,7 +32,6 @@ const MoviePage = () => {
         <>
             {error && !loading && <ErrorMessage />}
             {!error && loading && <Loader />}
-            {/* {!error && !loading} */}
             {!error && !loading && moviePage && (
                 <>
                     <MovieHeader
@@ -59,7 +58,7 @@ const MoviePage = () => {
                             overview={moviePage.overview}
                             genres={moviePage.genres}
                         />
-                        <Title>Cast</Title>
+                        <Title title="Cast" />
                         {actors &&
                             actors.map((actor) => (
                                 <PersonTile
@@ -71,7 +70,7 @@ const MoviePage = () => {
                                     poster={actor.profile_path}
                                 />
                             ))}
-                        <Title>Crew</Title>
+                        <Title title="Crew" />
                         {crew &&
                             crew.map((person) => (
                                 <PersonTile
