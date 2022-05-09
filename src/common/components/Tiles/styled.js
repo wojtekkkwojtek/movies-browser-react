@@ -80,7 +80,6 @@ export const Subtitle = styled.p`
     margin: 0;
     line-height: 1.5;
 `;
-
 export const Year = styled.div`
     font-size: 22px;
     margin: 24px 0;
