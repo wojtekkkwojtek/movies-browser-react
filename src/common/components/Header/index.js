@@ -1,6 +1,6 @@
 import { toMovies, toPeople } from '../../../core/App/routes'
 import {
-    Container,
+    Section,
     IconVideo,
     Title,
     Wrapper,
@@ -14,7 +14,7 @@ import {
 const Header = () => {
     return (
         <Wrapper>
-            <Container>
+            <Section>
                 <NavContainer>
                     <IconVideo />
                     <Title to={toMovies()}>movies browser</Title>
@@ -25,7 +25,7 @@ const Header = () => {
                     <SearchIcon />
                     <Input type="text" placeholder="Search for movies..." />
                 </Label>
-            </Container>
+            </Section>
         </Wrapper>
     )
 }

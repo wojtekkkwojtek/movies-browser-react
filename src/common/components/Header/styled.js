@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
     }
 `
 
-export const Container = styled.div`
+export const Section = styled.div`
     display: flex;
     height: 100%;
     width: 1400px;
