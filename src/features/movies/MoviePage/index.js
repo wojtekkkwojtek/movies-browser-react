@@ -1,20 +1,19 @@
-import { nanoid } from 'nanoid'
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { fetchMoviePage, selectMoviePage } from './moviePageSlice'
-
-import { MovieHeader } from '../../../common/components/MovieHeader'
-import { Tile } from '../../../common/components/Tiles/Tile'
-import { Loader } from '../../../common/components/Loader'
-import { Section } from '../../../common/components/Section'
-import { Title } from '../../../common/components/Title'
-import { ErrorMessage } from '../../../common/components/ErrorMessage'
-import { PersonTile } from '../../../common/components/Tiles/PersonTile'
+import { nanoid } from 'nanoid';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { fetchMoviePage, selectMoviePage } from './moviePageSlice';
+import { MovieHeader } from '../../../common/components/MovieHeader';
+import { Tile } from '../../../common/components/Tiles/Tile';
+import { Loader } from '../../../common/components/Loader';
+import { Section } from '../../../common/components/Section';
+import { Title } from '../../../common/components/Title';
+import { ErrorMessage } from '../../../common/components/ErrorMessage';
+import { PersonTile } from '../../../common/components/Tiles/PersonTile';
 
 const MoviePage = () => {
-    const dispatch = useDispatch()
-    const { id } = useParams()
+    const dispatch = useDispatch();
+    const { id } = useParams();
 
     useEffect(() => {
         dispatch(fetchMoviePage(id))
@@ -22,7 +21,7 @@ const MoviePage = () => {
     const { error, loading, moviePage, actors, crew } =
         useSelector(selectMoviePage)
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const routeChange = (id) => {
         navigate(`/people/${id}`)

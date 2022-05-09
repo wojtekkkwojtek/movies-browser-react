@@ -1,24 +1,24 @@
-import React, { useEffect } from 'react'
-import { Tile } from '../../../common/components/Tiles/Tile'
-import { Loader } from '../../../common/components/Loader'
-import { nanoid } from 'nanoid'
-import { useNavigate } from 'react-router-dom'
-import { ErrorMessage } from '../../../common/components/ErrorMessage'
-import { Section } from '../../../common/components/Section'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchMovieList, selectMovieList } from './movieListSlice'
-import { Title } from '../../../common/components/Title'
-import { Pagination } from "../../../common/components/Pagination"
+import React, { useEffect } from 'react';
+import { Tile } from '../../../common/components/Tiles/Tile';
+import { Loader } from '../../../common/components/Loader';
+import { nanoid } from 'nanoid';
+import { useNavigate } from 'react-router-dom';
+import { ErrorMessage } from '../../../common/components/ErrorMessage';
+import { Section } from '../../../common/components/Section';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMovieList, selectMovieList } from './movieListSlice';
+import { Title } from '../../../common/components/Title';
+import { Pagination } from "../../../common/components/Pagination";
 
 const MovieList = () => {
-    const { loading, movieList, error } = useSelector(selectMovieList)
-    const dispatch = useDispatch()
+    const { loading, movieList, error } = useSelector(selectMovieList);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(fetchMovieList())
     }, [])
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const routeChange = (id) => {
         navigate(`/movie/${id}`)
     }
@@ -28,7 +28,6 @@ const MovieList = () => {
     }
 
     return (
-        <React.Fragment>
         <Section>
             {error && !loading && <ErrorMessage />}
             {!error && loading && <Loader />}
@@ -55,7 +54,6 @@ const MovieList = () => {
                 ))}
             {!error && !loading && <Pagination></Pagination>}
         </Section>
-        </React.Fragment>    
     )
 }
 
