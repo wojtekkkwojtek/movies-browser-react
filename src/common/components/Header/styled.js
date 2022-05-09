@@ -9,7 +9,9 @@ export const Wrapper = styled.div`
     justify-content: center;
     height: 94px;
     width: 100%;
-    position: fixed;
+    position: sticky;
+    z-index: 5;
+    top: 0;
     color: white;
     background-color: ${({ theme }) => theme.color.black};
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
