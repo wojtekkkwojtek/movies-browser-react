@@ -8,6 +8,8 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     height: 94px;
+    width: 100%;
+    position: fixed;
     color: white;
     background-color: ${({ theme }) => theme.color.black};
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
