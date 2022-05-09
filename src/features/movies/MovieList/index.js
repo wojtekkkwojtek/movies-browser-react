@@ -4,7 +4,7 @@ import { Loader } from '../../../common/components/Loader'
 import { nanoid } from 'nanoid'
 import { useNavigate } from 'react-router-dom'
 import { ErrorMessage } from '../../../common/components/ErrorMessage'
-import { Container } from '../../../common/components/Container'
+import { Section } from '../../../common/components/Section'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchMovieList, selectMovieList } from './movieListSlice'
 import { Title } from '../../../common/components/Title'
@@ -29,7 +29,7 @@ const MovieList = () => {
 
     return (
         <React.Fragment>
-        <Container>
+        <Section>
             {error && !loading && <ErrorMessage />}
             {!error && loading && <Loader />}
             {!error && !loading && <Title>Popular movies</Title>}
@@ -54,7 +54,7 @@ const MovieList = () => {
                     </React.Fragment>
                 ))}
             {!error && !loading && <Pagination></Pagination>}
-        </Container>
+        </Section>
         </React.Fragment>    
     )
 }

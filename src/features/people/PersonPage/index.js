@@ -7,7 +7,7 @@ import { nanoid } from 'nanoid';
 import { Title } from '../../../common/components/Title';
 import { Tile } from '../../../common/components/Tiles/Tile';
 import { Loader } from '../../../common/components/Loader';
-import { Container } from '../../../common/components/Container';
+import { Section } from '../../../common/components/Section';
 import { fetchPersonPage, selectPersonPage } from './personPageSlice';
 import { ErrorMessage } from '../../../common/components/ErrorMessage';
 import { StyledButton, Wrapper } from "./styled";
@@ -46,7 +46,7 @@ const PersonPage = () => {
             {!error && !loading}
             {!error && !loading && personPage && (
                 <>
-                    <Container>
+                    <Section>
                         <Tile
                             details
                             person
@@ -61,8 +61,8 @@ const PersonPage = () => {
                             poster={personPage.profile_path}
                             overview={personPage.biography}
                         />
-                    </Container>
-                    <Container>
+                    </Section>
+                    <Section>
                         <Title>Movies - cast ({cast && cast.length})</Title>
                         {cast &&
                             cast.slice(0, shownTiles).map((movie) => (
@@ -85,7 +85,7 @@ const PersonPage = () => {
                                     />
                                 </React.Fragment>
                             ))}
-                    </Container>
+                    </Section>
                     {cast && cast.length > 8 && <Wrapper>
                         <StyledButton
                             onClick={toggleShown}
@@ -97,7 +97,7 @@ const PersonPage = () => {
                             </div>
                         </StyledButton>
                     </Wrapper>}
-                    <Container>
+                    <Section>
                         <Title>Movies-Crew ({crew && crew.length})</Title>
                         {crew &&
                             crew.slice(0, shownTilesCrew).map((movie) => (
@@ -120,7 +120,7 @@ const PersonPage = () => {
                                     />
                                 </React.Fragment>
                             ))}
-                    </Container>
+                    </Section>
                     {crew && crew.length > 8 && <Wrapper>
                         <StyledButton
                             onClick={toggleShownCrew}

@@ -7,7 +7,7 @@ import { fetchMoviePage, selectMoviePage } from './moviePageSlice'
 import { MovieHeader } from '../../../common/components/MovieHeader'
 import { Tile } from '../../../common/components/Tiles/Tile'
 import { Loader } from '../../../common/components/Loader'
-import { Container } from '../../../common/components/Container'
+import { Section } from '../../../common/components/Section'
 import { Title } from '../../../common/components/Title'
 import { ErrorMessage } from '../../../common/components/ErrorMessage'
 import { PersonTile } from '../../../common/components/Tiles/PersonTile'
@@ -41,7 +41,7 @@ const MoviePage = () => {
                         vote_average={moviePage.vote_average}
                         vote_count={moviePage.vote_count}
                     />
-                    <Container>
+                    <Section>
                         <Tile
                             details
                             movie
@@ -82,7 +82,7 @@ const MoviePage = () => {
                                     poster={person.profile_path}
                                 />
                             ))}
-                    </Container>
+                    </Section>
                 </>
             )}
         </>

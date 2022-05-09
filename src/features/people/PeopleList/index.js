@@ -7,7 +7,7 @@ import { Loader } from '../../../common/components/Loader'
 import { nanoid } from 'nanoid'
 import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
-import { Container } from '../../../common/components/Container'
+import { Section } from '../../../common/components/Section'
 import { selectPeopleList, fetchPeopleList } from './peopleListSlice'
 import { ErrorMessage } from '../../../common/components/ErrorMessage'
 import { Pagination } from '../../../common/components/Pagination'
@@ -28,7 +28,7 @@ const PeopleList = () => {
 
     return (
         <>
-            <Container>
+            <Section>
                 {error ? (
                     <ErrorMessage />
                 ) : loading ? (
@@ -49,7 +49,7 @@ const PeopleList = () => {
                         </>
                     ))
                 )}
-            </Container>
+            </Section>
             {!error && !loading && <Pagination />}
         </>
     )
