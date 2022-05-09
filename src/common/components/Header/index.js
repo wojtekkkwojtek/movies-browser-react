@@ -24,11 +24,6 @@ const Header = () => {
 
     const navigate = useNavigate()
 
-    // useEffect(() => {
-    //     getApiData(`${URLmovieSearch}&${query}`)
-    //     console.log(getApiData())
-    // }, [])
-
     const dispatch = useDispatch()
     const searchMovie = (e) => {
         const searchParams = new URLSearchParams(location.search)
@@ -39,11 +34,6 @@ const Header = () => {
             console.log('e.target:', e)
         }
         navigate(`${location.pathname}?${searchParams.toString()}`)
-        // navigate(`${URLmovieSearch}&${query}`)
-        // navigate({
-        //     pathname: `/movie?search=${query}`,
-        //     search: searchParams.toString(),
-        // })
 
         dispatch(fetchMovieList(e.target.value))
     }

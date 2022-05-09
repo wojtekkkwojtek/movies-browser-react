@@ -13,8 +13,8 @@ export const getApiData = async (URL) => {
     }
 }
 
-export const getMovieList = async () => {
-    const response = await fetch(URLpopularMovies)
+export const getMovieList = async (URL) => {
+    const response = await fetch(URL)
 
     if (!response.ok) {
         new Error(response.statusText)
