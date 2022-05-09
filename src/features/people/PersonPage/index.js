@@ -10,9 +10,9 @@ import { Loader } from '../../../common/components/Loader';
 import { Section } from '../../../common/components/Section';
 import { fetchPersonPage, selectPersonPage } from './personPageSlice';
 import { ErrorMessage } from '../../../common/components/ErrorMessage';
-import { StyledButton, Wrapper } from "./styled";
-import { ReactComponent as ArrowDown } from "./Arrow_down.svg";
-import { ReactComponent as ArrowUp } from "./Arrow_up.svg";
+import { StyledButton, Wrapper } from "../../../common/components/Button/styled";
+import { ReactComponent as ArrowDown } from "../../../common/components/Button/Arrow_down.svg";
+import { ReactComponent as ArrowUp } from "../../../common/components/Button/Arrow_up.svg";
 
 const PersonPage = () => {
     const [isShownAll, setIsShownAll] = useState(false);
@@ -75,7 +75,6 @@ const PersonPage = () => {
                                         genres={movie.genre_ids}
                                         rate={movie.vote_average}
                                         poster={movie.poster_path}
-                                        //year={movie.release_date.slice(0, 4)}
                                         score="/10"
                                         votes={movie.vote_count}
                                         character={movie.character}
@@ -115,7 +114,7 @@ const PersonPage = () => {
                                         votes={movie.vote_count}
                                         job={movie.job}
                                         onClick={() =>
-                                        routeToMoviePage(movie.id)
+                                            routeToMoviePage(movie.id)
                                         }
                                     />
                                 </React.Fragment>

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../../../core/App/theme";
 
 export const StyledButton = styled.button`
     border: none;
@@ -11,6 +10,7 @@ export const StyledButton = styled.button`
     color: ${({ theme }) => theme.color.waterloo};
     cursor: pointer;
 `;
+
 export const Wrapper = styled.div`
     text-align: center;
 `;
