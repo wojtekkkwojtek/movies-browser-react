@@ -17,19 +17,17 @@ function* fetchMovieListHandler({ payload: query }) {
     const movieQuery = `${URLmovieSearch}&query=${query}`
 
     try {
-        console.log('query in saga:', query)
         yield delay(1000)
 
         const fetchedGenres = yield call(getData, URLgenres)
         yield put(setGenres(fetchedGenres))
 
-        const fetchedMovies = yield call(getMovieList, URLpopularMovies)
+        const popularMovies = yield call(getMovieList, URLpopularMovies)
 
         const searchedMovies = yield call(getData, movieQuery)
 
-        yield put(setMovieList(query ? searchedMovies : fetchedMovies))
+        yield put(setMovieList(query ? searchedMovies : popularMovies))
 
-        console.log(setMovieList())
         console.log('movieQuery:', query)
     } catch (error) {
         yield put(fetchMovieListError())
