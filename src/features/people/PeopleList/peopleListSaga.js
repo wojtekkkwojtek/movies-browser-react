@@ -1,5 +1,6 @@
 import { takeEvery, call, put, delay } from 'redux-saga/effects'
-import { getPeopleList } from '../../getApiData'
+import { URLpopularPeople } from '../../../common/assets/generalData/fetchedData'
+import { getData } from '../../getApiData'
 import {
     fetchPeopleList,
     fetchPeopleListError,
@@ -9,7 +10,7 @@ import {
 function* fetchPeopleListHandler() {
     try {
         yield delay(2000)
-        const fetchedPeople = yield call(getPeopleList)
+        const fetchedPeople = yield call(getData, URLpopularPeople)
         yield put(setPeopleList(fetchedPeople))
     } catch (error) {
         yield put(fetchPeopleListError())

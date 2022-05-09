@@ -22,7 +22,7 @@ function* fetchMovieListHandler({ payload: query }) {
         const fetchedGenres = yield call(getData, URLgenres)
         yield put(setGenres(fetchedGenres))
 
-        const popularMovies = yield call(getMovieList, URLpopularMovies)
+        const popularMovies = yield call(getData, URLpopularMovies)
 
         const searchedMovies = yield call(getData, movieQuery)
 

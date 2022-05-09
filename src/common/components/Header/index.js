@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { toMovies, toPeople } from '../../../core/App/routes'
 import { URLmovieSearch } from '../../assets/generalData/fetchedData'
-import { getApiData } from '../../../features/getApiData'
 import {
     Container,
     IconVideo,
