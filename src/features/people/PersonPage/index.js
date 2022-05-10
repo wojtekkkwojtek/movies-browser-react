@@ -64,7 +64,7 @@ const PersonPage = () => {
                     </Container>
                     <Container>
                         <Title
-                            title={`Movies  - cast ${cast && cast.length}`}
+                            title={`Movies  - cast (${cast && cast.length})`}
                         />
                         {cast &&
                             cast.slice(0, shownTiles).map((movie) => (
@@ -77,7 +77,11 @@ const PersonPage = () => {
                                         genres={movie.genre_ids}
                                         rate={movie.vote_average}
                                         poster={movie.poster_path}
-                                        //year={movie.release_date.slice(0, 4)}
+                                        year={
+                                            movie.release_date
+                                                ? movie.release_date.slice(0, 4)
+                                                : 'Unknown'
+                                        }
                                         score="/10"
                                         votes={movie.vote_count}
                                         character={movie.character}
@@ -99,7 +103,7 @@ const PersonPage = () => {
                     </Wrapper>
                     <Container>
                         <Title
-                            title={`Movies  - crew ${crew && crew.length}`}
+                            title={`Movies  - crew (${crew && crew.length})`}
                         />
                         {crew &&
                             crew.slice(0, 8).map((movie) => (
@@ -112,7 +116,11 @@ const PersonPage = () => {
                                         genres={movie.genre_ids}
                                         rate={movie.vote_average}
                                         poster={movie.poster_path}
-                                        //year={movie.release_date.slice(0, 4)}
+                                        year={
+                                            movie.release_date
+                                                ? movie.release_date.slice(0, 4)
+                                                : 'Unknown'
+                                        }
                                         score="/10"
                                         votes={movie.vote_count}
                                         job={movie.job}

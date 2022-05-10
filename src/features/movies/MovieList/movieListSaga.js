@@ -1,4 +1,4 @@
-import { takeEvery, call, put, delay, takeLatest } from 'redux-saga/effects'
+import { call, put, delay, takeLatest } from 'redux-saga/effects'
 import {
     URLgenres,
     URLmovieSearch,
@@ -6,7 +6,7 @@ import {
 } from '../../../common/assets/generalData/fetchedData'
 import { setGenres } from './movieListSlice'
 
-import { getMovieList, getData } from '../../getApiData'
+import { getData } from '../../getApiData'
 import {
     setMovieList,
     fetchMovieList,

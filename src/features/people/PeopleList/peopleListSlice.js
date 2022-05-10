@@ -3,13 +3,13 @@ import { createSlice } from '@reduxjs/toolkit'
 const peopleListSlice = createSlice({
     name: 'people',
     initialState: {
-        loading: true,
+        loading: false,
         error: false,
         peopleList: [],
     },
     reducers: {
         fetchPeopleList: (state) => {
-            state.loading = false
+            state.loading = true
         },
 
         fetchPeopleListError: (state) => {
