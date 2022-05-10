@@ -22,12 +22,14 @@ export const Pagination = () => {
   const location = useLocation();
   const totalMoviesContent = useSelector(selectMovieList);
   const totalPeopleContent = useSelector(selectPeopleList);
-
+  //const inactivePrevious = currentPage === 1;
+  //const inactiveNext = currentPage === totalPages;
   return (
     <Wrapper>
       <Button>
         <Previous src={PreviousImage} />
         <Text>First</Text>
+        <PreviousMobile src={inactivePrevious ? PreviousOffImage : PreviousImage} />
       </Button>
       <Button>
         <Previous src={PreviousImage} />
@@ -39,10 +41,11 @@ export const Pagination = () => {
       </PageInformation>
       <Button>
         <Text>Next</Text>
-        <Next src={NextImage}/>
+        <Next src={NextImage} />
       </Button>
       <Button>
         <Text>Last</Text>
+        <NextMobile src={inactiveNext ? NextOffImage : NextImage} />
         <Next src={NextImage} />
       </Button>
     </Wrapper>
