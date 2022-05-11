@@ -7,7 +7,7 @@ export const TileContainer = styled.div`
     display: block;
     grid-gap: 40px;
     margin: 64px auto 0;
-
+   
     ${({ isList }) =>
         isList &&
         css`
@@ -18,6 +18,12 @@ export const TileContainer = styled.div`
             flex-direction: column;
             grid-gap: 0px;
             margin: 0px;
+            transition: 1s;
+
+            &:hover{ 
+                cursor:pointer;
+                transform:scale(1.03)
+            }
         `}
 
     ${({ details }) => details && css``} 
@@ -282,6 +288,7 @@ export const Icon = styled.img`
             display: none;
         `}
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        
         ${({ isList }) =>
         isList &&
         css`
@@ -343,11 +350,5 @@ export const Overview = styled.p`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 14px;
-
-        ${({ isList }) =>
-        isList &&
-        css`
-            display:none;
-        `}
     }
 `
