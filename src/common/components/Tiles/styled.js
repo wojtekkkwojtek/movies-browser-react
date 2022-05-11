@@ -16,9 +16,11 @@ export const TileContainer = styled.div`
             padding: 16px;
             display: flex;
             flex-direction: column;
-            grid-gap: 0px;
+            gap: 16px;
             margin: 0px;
             transition: 1s;
+            //justify-content: space-between;
+            
 
             &:hover{ 
                 cursor:pointer;
@@ -77,6 +79,7 @@ export const Content = styled.div`
             padding: 0px;
             display:flex;
             flex-direction: column;
+            height:100%;
         `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}){
@@ -97,8 +100,7 @@ export const Title = styled.header`
         css`
             font-weight: 500;
             font-size: 22px;
-            margin-top:16px;
-    `}
+        `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 16px;
@@ -337,6 +339,7 @@ export const Rate = styled.div`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 13px;
+
     }
 `
 export const Score = styled.div`
@@ -350,7 +353,7 @@ export const Score = styled.div`
         `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-                   
+         font-size: 13px;             
     }
 `
 export const Overview = styled.p`
