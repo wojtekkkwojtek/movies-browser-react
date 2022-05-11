@@ -18,6 +18,7 @@ import {
     useReplaceQueryParameter,
     useSearch,
 } from '../../../features/useSearch'
+import { fetchPeopleList } from '../../../features/people/PeopleList/peopleListSlice'
 
 const Header = () => {
     const location = useLocation()
@@ -34,9 +35,14 @@ const Header = () => {
             value: e.target.value.trim() === '' ? '' : e.target.value,
         })
         console.log('query:', query)
-        const q2 = query.length + 1
-        if (query && q2 > 2) {
+
+        if (
+            (query && query.length > 2 && location.pathname === '/movies') ||
+            location.pathname === '/movie/'
+        ) {
             dispatch(fetchMovieList(e.target.value))
+        } else if (query && query.length > 2) {
+            dispatch(fetchPeopleList(e.target.value))
         }
     }
 
