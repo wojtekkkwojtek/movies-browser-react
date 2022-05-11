@@ -42,7 +42,12 @@ const MovieList = () => {
         <React.Fragment>
             <Container>
                 {error && !loading && <ErrorMessage />}
-                {!error && loading && <Loader />}
+                {!error && loading && (
+                    <>
+                        <Title title={showTitle()} />
+                        <Loader />
+                    </>
+                )}
                 {!error && !loading && <Title title={showTitle()} />}
                 {!error &&
                     !loading &&
