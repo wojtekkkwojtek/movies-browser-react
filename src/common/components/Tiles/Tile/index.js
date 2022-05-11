@@ -100,7 +100,8 @@ export const Tile = ({
                     {place} {place_of_birth ? place_of_birth : 'Unknown'}
                 </Info>
                 <InfoWrapper nonInList={nonInList}  person={person}>
-                    <InfoDetails
+                    <InfoDetails 
+                        movie={movie}
                         isList={isList}
                         person={person}
                         poster={poster}

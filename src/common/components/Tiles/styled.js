@@ -106,11 +106,18 @@ export const Title = styled.header`
     }
 `
 export const Subtitle = styled.p`
-    color: ${({ theme }) => theme.color.stormGray};
-    font-size: 16px;
-    font-weight: 400;
-    margin: 0;
-    line-height: 1.5;
+display: none;
+  ${({ isList }) =>
+        isList &&
+        css`
+        display:block;
+        color: ${({ theme }) => theme.color.stormGray};
+        font-size: 16px;
+        font-weight: 400;
+        margin: 0;
+        line-height: 1.5;
+     `}
+  
 `;
 
 export const Year = styled.div`
@@ -237,6 +244,12 @@ export const InfoDetails = styled.div`
         css`
             display: none;
         `}
+
+    ${({ movie }) =>
+        movie &&
+        css`
+            display: none;
+    `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 12px;
