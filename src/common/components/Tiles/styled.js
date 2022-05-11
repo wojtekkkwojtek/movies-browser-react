@@ -97,6 +97,7 @@ export const Title = styled.header`
         css`
             font-weight: 500;
             font-size: 22px;
+            margin-top:16px;
     `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
@@ -135,7 +136,7 @@ export const InfoWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding-left: 0;
-    margin: 16px -8px;
+    margin: 8px 0 0px;
 
     ${({ person }) =>
         person &&
@@ -159,7 +160,8 @@ export const InfoWrapper = styled.div`
     ${({ rates }) =>
         rates &&
         css`
-            margin:0;
+            margin:8px 0 0;
+            align-items: baseline;
     `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
@@ -180,6 +182,7 @@ export const InfoWrapper = styled.div`
             flex-grow: 0;
             flex-direction: row;
             margin-top:8px;
+            //align-self: flex-end;
         `}
 
         ${({ isList }) =>
@@ -268,12 +271,12 @@ export const Genres = styled.div`
     }
 `
 export const Icon = styled.img`
-    width: 24px;
-    height: 24px;
+    //width: 24px;
+    //height: 24px;
     margin-top:0px;
     color: ${({ theme }) => theme.color.candlelight};
     margin: 27.09px 0 - 8px 8px;
-    align-items:baseline;
+    align-items: flex-start;
 
     ${({ big }) =>
         big &&
@@ -324,7 +327,7 @@ export const Rate = styled.div`
     }
 `
 export const Score = styled.div`
-    font-size: 13px;
+    font-size: 16px;
       
     ${({ person }) =>
         person &&
