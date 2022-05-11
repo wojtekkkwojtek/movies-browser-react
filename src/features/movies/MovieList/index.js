@@ -9,31 +9,41 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchMovieList, selectMovieList } from './movieListSlice'
 import { Title } from '../../../common/components/Title'
 import { Pagination } from '../../../common/components/Pagination'
+import { useReplaceQueryParameter, useSearch } from '../../useSearch'
 
 const MovieList = () => {
     const { loading, movieList, error } = useSelector(selectMovieList)
 
+    const location = useLocation()
+    const navigate = useNavigate()
     const dispatch = useDispatch()
+
+    // const search = useSearch('search', location)
 
     useEffect(() => {
         dispatch(fetchMovieList())
     }, [])
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const routeChange = (id) => {
         navigate(`/movie/${id}`)
     }
 
     const routeToMoviePage = (id) => {
         routeChange(id)
+        // search('mmm')
     }
+
+    const query = useSearch('search', location)
+
+    const showTitle = () => (query ? `Search for "${query}"` : 'Popular movies')
 
     return (
         <React.Fragment>
             <Container>
                 {error && !loading && <ErrorMessage />}
                 {!error && loading && <Loader />}
-                {!error && !loading && <Title title="Popular movies" />}
+                {!error && !loading && <Title title={showTitle()} />}
                 {!error &&
                     !loading &&
                     movieList &&
