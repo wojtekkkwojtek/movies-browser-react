@@ -22,6 +22,8 @@ export const URLimage = `https://image.tmdb.org/t/p/original`
 
 export const URLmovieSearch = `${URL}/search/movie?api_key=${API_KEY}`
 
+export const URLpeopleSearch = `${URL}/search/person?api_key=${API_KEY}`
+
 // export const URLcredits = `${URL}/${movie_id}/credits?api_key=${API_KEY}`
 
 // export const URLmovieDetails = `${URL}/${movie_id}?api_key=${API_KEY}`
