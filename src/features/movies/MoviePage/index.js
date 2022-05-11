@@ -62,6 +62,7 @@ const MoviePage = () => {
                         {actors &&
                             actors.map((actor) => (
                                 <PersonTile
+                                    key={actor.id}
                                     personTile={true}
                                     gray
                                     onClick={() => routeChange(actor.id)}
@@ -74,6 +75,7 @@ const MoviePage = () => {
                         {crew &&
                             crew.map((person) => (
                                 <PersonTile
+                                    key={person.id}
                                     personTile={true}
                                     gray
                                     original_name={person.original_name}

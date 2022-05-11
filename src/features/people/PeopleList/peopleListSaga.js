@@ -14,7 +14,6 @@ function* fetchPeopleListHandler({ payload: query }) {
     const peopleQuery = `${URLpeopleSearch}&query=${query}`
     try {
         yield delay(2000)
-        // const fetchedPeople = yield call(getData, URLpopularPeople)
         const people = yield call(
             getData,
             query ? peopleQuery : URLpopularPeople

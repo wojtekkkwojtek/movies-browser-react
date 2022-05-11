@@ -1,10 +1,9 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { PersonTile } from '../../../common/components/Tiles/PersonTile'
 import { Title } from '../../../common/components/Title'
 import { Loader } from '../../../common/components/Loader'
-import { nanoid } from 'nanoid'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Container } from '../../../common/components/Container'
 import { selectPeopleList, fetchPeopleList } from './peopleListSlice'
@@ -44,7 +43,7 @@ const PeopleList = () => {
                     peopleList.map((people) => (
                         <>
                             <PersonTile
-                                key={nanoid()}
+                                key={people.id}
                                 onClick={() => routeChange(people.id)}
                                 person_name={people.name}
                                 poster={people.profile_path}
