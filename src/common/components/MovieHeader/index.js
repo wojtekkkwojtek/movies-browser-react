@@ -1,6 +1,6 @@
 import React from 'react'
 import { Backdrop, Title, VoteCount } from './styled'
-import rateIcon from '../Tiles/rateIcon.svg'
+import star from '../Tiles/star.svg'
 import { Wrapper } from './styled'
 import { URLimage } from '../../assets/generalData/fetchedData'
 import { Icon } from '../Tiles/styled'
@@ -17,7 +17,7 @@ export const MovieHeader = ({
                 <Title> {original_title}</Title>
                 <Title subtitle>
                     {' '}
-                    <Icon big src={rateIcon} alt="" /> {vote_average}/10
+                    <Icon big src={star} alt="" /> {vote_average}/10
                 </Title>
                 <VoteCount>{vote_count} votes</VoteCount>
             </Backdrop>

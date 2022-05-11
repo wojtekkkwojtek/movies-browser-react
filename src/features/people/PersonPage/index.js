@@ -76,7 +76,6 @@ const PersonPage = () => {
                                         rate={movie.vote_average}
                                         poster={movie.poster_path}
                                         release_date={movie.release_date.slice(0, 4)}
-                                        score="/10"
                                         votes={movie.vote_count}
                                         character={movie.character}
                                         onClick={() =>

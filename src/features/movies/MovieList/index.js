@@ -46,7 +46,6 @@ const MovieList = () => {
                             poster={movie.poster_path}
                             year={movie.release_date.slice(0, 4)}
                             rate={movie.vote_average}
-                            score="/10"
                             votes={movie.vote_count}
                             genres={movie.genre_ids}
                         />
