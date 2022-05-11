@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { toMovies, toPeople } from '../../../core/App/routes'
 import { URLmovieSearch } from '../../assets/generalData/fetchedData'
@@ -15,29 +14,31 @@ import {
 } from './styled'
 import { fetchMovieList } from '../../../features/movies/MovieList/movieListSlice'
 import { useDispatch } from 'react-redux'
+import {
+    useReplaceQueryParameter,
+    useSearch,
+} from '../../../features/useSearch'
 
 const Header = () => {
     const location = useLocation()
-    const searchParams = new URLSearchParams(location.search)
-    const query = searchParams.get('search')
-
     const navigate = useNavigate()
-
     const dispatch = useDispatch()
+
+    const replaceQueryParameter = useReplaceQueryParameter(location, navigate)
+
+    const query = useSearch('search', location)
+
     const searchMovie = (e) => {
-        const searchParams = new URLSearchParams(location.search)
-        if (e.target.value.trim() === '') {
-            searchParams.delete('search')
-        } else {
-            searchParams.set('search', e.target.value)
-            console.log('e.target:', e)
+        replaceQueryParameter({
+            key: 'search',
+            value: e.target.value.trim() === '' ? '' : e.target.value,
+        })
+        console.log('query:', query)
+        const q2 = query.length + 1
+        if (query && q2 > 2) {
+            dispatch(fetchMovieList(e.target.value))
         }
-        navigate(`${location.pathname}?${searchParams.toString()}`)
-
-        dispatch(fetchMovieList(e.target.value))
     }
-
-    console.log(query)
 
     return (
         <Wrapper>
@@ -52,6 +53,7 @@ const Header = () => {
                     <SearchIcon />
                     <Input
                         onChange={searchMovie}
+                        value={query ? query : ''}
                         type="search"
                         placeholder={`Search for ${
                             location.pathname === '/movies'
