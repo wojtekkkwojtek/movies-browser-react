@@ -328,6 +328,7 @@ export const Rate = styled.div`
 `
 export const Score = styled.div`
     font-size: 16px;
+    margin-left: 8px;
       
     ${({ person }) =>
         person &&
