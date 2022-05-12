@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom'
-
 import styled from 'styled-components'
 import { ReactComponent as Camera } from '../../assets/icons/videoIcon.svg'
 import { ReactComponent as Magnifier } from '../../assets/icons/searchIcon.svg'
@@ -8,14 +7,18 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     height: 94px;
+    width: 100%;
+    position: sticky;
+    z-index: 5;
+    top: 0;
     color: white;
     background-color: ${({ theme }) => theme.color.black};
+    
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         height: 142px;
     }
 `
-
-export const Container = styled.div`
+export const Section = styled.div`
     display: flex;
     height: 100%;
     width: 1400px;
@@ -44,7 +47,6 @@ export const NavContainer = styled.div`
         padding-left: 12px;
     }
 `
-
 export const IconVideo = styled(Camera)`
     height: 40px;
     width: 40px;
@@ -54,7 +56,6 @@ export const IconVideo = styled(Camera)`
         height: 17px;
     }
 `
-
 export const Title = styled(NavLink)`
     font-weight: 500;
     font-size: 24px;
@@ -81,7 +82,6 @@ export const Title = styled(NavLink)`
         letter-spacing: -0.5px;
     }
 `
-
 export const StyledNavLink = styled(NavLink)`
     width: 102px;
     font-weight: 600;
@@ -89,7 +89,6 @@ export const StyledNavLink = styled(NavLink)`
     line-height: 21px;
     text-transform: uppercase;
     text-decoration: none;
-
     margin: 0px 10px;
     align-items: center;
     padding: 8px 24px;
@@ -129,7 +128,6 @@ export const Label = styled.div`
         position: static;
     }
 `
-
 export const SearchIcon = styled(Magnifier)`
     position: absolute;
     right: -45px;
@@ -148,7 +146,6 @@ export const SearchIcon = styled(Magnifier)`
         top: 95px;
     }
 `
-
 export const Input = styled.input`
     position: absolute;
     padding-left: 64px;

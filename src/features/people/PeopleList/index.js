@@ -5,7 +5,7 @@ import { PersonTile } from '../../../common/components/Tiles/PersonTile'
 import { Title } from '../../../common/components/Title'
 import { Loader } from '../../../common/components/Loader'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { Container } from '../../../common/components/Container'
+import { Section } from '../../../common/components/Section'
 import { selectPeopleList, fetchPeopleList } from './peopleListSlice'
 import { ErrorMessage } from '../../../common/components/ErrorMessage'
 import { Pagination } from '../../../common/components/Pagination'
@@ -29,7 +29,7 @@ const PeopleList = () => {
 
     return (
         <>
-            <Container>
+            <Section>
                 {error && !loading && <ErrorMessage />}
                 {!error && loading && (
                     <>
@@ -50,7 +50,7 @@ const PeopleList = () => {
                             />
                         </>
                     ))}
-            </Container>
+            </Section>
             {!error && !loading && <Pagination />}
         </>
     )

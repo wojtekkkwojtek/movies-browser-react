@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { toMovies, toPeople } from '../../../core/App/routes'
 import { URLmovieSearch } from '../../assets/generalData/fetchedData'
 import {
-    Container,
+    Section,
     IconVideo,
     Title,
     Wrapper,
@@ -48,7 +48,7 @@ const Header = () => {
 
     return (
         <Wrapper>
-            <Container>
+            <Section>
                 <NavContainer>
                     <IconVideo />
                     <Title to={toMovies()}>movies browser</Title>
@@ -68,7 +68,7 @@ const Header = () => {
                         } `}
                     />
                 </Label>
-            </Container>
+            </Section>
         </Wrapper>
     )
 }

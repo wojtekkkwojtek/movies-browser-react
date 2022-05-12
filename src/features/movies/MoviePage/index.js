@@ -1,20 +1,26 @@
-import { nanoid } from 'nanoid'
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { fetchMoviePage, selectMoviePage } from './moviePageSlice'
-
-import { MovieHeader } from '../../../common/components/MovieHeader'
-import { Tile } from '../../../common/components/Tiles/Tile'
-import { Loader } from '../../../common/components/Loader'
-import { Container } from '../../../common/components/Container'
-import { Title } from '../../../common/components/Title'
-import { ErrorMessage } from '../../../common/components/ErrorMessage'
-import { PersonTile } from '../../../common/components/Tiles/PersonTile'
+import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { fetchMoviePage, selectMoviePage } from './moviePageSlice';
+import { MovieHeader } from '../../../common/components/MovieHeader';
+import { Tile } from '../../../common/components/Tiles/Tile';
+import { Loader } from '../../../common/components/Loader';
+import { Section } from '../../../common/components/Section';
+import { Title } from '../../../common/components/Title';
+import { ErrorMessage } from '../../../common/components/ErrorMessage';
+import { PersonTile } from '../../../common/components/Tiles/PersonTile';
+import { StyledButton, Wrapper } from "../../../common/components/Button/styled";
+import { ReactComponent as ArrowDown } from "../../../common/components/Button/Arrow_down.svg";
+import { ReactComponent as ArrowUp } from "../../../common/components/Button/Arrow_up.svg";
 
 const MoviePage = () => {
-    const dispatch = useDispatch()
-    const { id } = useParams()
+    const [isShownAll, setIsShownAll] = useState(false);
+    const [isShownAllCrew, setIsShownAllCrew] = useState(false);
+
+    const dispatch = useDispatch();
+    const { id } = useParams();
 
     useEffect(() => {
         dispatch(fetchMoviePage(id))
@@ -22,12 +28,17 @@ const MoviePage = () => {
     const { error, loading, moviePage, actors, crew } =
         useSelector(selectMoviePage)
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const routeChange = (id) => {
         navigate(`/people/${id}`)
     }
 
+
+    const shownTiles = isShownAll ? actors.length : 12;
+    const shownTilesCrew = isShownAllCrew ? crew.length : 12;
+    const toggleShown = () => setIsShownAll(isShownAll => !isShownAll);
+    const toggleShownCrew = () => setIsShownAllCrew(isShownAllCrew => !isShownAllCrew);
     return (
         <>
             {error && !loading && <ErrorMessage />}
@@ -40,7 +51,7 @@ const MoviePage = () => {
                         vote_average={moviePage.vote_average}
                         vote_count={moviePage.vote_count}
                     />
-                    <Container>
+                    <Section>
                         <Tile
                             details
                             movie
@@ -58,9 +69,11 @@ const MoviePage = () => {
                             overview={moviePage.overview}
                             genres={moviePage.genres}
                         />
-                        <Title title="Cast" />
+                    </Section>
+                    <Section>
+                    <Title title="Cast" />
                         {actors &&
-                            actors.map((actor) => (
+                            actors.slice(0, shownTiles).map((actor) => (
                                 <PersonTile
                                     key={actor.id}
                                     personTile={true}
@@ -71,9 +84,22 @@ const MoviePage = () => {
                                     poster={actor.profile_path}
                                 />
                             ))}
-                        <Title title="Crew" />
+                    </Section>
+                    {actors && actors.length > 12 && <Wrapper>
+                        <StyledButton
+                            onClick={toggleShown}
+                        >
+                            {isShownAll && <ArrowUp />}
+                            <div>
+                                {isShownAll ? "show less" : "show all"}
+                                {!isShownAll && <ArrowDown />}
+                            </div>
+                        </StyledButton>
+                    </Wrapper>}
+                    <Section>
+                    <Title title="Crew" />
                         {crew &&
-                            crew.map((person) => (
+                            crew.slice(0, shownTilesCrew).map((person) => (
                                 <PersonTile
                                     key={person.id}
                                     personTile={true}
@@ -83,7 +109,18 @@ const MoviePage = () => {
                                     poster={person.profile_path}
                                 />
                             ))}
-                    </Container>
+                    </Section>
+                    {crew && crew.length > 8 && <Wrapper>
+                        <StyledButton
+                            onClick={toggleShownCrew}
+                        >
+                            {isShownAllCrew && <ArrowUp />}
+                            <div>
+                                {isShownAllCrew ? "show less" : "show all"}
+                                {!isShownAllCrew && <ArrowDown />}
+                            </div>
+                        </StyledButton>
+                    </Wrapper>}
                 </>
             )}
         </>
