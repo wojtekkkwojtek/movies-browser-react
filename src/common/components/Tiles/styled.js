@@ -68,6 +68,12 @@ export const Poster = styled.img`
         height:auto;
         margin-right: 16px;
         flex-shrink:0;
+
+        ${({ isList }) =>
+        isList &&
+        css`
+          margin:0;
+        `} 
     }
 `
 export const Content = styled.div`
