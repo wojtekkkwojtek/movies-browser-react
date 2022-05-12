@@ -374,6 +374,8 @@ export const Overview = styled.p`
     font-size: 20px;
     line-height: 1.6;
     text-align: justify;
+    margin:0;
+    padding-top: 8px;
 
     ${({ isList }) =>
         isList &&
