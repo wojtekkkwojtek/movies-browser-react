@@ -17,13 +17,19 @@ import { useSelector } from "react-redux";
 import { selectMovieList } from "../../../features/movies/MovieList/movieListSlice";
 import { selectPeopleList } from "../../../features/people/PeopleList/peopleListSlice";
 import { useLocation } from "react-router-dom";
+import { useSearch } from "../../../features/useSearch";
+import pageQueryParameter from "../../../features/pageQueryParameter";
 
 export const Pagination = () => {
   const location = useLocation();
+  const atMovies = location.pathname.includes("movies") ? true : false;
+  const currentPage = +useSearch(pageQueryParameter) || 1;
   const totalMoviesContent = useSelector(selectMovieList);
   const totalPeopleContent = useSelector(selectPeopleList);
-  //const inactivePrevious = currentPage === 1;
-  //const inactiveNext = currentPage === totalPages;
+  const totalPages = atMovies ? totalMoviesContent : totalPeopleContent;
+  const inactivePrevious = currentPage === 1;
+  const inactiveNext = currentPage === totalPages;
+  
   return (
     <Wrapper>
       <Button>
