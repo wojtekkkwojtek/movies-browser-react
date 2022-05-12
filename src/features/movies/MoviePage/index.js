@@ -43,7 +43,6 @@ const MoviePage = () => {
         <>
             {error && !loading && <ErrorMessage />}
             {!error && loading && <Loader />}
-            {/* {!error && !loading} */}
             {!error && !loading && moviePage && (
                 <>
                     <MovieHeader
@@ -72,10 +71,11 @@ const MoviePage = () => {
                         />
                     </Section>
                     <Section>
-                        <Title>Cast</Title>
+                    <Title title="Cast" />
                         {actors &&
                             actors.slice(0, shownTiles).map((actor) => (
                                 <PersonTile
+                                    key={actor.id}
                                     personTile={true}
                                     gray
                                     onClick={() => routeChange(actor.id)}
@@ -97,10 +97,11 @@ const MoviePage = () => {
                         </StyledButton>
                     </Wrapper>}
                     <Section>
-                        <Title>Crew</Title>
+                    <Title title="Crew" />
                         {crew &&
                             crew.slice(0, shownTilesCrew).map((person) => (
                                 <PersonTile
+                                    key={person.id}
                                     personTile={true}
                                     gray
                                     original_name={person.original_name}
