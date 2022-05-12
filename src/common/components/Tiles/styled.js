@@ -31,7 +31,7 @@ export const TileContainer = styled.div`
     ${({ details }) => details && css``} 
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-              
+            padding:16px ; 
         ${({ isList }) =>
         isList &&
         css`
@@ -83,6 +83,10 @@ export const Content = styled.div`
         `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}){
+        //padding:16px;
+      
+
+
         ${({ isList }) =>
         isList &&
         css`
@@ -228,7 +232,17 @@ export const Info = styled.div`
         css`
             display: none;
         `}
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        font-size: 12px;
+    }
 `
+export const Mobile =styled.div`
+       ${({ mobile }) =>
+        mobile &&
+        css`
+            display: none;
+        `}
+`;
 
 export const InfoDetails = styled.div`
     font-size: 18px;
@@ -275,13 +289,14 @@ export const Genres = styled.div`
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 10px;
         line-height: 1.1;
+        padding:4px;
 
         ${({ isList }) =>
         isList &&
         css`
-            font-weight: 400;
-            font-size: 10px;
-            padding:4px;
+            //font-weight: 400;
+            //font-size: 10px;
+            //padding:4px;
         `}
     }
 `
