@@ -12,5 +12,7 @@ export const Section = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         padding: 0 16px;
+        gap: 16px;
+        justify-content: center;
     }
 `
