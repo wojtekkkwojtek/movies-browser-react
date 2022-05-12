@@ -23,14 +23,13 @@ export const TileContainer = styled.div`
         padding: 8px;
     }
 `
-
 export const Poster = styled.img`
     border-radius: 5px;
     width: 155px;
     max-height: 232px;
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        width: 110px;
-        height: 165px;
+        width: 120px;
+        height: 178px;
     }
 `
 export const InfoWrapper = styled.div`
