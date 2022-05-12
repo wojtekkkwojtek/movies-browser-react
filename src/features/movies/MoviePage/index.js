@@ -58,7 +58,9 @@ const MoviePage = () => {
                             key={nanoid()}
                             title={moviePage.title}
                             poster={moviePage.poster_path}
-                            release_date={moviePage.release_date}
+                            release_date={new Date(
+                                moviePage.release_date
+                            ).toLocaleDateString()}
                             year={moviePage.release_date.slice(0, 4)}
                             production="Production:"
                             country={moviePage.production_countries}
@@ -71,7 +73,7 @@ const MoviePage = () => {
                         />
                     </Section>
                     <Section>
-                    <Title title="Cast" />
+                        <Title title="Cast" />
                         {actors &&
                             actors.slice(0, shownTiles).map((actor) => (
                                 <PersonTile
@@ -97,7 +99,7 @@ const MoviePage = () => {
                         </StyledButton>
                     </Wrapper>}
                     <Section>
-                    <Title title="Crew" />
+                        <Title title="Crew" />
                         {crew &&
                             crew.slice(0, shownTilesCrew).map((person) => (
                                 <PersonTile
