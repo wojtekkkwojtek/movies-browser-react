@@ -1,27 +1,40 @@
-import { takeEvery, call, put, delay } from 'redux-saga/effects'
-import { URLgenres } from '../../../common/assets/generalData/fetchedData'
+import { call, put, delay, takeLatest } from 'redux-saga/effects'
+import {
+    URLgenres,
+    URLmovieSearch,
+    URLpopularMovies,
+} from '../../../common/assets/generalData/fetchedData'
 import { setGenres } from './movieListSlice'
 
-import { getMovieList, getData } from '../../getApiData'
+import { getData } from '../../getApiData'
 import {
     setMovieList,
     fetchMovieList,
     fetchMovieListError,
 } from './movieListSlice'
 
-function* fetchMovieListHandler() {
+function* fetchMovieListHandler({ payload: query }) {
+    const movieQuery = `${URLmovieSearch}&query=${query}`
+
     try {
         yield delay(1000)
+
         const fetchedGenres = yield call(getData, URLgenres)
         yield put(setGenres(fetchedGenres))
 
-        const fetchedMovies = yield call(getMovieList)
-        yield put(setMovieList(fetchedMovies))
+        const movies = yield call(
+            getData,
+            query ? movieQuery : URLpopularMovies
+        )
+
+        yield put(setMovieList(movies))
+
+        console.log('movieQuery:', query)
     } catch (error) {
         yield put(fetchMovieListError())
     }
 }
 
 export function* watchFetchExample() {
-    yield takeEvery(fetchMovieList.type, fetchMovieListHandler)
+    yield takeLatest(fetchMovieList.type, fetchMovieListHandler)
 }

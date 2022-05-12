@@ -1,16 +1,25 @@
 import { takeEvery, call, put, delay } from 'redux-saga/effects'
-import { getPeopleList } from '../../getApiData'
+import {
+    URLpeopleSearch,
+    URLpopularPeople,
+} from '../../../common/assets/generalData/fetchedData'
+import { getData } from '../../getApiData'
 import {
     fetchPeopleList,
     fetchPeopleListError,
     setPeopleList,
 } from './peopleListSlice'
 
-function* fetchPeopleListHandler() {
+function* fetchPeopleListHandler({ payload: query }) {
+    const peopleQuery = `${URLpeopleSearch}&query=${query}`
     try {
         yield delay(2000)
-        const fetchedPeople = yield call(getPeopleList)
-        yield put(setPeopleList(fetchedPeople))
+        const people = yield call(
+            getData,
+            query ? peopleQuery : URLpopularPeople
+        )
+
+        yield put(setPeopleList(people))
     } catch (error) {
         yield put(fetchPeopleListError())
     }

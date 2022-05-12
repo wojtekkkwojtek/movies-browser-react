@@ -19,13 +19,13 @@ const PersonPage = () => {
     const [isShownAllCrew, setIsShownAllCrew] = useState(false);
     const dispatch = useDispatch();
 
-    const { id } = useParams();
+    const { id } = useParams()
 
     useEffect(() => {
-        dispatch(fetchPersonPage(id));
-    }, [id, dispatch]);
+        dispatch(fetchPersonPage(id))
+    }, [id, dispatch])
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     const routeChange = (id) => {
         navigate(`/movie/${id}`)
     }
@@ -63,8 +63,9 @@ const PersonPage = () => {
                         />
                     </Section>
                     <Section>
-                        <Title>Movies - cast ({cast && cast.length})</Title>
-                        {cast &&
+                    <Title
+                            title={`Movies  - cast (${cast && cast.length})`}
+                        />                        {cast &&
                             cast.slice(0, shownTiles).map((movie) => (
                                 <React.Fragment key={cast.id}>
                                     <Tile
@@ -75,8 +76,9 @@ const PersonPage = () => {
                                         genres={movie.genre_ids}
                                         rate={movie.vote_average}
                                         poster={movie.poster_path}
-                                        release_date={movie.release_date.slice(0, 4)}
-                                        score="/10"
+                                        release_date={ movie.release_date
+                                          ? movie.release_date.slice(0, 4)
+                                          : 'Unknown'}
                                         votes={movie.vote_count}
                                         character={movie.character}
                                         onClick={() =>
@@ -92,13 +94,15 @@ const PersonPage = () => {
                         >
                             {isShownAll && <ArrowUp />}
                             <div>
-                                {isShownAll ? "show less" : "show all"}
+                                {isShownAll ? 'show less' : 'show all'}
                                 {!isShownAll && <ArrowDown />}
                             </div>
                         </StyledButton>
                     </Wrapper>}
                     <Section>
-                        <Title>Movies-Crew ({crew && crew.length})</Title>
+                    <Title
+                            title={`Movies  - crew (${crew && crew.length})`}
+                        />
                         {crew &&
                             crew.slice(0, shownTilesCrew).map((movie) => (
                                 <React.Fragment key={crew.id}>
@@ -110,7 +114,11 @@ const PersonPage = () => {
                                         genres={movie.genre_ids}
                                         rate={movie.vote_average}
                                         poster={movie.poster_path}
-                                        //year={movie.release_date.slice(0, 4)}
+                                        year={
+                                            movie.release_date
+                                                ? movie.release_date.slice(0, 4)
+                                                : 'Unknown'
+                                        }
                                         score="/10"
                                         votes={movie.vote_count}
                                         job={movie.job}

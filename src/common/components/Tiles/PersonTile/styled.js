@@ -10,6 +10,12 @@ export const TileContainer = styled.div`
     align-items: center;
     background-color: ${({ theme }) => theme.color.white};
     box-shadow: 0px 4px 12px ${({ theme }) => theme.color.stormGray};
+    transition: 0.5s;
+
+    &:hover{ 
+        cursor:pointer;
+        transform:scale(1.04)
+    }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 136px;

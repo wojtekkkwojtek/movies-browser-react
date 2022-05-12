@@ -12,11 +12,17 @@ export const URLmovie = `${URL}/movie/popular?api_key=${API_KEY}`
 
 export const URLpeople = `${URL}/person/popular?api_key=${API_KEY}`
 
-export const URLpersonDetails = personId => `${URL}/person/${personId}?api_key=${API_KEY}`
+export const URLpersonDetails = (personId) =>
+    `${URL}/person/${personId}?api_key=${API_KEY}`
 
-export const URLpersonCredits = personId => `${URL}/person/${personId}/credits?api_key=${API_KEY}`
+export const URLpersonCredits = (personId) =>
+    `${URL}/person/${personId}/credits?api_key=${API_KEY}`
 
 export const URLimage = `https://image.tmdb.org/t/p/original`
+
+export const URLmovieSearch = `${URL}/search/movie?api_key=${API_KEY}`
+
+export const URLpeopleSearch = `${URL}/search/person?api_key=${API_KEY}`
 
 // export const URLcredits = `${URL}/${movie_id}/credits?api_key=${API_KEY}`
 
