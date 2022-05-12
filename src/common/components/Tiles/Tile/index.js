@@ -22,6 +22,7 @@ import {
     Score,
     Icon,
     Info,
+    Mobile
 } from '../styled'
 
 export const Tile = ({
@@ -84,23 +85,22 @@ export const Tile = ({
                 </Subtitle>
                 <Year isList={isList}>{year}</Year>
                 <Info isList={isList} person={person}>
-                    {production}
+                    <Mobile mobile> {production}</Mobile>
                 </Info>
                 <Info isList={isList} movie={movie}>
-                    {' '}
                     {birth}
                     {date_of_birth ? date_of_birth : 'Unknown'}{' '}
                 </Info>
                 <Info isList={isList} person={person} details={details}>
-                    {' '}
-                    {release}
+                    <Mobile mobile>{release}</Mobile>
                     {release_date ? release_date : 'Unknown'}
                 </Info>
+
                 <Info isList={isList} movie={movie}>
                     {place} {place_of_birth ? place_of_birth : 'Unknown'}
                 </Info>
-                <InfoWrapper nonInList={nonInList}  person={person}>
-                    <InfoDetails 
+                <InfoWrapper nonInList={nonInList} person={person}>
+                    <InfoDetails
                         movie={movie}
                         isList={isList}
                         person={person}
@@ -135,9 +135,10 @@ export const Tile = ({
                     <Score person={person}>{score}</Score>
                     <Score person={person}>{votes} </Score>
                 </InfoWrapper>
+                 </Content>
                 <Overview>{overview}</Overview>
 
-            </Content>
+           
         </TileContainer>
     )
 }
