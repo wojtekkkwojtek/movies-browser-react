@@ -236,11 +236,11 @@ export const Info = styled.div`
     }
 `
 export const Mobile =styled.div`
-       ${({ mobile }) =>
+       /* ${({ mobile }) =>
         mobile &&
         css`
             display: none;
-        `}
+        `} */
 `;
 
 export const InfoDetails = styled.div`
