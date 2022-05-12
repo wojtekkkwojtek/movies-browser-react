@@ -163,7 +163,6 @@ export const InfoWrapper = styled.div`
             display: none;
     `}
 
-
     ${({ nonInList }) =>
         nonInList &&
         css`
@@ -180,7 +179,7 @@ export const InfoWrapper = styled.div`
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
         flex-direction: column;
-
+        
         ${({ nonInList }) =>
         nonInList &&
         css`
