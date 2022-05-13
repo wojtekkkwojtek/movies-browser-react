@@ -22,8 +22,7 @@ import {
     Score,
     Icon,
     Info,
-    Mobile
-} from '../styled'
+ } from '../styled'
 
 export const Tile = ({
     nonInList,
@@ -85,14 +84,14 @@ export const Tile = ({
                 </Subtitle>
                 <Year isList={isList}>{year}</Year>
                 <Info isList={isList} person={person}>
-                    <Mobile mobile> {production}</Mobile>
+                   {production}
                 </Info>
                 <Info isList={isList} movie={movie}>
                     {birth}
                     {date_of_birth ? date_of_birth : 'Unknown'}{' '}
                 </Info>
                 <Info isList={isList} person={person} details={details}>
-                    <Mobile mobile>{release}</Mobile>
+                    {release}
                     {release_date ? release_date : 'Unknown'}
                 </Info>
 

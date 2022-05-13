@@ -241,14 +241,6 @@ export const Info = styled.div`
         font-size: 12px;
     }
 `
-export const Mobile =styled.div`
-       /* ${({ mobile }) =>
-        mobile &&
-        css`
-            display: none;
-        `} */
-`;
-
 export const InfoDetails = styled.div`
     font-size: 18px;
     line-height: 1.2;
