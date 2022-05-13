@@ -10,7 +10,7 @@ import { Loader } from '../../../common/components/Loader';
 import { Section } from '../../../common/components/Section';
 import { fetchPersonPage, selectPersonPage } from './personPageSlice';
 import { ErrorMessage } from '../../../common/components/ErrorMessage';
-import { StyledButton, Wrapper } from "../../../common/components/Button/styled";
+import { StyledButton, Wrapper } from "../../../common/components/ShowAllButton/styled";
 import { ReactComponent as ArrowDown } from "../../../common/components/Button/Arrow_down.svg";
 import { ReactComponent as ArrowUp } from "../../../common/components/Button/Arrow_up.svg";
 
