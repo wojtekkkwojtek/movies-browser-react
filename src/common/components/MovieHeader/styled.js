@@ -23,7 +23,7 @@ export const Backdrop = styled.div`
     flex-direction: column;
     justify-content: end;
 
-    box-shadow: inset 0px 0px 35px 100px black;
+    box-shadow: inset 0px 0px 60px 50px black;
 `
 
 export const Title = styled.p`
