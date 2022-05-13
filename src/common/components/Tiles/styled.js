@@ -150,7 +150,13 @@ export const Year = styled.p`
         margin: 0;
     }
 `
+export const Tag=styled.span`
+     color: ${({ theme }) => theme.color.black};
 
+     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+    
+    }
+`;
 export const InfoWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;

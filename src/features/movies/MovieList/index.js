@@ -61,6 +61,7 @@ const MovieList = () => {
                             rate={movie.vote_average}
                             votes={movie.vote_count}
                             genres={movie.genre_ids}
+                            country={movie.production_countries}
                         />
                     </React.Fragment>
                 ))}
