@@ -132,7 +132,7 @@ display: none;
   
 `;
 
-export const Year = styled.div`
+export const Year = styled.p`
     font-size: 22px;
     margin: 24px 0;
     color: ${({ theme }) => theme.color.darkerGray};
