@@ -35,7 +35,6 @@ export const Tile = ({
     poster,
     year,
     country,
-    production,
     release_date,
     date,
     genres,
@@ -84,7 +83,11 @@ export const Tile = ({
                 </Subtitle>
                 <Year isList={isList}>{year}</Year>
                 <Info isList={isList} person={person}>
-                    {production}
+                <InfoTag>Production:&nbsp; </InfoTag>
+                {genres &&
+                        genres.map((country) => (
+                            <Genres>{country.name}</Genres>  //here productiion countries expected, but movie genres apear instead
+                        ))}
                 </Info>
                 <Info isList={isList} movie={movie}>
                     {birth}

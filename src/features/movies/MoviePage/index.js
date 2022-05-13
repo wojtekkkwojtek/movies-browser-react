@@ -62,9 +62,7 @@ const MoviePage = () => {
                                 moviePage.release_date
                             ).toLocaleDateString()}
                             year={moviePage.release_date.slice(0, 4)}
-                            production="Production:"
                             country={moviePage.production_countries}
-                            release={'Release date: '}
                             rate={moviePage.vote_average}
                             score="/10"
                             votes={moviePage.vote_count}
@@ -79,7 +77,6 @@ const MoviePage = () => {
                                 <PersonTile
                                     key={actor.id}
                                     personTile={true}
-                                    gray
                                     onClick={() => routeChange(actor.id)}
                                     original_name={actor.original_name}
                                     as={actor.character}
