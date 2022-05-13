@@ -249,7 +249,7 @@ export const Info = styled.div`
     }
 `
 
-export const InfoTag = styled.div`
+export const NoInfoTag = styled.div`
      @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: none;
     }

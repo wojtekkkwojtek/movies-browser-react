@@ -16,7 +16,7 @@ import {
     TileContainer,
     InfoWrapper,
     Tag,
-    InfoTag,
+    NoInfoTag,
     Overview,
     Genres,
     Rate,
@@ -67,7 +67,6 @@ export const Tile = ({
                 <NoPhoto />
             )}
             <Content>
-
                 <Title isList={isList} details={details} person={person}>
                     {title}
                 </Title>
@@ -80,24 +79,24 @@ export const Tile = ({
                             {release_date}
                         </>
                     }
-                </Subtitle> 
+                </Subtitle>
                 <Year isList={isList}>{year}</Year>
-                <Info isList={isList} person={person}>   
-                    <InfoTag>Production:&nbsp; </InfoTag>   
-                    {country &&
-                        country.map(({name}) => 
-                            <Tag > {name}</Tag>
-                        )}
+                <Info isList={isList} person={person}>
+                    <NoInfoTag>Production:&nbsp; </NoInfoTag>
+                    <Tag>
+                        {country &&
+                            country.map(({ name }) => name).join(", ")
+                        }
+                    </Tag>
                 </Info>
                 <Info isList={isList} movie={movie}>
                     {birth}
                     {date_of_birth ? date_of_birth : 'Unknown'}{' '}
                 </Info>
                 <Info isList={isList} person={person} details={details}>
-                    <InfoTag>Release date:&nbsp; </InfoTag>
-                 <Tag>  {release_date ? release_date : 'Unknown'}</Tag> 
+                    <NoInfoTag>Release date:&nbsp; </NoInfoTag>
+                    <Tag>  {release_date ? release_date : 'Unknown'}</Tag>
                 </Info>
-
                 <Info isList={isList} movie={movie}>
                     {place} {place_of_birth ? place_of_birth : 'Unknown'}
                 </Info>
