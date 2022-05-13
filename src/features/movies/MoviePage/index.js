@@ -81,6 +81,7 @@ const MoviePage = () => {
                                     original_name={actor.original_name}
                                     as={actor.character}
                                     poster={actor.profile_path}
+                                    gray
                                 />
                             ))}
                     </Section>
