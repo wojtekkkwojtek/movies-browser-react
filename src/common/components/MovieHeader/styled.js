@@ -30,7 +30,7 @@ export const Title = styled.p`
     position: relative;
     border-radius: 10px;
     font-size: 46px;
-    margin: 22px auto 22px 50px;
+    margin: 22px auto 22px 0px;
     color: ${({ theme }) => theme.color.white};
 
     ${({ subtitle }) =>
@@ -43,7 +43,7 @@ export const Title = styled.p`
 export const VoteCount = styled.div`
     font-size: 16px;
     line-height: 120%;
-    margin-left: 50px;
+    margin-left: 0px;
     margin-bottom: 56px;
     color: white;
 `
