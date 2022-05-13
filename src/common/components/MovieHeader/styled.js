@@ -25,7 +25,8 @@ export const Backdrop = styled.div`
     box-shadow: inset 0px 0px 60px 50px black;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        
+      background-position:top ;
+      height:250px
     }
 `
 
@@ -44,6 +45,7 @@ export const Title = styled.p`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 24px;
+        font-weight: 600;
         
     }
 `
