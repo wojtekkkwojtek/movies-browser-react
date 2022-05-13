@@ -16,13 +16,14 @@ import {
     TileContainer,
     InfoWrapper,
     InfoDetails,
+    InfoTag,
     Overview,
     Genres,
     Rate,
     Score,
     Icon,
     Info,
- } from '../styled'
+} from '../styled'
 
 export const Tile = ({
     nonInList,
@@ -35,7 +36,6 @@ export const Tile = ({
     year,
     country,
     production,
-    release,
     release_date,
     date,
     genres,
@@ -84,30 +84,20 @@ export const Tile = ({
                 </Subtitle>
                 <Year isList={isList}>{year}</Year>
                 <Info isList={isList} person={person}>
-                   {production}
+                    {production}
                 </Info>
                 <Info isList={isList} movie={movie}>
                     {birth}
                     {date_of_birth ? date_of_birth : 'Unknown'}{' '}
                 </Info>
                 <Info isList={isList} person={person} details={details}>
-                    {release}
+                    <InfoTag>Release date:&nbsp; </InfoTag>
                     {release_date ? release_date : 'Unknown'}
                 </Info>
 
                 <Info isList={isList} movie={movie}>
                     {place} {place_of_birth ? place_of_birth : 'Unknown'}
                 </Info>
-                <InfoWrapper nonInList={nonInList} person={person}>
-                    <InfoDetails
-                        movie={movie}
-                        isList={isList}
-                        person={person}
-                        poster={poster}
-                    >
-                        {date ? date : 'Unknown'}
-                    </InfoDetails>
-                </InfoWrapper>
                 <InfoWrapper isList={isList} person={person}>
                     {genres &&
                         genres.map((genre) => {

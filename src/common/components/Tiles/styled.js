@@ -219,6 +219,7 @@ export const Info = styled.div`
     line-height: 1.2;
     color: ${({ theme }) => theme.color.stormGray};
     margin: 0 0 8px 8px;
+    display:flex;
 
     ${({ movie }) =>
         movie &&
@@ -241,33 +242,13 @@ export const Info = styled.div`
         font-size: 12px;
     }
 `
-export const InfoDetails = styled.div`
-    font-size: 18px;
-    line-height: 1.2;
-    margin: 0 0 8px 10px;
 
-    ${({ person }) =>
-        person &&
-        css`
-            display: none;
-        `}
-
-    ${({ isList }) =>
-        isList &&
-        css`
-            display: none;
-        `}
-
-    ${({ movie }) =>
-        movie &&
-        css`
-            display: none;
-    `}
-
-    @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        font-size: 12px;
+export const InfoTag = styled.div`
+     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        display: none;
     }
-`
+`;
+
 export const Genres = styled.div`
     padding: 8px 16px;
     background-color: ${({ theme }) => theme.color.mystic};
