@@ -11,8 +11,8 @@ import { Section } from '../../../common/components/Section';
 import { fetchPersonPage, selectPersonPage } from './personPageSlice';
 import { ErrorMessage } from '../../../common/components/ErrorMessage';
 import { StyledButton, Wrapper } from "../../../common/components/ShowAllButton/styled";
-import { ReactComponent as ArrowDown } from "../../../common/components/Button/Arrow_down.svg";
-import { ReactComponent as ArrowUp } from "../../../common/components/Button/Arrow_up.svg";
+import { ReactComponent as ArrowDown } from "../../../common/components/ShowAllButton/Arrow_down.svg";
+import { ReactComponent as ArrowUp } from "../../../common/components/ShowAllButton/Arrow_up.svg";
 
 const PersonPage = () => {
     const [isShownAll, setIsShownAll] = useState(false);
