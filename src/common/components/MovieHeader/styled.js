@@ -22,8 +22,11 @@ export const Backdrop = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: end;
-
     box-shadow: inset 0px 0px 60px 50px black;
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        
+    }
 `
 
 export const Title = styled.p`
@@ -38,6 +41,11 @@ export const Title = styled.p`
         css`
             text-transform: uppercase;
         `}
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        font-size: 24px;
+        
+    }
 `
 
 export const VoteCount = styled.div`
@@ -46,4 +54,8 @@ export const VoteCount = styled.div`
     margin-left: 0px;
     margin-bottom: 56px;
     color: white;
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        font-size: 10px;
+    }
 `
