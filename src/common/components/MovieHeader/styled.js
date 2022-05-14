@@ -26,7 +26,7 @@ export const Backdrop = styled.div`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
       background-position:top ;
-      height:250px
+      height:250px;
     }
 `
 

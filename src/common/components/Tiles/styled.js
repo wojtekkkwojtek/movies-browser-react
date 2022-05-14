@@ -32,7 +32,9 @@ export const TileContainer = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
             padding:16px ; 
-            margin:24px auto 0;
+            //margin:24px auto 0;
+            
+            
         ${({ isList }) =>
         isList &&
         css`
@@ -131,7 +133,9 @@ display: none;
         margin: 0;
         line-height: 1.5;
      `}
-  
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+       font-size:13px;
+    }
 `;
 
 export const Year = styled.p`
@@ -152,7 +156,7 @@ export const Year = styled.p`
         margin: 0;
     }
 `
-export const Tag=styled.span`
+export const Tag = styled.span`
      color: ${({ theme }) => theme.color.black};
 
      @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {

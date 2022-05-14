@@ -11,7 +11,7 @@ export const StyledButton = styled.button`
     cursor: pointer;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        font-size: 16px;
+        font-size: 14px;
         height:40px;
         width: 80px;
     }
