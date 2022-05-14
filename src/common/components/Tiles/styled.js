@@ -352,6 +352,7 @@ export const Rate = styled.div`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 13px;
+        line-height:1;
 
     }
 `
@@ -366,7 +367,9 @@ export const Score = styled.div`
         `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-         font-size: 13px;             
+         font-size: 13px;   
+         line-height:1;  
+         margin:0;        
     }
 `
 export const Overview = styled.p`
