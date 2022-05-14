@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { Icon } from '../Tiles/styled'
 
 export const Wrapper = styled.div`
     height: 770px;
@@ -100,5 +101,14 @@ export const VoteCount = styled.div`
     }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 10px;
+    }
+`
+
+export const Star = styled(Icon)`
+    width: 40px;
+    height: 38.12px;
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        width: 24px;
+        height: 24px;
     }
 `

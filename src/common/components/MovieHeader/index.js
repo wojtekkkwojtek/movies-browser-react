@@ -1,5 +1,5 @@
 import React from 'react'
-import { Backdrop, Container, Title, VoteCount } from './styled'
+import { Backdrop, Container, Star, Title, VoteCount } from './styled'
 import star from '../Tiles/star.svg'
 import { Wrapper } from './styled'
 import { URLimage } from '../../assets/generalData/fetchedData'
@@ -10,6 +10,7 @@ export const MovieHeader = ({
     backdrop_path,
     vote_average,
     vote_count,
+    big,
 }) => {
     return (
         <Wrapper>
@@ -18,7 +19,7 @@ export const MovieHeader = ({
                 <Container>
                     <Title subtitle>
                         {' '}
-                        <Icon big src={star} alt="" /> {vote_average}/10
+                        <Star src={star} alt="" /> {vote_average}/10
                     </Title>
                     <VoteCount>{vote_count} votes</VoteCount>
                 </Container>
