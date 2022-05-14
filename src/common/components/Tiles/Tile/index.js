@@ -4,7 +4,6 @@ import { nanoid } from 'nanoid'
 import star from '../star.svg'
 import { URLimage } from '../../../assets/generalData/fetchedData'
 import { selectMovieList } from '../../../../features/movies/MovieList/movieListSlice'
-import { ReactComponent as NoPoster } from './noPoster.svg'
 import { ReactComponent as NoPhoto } from '../PersonTile/noPhoto.svg'
 
 import {
@@ -15,6 +14,7 @@ import {
     Year,
     TileContainer,
     InfoWrapper,
+    StyledNoPoster,
     Tag,
     NoInfoTag,
     Overview,
@@ -36,7 +36,6 @@ export const Tile = ({
     year,
     country,
     release_date,
-    date,
     genres,
     rate,
     score,
@@ -62,7 +61,7 @@ export const Tile = ({
                     alt=""
                 />
             ) : !person ? (
-                <NoPoster />
+                <StyledNoPoster />
             ) : (
                 <NoPhoto />
             )}

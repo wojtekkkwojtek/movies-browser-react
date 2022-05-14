@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { ReactComponent as NoPoster } from './Tile/noPoster.svg'
 
 export const TileContainer = styled.div`
     background: ${({ theme }) => theme.color.white};
@@ -80,6 +81,13 @@ export const Poster = styled.img`
         `} 
     }
 `
+export const StyledNoPoster = styled(NoPoster)`
+     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        width:114px;
+        height:169px;
+        } 
+`;
+
 export const Content = styled.div`
     ${({ isList }) =>
         isList &&
