@@ -97,7 +97,7 @@ export const VoteCount = styled.div`
     color: white;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-        margin: 0 auto 6px 16px;
+        margin: 0 auto 6px 8px;
     }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 10px;
