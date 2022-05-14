@@ -20,9 +20,7 @@ export const TileContainer = styled.div`
             gap: 16px;
             margin: 0px;
             transition: 1s;
-            //justify-content: space-between;
-            
-
+                    
             &:hover{ 
                 cursor:pointer;
                 transform:scale(1.03)
@@ -33,9 +31,7 @@ export const TileContainer = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
             padding:16px ; 
-            //margin:24px auto 0;
-            
-            
+                       
         ${({ isList }) =>
         isList &&
         css`
@@ -44,7 +40,6 @@ export const TileContainer = styled.div`
             min-height: 201px;
             width: 100%;
             padding: 16px;
-          
         `}
     }
 `
@@ -61,11 +56,12 @@ export const Poster = styled.img`
             float: left;
             margin-right: 40px;
         `}
+
     ${({ isList }) =>
         isList &&
         css`
-           height: 434px;
-           width:292px;
+            height: 434px;
+             width:292px;
         `}    
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
@@ -77,15 +73,16 @@ export const Poster = styled.img`
         ${({ isList }) =>
         isList &&
         css`
-          margin:0;
+            margin:0;
         `} 
     }
 `
 export const StyledNoPoster = styled(NoPoster)`
+
      @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width:114px;
         height:169px;
-        } 
+    } 
 `;
 
 export const Content = styled.div`
@@ -101,15 +98,12 @@ export const Content = styled.div`
         `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}){
-        //padding:16px;
-      
-
-
+                
         ${({ isList }) =>
         isList &&
         css`
-        display: flex;
-        flex-direction: column;
+            display: flex;
+            flex-direction: column;
         `} 
     }
 `
@@ -130,16 +124,17 @@ export const Title = styled.header`
     }
 `
 export const Subtitle = styled.p`
-display: none;
-  ${({ isList }) =>
+    display: none;
+
+    ${({ isList }) =>
         isList &&
         css`
-        display:block;
-        color: ${({ theme }) => theme.color.stormGray};
-        font-size: 16px;
-        font-weight: 400;
-        margin: 0;
-        line-height: 1.5;
+            display:block;
+            color: ${({ theme }) => theme.color.stormGray};
+            font-size: 16px;
+            font-weight: 400;
+            margin: 0;
+            line-height: 1.5;
      `}
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
        font-size:13px;
@@ -167,11 +162,8 @@ export const Year = styled.p`
 `
 export const Tag = styled.span`
      color: ${({ theme }) => theme.color.black};
-
-     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-    
-    }
 `;
+
 export const InfoWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -184,11 +176,11 @@ export const InfoWrapper = styled.div`
             display: none;
      `}
 
-    /* ${({ movie }) =>
+    ${({ movie }) =>
         movie &&
         css`
             display: none;
-    `} */
+    `}
 
     ${({ nonInList }) =>
         nonInList &&
@@ -200,13 +192,9 @@ export const InfoWrapper = styled.div`
         rates &&
         css`
             align-items: flex-end;
-            //margin:0;
-            //flex-grow: 0;
             flex-direction: row;
             margin-top:8px;
-
-          
-    `}
+        `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
@@ -226,7 +214,6 @@ export const InfoWrapper = styled.div`
             flex-grow: 0;
             flex-direction: row;
             margin-top:8px;
-            //align-self: flex-end;
         `}
 
         ${({ isList }) =>
@@ -246,7 +233,7 @@ export const Info = styled.div`
     color: ${({ theme }) => theme.color.stormGray};
     margin: 0 0 8px 8px;
     display:flex;
-
+ 
     ${({ movie }) =>
         movie &&
         css`
@@ -265,10 +252,10 @@ export const Info = styled.div`
             display: none;
         `}
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        font-size: 12px;
+        font-size: 12px;  
+        flex-direction: column;
     }
 `
-
 export const NoInfoTag = styled.div`
      @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: none;
@@ -294,19 +281,9 @@ export const Genres = styled.div`
         font-size: 10px;
         line-height: 1.1;
         padding:4px;
-
-        ${({ isList }) =>
-        isList &&
-        css`
-            //font-weight: 400;
-            //font-size: 10px;
-            //padding:4px;
-        `}
     }
 `
 export const Icon = styled.img`
-    //width: 24px;
-    //height: 24px;
     margin-top:0px;
     color: ${({ theme }) => theme.color.candlelight};
     margin: 27.09px 0 - 8px 8px;
@@ -352,13 +329,13 @@ export const Rate = styled.div`
             font-weight: 600;
             font-size: 16px;
             line-height:1;
-        `}
+    `}
 
     ${({ person }) =>
         person &&
         css`
             display: none;
-        `}
+    `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 13px;
@@ -372,20 +349,19 @@ export const Score = styled.div`
     ${({ isList }) =>
         isList &&
         css`
-            color: ${({ theme }) => theme.color. darkerGray}; 
+            color: ${({ theme }) => theme.color.darkerGray}; 
              margin-left:0; 
         `}
   
-      
     ${({ person }) =>
         person &&
         css`
             display: none;
-        `}
+    `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-         font-size: 13px;   
-         color: ${({ theme }) => theme.color. darkerGray};               
+        font-size: 13px;   
+        color: ${({ theme }) => theme.color.darkerGray};               
     }
 `
 export const Overview = styled.p`
@@ -401,8 +377,26 @@ export const Overview = styled.p`
             display: none;
         `}
 
-
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 14px;
     }
 `
+export const Tag1 = styled.span`
+    
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        display:none;
+    }
+`;
+
+export const Tag2 = styled.span`
+
+    ${({ mobile }) =>
+        mobile &&
+        css`
+            display: none;
+        `}
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+      display:block
+    }
+`;

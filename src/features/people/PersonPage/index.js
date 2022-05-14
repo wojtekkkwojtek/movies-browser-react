@@ -52,7 +52,6 @@ const PersonPage = () => {
                             person
                             key={nanoid()}
                             title={personPage.name}
-                            birth="Date of birth:&nbsp;"
                             date_of_birth={new Date(
                                 personPage.birthday
                             ).toLocaleDateString()}

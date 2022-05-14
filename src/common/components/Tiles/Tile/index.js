@@ -15,7 +15,6 @@ import {
     TileContainer,
     InfoWrapper,
     StyledNoPoster,
-    Tag,
     NoInfoTag,
     Overview,
     Genres,
@@ -23,6 +22,9 @@ import {
     Score,
     Icon,
     Info,
+    Tag,
+    Tag1,
+    Tag2,
 } from '../styled'
 
 export const Tile = ({
@@ -42,7 +44,6 @@ export const Tile = ({
     votes,
     overview,
     person,
-    birth,
     date_of_birth,
     place,
     place_of_birth,
@@ -89,15 +90,17 @@ export const Tile = ({
                     </Tag>
                 </Info>
                 <Info isList={isList} movie={movie}>
-                    {birth}
-                    {date_of_birth ? date_of_birth : 'Unknown'}{' '}
+                    <Tag1>Date of birth&nbsp;</Tag1>
+                    <Tag2 mobile>Birth&nbsp;</Tag2>
+                    <Tag>{date_of_birth ? date_of_birth : 'Unknown'}</Tag>
                 </Info>
                 <Info isList={isList} person={person} details={details}>
                     <NoInfoTag>Release date:&nbsp; </NoInfoTag>
                     <Tag>  {release_date ? release_date : 'Unknown'}</Tag>
                 </Info>
                 <Info isList={isList} movie={movie}>
-                    {place} {place_of_birth ? place_of_birth : 'Unknown'}
+                    {place}
+                    <Tag>{place_of_birth ? place_of_birth : 'Unknown'}</Tag>
                 </Info>
                 <InfoWrapper isList={isList} person={person}>
                     {genres &&
@@ -124,7 +127,7 @@ export const Tile = ({
                     </Rate>
                     <Score isList={isList} person={person}>{score}</Score>
                     <Score isList={isList} person={person}>{votes} </Score>
-                    <Score isList={isList}>&nbsp;votes</Score>
+                    <Score isList={isList} person={person}>&nbsp;votes</Score>
                 </InfoWrapper>
                 <Overview>{overview}</Overview>
             </Content>
