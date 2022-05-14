@@ -63,7 +63,7 @@ const PersonPage = () => {
                         />
                     </Section>
                     <Section>
-                    <Title
+                        <Title
                             title={`Movies  - cast (${cast && cast.length})`}
                         />                        {cast &&
                             cast.slice(0, shownTiles).map((movie) => (
@@ -76,9 +76,7 @@ const PersonPage = () => {
                                         genres={movie.genre_ids}
                                         rate={movie.vote_average}
                                         poster={movie.poster_path}
-                                        release_date={ movie.release_date
-                                          ? movie.release_date.slice(0, 4)
-                                          : 'Unknown'}
+                                        release_date={movie.release_date.slice(0, 4)}
                                         votes={movie.vote_count}
                                         character={movie.character}
                                         onClick={() =>
@@ -100,7 +98,7 @@ const PersonPage = () => {
                         </StyledButton>
                     </Wrapper>}
                     <Section>
-                    <Title
+                        <Title
                             title={`Movies  - crew (${crew && crew.length})`}
                         />
                         {crew &&
