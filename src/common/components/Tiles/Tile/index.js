@@ -118,7 +118,7 @@ export const Tile = ({
                         ))}
                 </InfoWrapper>
                 <InfoWrapper rates>
-                    <Icon person={person} src={star} alt="" />
+                    <Icon isList={isList} person={person} src={star} alt="" />
                     <Rate person={person} isList={isList}>
                         {rate}
                     </Rate>
