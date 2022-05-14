@@ -219,8 +219,6 @@ export const InfoWrapper = styled.div`
             margin:0;
             flex-grow: 0;
             flex-direction: row;
-            margin-top:8px;
-            //align-self: flex-end;
         `}
 
         ${({ isList }) =>
