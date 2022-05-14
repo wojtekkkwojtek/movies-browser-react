@@ -11,9 +11,9 @@ import { Section } from '../../../common/components/Section';
 import { Title } from '../../../common/components/Title';
 import { ErrorMessage } from '../../../common/components/ErrorMessage';
 import { PersonTile } from '../../../common/components/Tiles/PersonTile';
-import { StyledButton, Wrapper } from "../../../common/components/Button/styled";
-import { ReactComponent as ArrowDown } from "../../../common/components/Button/Arrow_down.svg";
-import { ReactComponent as ArrowUp } from "../../../common/components/Button/Arrow_up.svg";
+import { StyledButton, Wrapper } from "../../../common/components/ShowAllButton/styled";
+import { ReactComponent as ArrowDown } from "../../../common/components/ShowAllButton/Arrow_down.svg";
+import { ReactComponent as ArrowUp } from "../../../common/components/ShowAllButton/Arrow_up.svg";
 
 const MoviePage = () => {
     const [isShownAll, setIsShownAll] = useState(false);
@@ -58,11 +58,11 @@ const MoviePage = () => {
                             key={nanoid()}
                             title={moviePage.title}
                             poster={moviePage.poster_path}
-                            release_date={moviePage.release_date}
+                            release_date={new Date(
+                                moviePage.release_date
+                            ).toLocaleDateString()}
                             year={moviePage.release_date.slice(0, 4)}
-                            production="Production:"
                             country={moviePage.production_countries}
-                            release={'Release date: '}
                             rate={moviePage.vote_average}
                             score="/10"
                             votes={moviePage.vote_count}
@@ -71,17 +71,17 @@ const MoviePage = () => {
                         />
                     </Section>
                     <Section>
-                    <Title title="Cast" />
+                        <Title title="Cast" />
                         {actors &&
                             actors.slice(0, shownTiles).map((actor) => (
                                 <PersonTile
                                     key={actor.id}
                                     personTile={true}
-                                    gray
                                     onClick={() => routeChange(actor.id)}
                                     original_name={actor.original_name}
                                     as={actor.character}
                                     poster={actor.profile_path}
+                                    gray
                                 />
                             ))}
                     </Section>
@@ -97,7 +97,7 @@ const MoviePage = () => {
                         </StyledButton>
                     </Wrapper>}
                     <Section>
-                    <Title title="Crew" />
+                        <Title title="Crew" />
                         {crew &&
                             crew.slice(0, shownTilesCrew).map((person) => (
                                 <PersonTile

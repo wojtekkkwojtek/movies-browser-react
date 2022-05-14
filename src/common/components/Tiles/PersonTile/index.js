@@ -1,7 +1,6 @@
 import React from 'react'
-import { Poster, TileContainer, InfoWrapper, InfoDetails } from './styled'
+import { Poster, TileContainer, InfoWrapper, InfoDetails, StyledNoPhoto } from './styled'
 import { URLimage } from '../../../assets/generalData/fetchedData'
-import { ReactComponent as NoPhoto } from './noPhoto.svg'
 
 export const PersonTile = ({
     personTile,
@@ -21,7 +20,7 @@ export const PersonTile = ({
                     personTile={personTile}
                 />
             ) : (
-                <NoPhoto />
+                <StyledNoPhoto />
             )}
 
             <InfoWrapper>

@@ -22,15 +22,19 @@ export const Backdrop = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: end;
+    box-shadow: inset 0px 0px 60px 50px black;
 
-    box-shadow: inset 0px 0px 35px 100px black;
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+      background-position:top ;
+      height:250px;
+    }
 `
 
 export const Title = styled.p`
     position: relative;
     border-radius: 10px;
     font-size: 46px;
-    margin: 22px auto 22px 50px;
+    margin: 22px auto 22px 0px;
     color: ${({ theme }) => theme.color.white};
 
     ${({ subtitle }) =>
@@ -38,12 +42,22 @@ export const Title = styled.p`
         css`
             text-transform: uppercase;
         `}
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        font-size: 24px;
+        font-weight: 600;
+        
+    }
 `
 
 export const VoteCount = styled.div`
     font-size: 16px;
     line-height: 120%;
-    margin-left: 50px;
+    margin-left: 0px;
     margin-bottom: 56px;
     color: white;
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        font-size: 10px;
+    }
 `

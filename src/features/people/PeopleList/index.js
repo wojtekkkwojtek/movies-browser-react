@@ -25,7 +25,7 @@ const PeopleList = () => {
     const routeChange = (id) => {
         navigate(`/people/${id}`)
     }
-    const showTitle = () => (query ? `Search for "${query}"` : 'Popular movies')
+    const showTitle = () => (query ? `Search for "${query}"` : 'Popular people')
 
     return (
         <>

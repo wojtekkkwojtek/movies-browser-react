@@ -4,7 +4,6 @@ import { nanoid } from 'nanoid'
 import star from '../star.svg'
 import { URLimage } from '../../../assets/generalData/fetchedData'
 import { selectMovieList } from '../../../../features/movies/MovieList/movieListSlice'
-import { ReactComponent as NoPoster } from './noPoster.svg'
 import { ReactComponent as NoPhoto } from '../PersonTile/noPhoto.svg'
 
 import {
@@ -15,7 +14,9 @@ import {
     Year,
     TileContainer,
     InfoWrapper,
-    InfoDetails,
+    StyledNoPoster,
+    Tag,
+    NoInfoTag,
     Overview,
     Genres,
     Rate,
@@ -34,10 +35,7 @@ export const Tile = ({
     poster,
     year,
     country,
-    production,
-    release,
     release_date,
-    date,
     genres,
     rate,
     score,
@@ -63,12 +61,11 @@ export const Tile = ({
                     alt=""
                 />
             ) : !person ? (
-                <NoPoster />
+                <StyledNoPoster />
             ) : (
                 <NoPhoto />
             )}
             <Content>
-
                 <Title isList={isList} details={details} person={person}>
                     {title}
                 </Title>
@@ -84,31 +81,24 @@ export const Tile = ({
                 </Subtitle>
                 <Year isList={isList}>{year}</Year>
                 <Info isList={isList} person={person}>
-                    {production}
+                    <NoInfoTag>Production:&nbsp; </NoInfoTag>
+                    <Tag>
+                        {country &&
+                            country.map(({ name }) => name).join(", ")
+                        }
+                    </Tag>
                 </Info>
                 <Info isList={isList} movie={movie}>
-                    {' '}
                     {birth}
                     {date_of_birth ? date_of_birth : 'Unknown'}{' '}
                 </Info>
                 <Info isList={isList} person={person} details={details}>
-                    {' '}
-                    {release}
-                    {release_date ? release_date : 'Unknown'}
+                    <NoInfoTag>Release date:&nbsp; </NoInfoTag>
+                    <Tag>  {release_date ? release_date : 'Unknown'}</Tag>
                 </Info>
                 <Info isList={isList} movie={movie}>
                     {place} {place_of_birth ? place_of_birth : 'Unknown'}
                 </Info>
-                <InfoWrapper nonInList={nonInList}  person={person}>
-                    <InfoDetails 
-                        movie={movie}
-                        isList={isList}
-                        person={person}
-                        poster={poster}
-                    >
-                        {date ? date : 'Unknown'}
-                    </InfoDetails>
-                </InfoWrapper>
                 <InfoWrapper isList={isList} person={person}>
                     {genres &&
                         genres.map((genre) => {
@@ -128,7 +118,7 @@ export const Tile = ({
                         ))}
                 </InfoWrapper>
                 <InfoWrapper rates>
-                    <Icon person={person} src={star} alt="" />
+                    <Icon isList={isList} person={person} src={star} alt="" />
                     <Rate person={person} isList={isList}>
                         {rate}
                     </Rate>
@@ -136,7 +126,6 @@ export const Tile = ({
                     <Score person={person}>{votes} </Score>
                 </InfoWrapper>
                 <Overview>{overview}</Overview>
-
             </Content>
         </TileContainer>
     )

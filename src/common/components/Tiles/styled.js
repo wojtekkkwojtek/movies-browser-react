@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { ReactComponent as NoPoster } from './Tile/noPoster.svg'
 
 export const TileContainer = styled.div`
     background: ${({ theme }) => theme.color.white};
@@ -31,7 +32,10 @@ export const TileContainer = styled.div`
     ${({ details }) => details && css``} 
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-              
+            padding:16px ; 
+            //margin:24px auto 0;
+            
+            
         ${({ isList }) =>
         isList &&
         css`
@@ -40,6 +44,7 @@ export const TileContainer = styled.div`
             min-height: 201px;
             width: 100%;
             padding: 16px;
+          
         `}
     }
 `
@@ -68,8 +73,21 @@ export const Poster = styled.img`
         height:auto;
         margin-right: 16px;
         flex-shrink:0;
+
+        ${({ isList }) =>
+        isList &&
+        css`
+          margin:0;
+        `} 
     }
 `
+export const StyledNoPoster = styled(NoPoster)`
+     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        width:114px;
+        height:169px;
+        } 
+`;
+
 export const Content = styled.div`
     ${({ isList }) =>
         isList &&
@@ -83,6 +101,10 @@ export const Content = styled.div`
         `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}){
+        //padding:16px;
+      
+
+
         ${({ isList }) =>
         isList &&
         css`
@@ -119,10 +141,12 @@ display: none;
         margin: 0;
         line-height: 1.5;
      `}
-  
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+       font-size:13px;
+    }
 `;
 
-export const Year = styled.div`
+export const Year = styled.p`
     font-size: 22px;
     margin: 24px 0;
     color: ${({ theme }) => theme.color.darkerGray};
@@ -140,7 +164,13 @@ export const Year = styled.div`
         margin: 0;
     }
 `
+export const Tag = styled.span`
+     color: ${({ theme }) => theme.color.black};
 
+     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+    
+    }
+`;
 export const InfoWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -159,7 +189,6 @@ export const InfoWrapper = styled.div`
             display: none;
     `}
 
-
     ${({ nonInList }) =>
         nonInList &&
         css`
@@ -176,7 +205,7 @@ export const InfoWrapper = styled.div`
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
         flex-direction: column;
-
+        
         ${({ nonInList }) =>
         nonInList &&
         css`
@@ -210,6 +239,7 @@ export const Info = styled.div`
     line-height: 1.2;
     color: ${({ theme }) => theme.color.stormGray};
     margin: 0 0 8px 8px;
+    display:flex;
 
     ${({ movie }) =>
         movie &&
@@ -228,35 +258,17 @@ export const Info = styled.div`
         css`
             display: none;
         `}
-`
-
-export const InfoDetails = styled.div`
-    font-size: 18px;
-    line-height: 1.2;
-    margin: 0 0 8px 10px;
-
-    ${({ person }) =>
-        person &&
-        css`
-            display: none;
-        `}
-
-    ${({ isList }) =>
-        isList &&
-        css`
-            display: none;
-        `}
-
-    ${({ movie }) =>
-        movie &&
-        css`
-            display: none;
-    `}
-
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 12px;
     }
 `
+
+export const NoInfoTag = styled.div`
+     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        display: none;
+    }
+`;
+
 export const Genres = styled.div`
     padding: 8px 16px;
     background-color: ${({ theme }) => theme.color.mystic};
@@ -275,13 +287,14 @@ export const Genres = styled.div`
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 10px;
         line-height: 1.1;
+        padding:4px;
 
         ${({ isList }) =>
         isList &&
         css`
-            font-weight: 400;
-            font-size: 10px;
-            padding:4px;
+            //font-weight: 400;
+            //font-size: 10px;
+            //padding:4px;
         `}
     }
 `
@@ -360,6 +373,8 @@ export const Overview = styled.p`
     font-size: 20px;
     line-height: 1.6;
     text-align: justify;
+    margin:0;
+    padding-top: 8px;
 
     ${({ isList }) =>
         isList &&
