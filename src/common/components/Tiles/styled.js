@@ -149,7 +149,7 @@ display: none;
 export const Year = styled.p`
     font-size: 22px;
     margin: 24px 0;
-    color: ${({ theme }) => theme.color.darkerGray};
+    
 
     ${({ isList }) =>
         isList &&
@@ -160,6 +160,7 @@ export const Year = styled.p`
      `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        color: ${({ theme }) => theme.color.darkerGray};
         font-size: 13px;
         margin: 0;
     }
@@ -183,11 +184,11 @@ export const InfoWrapper = styled.div`
             display: none;
      `}
 
-    ${({ movie }) =>
+    /* ${({ movie }) =>
         movie &&
         css`
             display: none;
-    `}
+    `} */
 
     ${({ nonInList }) =>
         nonInList &&
@@ -198,8 +199,13 @@ export const InfoWrapper = styled.div`
     ${({ rates }) =>
         rates &&
         css`
-            margin:8px 0 0;
-            align-items: baseline;
+            align-items: flex-end;
+            //margin:0;
+            //flex-grow: 0;
+            flex-direction: row;
+            margin-top:8px;
+
+          
     `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
@@ -219,6 +225,8 @@ export const InfoWrapper = styled.div`
             margin:0;
             flex-grow: 0;
             flex-direction: row;
+            margin-top:8px;
+            //align-self: flex-end;
         `}
 
         ${({ isList }) =>
@@ -316,30 +324,34 @@ export const Icon = styled.img`
         css`
             display: none;
         `}
-    @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+
+        @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         
         ${({ isList }) =>
         isList &&
         css`
                 width: 16px;
                 height: 16px;
-                margin-top:10px;
+                //margin-top:10px;
         `}
     }
 `
 export const Rate = styled.div`
     font-size: 22px;
     font-weight: 500;
-    line-height: 1.3;
+    line-height: 1;
     align-items: center;
     margin:0px 8px;
     display:flex;
+    line-height:0.8;
+    align-content: flex-end;
           
     ${({ isList }) =>
         isList &&
         css`
             font-weight: 600;
             font-size: 16px;
+            line-height:1;
         `}
 
     ${({ person }) =>
@@ -350,13 +362,20 @@ export const Rate = styled.div`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 13px;
-        line-height:1;
-
     }
 `
 export const Score = styled.div`
     font-size: 16px;
     margin-left: 8px;
+    line-height:1;
+
+    ${({ isList }) =>
+        isList &&
+        css`
+            color: ${({ theme }) => theme.color. darkerGray}; 
+             margin-left:0; 
+        `}
+  
       
     ${({ person }) =>
         person &&
@@ -366,8 +385,7 @@ export const Score = styled.div`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
          font-size: 13px;   
-         line-height:1;  
-         margin:0;        
+         color: ${({ theme }) => theme.color. darkerGray};               
     }
 `
 export const Overview = styled.p`

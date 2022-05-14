@@ -122,8 +122,9 @@ export const Tile = ({
                     <Rate person={person} isList={isList}>
                         {rate}
                     </Rate>
-                    <Score person={person}>{score}</Score>
-                    <Score person={person}>{votes} </Score>
+                    <Score isList={isList} person={person}>{score}</Score>
+                    <Score isList={isList} person={person}>{votes} </Score>
+                    <Score isList={isList}>&nbsp;votes</Score>
                 </InfoWrapper>
                 <Overview>{overview}</Overview>
             </Content>
