@@ -20,7 +20,6 @@ export const TileContainer = styled.div`
             gap: 16px;
             margin: 0px;
             transition: 1s;
-            //justify-content: space-between;
 
             &:hover {
                 cursor: pointer;
@@ -32,7 +31,6 @@ export const TileContainer = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         padding: 16px;
-        //margin:24px auto 0;
 
         ${({ isList }) =>
             isList &&
@@ -45,6 +43,7 @@ export const TileContainer = styled.div`
             `}
     }
 `
+
 export const Poster = styled.img`
     width: 312px;
     height: 464px;
@@ -58,6 +57,7 @@ export const Poster = styled.img`
             float: left;
             margin-right: 40px;
         `}
+
     ${({ isList }) =>
         isList &&
         css`
@@ -78,7 +78,10 @@ export const Poster = styled.img`
             `}
     }
 `
+
 export const StyledNoPoster = styled(NoPoster)`
+    min-height: 434px;
+
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 114px;
         height: 169px;
@@ -89,25 +92,28 @@ export const Content = styled.div`
     ${({ isList }) =>
         isList &&
         css`
-            text-align: center;
-            margin-right: 8px;
+            text-align: left;
             padding: 0px;
             display: flex;
             flex-direction: column;
             height: 100%;
+            justify-content: space-between;
+            align-content: flex-start;
         `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        //padding:16px;
-
         ${({ isList }) =>
             isList &&
             css`
                 display: flex;
                 flex-direction: column;
+                justify-content: flex-start;
             `}
     }
 `
+
+export const Wrapper = styled.div``
+
 export const Title = styled.header`
     font-weight: 600;
     font-size: 36px;
@@ -124,8 +130,10 @@ export const Title = styled.header`
         margin: 4px 0;
     }
 `
+
 export const Subtitle = styled.p`
     display: none;
+
     ${({ isList }) =>
         isList &&
         css`
@@ -136,6 +144,7 @@ export const Subtitle = styled.p`
             margin: 0;
             line-height: 1.5;
         `}
+
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 13px;
     }
@@ -144,7 +153,6 @@ export const Subtitle = styled.p`
 export const Year = styled.p`
     font-size: 22px;
     margin: 24px 0;
-    color: ${({ theme }) => theme.color.darkerGray};
 
     ${({ isList }) =>
         isList &&
@@ -155,16 +163,16 @@ export const Year = styled.p`
         `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        color: ${({ theme }) => theme.color.darkerGray};
         font-size: 13px;
         margin: 0;
     }
 `
+
 export const Tag = styled.span`
     color: ${({ theme }) => theme.color.black};
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-    }
 `
+
 export const InfoWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -192,13 +200,14 @@ export const InfoWrapper = styled.div`
     ${({ rates }) =>
         rates &&
         css`
-            margin: 8px 0 0;
-            align-items: baseline;
+            align-items: flex-end;
+            flex-direction: row;
         `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
         flex-direction: column;
+        margin: 0;
 
         ${({ nonInList }) =>
             nonInList &&
@@ -214,7 +223,6 @@ export const InfoWrapper = styled.div`
                 flex-grow: 0;
                 flex-direction: row;
                 margin-top: 8px;
-                //align-self: flex-end;
             `}
 
         ${({ isList }) =>
@@ -228,12 +236,14 @@ export const InfoWrapper = styled.div`
             `}
     }
 `
+
 export const Info = styled.div`
     font-size: 18px;
     line-height: 1.2;
     color: ${({ theme }) => theme.color.stormGray};
     margin: 0 0 8px 8px;
     display: flex;
+    word-break: break-word;
 
     ${({ movie }) =>
         movie &&
@@ -252,8 +262,17 @@ export const Info = styled.div`
         css`
             display: none;
         `}
+    
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 12px;
+        flex-direction: column;
+
+        ${({ inline }) =>
+            inline &&
+            css`
+                flex-direction: row;
+                margin: 8px;
+            `}
     }
 `
 
@@ -282,19 +301,10 @@ export const Genres = styled.div`
         font-size: 10px;
         line-height: 1.1;
         padding: 4px;
-
-        ${({ isList }) =>
-            isList &&
-            css`
-                //font-weight: 400;
-                //font-size: 10px;
-                //padding:4px;
-            `}
     }
 `
+
 export const Icon = styled.img`
-    width: 24px;
-    height: 24px;
     margin-top: 0px;
     color: ${({ theme }) => theme.color.candlelight};
     margin: 27.09px 0 - 8px 8px;
@@ -312,29 +322,29 @@ export const Icon = styled.img`
         css`
             display: none;
         `}
+
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        ${({ isList }) =>
-            isList &&
-            css`
-                width: 16px;
-                height: 16px;
-                margin-top: 10px;
-            `}
+        width: 16px;
+        height: 16px;
     }
 `
+
 export const Rate = styled.div`
     font-size: 22px;
     font-weight: 500;
-    line-height: 1.3;
+    line-height: 1;
     align-items: center;
     margin: 0px 8px;
     display: flex;
+    line-height: 0.8;
+    align-content: flex-end;
 
     ${({ isList }) =>
         isList &&
         css`
             font-weight: 600;
             font-size: 16px;
+            line-height: 1;
         `}
 
     ${({ person }) =>
@@ -345,11 +355,22 @@ export const Rate = styled.div`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 13px;
+        line-height: 1;
+        margin-right: 0;
     }
 `
+
 export const Score = styled.div`
     font-size: 16px;
     margin-left: 8px;
+    line-height: 1;
+
+    ${({ isList }) =>
+        isList &&
+        css`
+            color: ${({ theme }) => theme.color.darkerGray};
+            margin-left: 0;
+        `}
 
     ${({ person }) =>
         person &&
@@ -359,14 +380,21 @@ export const Score = styled.div`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 13px;
+        margin-left: 4px;
+        color: ${({ theme }) => theme.color.darkerGray};
+
+        ${({ invisible }) =>
+            invisible &&
+            css`
+                display: none;
+            `}
     }
 `
+
 export const Overview = styled.p`
     font-size: 20px;
     line-height: 1.6;
     text-align: justify;
-    margin: 0;
-    padding-top: 8px;
 
     ${({ isList }) =>
         isList &&
@@ -376,5 +404,23 @@ export const Overview = styled.p`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 14px;
+    }
+`
+
+export const Tag1 = styled.span`
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        display: none;
+    }
+`
+
+export const Tag2 = styled.span`
+    ${({ mobile }) =>
+        mobile &&
+        css`
+            display: none;
+        `}
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        display: block;
     }
 `

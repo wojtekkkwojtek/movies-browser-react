@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         background-position: top;
-        /* height: 148px; */
+        height: 248px;
         width: 100%;
         object-fit: contain;
     }
