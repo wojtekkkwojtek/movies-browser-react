@@ -70,10 +70,12 @@ export const Poster = styled.img`
 `;
 
 export const StyledNoPoster = styled(NoPoster)`
-
+    min-height:434px;
+   
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width:114px;
         height:169px;
+              
     } 
 `;
 
