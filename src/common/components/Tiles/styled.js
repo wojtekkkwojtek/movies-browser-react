@@ -333,7 +333,7 @@ export const Overview = styled.p`
     font-size: 20px;
     line-height: 1.6;
     text-align: justify;
-    margin:26px 0 0;
+    margin:28px 0 0;
  
     ${({ isList }) => isList && css`
         display: none;             
