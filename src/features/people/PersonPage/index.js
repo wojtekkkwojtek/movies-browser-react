@@ -52,11 +52,10 @@ const PersonPage = () => {
                             person
                             key={nanoid()}
                             title={personPage.name}
-                            birth="Date of birth: "
                             date_of_birth={new Date(
                                 personPage.birthday
                             ).toLocaleDateString()}
-                            place="Place of birth: "
+                            place="Place of birth:&nbsp;"
                             place_of_birth={personPage.place_of_birth}
                             poster={personPage.profile_path}
                             overview={personPage.biography}
