@@ -133,7 +133,7 @@ export const Tile = ({
                     <Score isList={isList} person={person}>&nbsp;votes</Score>
                 </InfoWrapper>
             </Content>
-            <Overview>{overview}</Overview>
+            <Overview isList={isList}>{overview}</Overview>
         </TileContainer>
     )
 }

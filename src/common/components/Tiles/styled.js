@@ -173,7 +173,7 @@ export const InfoWrapper = styled.div`
     ${({ rates }) => rates && css`
             align-items: flex-end;
             flex-direction: row;
-            margin:8px 0 -16px 0;
+            
         `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
@@ -333,8 +333,7 @@ export const Overview = styled.p`
     font-size: 20px;
     line-height: 1.6;
     text-align: justify;
-    margin:28px 0 0;
- 
+     
     ${({ isList }) => isList && css`
         display: none;             
     `}
@@ -342,7 +341,8 @@ export const Overview = styled.p`
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 14px;
     }
-`
+`;
+
 export const Tag1 = styled.span`
         @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display:none;
