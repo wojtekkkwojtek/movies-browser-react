@@ -90,19 +90,13 @@ export const Content = styled.div`
         isList &&
         css`
             text-align: left;
-            //margin-right: 8px;
             padding: 0px;
             display:flex;
             flex-direction: column;
             height:100%;
-          justify-content: flex-start;
-           // align-content:space-between;
-            
-
-            &:last-child{
-                align-self:flex-end;
-            }
-        `}
+            justify-content: space-between;
+            align-content:flex-start;
+    `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}){
                 
@@ -111,9 +105,12 @@ export const Content = styled.div`
         css`
             display: flex;
             flex-direction: column;
+            justify-content:flex-start;
         `} 
     }
 `
+export const Wrapper = styled.div``;
+
 export const Title = styled.header`
     font-weight: 600;
     font-size: 36px;
@@ -152,7 +149,6 @@ export const Year = styled.p`
     font-size: 22px;
     margin: 24px 0;
     
-
     ${({ isList }) =>
         isList &&
         css`
@@ -200,7 +196,7 @@ export const InfoWrapper = styled.div`
         css`
             align-items: flex-end;
             flex-direction: row;
-            margin:8px 0;
+            margin:8px 0 -16px 0;
         `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
@@ -413,7 +409,4 @@ export const Tag2 = styled.span`
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
       display:block
     }
-`;
-export const Wrapper = styled.div`
-
 `;

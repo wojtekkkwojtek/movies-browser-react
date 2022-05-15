@@ -7,25 +7,25 @@ import { selectMovieList } from '../../../../features/movies/MovieList/movieList
 import { ReactComponent as NoPhoto } from '../PersonTile/noPhoto.svg'
 
 import {
-    Content,
+    TileContainer,
     Poster,
+    StyledNoPoster,
+    Content,
+    Wrapper,
     Title,
     Subtitle,
     Year,
-    TileContainer,
     InfoWrapper,
-    StyledNoPoster,
+    Info,
     NoInfoTag,
-    Overview,
     Genres,
+    Icon,
     Rate,
     Score,
-    Icon,
-    Info,
     Tag,
     Tag1,
     Tag2,
-    Wrapper
+    Overview
 } from '../styled'
 
 export const Tile = ({
@@ -54,7 +54,6 @@ export const Tile = ({
     const { genresList } = useSelector(selectMovieList)
     return (
         <TileContainer isList={isList} details={details} onClick={onClick}>
-
             {poster ? (
                 <Poster
                     details={details}
@@ -91,22 +90,22 @@ export const Tile = ({
                             }
                         </Tag>
                     </Info>
-                  
-                   <Info inline isList={isList} movie={movie}>
+
+                    <Info inline isList={isList} movie={movie}>
                         <Tag1>Date of birth&nbsp;</Tag1>
                         <Tag2 mobile>Birth:&nbsp;</Tag2>
                         <Tag>{date_of_birth ? date_of_birth : 'Unknown'}</Tag>
                     </Info>
-                    <Info  isList={isList} movie={movie}>
+                    <Info isList={isList} movie={movie}>
                         {place}
                         <Tag>{place_of_birth ? place_of_birth : 'Unknown'}</Tag>
                     </Info>
-                 
+
                     <Info isList={isList} person={person} details={details}>
                         <NoInfoTag>Release date:&nbsp; </NoInfoTag>
                         <Tag>  {release_date ? release_date : 'Unknown'}</Tag>
                     </Info>
-                  
+
                     <InfoWrapper isList={isList} person={person}>
                         {genres &&
                             genres.map((genre) => {
@@ -128,15 +127,14 @@ export const Tile = ({
                 </Wrapper>
                 <InfoWrapper rates>
                     <Icon isList={isList} person={person} src={star} alt="" />
-                    <Rate person={person} isList={isList}>
-                        {rate}
-                    </Rate>
+                    <Rate person={person} isList={isList}> {rate}</Rate>
                     <Score isList={isList} person={person}>{score}</Score>
                     <Score isList={isList} person={person}>{votes} </Score>
                     <Score isList={isList} person={person}>&nbsp;votes</Score>
                 </InfoWrapper>
-                <Overview>{overview}</Overview>
             </Content>
+            <Overview>{overview}</Overview>
+
         </TileContainer>
     )
 }
