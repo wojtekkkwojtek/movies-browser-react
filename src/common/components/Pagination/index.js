@@ -14,36 +14,74 @@ import {
   Bold,
 } from "./styled";
 import { useSelector } from "react-redux";
-import { selectMovieList } from "../../../features/movies/MovieList/movieListSlice";
-import { selectPeopleList } from "../../../features/people/PeopleList/peopleListSlice";
+import { selectTotalMoviesPages } from "../../../features/movies/MovieList/movieListSlice";
+import { selectTotalPeoplePages } from "../../../features/people/PeopleList/peopleListSlice";
 import { useLocation } from "react-router-dom";
+import { useSearch, useReplaceQueryParameter } from "../../../features/useSearch";
+import pageQueryParameter from "../../../features/pageQueryParameter";
 
 export const Pagination = () => {
   const location = useLocation();
-  const totalMoviesContent = useSelector(selectMovieList);
-  const totalPeopleContent = useSelector(selectPeopleList);
+  const atMovies = location.pathname.includes("movies") ? true : false;
+  const currentPage = +useSearch(pageQueryParameter) || 1;
+  const totalMoviesPages = useSelector(selectTotalMoviesPages);
+  const totalPeoplePages = useSelector(selectTotalPeoplePages);
+  const totalPages = atMovies ? totalMoviesPages : totalPeoplePages;
+  const inactivePrevious = currentPage === 1;
+  const inactiveNext = currentPage === totalPages;
+  const replaceQueryParameter = useReplaceQueryParameter();
 
+  const onClickButtonFirst = () => {
+    replaceQueryParameter({ key: pageQueryParameter, value: 1 })
+  };
+
+  const onClickButtonPrevious = () => {
+    replaceQueryParameter({ key: pageQueryParameter, value: +currentPage - 1 });
+  };
+
+  const onClickButtonNext = () => {
+    replaceQueryParameter({ key: pageQueryParameter, value: +currentPage + 1 });
+  };
+
+  const onClickButtonLast = () => {
+    replaceQueryParameter({ key: pageQueryParameter, value: totalPages });
+  };
+  
   return (
     <Wrapper>
-      <Button>
-        <Previous src={PreviousImage} />
+      <Button
+        onClick={onClickButtonFirst}
+        disabled={inactivePrevious}
+      >
+        <Previous src={inactivePrevious ? PreviousOffImage : PreviousImage} />
         <Text>First</Text>
+        <PreviousMobile src={inactivePrevious ? PreviousOffImage : PreviousImage} />
       </Button>
-      <Button>
-        <Previous src={PreviousImage} />
+      <Button
+        onClick={onClickButtonPrevious}
+        disabled={inactivePrevious}
+      >
+        <Previous src={inactivePrevious ? PreviousOffImage : PreviousImage} />
         <Text>Previous</Text>
       </Button>
       <PageInformation>
-        Page<Bold> 1 </Bold>
-        of<Bold> 000 </Bold>
+        Page<Bold> {currentPage} </Bold>
+        of<Bold> {totalPages} </Bold>
       </PageInformation>
-      <Button>
+      <Button
+        onClick={onClickButtonNext}
+        disabled={inactiveNext}
+      >
         <Text>Next</Text>
-        <Next src={NextImage}/>
+        <Next src={inactiveNext ? NextOffImage : NextImage} />
       </Button>
-      <Button>
+      <Button
+        onClick={onClickButtonLast}
+        disabled={inactiveNext}
+      >
         <Text>Last</Text>
-        <Next src={NextImage} />
+        <NextMobile src={inactiveNext ? NextOffImage : NextImage} />
+        <Next src={inactiveNext ? NextOffImage : NextImage} />
       </Button>
     </Wrapper>
   )
