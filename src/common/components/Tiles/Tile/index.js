@@ -134,7 +134,6 @@ export const Tile = ({
                 </InfoWrapper>
             </Content>
             <Overview>{overview}</Overview>
-
         </TileContainer>
     )
 }
