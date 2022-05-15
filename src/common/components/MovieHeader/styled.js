@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         background-position: top;
-        height: 248px;
+        /* height: 248px; */
         width: 100%;
         object-fit: contain;
     }
@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
 
 export const Backdrop = styled.div`
     width: 1368px;
-    height: 100%;
+    /* height: 100%; */
     background-image: url(${(props) => props.img});
     background-position: center;
     background-size: 100%;
@@ -37,14 +37,14 @@ export const Backdrop = styled.div`
     box-shadow: inset 0px 0px 60px 50px black;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-        height: 100%;
+        /* height: 100%; */
         width: 100%;
         object-fit: contain;
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         background-position: top;
-        height: 100%;
+        /* height: 100%; */
         width: 100%;
         object-fit: contain;
     }
