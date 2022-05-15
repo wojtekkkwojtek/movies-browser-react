@@ -1,10 +1,10 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { nanoid } from 'nanoid'
-import star from '../star.svg'
-import { URLimage } from '../../../assets/generalData/fetchedData'
-import { selectMovieList } from '../../../../features/movies/MovieList/movieListSlice'
-import { ReactComponent as NoPhoto } from '../PersonTile/noPhoto.svg'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { nanoid } from 'nanoid';
+import star from '../star.svg';
+import { URLimage } from '../../../assets/generalData/fetchedData';
+import { selectMovieList } from '../../../../features/movies/MovieList/movieListSlice';
+import { ReactComponent as NoPhoto } from '../PersonTile/noPhoto.svg';
 
 import {
     TileContainer,
