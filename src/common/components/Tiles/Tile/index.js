@@ -128,7 +128,7 @@ export const Tile = ({
                 <InfoWrapper rates>
                     <Icon isList={isList} person={person} src={star} alt="" />
                     <Rate person={person} isList={isList}> {rate}</Rate>
-                    <Score isList={isList} person={person}>{score}</Score>
+                    <Score unvisible  isList={isList} person={person}>{score}</Score>
                     <Score isList={isList} person={person}>{votes} </Score>
                     <Score isList={isList} person={person}>&nbsp;votes</Score>
                 </InfoWrapper>

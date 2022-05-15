@@ -278,11 +278,8 @@ export const Icon = styled.img`
     `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        
-        ${({ isList }) => isList && css`
-            width: 16px;
-            height: 16px;
-        `}
+        width: 16px;
+        height: 16px;
     }
 `;
 
@@ -308,6 +305,9 @@ export const Rate = styled.div`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 13px;
+        line-height:1;
+        margin-right:0;
+
     }
 `;
 
@@ -326,8 +326,13 @@ export const Score = styled.div`
     `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        font-size: 13px;   
-        color: ${({ theme }) => theme.color.darkerGray};               
+        font-size: 13px;  
+        margin-left:4px; 
+        color: ${({ theme }) => theme.color.darkerGray}; 
+        
+        ${({ unvisible }) => unvisible && css`       
+            display: none;
+        `}
     }
 `;
 
