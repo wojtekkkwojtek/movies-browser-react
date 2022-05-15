@@ -89,12 +89,19 @@ export const Content = styled.div`
     ${({ isList }) =>
         isList &&
         css`
-            text-align: center;
-            margin-right: 8px;
+            text-align: left;
+            //margin-right: 8px;
             padding: 0px;
             display:flex;
             flex-direction: column;
             height:100%;
+          justify-content: flex-start;
+           // align-content:space-between;
+            
+
+            &:last-child{
+                align-self:flex-end;
+            }
         `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}){
@@ -193,12 +200,13 @@ export const InfoWrapper = styled.div`
         css`
             align-items: flex-end;
             flex-direction: row;
-            margin-top:8px;
+            margin:8px 0;
         `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
         flex-direction: column;
+        margin:0;
         
         ${({ nonInList }) =>
         nonInList &&
@@ -233,6 +241,7 @@ export const Info = styled.div`
     color: ${({ theme }) => theme.color.stormGray};
     margin: 0 0 8px 8px;
     display:flex;
+    word-break:break-word;
  
     ${({ movie }) =>
         movie &&
@@ -254,6 +263,13 @@ export const Info = styled.div`
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 12px;  
         flex-direction: column;
+
+        ${({ inline }) =>
+        inline &&
+        css`
+            flex-direction: row;
+            margin:8px;
+        `}
     }
 `
 export const NoInfoTag = styled.div`
@@ -309,7 +325,6 @@ export const Icon = styled.img`
         css`
                 width: 16px;
                 height: 16px;
-                //margin-top:10px;
         `}
     }
 `
@@ -369,8 +384,7 @@ export const Overview = styled.p`
     line-height: 1.6;
     text-align: justify;
     margin:0;
-    padding-top: 8px;
-
+ 
     ${({ isList }) =>
         isList &&
         css`
@@ -399,4 +413,7 @@ export const Tag2 = styled.span`
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
       display:block
     }
+`;
+export const Wrapper = styled.div`
+
 `;

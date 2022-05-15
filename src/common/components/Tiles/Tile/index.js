@@ -25,6 +25,7 @@ import {
     Tag,
     Tag1,
     Tag2,
+    Wrapper
 } from '../styled'
 
 export const Tile = ({
@@ -66,60 +67,65 @@ export const Tile = ({
             ) : (
                 <NoPhoto />
             )}
-            <Content>
-                <Title isList={isList} details={details} person={person}>
-                    {title}
-                </Title>
-                <Subtitle isList={isList} >
-                    {(character || job)
-                        ? <>
-                            {character ? character : job} {release_date && `(${release_date})`}
-                        </>
-                        : <>
-                            {release_date}
-                        </>
-                    }
-                </Subtitle>
-                <Year isList={isList}>{year}</Year>
-                <Info isList={isList} person={person}>
-                    <NoInfoTag>Production:&nbsp; </NoInfoTag>
-                    <Tag>
-                        {country &&
-                            country.map(({ name }) => name).join(", ")
+            <Content isList={isList}>
+                <Wrapper>
+                    <Title isList={isList} details={details} person={person}>
+                        {title}
+                    </Title>
+                    <Subtitle isList={isList} >
+                        {(character || job)
+                            ? <>
+                                {character ? character : job} {release_date && `(${release_date})`}
+                            </>
+                            : <>
+                                {release_date}
+                            </>
                         }
-                    </Tag>
-                </Info>
-                <Info isList={isList} movie={movie}>
-                    <Tag1>Date of birth&nbsp;</Tag1>
-                    <Tag2 mobile>Birth&nbsp;</Tag2>
-                    <Tag>{date_of_birth ? date_of_birth : 'Unknown'}</Tag>
-                </Info>
-                <Info isList={isList} person={person} details={details}>
-                    <NoInfoTag>Release date:&nbsp; </NoInfoTag>
-                    <Tag>  {release_date ? release_date : 'Unknown'}</Tag>
-                </Info>
-                <Info isList={isList} movie={movie}>
-                    {place}
-                    <Tag>{place_of_birth ? place_of_birth : 'Unknown'}</Tag>
-                </Info>
-                <InfoWrapper isList={isList} person={person}>
-                    {genres &&
-                        genres.map((genre) => {
-                            return genresList.map((item) =>
-                                item.id === genre ? (
-                                    <Genres isList={isList} key={nanoid()}>
-                                        {item.name}
-                                    </Genres>
-                                ) : null
-                            )
-                        })}
-                </InfoWrapper>
-                <InfoWrapper nonInList={nonInList} person={person}>
-                    {genres &&
-                        genres.map((country) => (
-                            <Genres>{country.name}</Genres>
-                        ))}
-                </InfoWrapper>
+                    </Subtitle>
+                    <Year isList={isList}>{year}</Year>
+                    <Info isList={isList} person={person}>
+                        <NoInfoTag>Production:&nbsp; </NoInfoTag>
+                        <Tag>
+                            {country &&
+                                country.map(({ name }) => name).join(", ")
+                            }
+                        </Tag>
+                    </Info>
+                  
+                   <Info inline isList={isList} movie={movie}>
+                        <Tag1>Date of birth&nbsp;</Tag1>
+                        <Tag2 mobile>Birth:&nbsp;</Tag2>
+                        <Tag>{date_of_birth ? date_of_birth : 'Unknown'}</Tag>
+                    </Info>
+                    <Info  isList={isList} movie={movie}>
+                        {place}
+                        <Tag>{place_of_birth ? place_of_birth : 'Unknown'}</Tag>
+                    </Info>
+                 
+                    <Info isList={isList} person={person} details={details}>
+                        <NoInfoTag>Release date:&nbsp; </NoInfoTag>
+                        <Tag>  {release_date ? release_date : 'Unknown'}</Tag>
+                    </Info>
+                  
+                    <InfoWrapper isList={isList} person={person}>
+                        {genres &&
+                            genres.map((genre) => {
+                                return genresList.map((item) =>
+                                    item.id === genre ? (
+                                        <Genres isList={isList} key={nanoid()}>
+                                            {item.name}
+                                        </Genres>
+                                    ) : null
+                                )
+                            })}
+                    </InfoWrapper>
+                    <InfoWrapper nonInList={nonInList} person={person}>
+                        {genres &&
+                            genres.map((country) => (
+                                <Genres>{country.name}</Genres>
+                            ))}
+                    </InfoWrapper>
+                </Wrapper>
                 <InfoWrapper rates>
                     <Icon isList={isList} person={person} src={star} alt="" />
                     <Rate person={person} isList={isList}>
