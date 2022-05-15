@@ -62,7 +62,7 @@ const Header = () => {
                         value={query ? query : ''}
                         type="search"
                         placeholder={`Search for ${
-                            location.pathname === '/movies'
+                            location.pathname.indexOf('/movie') !== -1
                                 ? 'movies...'
                                 : 'people...'
                         } `}

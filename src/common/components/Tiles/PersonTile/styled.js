@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { ReactComponent as NoPhoto } from './noPhoto.svg'
 
 export const TileContainer = styled.div`
     width: 208px;
@@ -23,16 +24,22 @@ export const TileContainer = styled.div`
         padding: 8px;
     }
 `
-
 export const Poster = styled.img`
     border-radius: 5px;
     width: 155px;
     max-height: 232px;
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        width: 110px;
-        height: 165px;
+        width: 120px;
+        height: 178px;
     }
 `
+export const StyledNoPhoto = styled(NoPhoto)`
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        width: 120px;
+        height: 178px;
+    }
+`;
+
 export const InfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -47,6 +54,7 @@ export const InfoDetails = styled.div`
     font-size: 18px;
     line-height: 130%;
     margin-top: 5px;
+    
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 14px;
     }
@@ -60,7 +68,7 @@ export const InfoDetails = styled.div`
             line-height: 150%;
             margin: 0px;
             @media (max-width: ${({ theme }) =>
-                    theme.breakpoints.mobileNormal}) {
+                theme.breakpoints.mobileNormal}) {
                 font-size: 12px;
             }
         `}

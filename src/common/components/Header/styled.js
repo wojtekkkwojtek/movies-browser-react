@@ -13,14 +13,17 @@ export const Wrapper = styled.div`
     top: 0;
     color: white;
     background-color: ${({ theme }) => theme.color.black};
-    
+
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+        padding-top: 20px;
         height: 142px;
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        padding-top: 0;
     }
 `
 export const Section = styled.div`
     display: flex;
-    height: 100%;
     width: 1400px;
     align-items: center;
     justify-content: space-between;
@@ -30,8 +33,6 @@ export const Section = styled.div`
         height: fit-content;
         justify-content: center;
         width: 100%;
-    }
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
     }
 `
 export const NavContainer = styled.div`
@@ -72,13 +73,16 @@ export const Title = styled(NavLink)`
     &:hover {
         opacity: 0.8;
     }
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+        margin-right: 65px;
+    }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 95px;
         height: 100%;
         font-size: 13px;
         margin-left: 8px;
-        margin-right: 19px;
+        margin-right: 10px;
         letter-spacing: -0.5px;
     }
 `

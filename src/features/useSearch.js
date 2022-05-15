@@ -17,10 +17,7 @@ export const useReplaceQueryParameter = (location, navigate) => {
         }
         console.log('location.pathname:', location.pathname)
 
-        if (
-            location.pathname === '/movies' ||
-            location.pathname.indexOf('/movie/') !== -1
-        ) {
+        if (location.pathname.indexOf('/movie') !== -1) {
             navigate(`/movies?${searchParams.toString()}`)
         } else {
             navigate(`/people?${searchParams.toString()}`)

@@ -9,6 +9,12 @@ export const StyledButton = styled.button`
     background-color: ${({ theme }) => theme.color.whisper};
     color: ${({ theme }) => theme.color.waterloo};
     cursor: pointer;
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        font-size: 14px;
+        height:40px;
+        width: 80px;
+    }
 `;
 
 export const Wrapper = styled.div`
