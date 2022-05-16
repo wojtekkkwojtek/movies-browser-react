@@ -31,42 +31,43 @@ const MovieList = () => {
     const showTitle = () => (query ? `Search for "${query}"` : 'Popular movies')
 
     return (
-        <Section>
-            {error && !loading && <ErrorMessage />}
-            {!error && loading && (
-                <>
-                    <Title title={showTitle()} />
-                    <Loader />
-                </>
-            )}
-            {!error && !loading && <Title title={showTitle()} />}
-
-            {!error &&
-                !loading &&
-                movieList &&
-                movieList.map((movie) => (
-                    <React.Fragment key={movie.id}>
-                        <Tile
-                            isList
-                            nonInList
-                            key={nanoid()}
-                            onClick={() => routeToMoviePage(movie.id)}
-                            title={movie.title}
-                            poster={movie.poster_path}
-                            year={
-                                movie.release_date
-                                    ? movie.release_date.slice(0, 4)
-                                    : 'Unknown'
-                            }
-                            rate={movie.vote_average}
-                            votes={movie.vote_count}
-                            genres={movie.genre_ids}
-                            country={movie.production_countries}
-                        />
-                    </React.Fragment>
-                ))}
+        <>
+            <Section>
+                {error && !loading && <ErrorMessage />}
+                {!error && loading && (
+                    <>
+                        <Title title={showTitle()} />
+                        <Loader />
+                    </>
+                )}
+                {!error && !loading && <Title title={showTitle()} />}
+                {!error &&
+                    !loading &&
+                    movieList &&
+                    movieList.map((movie) => (
+                        <React.Fragment key={movie.id}>
+                            <Tile
+                                isList
+                                nonInList
+                                key={nanoid()}
+                                onClick={() => routeToMoviePage(movie.id)}
+                                title={movie.title}
+                                poster={movie.poster_path}
+                                year={
+                                    movie.release_date
+                                        ? movie.release_date.slice(0, 4)
+                                        : 'Unknown'
+                                }
+                                rate={movie.vote_average}
+                                votes={movie.vote_count}
+                                genres={movie.genre_ids}
+                                country={movie.production_countries}
+                            />
+                        </React.Fragment>
+                    ))}
+            </Section>
             {!error && !loading && <Pagination></Pagination>}
-        </Section>
+        </>
     )
 }
 
