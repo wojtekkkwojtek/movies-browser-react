@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const movieListSlice = createSlice({
     name: 'movies',
@@ -13,31 +13,29 @@ const movieListSlice = createSlice({
     },
     reducers: {
         fetchMovieList: (state) => {
-            state.loading = true
+            state.loading = true;
         },
-        // fetchMovieListSuccess: (state, { payload }) => {
-        //     state.loading = false
-        //     state.error = false
-        //     state.movieList = payload.movieList
-        //     state.totalPages = payload.totalPages
-        //     state.totalResults = payload.totalResults
-        // },
+        fetchMovieListSuccess: (state, { payload }) => {
+            //     state.loading = false
+            //     state.error = false
+            //     state.movieList = payload.movieList
+            state.totalPages = payload.totalPages;
+            //     state.totalResults = payload.totalResults
+        },
         fetchMovieListError: (state) => {
-            state.error = true
+            state.error = true;
         },
-
         setMovieList: (state, { payload: { results }, type }) => {
-            state.movieList = results
-            console.log(state.movieList)
+            state.movieList = results;
+            console.log(state.movieList);
         },
         setGenres: (state, action) => {
-            state.error = false
-            state.loading = false
-
-            state.genresList = action.payload.genres
+            state.error = false;
+            state.loading = false;
+            state.genresList = action.payload.genres;
         },
     },
-})
+});
 
 export const {
     // setMovieId,
@@ -46,17 +44,17 @@ export const {
     fetchMovieList,
     fetchMovieListSuccess,
     fetchMovieListError,
-} = movieListSlice.actions
+} = movieListSlice.actions;
 
-export const selectMovieList = (state) => state.movies
-// export const selectMovieId = (state) => state.movies.movieList
-// export const selectGenres = (state) => state.genresList
-// export const selectError = (state) => selectMovieList(state)
-// export const selectLoading = (state) => selectMovieList(state).loading
-// export const selectTotalPages = (state) => selectMovieList(state).totalPages
-// export const selectTotalResults = (state) => selectMovieList(state).totalResults
+export const selectMovieList = (state) => state.movies;
+// export const selectMovieId = (state) => state.movies.movieList;
+// export const selectGenres = (state) => state.genresList;
+// export const selectError = (state) => selectMovieList(state);
+// export const selectLoading = (state) => selectMovieList(state).loading;
+export const selectTotalMoviesPages = (state) => selectMovieList(state).totalPages;
+// export const selectTotalResults = (state) => selectMovieList(state).totalResults;
 
 // export const getMovieById = (state, movieId) =>
-//     state.movies.movieList.find((movie) => movie.id === Number(movieId))
+//     state.movies.movieList.find((movie) => movie.id === Number(movieId));
 
-export const movieListReducer = movieListSlice.reducer
+export const movieListReducer = movieListSlice.reducer;

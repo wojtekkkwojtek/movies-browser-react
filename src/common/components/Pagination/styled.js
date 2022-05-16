@@ -48,6 +48,11 @@ export const Button = styled.button`
 export const Previous = styled.img`
   margin-right: 8px;
   width: 7px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    margin: 0 4px;
+    width: 5px;
+  }
 `;
 
 export const PreviousMobile = styled(Previous)`
@@ -59,6 +64,11 @@ export const PreviousMobile = styled(Previous)`
 export const Next = styled.img`
   margin-left: 8px;
   width: 7px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    margin: 0 4px;
+    width: 5px;
+  }
 `;
 
 export const NextMobile = styled(Next)`
