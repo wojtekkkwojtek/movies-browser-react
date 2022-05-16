@@ -86,6 +86,7 @@ export const StyledNoPoster = styled(NoPoster)`
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 114px;
         height: 169px;
+        min-height:0;
     }
 `
 
