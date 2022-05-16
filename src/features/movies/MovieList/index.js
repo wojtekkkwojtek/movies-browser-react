@@ -18,15 +18,15 @@ const MovieList = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
+    const query = useSearch('search', location)
+    const page = useSearch('page', location)
     useEffect(() => {
-        dispatch(fetchMovieList())
-    }, [dispatch])
+        dispatch(fetchMovieList({ query, page }))
+    }, [dispatch, query, page])
 
     const routeToMoviePage = (id) => {
         navigate(`/movie/${id}`)
     }
-
-    const query = useSearch('search', location)
 
     const showTitle = () => (query ? `Search for "${query}"` : 'Popular movies')
 
