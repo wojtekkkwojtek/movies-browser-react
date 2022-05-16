@@ -207,7 +207,7 @@ export const InfoWrapper = styled.div`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         margin: 0;
 
         ${({ nonInList }) =>
@@ -230,7 +230,7 @@ export const InfoWrapper = styled.div`
             isList &&
             css`
                 display: flex;
-                flex-direction: row;
+                //flex-direction: row;
                 align-items: baseline;
                 margin: 0px;
                 margin-bottom: 0px;
