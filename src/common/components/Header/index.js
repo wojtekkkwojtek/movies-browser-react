@@ -52,7 +52,16 @@ const Header = () => {
                 <NavContainer>
                     <IconVideo />
                     <Title to={toMovies()}>movies browser</Title>
-                    <StyledNavLink to={toMovies()}>movies</StyledNavLink>
+                    <StyledNavLink
+                        className={
+                            location.pathname.indexOf('/movie') !== -1
+                                ? 'active'
+                                : null
+                        }
+                        to={toMovies()}
+                    >
+                        movies
+                    </StyledNavLink>
                     <StyledNavLink to={toPeople()}>people</StyledNavLink>
                 </NavContainer>
                 <Label>
