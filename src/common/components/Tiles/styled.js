@@ -31,6 +31,7 @@ export const TileContainer = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         padding: 16px;
+        margin: 16px auto 0;
 
         ${({ isList }) =>
             isList &&
