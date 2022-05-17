@@ -22,7 +22,6 @@ const movieListSlice = createSlice({
             state.page = payload.page
             state.movieList = payload.results
             state.totalPages = payload.total_pages
-            console.log(state.movieList)
         },
         setGenres: (state, action) => {
             state.error = false

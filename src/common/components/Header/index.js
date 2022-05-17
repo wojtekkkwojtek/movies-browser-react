@@ -35,7 +35,6 @@ const Header = () => {
             key: queryKeys.search,
             value: e.target.value.trim() === '' ? '' : e.target.value,
         })
-        console.log('query:', query)
 
         if (
             (query && query.length > 2 && location.pathname === '/movies') ||

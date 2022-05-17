@@ -20,10 +20,7 @@ function* fetchPeopleListHandler({ payload: { query, page } }) {
             getData,
             query ? searchedPeople : popularPeople
         )
-
         yield put(setPeopleList(people))
-        console.log('peopleQuery&Page:', query, page)
-        console.log('people:', people)
     } catch (error) {
         yield put(fetchPeopleListError())
     }

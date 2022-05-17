@@ -39,18 +39,11 @@ export const Pagination = () => {
     const totalPeoplePages = useSelector(selectTotalPeoplePages)
     const totalMoviesPagesMax500 =
         totalMoviesPages < 500 ? totalMoviesPages : 500
-    console.log('totalMoviesPages:', totalMoviesPages)
-    console.log('pages:', totalMoviesPagesMax500)
 
     const totalPages = atMovies ? +totalMoviesPagesMax500 : totalPeoplePages
     const inactivePrevious = +page === 1
     const inactiveNext = +page === totalPages
     const replaceQueryParameter = useReplaceQueryParameter(location, navigate)
-
-    console.log('totalPages:', totalPages)
-    console.log('currentPage:', page)
-    console.log('atMovies:', atMovies)
-    console.log('inactiveNext:', inactiveNext)
 
     const onClickButton = (page) => {
         replaceQueryParameter({ key: queryKeys.page, value: +page })
