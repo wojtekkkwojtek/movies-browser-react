@@ -18,7 +18,6 @@ function* fetchMovieListHandler({ payload: { query, page } }) {
     const popularMovies = `${URLpopularMovies}&page=${page}`
     try {
         yield delay(1000)
-
         const fetchedGenres = yield call(getData, URLgenres)
         yield put(setGenres(fetchedGenres))
 
@@ -26,11 +25,7 @@ function* fetchMovieListHandler({ payload: { query, page } }) {
             getData,
             query ? searchedMovies : popularMovies
         )
-
         yield put(setMovieList(movies))
-
-        console.log('movieQuery&Page:', query, page)
-        console.log('movies:', movies)
     } catch (error) {
         yield put(fetchMovieListError())
     }
