@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const peopleListSlice = createSlice({
     name: 'people',
     initialState: {
+        totalPages: 1,
         loading: false,
         error: false,
         peopleList: [],
