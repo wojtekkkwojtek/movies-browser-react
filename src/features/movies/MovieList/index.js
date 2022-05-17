@@ -2,24 +2,24 @@ import React, { useEffect } from 'react'
 import { Tile } from '../../../common/components/Tiles/Tile'
 import { Loader } from '../../../common/components/Loader'
 import { nanoid } from 'nanoid'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ErrorMessage } from '../../../common/components/ErrorMessage'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchMovieList, selectMovieList } from './movieListSlice'
 import { Title } from '../../../common/components/Title'
 import { Pagination } from '../../../common/components/Pagination'
-import { useSearch } from '../../useSearch'
+import { useSearch } from '../../useParameters'
 import { Section } from '../../../common/components/Section'
+import { queryKeys } from '../../queryKeys'
 
 const MovieList = () => {
     const { loading, movieList, error } = useSelector(selectMovieList)
 
-    const location = useLocation()
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const query = useSearch('search', location)
-    const page = useSearch('page', location)
+    const query = useSearch(queryKeys.search)
+    const page = useSearch(queryKeys.page)
     useEffect(() => {
         dispatch(fetchMovieList({ query, page }))
     }, [dispatch, query, page])
@@ -65,7 +65,7 @@ const MovieList = () => {
                         />
                     </React.Fragment>
                 ))}
-            {!error && !loading && <Pagination></Pagination>}
+            {!error && !loading && <Pagination />}
         </Section>
     )
 }

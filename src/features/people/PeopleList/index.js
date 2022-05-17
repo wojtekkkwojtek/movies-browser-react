@@ -9,7 +9,8 @@ import { Section } from '../../../common/components/Section'
 import { selectPeopleList, fetchPeopleList } from './peopleListSlice'
 import { ErrorMessage } from '../../../common/components/ErrorMessage'
 import { Pagination } from '../../../common/components/Pagination'
-import { useSearch } from '../../useSearch'
+import { useSearch } from '../../useParameters'
+import { queryKeys } from '../../queryKeys'
 
 const PeopleList = () => {
     const { loading, peopleList, error } = useSelector(selectPeopleList)
@@ -17,10 +18,11 @@ const PeopleList = () => {
     const navigate = useNavigate()
     const location = useLocation()
 
-    const query = useSearch('search', location)
+    const query = useSearch(queryKeys.search, location)
+    const page = useSearch(queryKeys.page, location)
     useEffect(() => {
-        dispatch(fetchPeopleList())
-    }, [dispatch])
+        dispatch(fetchPeopleList({ query, page }))
+    }, [dispatch, query, page])
 
     const routeChange = (id) => {
         navigate(`/people/${id}`)
