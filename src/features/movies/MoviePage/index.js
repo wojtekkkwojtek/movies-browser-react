@@ -114,6 +114,7 @@ const MoviePage = () => {
                                         original_name={person.original_name}
                                         as={person.job}
                                         poster={person.profile_path}
+                                        onClick={() => routeChange(person.id)}
                                     />
                                 ))}
                     </Section>

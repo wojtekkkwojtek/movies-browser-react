@@ -31,6 +31,7 @@ export const TileContainer = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         padding: 16px;
+        margin: 16px auto 0;
 
         ${({ isList }) =>
             isList &&
@@ -85,6 +86,7 @@ export const StyledNoPoster = styled(NoPoster)`
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 114px;
         height: 169px;
+        min-height:0;
     }
 `
 
@@ -165,7 +167,7 @@ export const Year = styled.p`
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         color: ${({ theme }) => theme.color.darkerGray};
         font-size: 13px;
-        margin: 0;
+        margin: 0 0 4px 0;
     }
 `
 
@@ -177,7 +179,7 @@ export const InfoWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding-left: 0;
-    margin: 8px 0 0px;
+    //margin: 8px 0 0px;
 
     ${({ person }) =>
         person &&
@@ -206,7 +208,7 @@ export const InfoWrapper = styled.div`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         margin: 0;
 
         ${({ nonInList }) =>
@@ -229,7 +231,7 @@ export const InfoWrapper = styled.div`
             isList &&
             css`
                 display: flex;
-                flex-direction: row;
+                //flex-direction: row;
                 align-items: baseline;
                 margin: 0px;
                 margin-bottom: 0px;
@@ -300,6 +302,7 @@ export const Genres = styled.div`
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 10px;
         line-height: 1.1;
+        margin: 4px 8px 4px 0;
         padding: 4px;
     }
 `
