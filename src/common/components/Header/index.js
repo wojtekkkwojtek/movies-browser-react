@@ -17,8 +17,9 @@ import { useDispatch } from 'react-redux'
 import {
     useReplaceQueryParameter,
     useSearch,
-} from '../../../features/useSearch'
+} from '../../../features/useParameters'
 import { fetchPeopleList } from '../../../features/people/PeopleList/peopleListSlice'
+import { queryKeys } from '../../../features/queryKeys'
 
 const Header = () => {
     const location = useLocation()
@@ -27,11 +28,11 @@ const Header = () => {
 
     const replaceQueryParameter = useReplaceQueryParameter(location, navigate)
 
-    const query = useSearch('search', location)
+    const query = useSearch(queryKeys.search, location)
 
     const searchMovie = (e) => {
         replaceQueryParameter({
-            key: 'search',
+            key: queryKeys.search,
             value: e.target.value.trim() === '' ? '' : e.target.value,
         })
         console.log('query:', query)

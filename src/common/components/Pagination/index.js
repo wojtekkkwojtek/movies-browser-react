@@ -16,65 +16,48 @@ import {
 import { useDispatch, useSelector } from 'react-redux'
 import {
     fetchMovieList,
-    selectMovieList,
     selectTotalMoviesPages,
 } from '../../../features/movies/MovieList/movieListSlice'
-import { selectTotalPeoplePages } from '../../../features/people/PeopleList/peopleListSlice'
+import {
+    fetchPeopleList,
+    selectTotalPeoplePages,
+} from '../../../features/people/PeopleList/peopleListSlice'
 import { useLocation, useNavigate } from 'react-router-dom'
 import {
     useSearch,
     useReplaceQueryParameter,
-} from '../../../features/useSearch'
-import pageQueryParameter from '../../../features/pageQueryParameter'
-import { useState } from 'react'
+} from '../../../features/useParameters'
+import { queryKeys } from '../../../features/queryKeys'
 
 export const Pagination = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const atMovies = location.pathname.includes('movie') ? true : false
-    const page = useSearch(pageQueryParameter) || 1
+    const atMovies = location.pathname.includes('movie')
+    const page = useSearch(queryKeys.page) || 1
     const totalMoviesPages = useSelector(selectTotalMoviesPages)
     const totalPeoplePages = useSelector(selectTotalPeoplePages)
-    const totalPages = atMovies ? totalMoviesPages : totalPeoplePages
-    const inactivePrevious = page === 1
-    const inactiveNext = page === totalPages
-    const replaceQueryParameter = useReplaceQueryParameter(location, navigate)
-    // const { page } = useSelector(selectMovieList)
+    const totalMoviesPagesMax500 =
+        totalMoviesPages < 500 ? totalMoviesPages : 500
+    console.log('totalMoviesPages:', totalMoviesPages)
+    console.log('pages:', totalMoviesPagesMax500)
 
-    // console.log('page:', page)
+    const totalPages = atMovies ? +totalMoviesPagesMax500 : totalPeoplePages
+    const inactivePrevious = +page === 1
+    const inactiveNext = +page === totalPages
+    const replaceQueryParameter = useReplaceQueryParameter(location, navigate)
+
     console.log('totalPages:', totalPages)
     console.log('currentPage:', page)
     console.log('atMovies:', atMovies)
+    console.log('inactiveNext:', inactiveNext)
 
-    // const [page, setPage] = useState(1)
-
-    const onClickButton = (currentPage) => {
-        replaceQueryParameter({ key: 'page', value: +currentPage })
-        dispatch(fetchMovieList(currentPage))
+    const onClickButton = (page) => {
+        replaceQueryParameter({ key: queryKeys.page, value: +page })
+        atMovies
+            ? dispatch(fetchMovieList(page))
+            : dispatch(fetchPeopleList(page))
     }
-
-    // const onClickButtonPrevious = () => {
-    //     replaceQueryParameter({
-    //         key: pageQueryParameter,
-    //         value: +currentPage - 1,
-    //     })
-    //     dispatch(fetchMovieList(currentPage))
-    // }
-
-    // const onClickButtonNext = () => {
-    //     replaceQueryParameter({
-    //         key: pageQueryParameter,
-    //         value: +currentPage + 1,
-    //     })
-    //     setPage((prev) => prev++)
-    //     dispatch(fetchMovieList(currentPage))
-    // }
-
-    // const onClickButtonLast = () => {
-    //     replaceQueryParameter({ key: pageQueryParameter, value: totalPages })
-    //     dispatch(fetchMovieList(currentPage))
-    // }
 
     return (
         <Wrapper>
@@ -110,7 +93,10 @@ export const Pagination = () => {
                 <Text>Next</Text>
                 <Next src={inactiveNext ? NextOffImage : NextImage} />
             </Button>
-            <Button onClick={() => onClickButton(1)} disabled={inactiveNext}>
+            <Button
+                onClick={() => onClickButton(totalPages)}
+                disabled={inactiveNext}
+            >
                 <Text>Last</Text>
                 <NextMobile src={inactiveNext ? NextOffImage : NextImage} />
                 <Next src={inactiveNext ? NextOffImage : NextImage} />
