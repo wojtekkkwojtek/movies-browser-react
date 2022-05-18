@@ -18,7 +18,7 @@ const PersonPage = () => {
     const [isShownAll, setIsShownAll] = useState(false);
     const [isShownAllCrew, setIsShownAllCrew] = useState(false);
     const dispatch = useDispatch();
-
+ 
     const { id } = useParams()
 
     useEffect(() => {
@@ -75,7 +75,11 @@ const PersonPage = () => {
                                         genres={movie.genre_ids}
                                         rate={movie.vote_average}
                                         poster={movie.poster_path}
-                                        release_date={movie.release_date.slice(0, 4)}
+                                        release_date={
+                                            movie.release_date
+                                                ? movie.release_date.slice(0, 4)
+                                                : 'Unknown'
+                                        }
                                         votes={movie.vote_count}
                                         character={movie.character}
                                         onClick={() =>

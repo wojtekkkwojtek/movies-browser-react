@@ -179,8 +179,7 @@ export const InfoWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding-left: 0;
-    //margin: 8px 0 0px;
-
+   
     ${({ person }) =>
         person &&
         css`
@@ -204,6 +203,7 @@ export const InfoWrapper = styled.div`
         css`
             align-items: flex-end;
             flex-direction: row;
+          
         `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
@@ -308,7 +308,7 @@ export const Genres = styled.div`
 `
 
 export const Icon = styled.img`
-    margin-top: 0px;
+    margin-top: 8px;
     color: ${({ theme }) => theme.color.candlelight};
     margin: 27.09px 0 - 8px 8px;
     align-items: flex-start;
@@ -329,6 +329,7 @@ export const Icon = styled.img`
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 16px;
         height: 16px;
+        margin-top:0;
     }
 `
 
