@@ -17,8 +17,9 @@ import { useDispatch } from 'react-redux'
 import {
     useReplaceQueryParameter,
     useSearch,
-} from '../../../features/useSearch'
+} from '../../../features/useParameters'
 import { fetchPeopleList } from '../../../features/people/PeopleList/peopleListSlice'
+import { queryKeys } from '../../../features/queryKeys'
 
 const Header = () => {
     const location = useLocation()
@@ -27,14 +28,13 @@ const Header = () => {
 
     const replaceQueryParameter = useReplaceQueryParameter(location, navigate)
 
-    const query = useSearch('search', location)
+    const query = useSearch(queryKeys.search, location)
 
     const searchMovie = (e) => {
         replaceQueryParameter({
-            key: 'search',
+            key: queryKeys.search,
             value: e.target.value.trim() === '' ? '' : e.target.value,
         })
-        console.log('query:', query)
 
         if (
             (query && query.length > 2 && location.pathname === '/movies') ||
@@ -52,7 +52,16 @@ const Header = () => {
                 <NavContainer>
                     <IconVideo />
                     <Title to={toMovies()}>movies browser</Title>
-                    <StyledNavLink to={toMovies()}>movies</StyledNavLink>
+                    <StyledNavLink
+                        className={
+                            location.pathname.indexOf('/movie') !== -1
+                                ? 'active'
+                                : null
+                        }
+                        to={toMovies()}
+                    >
+                        movies
+                    </StyledNavLink>
                     <StyledNavLink to={toPeople()}>people</StyledNavLink>
                 </NavContainer>
                 <Label>

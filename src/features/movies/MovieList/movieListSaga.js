@@ -13,23 +13,19 @@ import {
     fetchMovieListError,
 } from './movieListSlice'
 
-function* fetchMovieListHandler({ payload: query }) {
-    const movieQuery = `${URLmovieSearch}&query=${query}`
-
+function* fetchMovieListHandler({ payload: { query, page } }) {
+    const searchedMovies = `${URLmovieSearch}&query=${query}&page=${page}`
+    const popularMovies = `${URLpopularMovies}&page=${page}`
     try {
         yield delay(1000)
-
         const fetchedGenres = yield call(getData, URLgenres)
         yield put(setGenres(fetchedGenres))
 
         const movies = yield call(
             getData,
-            query ? movieQuery : URLpopularMovies
+            query ? searchedMovies : popularMovies
         )
-
         yield put(setMovieList(movies))
-
-        console.log('movieQuery:', query)
     } catch (error) {
         yield put(fetchMovieListError())
     }

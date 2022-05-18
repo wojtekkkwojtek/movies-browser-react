@@ -10,15 +10,16 @@ import {
     setPeopleList,
 } from './peopleListSlice'
 
-function* fetchPeopleListHandler({ payload: query }) {
-    const peopleQuery = `${URLpeopleSearch}&query=${query}`
+function* fetchPeopleListHandler({ payload: { query, page } }) {
+    const searchedPeople = `${URLpeopleSearch}&query=${query}&page=${page}`
+    const popularPeople = `${URLpopularPeople}&page=${page}`
+
     try {
         yield delay(2000)
         const people = yield call(
             getData,
-            query ? peopleQuery : URLpopularPeople
+            query ? searchedPeople : popularPeople
         )
-
         yield put(setPeopleList(people))
     } catch (error) {
         yield put(fetchPeopleListError())

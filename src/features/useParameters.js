@@ -1,10 +1,10 @@
-import { useLocation } from "react-router-dom";
+import { useLocation } from 'react-router-dom'
 
 export const useSearch = (key) => {
-    const location = useLocation();
+    const location = useLocation()
     const searchParams = new URLSearchParams(location.search)
 
-    return searchParams.get(key);
+    return searchParams.get(key)
 }
 
 export const useReplaceQueryParameter = (location, navigate) => {
@@ -15,8 +15,6 @@ export const useReplaceQueryParameter = (location, navigate) => {
         } else {
             searchParams.set(key, value)
         }
-        console.log('location.pathname:', location.pathname)
-
         if (location.pathname.indexOf('/movie') !== -1) {
             navigate(`/movies?${searchParams.toString()}`)
         } else {
