@@ -47,15 +47,9 @@ const PeopleList = () => {
                             ? `Search results for "${query}"(${totalPeopleResults})`
                             : `Popular people`}
                     />
-
                 }
                 {error && !loading && <ErrorMessage />}
-                {!error && loading && (
-                    <>
-                        <Loader />
-                    </>
-                )}
-                {/* {!error && !loading && <Title title={showTitle()} />} */}
+                {!error && loading && <Loader />}
                 {!error &&
                     !loading &&
                     peopleList &&
