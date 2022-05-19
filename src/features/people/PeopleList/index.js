@@ -36,9 +36,9 @@ const PeopleList = () => {
     return (
         <>
             <Section>
-                {query && error  || totalPeopleResults === 0 ?
+                {query && (totalPeopleResults === 0) ?
                     <>
-                    <Title title={`Sorry, no result for "${query}"`} />
+                        <Title title={`Sorry, no result for "${query}"`} />
                         <NoResultMessage />
                     </>
                     :
@@ -52,7 +52,7 @@ const PeopleList = () => {
                 {error && !loading && <ErrorMessage />}
                 {!error && loading && (
                     <>
-                        <Title /> <Loader />
+                        <Loader />
                     </>
                 )}
                 {/* {!error && !loading && <Title title={showTitle()} />} */}
