@@ -44,7 +44,7 @@ const PeopleList = () => {
                     :
                     <Title title=
                         {query
-                            ? `Search results for "${query}"(${totalPeopleResults})`
+                            ? `Search results for "${query[0].toUpperCase()+query.slice(1)}"(${totalPeopleResults})`
                             : `Popular people`}
                     />
                 }
