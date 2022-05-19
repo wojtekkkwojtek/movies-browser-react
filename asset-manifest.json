@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/movies-browser-react/static/js/main.ccb76651.js",
+    "main.js": "/movies-browser-react/static/js/main.6bad9533.js",
     "static/js/787.cbf59cd9.chunk.js": "/movies-browser-react/static/js/787.cbf59cd9.chunk.js",
     "static/media/star.svg": "/movies-browser-react/static/media/star.6666ab69561e6d50d181c5591ca1fcf4.svg",
     "static/media/noPhoto.svg": "/movies-browser-react/static/media/noPhoto.79549018b6e08f2ece54e79772bfce43.svg",
@@ -16,10 +16,10 @@
     "static/media/spinner.svg": "/movies-browser-react/static/media/spinner.9f3a468b2e763df8c42129b77d9b7f52.svg",
     "static/media/Arrow_down.svg": "/movies-browser-react/static/media/Arrow_down.9bfb681f4f4d639cdeca27ee9aa526bf.svg",
     "static/media/searchIcon.svg": "/movies-browser-react/static/media/searchIcon.5aa061ea8ce958db2e2c813d81e21cf7.svg",
-    "main.ccb76651.js.map": "/movies-browser-react/static/js/main.ccb76651.js.map",
+    "main.6bad9533.js.map": "/movies-browser-react/static/js/main.6bad9533.js.map",
     "787.cbf59cd9.chunk.js.map": "/movies-browser-react/static/js/787.cbf59cd9.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.ccb76651.js"
+    "static/js/main.6bad9533.js"
   ]
 }
