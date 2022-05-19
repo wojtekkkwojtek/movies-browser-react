@@ -20,6 +20,9 @@ const peopleListSlice = createSlice({
             state.loading = false
             state.peopleList = fetchedData.results
             state.totalPages = fetchedData.total_pages
+            state.totalPeopleResult = fetchedData.total_results
+            console.log('payload-fetchData-totalPages', fetchedData.total_pages)
+            console.log('payload-fetchData-totalResults', fetchedData.total_results)
         },
     },
 })
@@ -34,5 +37,7 @@ export const {
 export const selectPeopleList = (state) => state.people
 export const selectTotalPeoplePages = (state) =>
     selectPeopleList(state).totalPages
+export const selectTotalPeoplelResults = state =>
+    selectPeopleList(state).totalPeopleResult;
 
 export const peopleListReducer = peopleListSlice.reducer

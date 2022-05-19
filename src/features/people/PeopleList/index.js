@@ -6,20 +6,27 @@ import { Title } from '../../../common/components/Title'
 import { Loader } from '../../../common/components/Loader'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Section } from '../../../common/components/Section'
-import { selectPeopleList, fetchPeopleList } from './peopleListSlice'
+import { selectPeopleList, fetchPeopleList, selectTotalPeoplelResults } from './peopleListSlice'
 import { ErrorMessage } from '../../../common/components/ErrorMessage'
 import { Pagination } from '../../../common/components/Pagination'
 import { useSearch } from '../../useParameters'
 import { queryKeys } from '../../queryKeys'
+import { NoResultMessage } from "../../../common/components/NoResultMessage"
 
 const PeopleList = () => {
     const { loading, peopleList, error } = useSelector(selectPeopleList)
+    const totalPeopleResults = useSelector(selectTotalPeoplelResults);
+    const {total_results}=useSelector(selectPeopleList)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const location = useLocation()
 
     const query = useSearch(queryKeys.search, location)
     const page = useSearch(queryKeys.page, location)
+
+    console.log('total', totalPeopleResults)
+    console.log('total_results', total_results)
+    console.log('query', query)
     useEffect(() => {
         dispatch(fetchPeopleList({ query, page }))
     }, [dispatch, query, page])
@@ -27,18 +34,35 @@ const PeopleList = () => {
     const routeChange = (id) => {
         navigate(`/people/${id}`)
     }
-    const showTitle = () => (query ? `Search for "${query}"` : 'Popular people')
+    // const showTitle = () => (!query ? 'Popular people' :
+    //     (query||totalPeopleResults===0 ? `Search results for "${query}"` :
+    //         `Sorry, no for ${query}`
+    //     )
+    // )
 
     return (
         <>
             <Section>
+                {query && error || totalPeopleResults === 0 ?
+                <>
+                    <Title title={`Sorry, no result for "${query}"`}/> 
+                    <NoResultMessage  />
+                </>
+                    :
+                   <Title title=
+                        {query
+                            ? `Search results for "${query}"(${totalPeopleResults})`
+                            : `Popular people`}
+                    />
+                    
+                }
                 {error && !loading && <ErrorMessage />}
                 {!error && loading && (
                     <>
-                        <Title title={showTitle()} /> <Loader />
+                        <Title /> <Loader />
                     </>
                 )}
-                {!error && !loading && <Title title={showTitle()} />}
+                {/* {!error && !loading && <Title title={showTitle()} />} */}
                 {!error &&
                     !loading &&
                     peopleList &&
@@ -51,9 +75,11 @@ const PeopleList = () => {
                                 poster={people.profile_path}
                             />
                         </>
-                    ))}
+                    ))
+                }
             </Section>
-            {!error && !loading && <Pagination />}
+            {/* {error && loading && !totalPeopleResults && <NoResultMessage />} */}
+            {!error && !loading && totalPeopleResults && <Pagination />}
         </>
     )
 }
