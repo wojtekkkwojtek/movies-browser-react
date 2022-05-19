@@ -1,4 +1,4 @@
-import { takeEvery, call, put, delay } from 'redux-saga/effects'
+import { takeEvery, takeLatest, call, put, delay,throttle, debounce } from 'redux-saga/effects'
 import {
     URLpeopleSearch,
     URLpopularPeople,
@@ -15,7 +15,7 @@ function* fetchPeopleListHandler({ payload: { query, page } }) {
     const popularPeople = `${URLpopularPeople}&page=${page}`
 
     try {
-        yield delay(2000)
+        yield delay(500)
         const people = yield call(
             getData,
             query ? searchedPeople : popularPeople
@@ -27,5 +27,6 @@ function* fetchPeopleListHandler({ payload: { query, page } }) {
 }
 
 export function* watchFetchExample2() {
-    yield takeEvery(fetchPeopleList.type, fetchPeopleListHandler)
+    //yield takeLatest(fetchPeopleList.type,fetchPeopleListHandler)
+    yield debounce(1000,fetchPeopleList.type, fetchPeopleListHandler)
 }
