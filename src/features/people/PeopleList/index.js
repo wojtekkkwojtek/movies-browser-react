@@ -14,19 +14,17 @@ import { queryKeys } from '../../queryKeys'
 import { NoResultMessage } from "../../../common/components/NoResultMessage"
 
 const PeopleList = () => {
-    const { loading, peopleList, error } = useSelector(selectPeopleList)
-    const totalPeopleResults = useSelector(selectTotalPeoplelResults);
-    const {total_results}=useSelector(selectPeopleList)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const location = useLocation()
-
+    const { loading, peopleList, error } = useSelector(selectPeopleList)
+    const totalPeopleResults = useSelector(selectTotalPeoplelResults);
     const query = useSearch(queryKeys.search, location)
     const page = useSearch(queryKeys.page, location)
 
-    console.log('total', totalPeopleResults)
-    console.log('total_results', total_results)
+    console.log('totalPeopleResults', totalPeopleResults)
     console.log('query', query)
+
     useEffect(() => {
         dispatch(fetchPeopleList({ query, page }))
     }, [dispatch, query, page])
@@ -34,27 +32,22 @@ const PeopleList = () => {
     const routeChange = (id) => {
         navigate(`/people/${id}`)
     }
-    // const showTitle = () => (!query ? 'Popular people' :
-    //     (query||totalPeopleResults===0 ? `Search results for "${query}"` :
-    //         `Sorry, no for ${query}`
-    //     )
-    // )
 
     return (
         <>
             <Section>
-                {query && error || totalPeopleResults === 0 ?
-                <>
-                    <Title title={`Sorry, no result for "${query}"`}/> 
-                    <NoResultMessage  />
-                </>
+                {query && error  || totalPeopleResults === 0 ?
+                    <>
+                    <Title title={`Sorry, no result for "${query}"`} />
+                        <NoResultMessage />
+                    </>
                     :
-                   <Title title=
+                    <Title title=
                         {query
                             ? `Search results for "${query}"(${totalPeopleResults})`
                             : `Popular people`}
                     />
-                    
+
                 }
                 {error && !loading && <ErrorMessage />}
                 {!error && loading && (
