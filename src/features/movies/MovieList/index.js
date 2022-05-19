@@ -31,7 +31,7 @@ const MovieList = () => {
     const showTitle = () => (query ? `Search for "${query}"` : 'Popular movies')
 
     return (
-        <Section>
+        <Section isList>
             {error && !loading && <ErrorMessage />}
             {!error && loading && (
                 <>
