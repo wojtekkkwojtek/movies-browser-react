@@ -36,7 +36,7 @@ const PeopleList = () => {
     return (
         <>
             <Section>
-                {query && (totalPeopleResults === 0) ?
+                {query && !error && !loading && (totalPeopleResults === 0) ?
                     <>
                         <Title title={`Sorry, no result for "${query}"`} />
                         <NoResultMessage />
