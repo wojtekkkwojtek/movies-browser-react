@@ -61,7 +61,7 @@ const PersonPage = () => {
                             overview={personPage.biography}
                         />
                     </Section>
-                    <Section>
+                    <Section isList>
                         <Title
                             title={`Movies  - cast (${cast && cast.length})`}
                         />                        {cast &&
