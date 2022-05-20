@@ -1,3 +1,4 @@
+import { debounce } from 'lodash'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { toMovies, toPeople } from '../../../core/App/routes'
 import { URLmovieSearch } from '../../assets/generalData/fetchedData'
@@ -31,20 +32,25 @@ const Header = () => {
     const query = useSearch(queryKeys.search, location)
 
     const searchMovie = (e) => {
+        console.log('iwent:', e.target.value)
         replaceQueryParameter({
             key: queryKeys.search,
-            value: e.target.value.trim() === '' ? '' : e.target.value,
+            value: e.target.value.trim(),
         })
 
-        if (
-            (query && query.length > 2 && location.pathname === '/movies') ||
-            location.pathname === '/movie/'
-        ) {
-            dispatch(fetchMovieList(e.target.value))
-        } else if (query && query.length > 2) {
-            dispatch(fetchPeopleList(e.target.value))
-        }
+        // if (
+        //     location.pathname === '/movies' ||
+        //     location.pathname === '/movie/'
+        // ) {
+        //     dispatch(fetchMovieList(e.target.value))
+        // } else {
+        //     dispatch(fetchPeopleList(e.target.value))
+        // }
     }
+
+    const debouncedSearchMovie = debounce((e) => {
+        searchMovie(e)
+    }, 2000)
 
     return (
         <Wrapper>
@@ -67,8 +73,8 @@ const Header = () => {
                 <Label>
                     <SearchIcon />
                     <Input
-                        onChange={searchMovie}
-                        value={query ? query : ''}
+                        onChange={debouncedSearchMovie}
+                        // value={query ? query : ''}
                         type="search"
                         placeholder={`Search for ${
                             location.pathname.indexOf('/movie') !== -1
