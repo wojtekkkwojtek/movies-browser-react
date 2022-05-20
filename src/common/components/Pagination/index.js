@@ -76,8 +76,8 @@ export const Pagination = () => {
                 <Text>Previous</Text>
             </Button>
             <PageInformation>
-                Page<Bold> {page} </Bold>
-                of<Bold> {totalPages} </Bold>
+                Page&nbsp;<Bold> {page} </Bold> 
+                of<Bold> {totalPages}</Bold>
             </PageInformation>
             <Button
                 onClick={() => onClickButton(+page + 1)}
