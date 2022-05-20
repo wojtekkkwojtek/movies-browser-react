@@ -1,36 +1,41 @@
-import React, { useEffect } from 'react'
-import { Tile } from '../../../common/components/Tiles/Tile'
-import { Loader } from '../../../common/components/Loader'
-import { nanoid } from 'nanoid'
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { ErrorMessage } from '../../../common/components/ErrorMessage'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchMovieList, selectMovieList, selectTotalMoviesResults, selectTotalMoviesPages } from './movieListSlice'
-import { Title } from '../../../common/components/Title'
-import { Pagination } from '../../../common/components/Pagination'
-import { useSearch } from '../../useParameters'
-import { Section } from '../../../common/components/Section'
-import { queryKeys } from '../../queryKeys'
-import { NoResultMessage } from "../../../common/components/NoResultMessage"
+import { nanoid } from 'nanoid';
+import { useSearch } from '../../useParameters';
+import { Tile } from '../../../common/components/Tiles/Tile';
+import { Loader } from '../../../common/components/Loader';
+import { ErrorMessage } from '../../../common/components/ErrorMessage';
+import {
+    fetchMovieList,
+    selectMovieList,
+    selectTotalMoviesResults,
+    selectTotalMoviesPages
+} from './movieListSlice';
+import { Title } from '../../../common/components/Title';
+import { Pagination } from '../../../common/components/Pagination';
+import { Section } from '../../../common/components/Section';
+import { queryKeys } from '../../queryKeys';
+import { NoResultMessage } from "../../../common/components/NoResultMessage";
 
 const MovieList = () => {
-    const { loading, movieList, error } = useSelector(selectMovieList)
-    const totalMoviesResults = useSelector(selectTotalMoviesResults);
-    const totalMoviesPages = useSelector(selectTotalMoviesPages)
+    const { loading, movieList, error } = useSelector(selectMovieList);
+    const totalMoviesResults = useSelector(selectTotalMoviesResults);;
+    const totalMoviesPages = useSelector(selectTotalMoviesPages);
 
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    const query = useSearch(queryKeys.search)
-    const page = useSearch(queryKeys.page)
+    const query = useSearch(queryKeys.search);
+    const page = useSearch(queryKeys.page);
 
     useEffect(() => {
         dispatch(fetchMovieList({ query, page }))
-    }, [dispatch, query, page])
+    }, [dispatch, query, page]);
 
     const routeToMoviePage = (id) => {
         navigate(`/movie/${id}`)
-    }
+    };
 
     return (
         <Section isList>
@@ -78,4 +83,4 @@ const MovieList = () => {
     )
 }
 
-export default MovieList
+export default MovieList;

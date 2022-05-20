@@ -1,39 +1,40 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { PersonTile } from '../../../common/components/Tiles/PersonTile'
-import { Title } from '../../../common/components/Title'
-import { Loader } from '../../../common/components/Loader'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { Section } from '../../../common/components/Section'
-import { selectPeopleList, fetchPeopleList, selectTotalPeoplelResults, selectTotalPeoplePages } from './peopleListSlice'
-import { ErrorMessage } from '../../../common/components/ErrorMessage'
-import { Pagination } from '../../../common/components/Pagination'
-import { useSearch } from '../../useParameters'
-import { queryKeys } from '../../queryKeys'
-import { NoResultMessage } from "../../../common/components/NoResultMessage"
+import React from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { PersonTile } from '../../../common/components/Tiles/PersonTile';
+import { Title } from '../../../common/components/Title';
+import { Loader } from '../../../common/components/Loader';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Section } from '../../../common/components/Section';
+import {
+    selectPeopleList,
+    fetchPeopleList,
+    selectTotalPeoplelResults,
+    selectTotalPeoplePages
+} from './peopleListSlice';
+import { ErrorMessage } from '../../../common/components/ErrorMessage';
+import { Pagination } from '../../../common/components/Pagination';
+import { useSearch } from '../../useParameters';
+import { queryKeys } from '../../queryKeys';
+import { NoResultMessage } from "../../../common/components/NoResultMessage";
 
 const PeopleList = () => {
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-    const location = useLocation()
-    const { loading, peopleList, error } = useSelector(selectPeopleList)
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { loading, peopleList, error } = useSelector(selectPeopleList);
     const totalPeopleResults = useSelector(selectTotalPeoplelResults);
-    const query = useSearch(queryKeys.search, location)
-    const page = useSearch(queryKeys.page, location)
-    const totalPeoplePages = useSelector(selectTotalPeoplePages)
+    const totalPeoplePages = useSelector(selectTotalPeoplePages);
+    const query = useSearch(queryKeys.search, location);
+    const page = useSearch(queryKeys.page, location);
 
-    console.log('totalPeoplePages', totalPeoplePages)
-    console.log('totalPeopleResults', totalPeopleResults)
-    console.log('query', query)
-    console.log('peopleList', { peopleList })
     useEffect(() => {
         dispatch(fetchPeopleList({ query, page }))
-    }, [dispatch, query, page])
+    }, [dispatch, query, page]);
 
     const routeChange = (id) => {
         navigate(`/people/${id}`)
-    }
+    };
 
     return (
         <>
@@ -73,4 +74,4 @@ const PeopleList = () => {
     )
 }
 
-export default PeopleList
+export default PeopleList;

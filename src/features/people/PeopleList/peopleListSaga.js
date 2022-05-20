@@ -1,32 +1,32 @@
-import { takeEvery, takeLatest, call, put, delay,throttle, debounce } from 'redux-saga/effects'
+import { takeLatest, call, put, delay, debounce } from 'redux-saga/effects';
 import {
     URLpeopleSearch,
     URLpopularPeople,
-} from '../../../common/assets/generalData/fetchedData'
-import { getData } from '../../getApiData'
+} from '../../../common/assets/generalData/fetchedData';
+import { getData } from '../../getApiData';
 import {
     fetchPeopleList,
     fetchPeopleListError,
     setPeopleList,
-} from './peopleListSlice'
+} from './peopleListSlice';
 
 function* fetchPeopleListHandler({ payload: { query, page } }) {
-    const searchedPeople = `${URLpeopleSearch}&query=${query}&page=${page}`
-    const popularPeople = `${URLpopularPeople}&page=${page}`
+    const searchedPeople = `${URLpeopleSearch}&query=${query}&page=${page}`;
+    const popularPeople = `${URLpopularPeople}&page=${page}`;
 
     try {
         yield delay(500)
         const people = yield call(
             getData,
             query ? searchedPeople : popularPeople
-        )
-        yield put(setPeopleList(people))
+        );
+        yield put(setPeopleList(people));
     } catch (error) {
-        yield put(fetchPeopleListError())
+        yield put(fetchPeopleListError());
     }
 }
 
 export function* watchFetchExample2() {
-    //yield takeLatest(fetchPeopleList.type,fetchPeopleListHandler)
-    yield debounce(1000,fetchPeopleList.type, fetchPeopleListHandler)
+    //yield takeLatest(fetchPeopleList.type,fetchPeopleListHandler);
+    yield debounce(1000, fetchPeopleList.type, fetchPeopleListHandler);
 }
