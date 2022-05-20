@@ -174,3 +174,23 @@ export const Input = styled.input`
         font-weight: 400;
     }
 `
+
+export const ClearButton = styled.button`
+   position: absolute;
+    right: -416px;
+    width: 18.76px;
+    height: 19.22px;
+    margin-left: 26.76px;
+    z-index: 1000;
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+        left: calc(50% + 216px);
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        margin-left: 18px;
+        width: 16px;
+        height: 16px;
+        left: calc(50% - 144px);
+        top: 95px;
+    }
+`;
+//export const ClearSearchInput=styled(ClearInput)``;

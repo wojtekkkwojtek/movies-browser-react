@@ -10,7 +10,9 @@ import {
     Label,
     NavContainer,
     SearchIcon,
+    ClearSearchInput,
     StyledNavLink,
+    ClearButton
 } from './styled';
 import { fetchMovieList } from '../../../features/movies/MovieList/movieListSlice';
 import {
@@ -19,6 +21,7 @@ import {
 } from '../../../features/useParameters';
 import { fetchPeopleList } from '../../../features/people/PeopleList/peopleListSlice';
 import { queryKeys } from '../../../features/queryKeys';
+
 
 const Header = () => {
     const location = useLocation();
@@ -43,6 +46,21 @@ const Header = () => {
             dispatch(fetchPeopleList(e.target.value))
         }
     };
+
+    const clearSearchInput = (e) => {
+        replaceQueryParameter(
+            {
+                key: queryKeys.search,
+                value: e.taget.value = "",
+            },
+            {
+                key: queryKeys.search,
+                value: e.taget.page = 1,
+
+            }
+        )
+
+    }
 
     return (
         <Wrapper>
@@ -69,10 +87,13 @@ const Header = () => {
                         value={query ? query : ''}
                         type="search"
                         placeholder={`Search for ${location.pathname.indexOf('/movie') !== -1
-                                ? 'movies...'
-                                : 'people...'
+                            ? 'movies...'
+                            : 'people...'
                             } `}
                     />
+                    <ClearButton onClick={() => clearSearchInput()}>
+                        X
+                    </ClearButton>
                 </Label>
             </Section>
         </Wrapper>
