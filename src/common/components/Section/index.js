@@ -16,7 +16,7 @@ export const Section = styled.div`
         ${({ isList }) =>
         isList &&
         css`
-            gap:0;
+          gap:0;
         `}
     }
 `

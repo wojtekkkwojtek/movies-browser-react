@@ -1,16 +1,17 @@
 import Header from "../Header";
 import { NoResultImage, Wrapper } from "./styled";
-import { MovieHeader } from "../MovieHeader";
+import { Title } from "../Title";
 
-export const NoResultMessage = () => {
+export const NoResultMessage = (title, query) => {
     return (
-        <Header>
-            <MovieHeader>
-                {`Sorry, there are no results for ""`}
-            </MovieHeader>
+        <>
+            {/* <Title
+                title={`Sorry, there are no results for "${query}"`} /> */}
+            
             <Wrapper>
                 <NoResultImage />
             </Wrapper>
-        </Header>
+        </>
+
     );
 };
