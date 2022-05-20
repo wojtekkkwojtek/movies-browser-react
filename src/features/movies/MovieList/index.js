@@ -5,21 +5,25 @@ import { nanoid } from 'nanoid'
 import { useNavigate } from 'react-router-dom'
 import { ErrorMessage } from '../../../common/components/ErrorMessage'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchMovieList, selectMovieList } from './movieListSlice'
+import { fetchMovieList, selectMovieList, selectTotalMoviesResults, selectTotalMoviesPages } from './movieListSlice'
 import { Title } from '../../../common/components/Title'
 import { Pagination } from '../../../common/components/Pagination'
 import { useSearch } from '../../useParameters'
 import { Section } from '../../../common/components/Section'
 import { queryKeys } from '../../queryKeys'
+import { NoResultMessage } from "../../../common/components/NoResultMessage"
 
 const MovieList = () => {
     const { loading, movieList, error } = useSelector(selectMovieList)
+    const totalMoviesResults = useSelector(selectTotalMoviesResults);
+    const totalMoviesPages = useSelector(selectTotalMoviesPages)
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
     const query = useSearch(queryKeys.search)
     const page = useSearch(queryKeys.page)
+
     useEffect(() => {
         dispatch(fetchMovieList({ query, page }))
     }, [dispatch, query, page])
@@ -28,19 +32,22 @@ const MovieList = () => {
         navigate(`/movie/${id}`)
     }
 
-    const showTitle = () => (query ? `Search for "${query}"` : 'Popular movies')
-
     return (
         <Section isList>
-            {error && !loading && <ErrorMessage />}
-            {!error && loading && (
+            {query && !error && !loading && (totalMoviesResults === 0) ?
                 <>
-                    <Title title={showTitle()} />
-                    <Loader />
+                    <Title title={`Sorry, no result for "${query[0].toUpperCase() + query.slice(1)}"(${totalMoviesResults})"`} />
+                    <NoResultMessage />
                 </>
-            )}
-            {!error && !loading && <Title title={showTitle()} />}
-
+                :
+                <Title title=
+                    {query
+                        ? `Search results for "${query[0].toUpperCase() + query.slice(1)}"(${totalMoviesResults})`
+                        : `Popular movies`}
+                />
+            }
+            {error && !loading && <ErrorMessage />}
+            {!error && loading && <Loader />}
             {!error &&
                 !loading &&
                 movieList &&
@@ -65,7 +72,8 @@ const MovieList = () => {
                         />
                     </React.Fragment>
                 ))}
-            {!error && !loading && <Pagination />}
+            {/* {!error && !loading && <Pagination />} */}
+            {!error && !loading && totalMoviesResults && totalMoviesPages > 1 && <Pagination />}
         </Section>
     )
 }
