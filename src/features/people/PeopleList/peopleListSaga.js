@@ -1,4 +1,4 @@
-import { takeLatest, call, put, delay, debounce } from 'redux-saga/effects';
+import { call, put, delay, debounce } from 'redux-saga/effects';
 import {
     URLpeopleSearch,
     URLpopularPeople,
@@ -27,6 +27,5 @@ function* fetchPeopleListHandler({ payload: { query, page } }) {
 }
 
 export function* watchFetchExample2() {
-    //yield takeLatest(fetchPeopleList.type,fetchPeopleListHandler);
     yield debounce(1000, fetchPeopleList.type, fetchPeopleListHandler);
 }
