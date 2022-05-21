@@ -1,16 +1,38 @@
 # Movies browser
 
+![Demonstration](/Demo2.gif)
+
 https://wojtekkkwojtek.github.io/movies-browser-react/
 
-Description:
+## About the app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and was created by YouCode students: 
+* [Dorota Borowska](https://github.com/IT2021db) 
+* [Miłosz Zajączkowski](https://github.com/miloszzaj)
+* [Wojciech Kurdzielewicz](https://github.com/wojtekkkwojtek)
 
-## Available Scripts
+Our web application enables you to search and browse movies and people (actors and crew).
+
+We implemented a wide range of technologies such as: 
+
+- HTML,
+- CSS,
+- JavaScript (ES6+),
+- Styled Components,
+- React,
+- React Router,
+- React Redux,
+- Redux Saga,
+- and more...
+
+The data comes from external [API](https://www.themoviedb.org/).
+
+
+### Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -18,7 +40,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm run build`
+#### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -28,7 +50,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+#### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 

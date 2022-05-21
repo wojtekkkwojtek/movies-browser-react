@@ -38,7 +38,7 @@ export const Button = styled.button`
     cursor: not-allowed;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     margin: 0 4px;
     padding: 8px 12px;
   }
@@ -49,14 +49,14 @@ export const Previous = styled.img`
   margin-right: 8px;
   width: 7px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     margin: 0 4px;
     width: 5px;
   }
 `;
 
 export const PreviousMobile = styled(Previous)`
-  @media (min-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     display: none;
   }
 `;
@@ -65,14 +65,14 @@ export const Next = styled.img`
   margin-left: 8px;
   width: 7px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     margin: 0 4px;
     width: 5px;
   }
 `;
 
 export const NextMobile = styled(Next)`
-  @media (min-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     display: none;
   }
 `;
@@ -83,7 +83,7 @@ export const Text = styled.p`
   font-size: 14px;
   line-height: 1.4;
   
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     display: none;
   }
 `;
@@ -96,7 +96,7 @@ export const PageInformation = styled.p`
   line-height: 1.5;
   color: ${({ theme }) => theme.color.darkerGray};
   
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     margin: 0 4px;
     font-size: 10px;
   }
