@@ -1,15 +1,32 @@
 # Movies browser
 
+![Demonstration](/Demo.gif)
+
 https://wojtekkkwojtek.github.io/movies-browser-react/
 
 ## About the app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and was created by YouCode students: 
-Dorota Borowska, Miłosz Zajączkowski and Wojciech Kurdzielewicz.
+* [Dorota Borowska](https://github.com/IT2021db) 
+* [Miłosz Zajączkowski](https://github.com/miloszzaj)
+* [Wojciech Kurdzielewicz](https://github.com/wojtekkkwojtek)
 
 Our web application enables you to search and browse movies and people (actors and crew).
 
 We implemented a wide range of technologies such as: 
+
+- HTML,
+- CSS,
+- JavaScript (ES6+),
+- Styled Components,
+- React,
+- React Router,
+- React Redux,
+- Redux Saga,
+- and more...
+
+The data comes from external [API](https://www.themoviedb.org/).
+
 
 ### Available Scripts
 
