@@ -30,7 +30,6 @@ const Header = () => {
     const replaceQueryParameter = useReplaceQueryParameter(location, navigate)
 
     const query = useSearch(queryKeys.search, location)
-
     const searchMovie = (e) => {
         console.log('iwent:', e.target.value)
         replaceQueryParameter({
