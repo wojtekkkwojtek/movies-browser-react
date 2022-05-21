@@ -11,23 +11,54 @@ import {
     NavContainer,
     SearchIcon,
     StyledNavLink,
+    ClearButton,
+    ClearInput,
 } from './styled'
-
-import { useReplaceQueryParameter } from '../../../features/useParameters'
+import { fetchMovieList } from '../../../features/movies/MovieList/movieListSlice'
+import {
+    useReplaceQueryParameter,
+    useSearch,
+} from '../../../features/useParameters'
+import { fetchPeopleList } from '../../../features/people/PeopleList/peopleListSlice'
 import { queryKeys } from '../../../features/queryKeys'
+import { useDispatch } from 'react-redux'
 
 const Header = () => {
     const location = useLocation()
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const replaceQueryParameter = useReplaceQueryParameter(location, navigate)
 
+    const query = useSearch(queryKeys.search, location)
     const searchMovie = (e) => {
         console.log('iwent:', e.target.value)
         replaceQueryParameter({
             key: queryKeys.search,
             value: e.target.value.trim(),
         })
+
+        if (
+            (query && query.length > 2 && location.pathname === '/movies') ||
+            location.pathname === '/movie/'
+        ) {
+            dispatch(fetchMovieList(e.target.value))
+        } else if (query && query.length > 2) {
+            dispatch(fetchPeopleList(e.target.value))
+        }
+    }
+
+    const deleteInput = (e) => {
+        replaceQueryParameter(
+            {
+                key: queryKeys.search,
+                value: (e.target.value = ''),
+            },
+            {
+                key: queryKeys.search,
+                value: (e.target.page = 1),
+            }
+        )
     }
 
     const debouncedSearchMovie = debounce((e) => {
@@ -63,6 +94,9 @@ const Header = () => {
                                 : 'people...'
                         } `}
                     />
+                    <ClearButton onClick={deleteInput}>
+                        <ClearInput />
+                    </ClearButton>
                 </Label>
             </Section>
         </Wrapper>

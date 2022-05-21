@@ -41,7 +41,7 @@ const MovieList = () => {
         <Section isList>
             {query && !error && !loading && (totalMoviesResults === 0) ?
                 <>
-                    <Title title={`Sorry, no result for "${query[0].toUpperCase() + query.slice(1)}"(${totalMoviesResults})"`} />
+                    <Title title={`Sorry, no result for "${query[0].toUpperCase() + query.slice(1)}"`} />
                     <NoResultMessage />
                 </>
                 :
@@ -77,8 +77,7 @@ const MovieList = () => {
                         />
                     </React.Fragment>
                 ))}
-            {/* {!error && !loading && <Pagination />} */}
-            {!error && !loading && totalMoviesResults && totalMoviesPages > 1 && <Pagination />}
+            {!error && !loading && totalMoviesPages > 1 && <Pagination />}
         </Section>
     )
 }

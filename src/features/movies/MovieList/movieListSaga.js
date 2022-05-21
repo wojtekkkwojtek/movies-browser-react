@@ -1,4 +1,4 @@
-import { call, put, delay, takeLatest, debounce } from 'redux-saga/effects';
+import { call, put, delay, debounce } from 'redux-saga/effects';
 import {
     URLgenres,
     URLmovieSearch,
@@ -32,6 +32,5 @@ function* fetchMovieListHandler({ payload: { query, page } }) {
 }
 
 export function* watchFetchExample() {
-    //yield takeLatest(fetchMovieList.type, fetchMovieListHandler);
     yield debounce(1000, fetchMovieList.type, fetchMovieListHandler);
 }
