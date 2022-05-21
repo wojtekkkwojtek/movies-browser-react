@@ -1,6 +1,6 @@
-import { useLocation, useNavigate } from 'react-router-dom'
-import { toMovies, toPeople } from '../../../core/App/routes'
-import { URLmovieSearch } from '../../assets/generalData/fetchedData'
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { toMovies, toPeople } from '../../../core/App/routes';
 import {
     Section,
     IconVideo,
@@ -11,24 +11,26 @@ import {
     NavContainer,
     SearchIcon,
     StyledNavLink,
-} from './styled'
-import { fetchMovieList } from '../../../features/movies/MovieList/movieListSlice'
-import { useDispatch } from 'react-redux'
+    ClearButton,
+    ClearInput
+} from './styled';
+import { fetchMovieList } from '../../../features/movies/MovieList/movieListSlice';
 import {
     useReplaceQueryParameter,
     useSearch,
-} from '../../../features/useParameters'
-import { fetchPeopleList } from '../../../features/people/PeopleList/peopleListSlice'
-import { queryKeys } from '../../../features/queryKeys'
+} from '../../../features/useParameters';
+import { fetchPeopleList } from '../../../features/people/PeopleList/peopleListSlice';
+import { queryKeys } from '../../../features/queryKeys';
+
 
 const Header = () => {
-    const location = useLocation()
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
+    const location = useLocation();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    const replaceQueryParameter = useReplaceQueryParameter(location, navigate)
+    const replaceQueryParameter = useReplaceQueryParameter(location, navigate);
 
-    const query = useSearch(queryKeys.search, location)
+    const query = useSearch(queryKeys.search, location);
     const searchMovie = (e) => {
         replaceQueryParameter({
             key: queryKeys.search,
@@ -43,6 +45,19 @@ const Header = () => {
         } else if (query && query.length > 2) {
             dispatch(fetchPeopleList(e.target.value))
         }
+    };
+
+    const deleteInput = (e) => {
+        replaceQueryParameter(
+            {
+                key: queryKeys.search,
+                value: e.target.value = "",
+            },
+            {
+                key: queryKeys.search,
+                value: e.target.page = 1,
+            }
+        )
     }
 
     return (
@@ -69,12 +84,14 @@ const Header = () => {
                         onChange={searchMovie}
                         value={query ? query : ''}
                         type="search"
-                        placeholder={`Search for ${
-                            location.pathname.indexOf('/movie') !== -1
-                                ? 'movies...'
-                                : 'people...'
-                        } `}
+                        placeholder={`Search for ${location.pathname.indexOf('/movie') !== -1
+                            ? 'movies...'
+                            : 'people...'
+                            } `}
                     />
+                    <ClearButton onClick={deleteInput}>
+                       <ClearInput />
+                    </ClearButton>
                 </Label>
             </Section>
         </Wrapper>
