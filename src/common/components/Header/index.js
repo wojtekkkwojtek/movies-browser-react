@@ -11,7 +11,6 @@ import {
     NavContainer,
     SearchIcon,
     StyledNavLink,
-    ClearButton,
     ClearInput
 } from './styled';
 import { fetchMovieList } from '../../../features/movies/MovieList/movieListSlice';
@@ -54,12 +53,12 @@ const Header = () => {
                 value: e.target.value = "",
             },
             {
-                key: queryKeys.search,
-                value: e.target.page = 1,
+                key: queryKeys.page,
+                value: 1,
             }
         )
     }
-
+   
     return (
         <Wrapper>
             <Section>
@@ -89,9 +88,7 @@ const Header = () => {
                             : 'people...'
                             } `}
                     />
-                    <ClearButton onClick={deleteInput}>
-                       <ClearInput />
-                    </ClearButton>
+                    <ClearInput onClick={deleteInput} />
                 </Label>
             </Section>
         </Wrapper>
