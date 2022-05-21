@@ -1,4 +1,3 @@
-import { debounce } from 'lodash'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { toMovies, toPeople } from '../../../core/App/routes'
 import {
@@ -14,45 +13,30 @@ import {
     ClearButton,
     ClearInput,
 } from './styled'
-import { fetchMovieList } from '../../../features/movies/MovieList/movieListSlice'
-import {
-    useReplaceQueryParameter,
-    useSearch,
-} from '../../../features/useParameters'
-import { fetchPeopleList } from '../../../features/people/PeopleList/peopleListSlice'
+import { useReplaceQueryParameter } from '../../../features/useParameters'
 import { queryKeys } from '../../../features/queryKeys'
-import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 
 const Header = () => {
     const location = useLocation()
     const navigate = useNavigate()
-    const dispatch = useDispatch()
     const [inputValue, setInputValue] = useState('')
 
     const replaceQueryParameter = useReplaceQueryParameter(location, navigate)
 
-    const query = useSearch(queryKeys.search, location)
     const searchMovie = (e) => {
         setInputValue(e.target.value)
-        console.log('iwent:', e.target.value)
         replaceQueryParameter({
             key: queryKeys.search,
             value: e.target.value.trim(),
         })
-
-        if (
-            (query && query.length > 2 && location.pathname === '/movies') ||
-            location.pathname === '/movie/'
-        ) {
-            dispatch(fetchMovieList(e.target.value))
-        } else if (query && query.length > 2) {
-            dispatch(fetchPeopleList(e.target.value))
-        }
     }
 
     const deleteInput = () => {
         setInputValue('')
+        location.pathname.indexOf('/movie') !== -1
+            ? navigate(toMovies())
+            : navigate(toPeople())
         // replaceQueryParameter({
         //     key: queryKeys.page,
         //     value: 1,
