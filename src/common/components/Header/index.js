@@ -14,8 +14,8 @@ import {
     ClearInput,
 } from './styled'
 import { useReplaceQueryParameter } from '../../../features/useParameters'
-import { queryKeys } from '../../../features/queryKeys'
-import { useState } from 'react'
+import { queryKeys } from '../../../features/queryKeys';
+import { useState } from 'react';
 
 const Header = () => {
     const location = useLocation()
