@@ -10,9 +10,9 @@ import {
     Label,
     NavContainer,
     SearchIcon,
-    ClearSearchInput,
     StyledNavLink,
-    ClearButton
+    ClearButton,
+    ClearInput
 } from './styled';
 import { fetchMovieList } from '../../../features/movies/MovieList/movieListSlice';
 import {
@@ -47,19 +47,17 @@ const Header = () => {
         }
     };
 
-    const clearSearchInput = (e) => {
+    const deleteInput = (e) => {
         replaceQueryParameter(
             {
                 key: queryKeys.search,
-                value: e.taget.value = "",
+                value: e.target.value = "",
             },
             {
                 key: queryKeys.search,
-                value: e.taget.page = 1,
-
+                value: e.target.page = 1,
             }
         )
-
     }
 
     return (
@@ -91,8 +89,8 @@ const Header = () => {
                             : 'people...'
                             } `}
                     />
-                    <ClearButton onClick={() => clearSearchInput()}>
-                        X
+                    <ClearButton onClick={deleteInput}>
+                       <ClearInput />
                     </ClearButton>
                 </Label>
             </Section>
