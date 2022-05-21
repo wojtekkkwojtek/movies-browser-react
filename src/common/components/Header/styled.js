@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { ReactComponent as Camera } from '../../assets/icons/videoIcon.svg'
 import { ReactComponent as Magnifier } from '../../assets/icons/searchIcon.svg'
-import {ReactComponent as ClearIcon} from "./clearIcon.svg"
+import {ReactComponent as ClearIcon} from "../../assets/icons/clearIcon.svg"
 
 export const Wrapper = styled.div`
     display: flex;
