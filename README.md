@@ -1,6 +1,6 @@
 # Movies browser
 
-![Demonstration](/Demo.gif)
+![Demonstration](/Demo2.gif)
 
 https://wojtekkkwojtek.github.io/movies-browser-react/
 
