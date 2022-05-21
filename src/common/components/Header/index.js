@@ -22,16 +22,19 @@ import {
 import { fetchPeopleList } from '../../../features/people/PeopleList/peopleListSlice'
 import { queryKeys } from '../../../features/queryKeys'
 import { useDispatch } from 'react-redux'
+import { useState } from 'react'
 
 const Header = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const [inputValue, setInputValue] = useState('')
 
     const replaceQueryParameter = useReplaceQueryParameter(location, navigate)
 
     const query = useSearch(queryKeys.search, location)
     const searchMovie = (e) => {
+        setInputValue(e.target.value)
         console.log('iwent:', e.target.value)
         replaceQueryParameter({
             key: queryKeys.search,
@@ -48,22 +51,17 @@ const Header = () => {
         }
     }
 
-    const deleteInput = (e) => {
-        replaceQueryParameter(
-            {
-                key: queryKeys.search,
-                value: (e.target.value = ''),
-            },
-            {
-                key: queryKeys.search,
-                value: (e.target.page = 1),
-            }
-        )
+    const deleteInput = () => {
+        setInputValue('')
+        // replaceQueryParameter({
+        //     key: queryKeys.page,
+        //     value: 1,
+        // })
+        // replaceQueryParameter({
+        //     key: queryKeys.search,
+        //     value: '',
+        // })
     }
-
-    const debouncedSearchMovie = debounce((e) => {
-        searchMovie(e)
-    }, 2000)
 
     return (
         <Wrapper>
@@ -86,16 +84,17 @@ const Header = () => {
                 <Label>
                     <SearchIcon />
                     <Input
-                        onChange={debouncedSearchMovie}
+                        onChange={searchMovie}
                         type="search"
+                        value={inputValue}
                         placeholder={`Search for ${
                             location.pathname.indexOf('/movie') !== -1
                                 ? 'movies...'
                                 : 'people...'
                         } `}
                     />
-                    <ClearButton onClick={deleteInput}>
-                        <ClearInput />
+                    <ClearButton>
+                        <ClearInput onClick={deleteInput} />
                     </ClearButton>
                 </Label>
             </Section>
