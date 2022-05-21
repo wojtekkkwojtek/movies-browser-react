@@ -4,7 +4,7 @@ const movieListSlice = createSlice({
     name: 'movies',
     initialState: {
         totalPages: 1,
-        totalResults: 0,
+        totalMoviesResult: '',
         loading: false,
         error: false,
         movieList: [],
@@ -13,6 +13,7 @@ const movieListSlice = createSlice({
     reducers: {
         fetchMovieList: (state) => {
             state.loading = true
+            state.totalMoviesResult = ''
         },
         fetchMovieListError: (state) => {
             state.error = true

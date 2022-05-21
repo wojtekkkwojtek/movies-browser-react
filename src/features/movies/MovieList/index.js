@@ -54,7 +54,10 @@ const MovieList = () => {
                         query
                             ? `Search results for "${
                                   query[0].toUpperCase() + query.slice(1)
-                              }" ${totalMoviesResults && totalMoviesResults}`
+                              }" ${
+                                  totalMoviesResults &&
+                                  '(' + totalMoviesResults + ')'
+                              }  `
                             : `Popular movies`
                     }
                 />
