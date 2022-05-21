@@ -1,7 +1,6 @@
 import { debounce } from 'lodash'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { toMovies, toPeople } from '../../../core/App/routes'
-import { URLmovieSearch } from '../../assets/generalData/fetchedData'
 import {
     Section,
     IconVideo,
@@ -13,38 +12,22 @@ import {
     SearchIcon,
     StyledNavLink,
 } from './styled'
-import { fetchMovieList } from '../../../features/movies/MovieList/movieListSlice'
-import { useDispatch } from 'react-redux'
-import {
-    useReplaceQueryParameter,
-    useSearch,
-} from '../../../features/useParameters'
-import { fetchPeopleList } from '../../../features/people/PeopleList/peopleListSlice'
+
+import { useReplaceQueryParameter } from '../../../features/useParameters'
 import { queryKeys } from '../../../features/queryKeys'
 
 const Header = () => {
     const location = useLocation()
     const navigate = useNavigate()
-    const dispatch = useDispatch()
 
     const replaceQueryParameter = useReplaceQueryParameter(location, navigate)
 
-    const query = useSearch(queryKeys.search, location)
     const searchMovie = (e) => {
         console.log('iwent:', e.target.value)
         replaceQueryParameter({
             key: queryKeys.search,
             value: e.target.value.trim(),
         })
-
-        // if (
-        //     location.pathname === '/movies' ||
-        //     location.pathname === '/movie/'
-        // ) {
-        //     dispatch(fetchMovieList(e.target.value))
-        // } else {
-        //     dispatch(fetchPeopleList(e.target.value))
-        // }
     }
 
     const debouncedSearchMovie = debounce((e) => {
@@ -73,7 +56,6 @@ const Header = () => {
                     <SearchIcon />
                     <Input
                         onChange={debouncedSearchMovie}
-                        // value={query ? query : ''}
                         type="search"
                         placeholder={`Search for ${
                             location.pathname.indexOf('/movie') !== -1
