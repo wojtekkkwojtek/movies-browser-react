@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { ReactComponent as Camera } from '../../assets/icons/videoIcon.svg'
 import { ReactComponent as Magnifier } from '../../assets/icons/searchIcon.svg'
-import {ReactComponent as ClearIcon} from "../../assets/icons/clearIcon.svg"
+import { ReactComponent as ClearIcon } from "../../assets/icons/clearIcon.svg"
 
 export const Wrapper = styled.div`
     display: flex;
@@ -116,7 +116,6 @@ export const StyledNavLink = styled(NavLink)`
         margin: 24px 6px;
         height: 34px;
         font-size: 12px;
-        /* line-height: 18px; */
         padding: 8px 12px;
         border-radius: 29px;
     }
@@ -176,19 +175,15 @@ export const Input = styled.input`
         font-weight: 400;
     }
 `
-
-export const ClearButton = styled.button`
-   position: absolute;
-    right: -422px;
-    padding:0;
-    background-color: transparent;
-    border:none;
+export const ClearInput = styled(ClearIcon)`  
+    position: absolute;
+    right: -418px;
     cursor:pointer;
-    z-index: 1000;
-
+              
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         left: calc(50% + 615px);
     }
+
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         margin-left: 18px;
         width: 16px;
@@ -201,19 +196,5 @@ export const ClearButton = styled.button`
         width: 16px;
         height: 16px;
         left: calc(50% + 95px);
-    }
-`;
-export const ClearInput=styled(ClearIcon)`  
-   display:flex;
-   align-content: center;
-   justify-content: center;
-   fill: rgb(126, 131, 154);
-  
-   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
-        margin-left: 6px;
-        width: 16px;
-        height: 16px;
-    }
-
-    
+    }  
 `;

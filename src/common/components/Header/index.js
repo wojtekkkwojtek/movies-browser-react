@@ -10,7 +10,6 @@ import {
     NavContainer,
     SearchIcon,
     StyledNavLink,
-    ClearButton,
     ClearInput,
 } from './styled'
 import { useReplaceQueryParameter } from '../../../features/useParameters'
@@ -46,7 +45,7 @@ const Header = () => {
         //     value: '',
         // })
     }
-
+   
     return (
         <Wrapper>
             <Section>
@@ -77,9 +76,7 @@ const Header = () => {
                                 : 'people...'
                         } `}
                     />
-                    <ClearButton>
-                        <ClearInput onClick={deleteInput} />
-                    </ClearButton>
+                    <ClearInput onClick={deleteInput} />
                 </Label>
             </Section>
         </Wrapper>
