@@ -78,7 +78,7 @@ const MovieList = () => {
                     </React.Fragment>
                 ))}
             {/* {!error && !loading && <Pagination />} */}
-            {!error && !loading && totalMoviesResults && totalMoviesPages > 1 && <Pagination />}
+            {!error && !loading  && totalMoviesPages > 1 && <Pagination />}
         </Section>
     )
 }

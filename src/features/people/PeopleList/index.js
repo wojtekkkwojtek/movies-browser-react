@@ -69,7 +69,7 @@ const PeopleList = () => {
                 }
             </Section>
             {/* {!error && !loading && totalPeopleResults && <Pagination />} */}
-            {!error && !loading && totalPeopleResults && totalPeoplePages > 1 && <Pagination />}
+            {!error && !loading  && totalPeoplePages > 1 && <Pagination />}
         </>
     )
 }
