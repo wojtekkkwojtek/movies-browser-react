@@ -62,9 +62,7 @@ export const Pagination = () => {
                     src={inactivePrevious ? PreviousOffImage : PreviousImage}
                 />
                 <Text>First</Text>
-                <PreviousMobile
-                    src={inactivePrevious ? PreviousOffImage : PreviousImage}
-                />
+                <PreviousMobile src={inactivePrevious ? PreviousOffImage : PreviousImage} />
             </Button>
             <Button
                 onClick={() => onClickButton(+page - 1)}
