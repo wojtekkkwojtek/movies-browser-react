@@ -7,7 +7,11 @@ export const Wrapper = styled.div`
     justify-content: center;
   
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        //margin-top: 15px;
+      
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    
     }
 `;
 
