@@ -68,7 +68,7 @@ const Header = () => {
                     <SearchIcon />
                     <Input
                         onChange={searchMovie}
-                        type="search"
+                    //type="search"
                         value={inputValue}
                         placeholder={`Search for ${
                             location.pathname.indexOf('/movie') !== -1
