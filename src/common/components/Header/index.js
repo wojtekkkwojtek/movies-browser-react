@@ -77,7 +77,7 @@ const Header = () => {
                                 : 'people...'
                         } `}
                     />
-                    <ClearInput onClick={deleteInput} />
+                   {inputValue &&  <ClearInput onClick={deleteInput} />}
                 </Label>
             </Section>
         </Wrapper>
