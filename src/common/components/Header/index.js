@@ -59,16 +59,17 @@ const Header = () => {
                                 : null
                         }
                         to={toMovies()}
+                        onClick={deleteInput}
                     >
                         movies
                     </StyledNavLink>
-                    <StyledNavLink to={toPeople()}>people</StyledNavLink>
+                    <StyledNavLink to={toPeople()}   onClick={deleteInput}>people</StyledNavLink>
                 </NavContainer>
                 <Label>
                     <SearchIcon />
                     <Input
                         onChange={searchMovie}
-                        type="search"
+                    //type="search"
                         value={inputValue}
                         placeholder={`Search for ${
                             location.pathname.indexOf('/movie') !== -1

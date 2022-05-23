@@ -162,6 +162,8 @@ export const Input = styled.input`
     outline: none;
     font-weight: 400;
     font-size: 16px;
+
+
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         left: calc(50% + 216px);
     }
@@ -181,7 +183,7 @@ export const ClearInput = styled(ClearIcon)`
     cursor:pointer;
               
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-        left: calc(50% + 615px);
+        left: calc(50% + 610px);
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
@@ -192,9 +194,6 @@ export const ClearInput = styled(ClearIcon)`
         top: 95px;
     }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
-        margin-left: 18px;
-        width: 16px;
-        height: 16px;
         left: calc(50% + 95px);
     }  
 `;
