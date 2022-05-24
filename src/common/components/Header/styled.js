@@ -194,6 +194,6 @@ export const ClearInput = styled(ClearIcon)`
         top: 95px;
     }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
-        left: calc(50% + 95px);
+        left: calc(50% + 612px);
     }  
 `;
