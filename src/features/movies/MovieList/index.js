@@ -37,12 +37,14 @@ const MovieList = () => {
         navigate(`/movie/${id}`)
     }
 
+    console.log("query:", query);
+
     return (
         <Section isList>
             {!error && !loading && totalMoviesResults === 0 ? (
                 <>
                     <Title
-                        title={`Sorry, no result for "${
+                        title={`Sorry, no result for "${query &&
                             query[0].toUpperCase() + query.slice(1)
                         }"`}
                     />
