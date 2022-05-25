@@ -3,24 +3,24 @@ import { createSlice } from '@reduxjs/toolkit'
 const personPageSlice = createSlice({
     name: 'personOne',
     initialState: {
-        personPage: [],
-        loading: false,
         error: false,
+        loading: false,
+        personPage: [],
     },
     reducers: {
         fetchPersonPage: (state) => {
-            state.loading = true
             state.error = false
+            state.loading = true
         },
 
         fetchPersonPageError: (state) => {
-            state.loading = false
             state.error = true
+            state.loading = false
         },
 
         fetchPersonPageSuccess: (state, { payload }) => {
-            state.loading = false
             state.error = false
+            state.loading = false
             state.personPage = payload
         },
 

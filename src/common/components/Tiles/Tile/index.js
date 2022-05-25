@@ -1,9 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import star from '../star.svg';
 import { URLimage } from '../../../assets/generalData/fetchedData';
-import { selectMovieList } from '../../../../features/movies/MovieList/movieListSlice';
 import { ReactComponent as NoPhoto } from '../PersonTile/noPhoto.svg';
 
 import {
@@ -27,6 +26,7 @@ import {
     Tag2,
     Overview
 } from '../styled'
+import {selectMoviesGenresList} from "../../../../features/movies/MovieGenres/moviesGenresSlice";
 
 export const Tile = ({
     nonInList,
@@ -51,7 +51,9 @@ export const Tile = ({
     character,
     job,
 }) => {
-    const { genresList } = useSelector(selectMovieList)
+
+  const { genresList } = useSelector(selectMoviesGenresList)
+
     return (
         <TileContainer isList={isList} details={details} onClick={onClick}>
             {poster ? (
@@ -120,15 +122,15 @@ export const Tile = ({
                     </InfoWrapper>
                     <InfoWrapper nonInList={nonInList} person={person}>
                         {genres &&
-                            genres.map((country) => (
-                                <Genres>{country.name}</Genres>
+                            genres.map((genre) => (
+                                <Genres>{genre.name}</Genres>
                             ))}
                     </InfoWrapper>
                 </Wrapper>
                 <InfoWrapper rates>
                     <Icon isList={isList} person={person} src={star} alt="" />
                     <Rate person={person} isList={isList}> {rate}</Rate>
-                    <Score unvisible  isList={isList} person={person}>{score}</Score>
+                    <Score invisible  isList={isList} person={person}>{score}</Score>
                     <Score isList={isList} person={person}>{votes} </Score>
                     <Score isList={isList} person={person}>&nbsp;votes</Score>
                 </InfoWrapper>
