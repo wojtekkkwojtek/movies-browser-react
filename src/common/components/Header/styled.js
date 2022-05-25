@@ -189,15 +189,10 @@ export const ClearInput = styled(ClearIcon)`
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-     
-        /* width: 16px;
-        height: 16px; */
         left: calc(50% +50px);
         top: 95px;
     }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
-        /* width: 16px;
-        height: 16px; */
         left: calc(50% + 612px);
     }  
 `;
