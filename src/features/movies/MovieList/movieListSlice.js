@@ -8,7 +8,6 @@ const movieListSlice = createSlice({
         loading: false,
         error: false,
         movieList: [],
-        genresList: [],
     },
     reducers: {
         fetchMovieList: (state) => {
@@ -19,23 +18,19 @@ const movieListSlice = createSlice({
             state.error = true
         },
         setMovieList: (state, { payload, type }) => {
-            console.log('payload:', payload)
+            // console.log('payload:', payload)
             console.log('type:', type)
             state.page = payload.page
             state.movieList = payload.results
             state.totalPages = payload.total_pages
             state.totalMoviesResult = payload.total_results
         },
-        setGenres: (state, action) => {
-            state.error = false
-            state.loading = false
-            state.genresList = action.payload.genres
-        },
+    
     },
 })
 
 export const {
-    setGenres,
+  
     setMovieList,
     fetchMovieList,
     fetchMovieListSuccess,

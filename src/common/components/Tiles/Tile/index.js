@@ -1,9 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import star from '../star.svg';
 import { URLimage } from '../../../assets/generalData/fetchedData';
-import { selectMovieList } from '../../../../features/movies/MovieList/movieListSlice';
 import { ReactComponent as NoPhoto } from '../PersonTile/noPhoto.svg';
 
 import {
@@ -27,6 +26,7 @@ import {
     Tag2,
     Overview
 } from '../styled'
+import {selectMoviesGenresList} from "../../../../features/movies/MovieGenres/moviesGenresSlice";
 
 export const Tile = ({
     nonInList,
@@ -51,7 +51,9 @@ export const Tile = ({
     character,
     job,
 }) => {
-    const { genresList } = useSelector(selectMovieList)
+
+  const { genresList } = useSelector(selectMoviesGenresList)
+  console.log("genresList in Tile", genresList);
     return (
         <TileContainer isList={isList} details={details} onClick={onClick}>
             {poster ? (
@@ -109,7 +111,7 @@ export const Tile = ({
                     <InfoWrapper isList={isList} person={person}>
                         {genres &&
                             genres.map((genre) => {
-                                return genresList.map((item) =>
+                                return genresList && genresList.map((item) =>
                                     item.id === genre ? (
                                         <Genres isList={isList} key={nanoid()}>
                                             {item.name}

@@ -1,10 +1,8 @@
 import { call, put, delay, debounce } from 'redux-saga/effects'
 import {
-    URLgenres,
     URLmovieSearch,
     URLpopularMovies,
 } from '../../../common/assets/generalData/fetchedData'
-import { setGenres } from './movieListSlice'
 
 import { getData } from '../../getApiData'
 import {
@@ -18,8 +16,8 @@ function* fetchMovieListHandler({ payload: { query, page } }) {
     const popularMovies = `${URLpopularMovies}&page=${page}`
     try {
         yield delay(500)
-        const fetchedGenres = yield call(getData, URLgenres)
-        yield put(setGenres(fetchedGenres))
+        // const fetchedGenres = yield call(getData, URLgenres)
+        // yield put(setGenres(fetchedGenres))
 
         const movies = yield call(
             getData,

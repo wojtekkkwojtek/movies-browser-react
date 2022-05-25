@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga'
+import {moviesGenresReducer} from "../features/movies/MovieGenres/moviesGenresSlice"
 import { movieListReducer } from '../features/movies/MovieList/movieListSlice'
 import { moviePageReducer } from '../features/movies/MoviePage/moviePageSlice'
 import { peopleListReducer } from '../features/people/PeopleList/peopleListSlice'
@@ -14,6 +15,7 @@ const store = configureStore({
         movieOne: moviePageReducer,
         people: peopleListReducer,
         personOne: personPageReducer,
+        genres: moviesGenresReducer,
     },
     middleware: [sagaMiddleware],
 })
