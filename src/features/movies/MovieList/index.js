@@ -17,7 +17,6 @@ import { Pagination } from '../../../common/components/Pagination'
 import { Section } from '../../../common/components/Section'
 import { queryKeys } from '../../queryKeys'
 import { NoResultMessage } from '../../../common/components/NoResultMessage'
-import {setGenres} from "../MovieGenres/moviesGenresSlice"
 
 const MovieList = () => {
     const { loading, movieList, error } = useSelector(selectMovieList)
@@ -30,10 +29,11 @@ const MovieList = () => {
     const query = useSearch(queryKeys.search)
     const page = useSearch(queryKeys.page)
 
+    
     useEffect(() => {
-        dispatch(fetchMovieList({ query, page }))
-        // dispatch(setGenres())
+       dispatch(fetchMovieList({ query, page }))
     }, [dispatch, query, page])
+
 
     const routeToMoviePage = (id) => {
         navigate(`/movie/${id}`)

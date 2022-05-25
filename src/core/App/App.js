@@ -11,8 +11,7 @@ import {useEffect} from "react"
 
 function App() {
   const dispatch = useDispatch();
-
-  useEffect(()=> { dispatch(fetchGenres())}, [dispatch])
+  useEffect(()=> { dispatch(fetchGenres())}, [])
 
  
     return (

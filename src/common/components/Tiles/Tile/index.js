@@ -53,7 +53,7 @@ export const Tile = ({
 }) => {
 
   const { genresList } = useSelector(selectMoviesGenresList)
-  console.log("genresList in Tile", genres);
+
     return (
         <TileContainer isList={isList} details={details} onClick={onClick}>
             {poster ? (
@@ -122,8 +122,8 @@ export const Tile = ({
                     </InfoWrapper>
                     <InfoWrapper nonInList={nonInList} person={person}>
                         {genres &&
-                            genres.map((country) => (
-                                <Genres>{country.name}</Genres>
+                            genres.map((genre) => (
+                                <Genres>{genre.name}</Genres>
                             ))}
                     </InfoWrapper>
                 </Wrapper>

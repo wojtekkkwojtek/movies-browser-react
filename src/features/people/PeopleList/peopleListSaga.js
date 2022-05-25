@@ -26,6 +26,6 @@ function* fetchPeopleListHandler({ payload: { query, page } }) {
     }
 }
 
-export function* watchFetchExample2() {
-    yield debounce(1000, fetchPeopleList.type, fetchPeopleListHandler);
+export function* peopleListSaga() {
+    yield debounce(2000, fetchPeopleList.type, fetchPeopleListHandler);
 }

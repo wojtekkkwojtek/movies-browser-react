@@ -16,8 +16,6 @@ function* fetchMovieListHandler({ payload: { query, page } }) {
     const popularMovies = `${URLpopularMovies}&page=${page}`
     try {
         yield delay(500)
-        // const fetchedGenres = yield call(getData, URLgenres)
-        // yield put(setGenres(fetchedGenres))
 
         const movies = yield call(
             getData,
@@ -29,6 +27,6 @@ function* fetchMovieListHandler({ payload: { query, page } }) {
     }
 }
 
-export function* watchFetchExample() {
-    yield debounce(3000, fetchMovieList.type, fetchMovieListHandler)
+export function* movieListSaga() {
+    yield debounce(2000, fetchMovieList.type, fetchMovieListHandler)
 }

@@ -1,24 +1,26 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const peopleListSlice = createSlice({
     name: 'people',
     initialState: {
+        error: false,
+        loading: false,
         totalPages: 1,
         totalPeopleResult: '',
-        loading: false,
-        error: false,
         peopleList: [],
     },
     reducers: {
         fetchPeopleList: (state) => {
+            state.error = false
             state.loading = true
             state.totalPeopleResult = ''
         },
         fetchPeopleListError: (state) => {
-            state.loading = false
             state.error = true
+            state.loading = false
         },
         setPeopleList: (state, { payload: fetchedData }) => {
+            state.error = false
             state.loading = false
             state.peopleList = fetchedData.results
             state.totalPages = fetchedData.total_pages
@@ -32,14 +34,14 @@ export const {
     fetchPeopleList,
     fetchPeopleListSuccess,
     fetchPeopleListError,
-} = peopleListSlice.actions
+} = peopleListSlice.actions;
 
-export const selectPeopleList = (state) => state.people
+export const selectPeopleList = (state) => state.people;
 
 export const selectTotalPeoplePages = (state) =>
-    selectPeopleList(state).totalPages
+    selectPeopleList(state).totalPages;
 
 export const selectTotalPeopleResults = (state) =>
-    selectPeopleList(state).totalPeopleResult
+    selectPeopleList(state).totalPeopleResult;
 
-export const peopleListReducer = peopleListSlice.reducer
+export const peopleListReducer = peopleListSlice.reducer;
