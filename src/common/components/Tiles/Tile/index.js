@@ -53,7 +53,7 @@ export const Tile = ({
 }) => {
 
   const { genresList } = useSelector(selectMoviesGenresList)
-  console.log("genresList in Tile", genresList);
+  console.log("genresList in Tile", genres);
     return (
         <TileContainer isList={isList} details={details} onClick={onClick}>
             {poster ? (
@@ -111,7 +111,7 @@ export const Tile = ({
                     <InfoWrapper isList={isList} person={person}>
                         {genres &&
                             genres.map((genre) => {
-                                return genresList && genresList.map((item) =>
+                                return genresList.map((item) =>
                                     item.id === genre ? (
                                         <Genres isList={isList} key={nanoid()}>
                                             {item.name}
@@ -130,7 +130,7 @@ export const Tile = ({
                 <InfoWrapper rates>
                     <Icon isList={isList} person={person} src={star} alt="" />
                     <Rate person={person} isList={isList}> {rate}</Rate>
-                    <Score unvisible  isList={isList} person={person}>{score}</Score>
+                    <Score invisible  isList={isList} person={person}>{score}</Score>
                     <Score isList={isList} person={person}>{votes} </Score>
                     <Score isList={isList} person={person}>&nbsp;votes</Score>
                 </InfoWrapper>

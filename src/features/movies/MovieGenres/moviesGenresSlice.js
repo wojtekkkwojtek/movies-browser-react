@@ -19,7 +19,7 @@ fetchGenres: (state) => {
 export const {
   fetchGenres, 
   setGenres
-} = moviesGenresSlice.actions
+} = moviesGenresSlice.actions;
 
 export const selectMoviesGenresList = (state) => state.genres
 
