@@ -29,15 +29,15 @@ const MovieList = () => {
     const query = useSearch(queryKeys.search)
     const page = useSearch(queryKeys.page)
 
+    
     useEffect(() => {
-        dispatch(fetchMovieList({ query, page }))
+       dispatch(fetchMovieList({ query, page }))
     }, [dispatch, query, page])
+
 
     const routeToMoviePage = (id) => {
         navigate(`/movie/${id}`)
     }
-
-    console.log("query:", query);
 
     return (
         <Section isList>

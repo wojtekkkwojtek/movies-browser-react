@@ -17,7 +17,6 @@ function* fetchMovieDetailsHandler({ payload: id }) {
         yield delay(1000)
         const [movieDetails, castInMovie] = yield all([
             call(getData, movie),
-
             call(getData, cast),
         ])
 
