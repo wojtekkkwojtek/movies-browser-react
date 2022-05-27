@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const personPageSlice = createSlice({
     name: 'personOne',
@@ -29,7 +29,7 @@ const personPageSlice = createSlice({
             state.crew = payload.crew
         },
     },
-})
+});
 
 export const {
     setPersonDetails,
@@ -37,8 +37,8 @@ export const {
     fetchPersonPage,
     fetchPersonPageSuccess,
     fetchPersonPageError,
-} = personPageSlice.actions
+} = personPageSlice.actions;
 
-export const selectPersonPage = (state) => state.personOne
+export const selectPersonPage = (state) => state.personOne;
 
-export const personPageReducer = personPageSlice.reducer
+export const personPageReducer = personPageSlice.reducer;

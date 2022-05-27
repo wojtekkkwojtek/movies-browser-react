@@ -1,15 +1,15 @@
-import { call, put, delay, debounce } from 'redux-saga/effects'
+import { call, put, delay, debounce } from 'redux-saga/effects';
 import {
     URLmovieSearch,
     URLpopularMovies,
-} from '../../../common/assets/generalData/fetchedData'
+} from '../../../common/assets/generalData/fetchedData';
 
-import { getData } from '../../getApiData'
+import { getData } from '../../getApiData';
 import {
     setMovieList,
     fetchMovieList,
     fetchMovieListError,
-} from './movieListSlice'
+} from './movieListSlice';
 
 function* fetchMovieListHandler({ payload: { query, page } }) {
     const searchedMovies = `${URLmovieSearch}&query=${query}&page=${page}`
@@ -24,9 +24,10 @@ function* fetchMovieListHandler({ payload: { query, page } }) {
         yield put(setMovieList(movies))
     } catch (error) {
         yield put(fetchMovieListError())
+        console.error(error);
     }
-}
+};
 
 export function* movieListSaga() {
     yield debounce(2000, fetchMovieList.type, fetchMovieListHandler)
-}
+};

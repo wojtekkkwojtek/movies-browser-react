@@ -1,5 +1,5 @@
-import { useLocation, useNavigate } from 'react-router-dom'
-import { toMovies, toPeople } from '../../../core/App/routes'
+import { useLocation, useNavigate } from 'react-router-dom';
+import { toMovies, toPeople } from '../../../core/App/routes';
 import {
     Section,
     IconVideo,
@@ -11,17 +11,17 @@ import {
     SearchIcon,
     StyledNavLink,
     ClearInput,
-} from './styled'
-import { useReplaceQueryParameter } from '../../../features/useParameters'
+} from './styled';
+import { useReplaceQueryParameter } from '../../../features/useParameters';
 import { queryKeys } from '../../../features/queryKeys';
 import { useState } from 'react';
 
 const Header = () => {
-    const location = useLocation()
-    const navigate = useNavigate()
-    const [inputValue, setInputValue] = useState('')
+    const location = useLocation();
+    const navigate = useNavigate();
+    const [inputValue, setInputValue] = useState('');
 
-    const replaceQueryParameter = useReplaceQueryParameter(location, navigate)
+    const replaceQueryParameter = useReplaceQueryParameter(location, navigate);
 
     const searchMovie = (e) => {
         setInputValue(e.target.value)
@@ -29,23 +29,14 @@ const Header = () => {
             key: queryKeys.search,
             value: e.target.value.trim(),
         })
-    }
+    };
 
     const deleteInput = () => {
         setInputValue('')
         location.pathname.indexOf('/movie') !== -1
             ? navigate(toMovies())
             : navigate(toPeople())
-        // replaceQueryParameter({
-        //     key: queryKeys.page,
-        //     value: 1,
-        // })
-        // replaceQueryParameter({
-        //     key: queryKeys.search,
-        //     value: '',
-        // })
-    }
-   
+    };
     return (
         <Wrapper>
             <Section>
@@ -69,7 +60,6 @@ const Header = () => {
                     <SearchIcon />
                     <Input
                         onChange={searchMovie}
-                    //type="search"
                         value={inputValue}
                         placeholder={`Search for ${
                             location.pathname.indexOf('/movie') !== -1
@@ -82,6 +72,6 @@ const Header = () => {
             </Section>
         </Wrapper>
     )
-}
+};
 
-export default Header
+export default Header;

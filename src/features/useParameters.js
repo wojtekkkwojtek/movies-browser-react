@@ -1,10 +1,10 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
 
 export const useSearch = (key) => {
-    const location = useLocation()
-    const searchParams = new URLSearchParams(location.search)
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
 
-    return searchParams.get(key)
+    return searchParams.get(key);
 }
 
 export const useReplaceQueryParameter = (location, navigate) => {
@@ -21,4 +21,4 @@ export const useReplaceQueryParameter = (location, navigate) => {
             navigate(`/people?${searchParams.toString()}`)
         }
     }
-}
+};

@@ -1,14 +1,14 @@
-import { API_KEY, URL } from '../../../common/assets/generalData/fetchedData'
+import { API_KEY, URL } from '../../../common/assets/generalData/fetchedData';
 
-import { all, call, delay, put, takeLatest } from 'redux-saga/effects'
-import { getData } from '../../getApiData'
+import { all, call, delay, put, takeLatest } from 'redux-saga/effects';
+import { getData } from '../../getApiData';
 
 import {
     fetchActorsAndCrew,
     fetchMoviePage,
     fetchMoviePageError,
     fetchMoviePageSuccess,
-} from './moviePageSlice'
+} from './moviePageSlice';
 
 function* fetchMovieDetailsHandler({ payload: id }) {
     const movie = `${URL}/movie/${id}?api_key=${API_KEY}`
@@ -25,8 +25,8 @@ function* fetchMovieDetailsHandler({ payload: id }) {
     } catch (error) {
         yield call(fetchMoviePageError)
     }
-}
+};
 
 export function* movieDetailsSaga() {
     yield takeLatest(fetchMoviePage.type, fetchMovieDetailsHandler)
-}
+};

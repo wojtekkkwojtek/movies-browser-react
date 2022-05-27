@@ -1,7 +1,7 @@
-import {call, put, takeLatest } from "redux-saga/effects"
-import {URLgenres} from "../../../common/assets/generalData/fetchedData"
-import {getData} from "../../getApiData"
-import {fetchGenres, fetchGenresError, setGenres} from "./moviesGenresSlice"
+import {call, put, takeLatest } from "redux-saga/effects";
+import {URLgenres} from "../../../common/assets/generalData/fetchedData";
+import {getData} from "../../getApiData";
+import {fetchGenres, fetchGenresError, setGenres} from "./moviesGenresSlice";
 
 
 
@@ -14,8 +14,8 @@ function* fetchGenresListHandler() {
     yield console.error("Fail to fetch genres list from server")
     yield put(fetchGenresError())
   }
-}
+};
 
 export function* genresListSaga() {
   yield takeLatest(fetchGenres.type, fetchGenresListHandler)
-}
+};

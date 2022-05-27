@@ -1,8 +1,8 @@
-import React from 'react'
-import { Backdrop, Container, Star, Title, VoteCount } from './styled'
-import star from '../Tiles/star.svg'
-import { Wrapper } from './styled'
-import { URLimage } from '../../assets/generalData/fetchedData'
+import React from 'react';
+import { Backdrop, Container, Star, Title, VoteCount } from './styled';
+import star from '../Tiles/star.svg';
+import { Wrapper } from './styled';
+import { URLimage } from '../../assets/generalData/fetchedData';
 
 export const MovieHeader = ({
     original_title,
@@ -24,4 +24,4 @@ export const MovieHeader = ({
             </Backdrop>
         </Wrapper>
     )
-}
+};
