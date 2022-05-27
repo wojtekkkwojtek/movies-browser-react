@@ -22,7 +22,7 @@ function App() {
                 <Route path={toMovie()} element={<MoviePage />} />
                 <Route path={toPeople()} element={<PeopleList />} />
                 <Route path={toPerson()} element={<PersonPage />} />
-                <Route path="/" element={<Navigate to="/movies" />} />
+                <Route path="*" element={<MovieList />} />
             </Routes>
         </HashRouter>
     )
