@@ -1,47 +1,48 @@
-import React, { useState } from 'react'
-import { nanoid } from 'nanoid'
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { fetchMoviePage, selectMoviePage } from './moviePageSlice'
-import { MovieHeader } from '../../../common/components/MovieHeader'
-import { Tile } from '../../../common/components/Tiles/Tile'
-import { Loader } from '../../../common/components/Loader'
-import { Section } from '../../../common/components/Section'
-import { Title } from '../../../common/components/Title'
-import { ErrorMessage } from '../../../common/components/ErrorMessage'
-import { PersonTile } from '../../../common/components/Tiles/PersonTile'
+import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { fetchMoviePage, selectMoviePage } from './moviePageSlice';
+import { MovieHeader } from '../../../common/components/MovieHeader';
+import { Tile } from '../../../common/components/Tiles/Tile';
+import { Loader } from '../../../common/components/Loader';
+import { Section } from '../../../common/components/Section';
+import { Title } from '../../../common/components/Title';
+import { ErrorMessage } from '../../../common/components/ErrorMessage';
+import { PersonTile } from '../../../common/components/Tiles/PersonTile';
 import {
     StyledButton,
     Wrapper,
-} from '../../../common/components/ShowAllButton/styled'
-import { ReactComponent as ArrowDown } from '../../../common/components/ShowAllButton/Arrow_down.svg'
-import { ReactComponent as ArrowUp } from '../../../common/components/ShowAllButton/Arrow_up.svg'
+} from '../../../common/components/ShowAllButton/styled';
+import { ReactComponent as ArrowDown } from '../../../common/components/ShowAllButton/Arrow_down.svg';
+import { ReactComponent as ArrowUp } from '../../../common/components/ShowAllButton/Arrow_up.svg';
 
 const MoviePage = () => {
-    const [isShownAll, setIsShownAll] = useState(false)
-    const [isShownAllCrew, setIsShownAllCrew] = useState(false)
+    const [isShownAll, setIsShownAll] = useState(false);
+    const [isShownAllCrew, setIsShownAllCrew] = useState(false);
 
-    const dispatch = useDispatch()
-    const { id } = useParams()
+    const dispatch = useDispatch();
+    const { id } = useParams();
 
     useEffect(() => {
         dispatch(fetchMoviePage(id))
-    }, [dispatch, id])
+    }, [dispatch, id]);
     const { error, loading, moviePage, actors, crew } =
-        useSelector(selectMoviePage)
+        useSelector(selectMoviePage);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const routeChange = (id) => {
         navigate(`/people/${id}`)
-    }
+    };
 
-    const shownTiles = isShownAll ? actors.length : 12
-    const shownTilesCrew = isShownAllCrew ? crew.length : 12
-    const toggleShown = () => setIsShownAll((isShownAll) => !isShownAll)
+    const shownTiles = isShownAll ? actors.length : 12;
+    const shownTilesCrew = isShownAllCrew ? crew.length : 12;
+    const toggleShown = () => setIsShownAll((isShownAll) => !isShownAll);
     const toggleShownCrew = () =>
-        setIsShownAllCrew((isShownAllCrew) => !isShownAllCrew)
+        setIsShownAllCrew((isShownAllCrew) => !isShownAllCrew);
+
     return (
         <>
             {error && !loading && <ErrorMessage />}
@@ -133,6 +134,6 @@ const MoviePage = () => {
             )}
         </>
     )
-}
+};
 
-export default MoviePage
+export default MoviePage;

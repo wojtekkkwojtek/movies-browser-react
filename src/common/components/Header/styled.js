@@ -180,19 +180,18 @@ export const Input = styled.input`
 export const ClearInput = styled(ClearIcon)`  
     position: absolute;
     right: -418px;
-    cursor:pointer;
-    width: 16px;
-    height: 16px;
+    cursor: pointer;
               
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         left: calc(50% + 610px);
     }
 
+
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        left: calc(50% +50px);
+        margin-left: 18px;
+        width: 16px;
+        height: 16px;
+        left: calc(50% + 100px);
         top: 95px;
     }
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
-        left: calc(50% + 612px);
-    }  
 `;

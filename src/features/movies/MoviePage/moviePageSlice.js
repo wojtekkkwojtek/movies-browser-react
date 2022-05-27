@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const moviePageSlice = createSlice({
     name: 'movieOne',
@@ -28,15 +28,15 @@ const moviePageSlice = createSlice({
             state.crew = payload.crew
         },
     },
-})
+});
 
 export const {
     fetchMoviePage,
     fetchMoviePageSuccess,
     fetchMoviePageError,
     fetchActorsAndCrew,
-} = moviePageSlice.actions
+} = moviePageSlice.actions;
 
-export const selectMoviePage = (state) => state.movieOne
+export const selectMoviePage = (state) => state.movieOne;
 
-export const moviePageReducer = moviePageSlice.reducer
+export const moviePageReducer = moviePageSlice.reducer;

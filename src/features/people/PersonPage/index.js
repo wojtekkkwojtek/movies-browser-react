@@ -145,6 +145,6 @@ const PersonPage = () => {
             )}
         </>
     )
-}
+};
 
-export default PersonPage
+export default PersonPage;
