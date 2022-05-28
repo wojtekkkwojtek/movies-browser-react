@@ -19,6 +19,7 @@ function App() {
         <HashRouter>
             <Header />{' '}
             <Routes>
+                <Route path="/" element={<MovieList />} />
                 <Route path={toMovies()} element={<MovieList />} />
                 <Route path={toMovie()} element={<MoviePage />} />
                 <Route path={toPeople()} element={<PeopleList />} />
