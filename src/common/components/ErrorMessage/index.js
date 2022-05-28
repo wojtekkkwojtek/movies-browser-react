@@ -13,7 +13,7 @@ export const ErrorMessage = () => (
         <StyledErrorImage />
         <Information>Ooops! Something went wrong...</Information>
         <Announcement>
-            Please check your network connection and try again
+            Please check your network connection or your URL address and try again
         </Announcement>
         <GoBackButton as={Link} to={toMovies()}>
             Back to home page

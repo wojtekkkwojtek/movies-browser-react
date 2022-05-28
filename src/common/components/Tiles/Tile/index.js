@@ -2,7 +2,7 @@ import React from 'react';
 import {  useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import star from '../star.svg';
-import { URLimage } from '../../../assets/generalData/fetchedData';
+import { URLimageSmall } from '../../../assets/generalData/fetchedData';
 import { ReactComponent as NoPhoto } from '../PersonTile/noPhoto.svg';
 
 import {
@@ -60,7 +60,7 @@ export const Tile = ({
                 <Poster
                     details={details}
                     isList={isList}
-                    src={`${URLimage}${poster}`}
+                    src={`${URLimageSmall}${poster}`}
                     alt=""
                 />
             ) : !person ? (

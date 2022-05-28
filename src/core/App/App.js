@@ -8,6 +8,7 @@ import { toMovie, toMovies, toPeople, toPerson } from './routes';
 import {useDispatch} from "react-redux";
 import {fetchGenres} from "../../features/movies/MovieGenres/moviesGenresSlice";
 import {useEffect} from "react";
+import {ErrorMessage} from "../../common/components/ErrorMessage";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,11 +19,12 @@ function App() {
         <HashRouter>
             <Header />{' '}
             <Routes>
+                <Route path="/" element={<MovieList />} />
                 <Route path={toMovies()} element={<MovieList />} />
                 <Route path={toMovie()} element={<MoviePage />} />
                 <Route path={toPeople()} element={<PeopleList />} />
                 <Route path={toPerson()} element={<PersonPage />} />
-                <Route path="*" element={<MovieList />} />
+                <Route path="*" element={<ErrorMessage />} />
             </Routes>
         </HashRouter>
     );
