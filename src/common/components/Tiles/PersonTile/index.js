@@ -1,6 +1,6 @@
 import React from 'react'
 import { Poster, TileContainer, InfoWrapper, InfoDetails, StyledNoPhoto } from './styled'
-import { URLimage } from '../../../assets/generalData/fetchedData'
+import { URLimageSmall } from '../../../assets/generalData/fetchedData'
 
 export const PersonTile = ({
     personTile,
@@ -15,7 +15,7 @@ export const PersonTile = ({
         <TileContainer personTile={personTile} onClick={onClick}>
             {poster ? (
                 <Poster
-                    src={`${URLimage}${poster}`}
+                    src={`${URLimageSmall}${poster}`}
                     alt=""
                     personTile={personTile}
                 />
