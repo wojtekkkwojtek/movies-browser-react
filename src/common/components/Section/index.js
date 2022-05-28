@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const Section = styled.div`
+export const Section = styled.section`
     max-width: 1368px;
     margin: auto;
     display: flex;
