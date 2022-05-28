@@ -19,6 +19,8 @@ export const URLpersonCredits = (personId) =>
     `${URL}/person/${personId}/credits?api_key=${API_KEY}`;
 
 export const URLimage = `https://image.tmdb.org/t/p/original`;
+export const URLimageSmall = `https://image.tmdb.org/t/p/w500`;
+
 
 export const URLmovieSearch = `${URL}/search/movie?api_key=${API_KEY}`;
 

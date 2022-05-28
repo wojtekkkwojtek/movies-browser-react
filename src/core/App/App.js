@@ -8,7 +8,7 @@ import { toMovie, toMovies, toPeople, toPerson } from './routes';
 import {useDispatch} from "react-redux";
 import {fetchGenres} from "../../features/movies/MovieGenres/moviesGenresSlice";
 import {useEffect} from "react";
-import { ErrorMessage } from "../../common/components/ErrorMessage";
+import {ErrorMessage} from "../../common/components/ErrorMessage";
 
 function App() {
   const dispatch = useDispatch();
