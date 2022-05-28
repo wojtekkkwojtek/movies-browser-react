@@ -15,9 +15,10 @@ const peopleListSlice = createSlice({
             state.loading = true
             state.totalPeopleResult = ''
         },
-        fetchPeopleListError: (state) => {
+        fetchPeopleListError: (state, action) => {
             state.error = true
             state.loading = false
+            
         },
         setPeopleList: (state, { payload: fetchedData }) => {
             state.error = false

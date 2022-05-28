@@ -19,14 +19,14 @@ import { queryKeys } from '../../queryKeys';
 import { NoResultMessage } from '../../../common/components/NoResultMessage';
 
 const PeopleList = () => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const location = useLocation();
-    const { loading, peopleList, error } = useSelector(selectPeopleList);
-    const totalPeopleResults = useSelector(selectTotalPeopleResults);
-    const totalPeoplePages = useSelector(selectTotalPeoplePages);
-    const query = useSearch(queryKeys.search, location);
-    const page = useSearch(queryKeys.page, location);
+  const { loading, peopleList, error } = useSelector(selectPeopleList);
+  const totalPeopleResults = useSelector(selectTotalPeopleResults);
+  const totalPeoplePages = useSelector(selectTotalPeoplePages);
+  
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+    const query = useSearch(queryKeys.search);
+    const page = useSearch(queryKeys.page);
 
     useEffect(() => {
         dispatch(fetchPeopleList({ query, page }))
@@ -39,7 +39,7 @@ const PeopleList = () => {
     return (
         <>
             <Section>
-                {query && !error && !loading && totalPeopleResults === 0 ? (
+                {!error && !loading && totalPeopleResults === 0 ? (
                     <>
                         <Title
                             title={`Sorry, no result for "${
