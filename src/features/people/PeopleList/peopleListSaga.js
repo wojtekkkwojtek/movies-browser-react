@@ -23,6 +23,8 @@ function* fetchPeopleListHandler({ payload: { query, page } }) {
         yield put(setPeopleList(people));
     } catch (error) {
         yield put(fetchPeopleListError());
+        console.error(error);
+
     }
 }
 

@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from '../../common//components/Header';
 import MoviePage from '../../features/movies/MoviePage';
 import MovieList from '../../features/movies/MovieList';
@@ -19,11 +19,11 @@ function App() {
         <HashRouter>
             <Header />{' '}
             <Routes>
-                <Route path="/" element={<MovieList />} />
                 <Route path={toMovies()} element={<MovieList />} />
                 <Route path={toMovie()} element={<MoviePage />} />
                 <Route path={toPeople()} element={<PeopleList />} />
                 <Route path={toPerson()} element={<PersonPage />} />
+                <Route path="/" element={<Navigate to={toMovies()} />} />
                 <Route path="*" element={<ErrorMessage />} />
             </Routes>
         </HashRouter>

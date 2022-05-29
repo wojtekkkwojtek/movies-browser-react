@@ -19,11 +19,10 @@ function* fetchMovieDetailsHandler({ payload: id }) {
             call(getData, movie),
             call(getData, cast),
         ])
-
         yield put(fetchMoviePageSuccess(movieDetails))
         yield put(fetchActorsAndCrew(castInMovie))
     } catch (error) {
-        yield call(fetchMoviePageError)
+        yield put(fetchMoviePageError())
     }
 };
 

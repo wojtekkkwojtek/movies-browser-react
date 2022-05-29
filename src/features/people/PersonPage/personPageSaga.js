@@ -25,7 +25,8 @@ function* fetchPersonDetailsHandler({ payload: personId }) {
         yield put(fetchPersonPageSuccess(personDetails))
         yield put(setPersonCredits(personCredits))
     } catch (error) {
-        yield call(fetchPersonPageError)
+      console.log("error", error);
+        yield put(fetchPersonPageError())
     }
 };
 
