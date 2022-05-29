@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components'
-import { Icon } from '../Tiles/styled'
+import styled, { css } from 'styled-components';
+import { Icon } from '../Tiles/styled';
 
 export const Wrapper = styled.div`
     height: 770px;
@@ -8,23 +8,21 @@ export const Wrapper = styled.div`
     justify-content: center;
     display: flex;
     width: 100vw;
+
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         height: 50vw;
         width: 100%;
         object-fit: contain;
     }
-
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         background-position: top;
-        /* height: 248px; */
         width: 100%;
         object-fit: contain;
     }
-`
+`;
 
 export const Backdrop = styled.div`
     width: 1368px;
-    /* height: 100%; */
     background-image: url(${(props) => props.img});
     background-position: center;
     background-size: 100%;
@@ -37,18 +35,15 @@ export const Backdrop = styled.div`
     box-shadow: inset 0px 0px 60px 50px black;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-        /* height: 100%; */
         width: 100%;
         object-fit: contain;
     }
-
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         background-position: top;
-        /* height: 100%; */
         width: 100%;
         object-fit: contain;
     }
-`
+`;
 
 export const Container = styled.div`
     display: flex;
@@ -58,7 +53,7 @@ export const Container = styled.div`
         flex-direction: row;
         align-items: baseline;
     }
-`
+`;
 
 export const Title = styled.p`
     position: relative;
@@ -75,7 +70,7 @@ export const Title = styled.p`
         subtitle &&
         css`
             text-transform: uppercase;
-        `}
+    `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 24px;
@@ -83,11 +78,11 @@ export const Title = styled.p`
 
         ${({ subtitle }) =>
             subtitle &&
-            css`
-                font-size: 14px;
-            `}
+                css`
+                    font-size: 14px;
+        `}
     }
-`
+`;
 
 export const VoteCount = styled.div`
     font-size: 16px;
@@ -102,13 +97,14 @@ export const VoteCount = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 10px;
     }
-`
+`;
 
 export const Star = styled(Icon)`
     width: 40px;
     height: 38.12px;
+    
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 24px;
         height: 24px;
     }
-`
+`;

@@ -20,9 +20,7 @@ const Header = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [inputValue, setInputValue] = useState('');
-
     const replaceQueryParameter = useReplaceQueryParameter(location, navigate);
-
     const searchMovie = (e) => {
         setInputValue(e.target.value)
         replaceQueryParameter({
@@ -30,13 +28,13 @@ const Header = () => {
             value: e.target.value.trim(),
         })
     };
-
     const deleteInput = () => {
         setInputValue('')
         location.pathname.indexOf('/movie') !== -1
             ? navigate(toMovies())
             : navigate(toPeople())
     };
+    
     return (
         <Wrapper>
             <Section>
@@ -54,20 +52,19 @@ const Header = () => {
                     >
                         movies
                     </StyledNavLink>
-                    <StyledNavLink to={toPeople()}   onClick={deleteInput}>people</StyledNavLink>
+                    <StyledNavLink to={toPeople()} onClick={deleteInput}>people</StyledNavLink>
                 </NavContainer>
                 <Label>
                     <SearchIcon />
                     <Input
                         onChange={searchMovie}
                         value={inputValue}
-                        placeholder={`Search for ${
-                            location.pathname.indexOf('/movie') !== -1
+                        placeholder={`Search for ${location.pathname.indexOf('/movie') !== -1
                                 ? 'movies...'
                                 : 'people...'
-                        } `}
+                            } `}
                     />
-                   {inputValue &&  <ClearInput onClick={deleteInput} />}
+                    {inputValue && <ClearInput onClick={deleteInput} />}
                 </Label>
             </Section>
         </Wrapper>

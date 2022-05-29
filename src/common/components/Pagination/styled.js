@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -31,7 +31,6 @@ export const Button = styled.button`
     filter: brightness(110%);
     cursor: pointer;
   }
-  
   &:disabled {
     background-color: ${({ theme }) => theme.color.gray};
     color: ${({ theme }) => theme.color.black};
@@ -42,7 +41,6 @@ export const Button = styled.button`
     margin: 0 4px;
     padding: 8px 12px;
   }
-
 `;
 
 export const Previous = styled.img`

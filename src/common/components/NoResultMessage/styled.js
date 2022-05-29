@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { ReactComponent as NoResult } from "../../assets/icons/no-result.svg";
+import styled from 'styled-components';
+import { ReactComponent as NoResult } from '../../assets/icons/no-result.svg';
 
 export const Wrapper = styled.div`
     display: flex;
@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
       
     }
-
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     
     }

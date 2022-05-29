@@ -4,9 +4,9 @@ import {
     Information,
     StyledErrorImage,
     Wrapper,
-} from './styled'
-import { Link } from 'react-router-dom'
-import { toMovies } from '../../../core/App/routes'
+} from './styled';
+import { Link } from 'react-router-dom';
+import { toMovies } from '../../../core/App/routes';
 
 export const ErrorMessage = () => (
     <Wrapper>
@@ -19,4 +19,4 @@ export const ErrorMessage = () => (
             Back to home page
         </GoBackButton>
     </Wrapper>
-)
+);

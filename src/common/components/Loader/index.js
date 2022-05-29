@@ -1,6 +1,6 @@
-import {Wrapper, StyledSpinner}from "./styled";
+import { Wrapper, StyledSpinner } from './styled';
 
-export const Loader =()=>(
+export const Loader = () => (
     <Wrapper>
         <StyledSpinner />
     </Wrapper>

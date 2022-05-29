@@ -5,19 +5,18 @@ import MovieList from '../../features/movies/MovieList';
 import PeopleList from '../../features/people/PeopleList';
 import PersonPage from '../../features/people/PersonPage';
 import { toMovie, toMovies, toPeople, toPerson } from './routes';
-import {useDispatch} from "react-redux";
-import {fetchGenres} from "../../features/movies/MovieGenres/moviesGenresSlice";
-import {useEffect} from "react";
-import {ErrorMessage} from "../../common/components/ErrorMessage";
+import { useDispatch } from "react-redux";
+import { fetchGenres } from "../../features/movies/MovieGenres/moviesGenresSlice";
+import { useEffect } from "react";
+import { ErrorMessage } from "../../common/components/ErrorMessage";
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(()=> { dispatch(fetchGenres())}, []);
+    const dispatch = useDispatch();
+    useEffect(() => { dispatch(fetchGenres()) }, []);
 
- 
     return (
         <HashRouter>
-            <Header />{' '}
+            <Header />
             <Routes>
                 <Route path={toMovies()} element={<MovieList />} />
                 <Route path={toMovie()} element={<MoviePage />} />

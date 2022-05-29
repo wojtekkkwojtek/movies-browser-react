@@ -19,4 +19,4 @@ export const Container = styled.h1`
         margin-top: 24px;
         margin-bottom: 0;
     };
-`
+`;

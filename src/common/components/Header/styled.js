@@ -1,8 +1,8 @@
-import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
-import { ReactComponent as Camera } from '../../assets/icons/videoIcon.svg'
-import { ReactComponent as Magnifier } from '../../assets/icons/searchIcon.svg'
-import { ReactComponent as ClearIcon } from "../../assets/icons/clearIcon.svg"
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import { ReactComponent as Camera } from '../../assets/icons/videoIcon.svg';
+import { ReactComponent as Magnifier } from '../../assets/icons/searchIcon.svg';
+import { ReactComponent as ClearIcon } from '../../assets/icons/clearIcon.svg';
 
 export const Wrapper = styled.div`
     display: flex;
@@ -22,7 +22,8 @@ export const Wrapper = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         padding-top: 0;
     }
-`
+`;
+
 export const Section = styled.div`
     display: flex;
     width: 1400px;
@@ -35,12 +36,14 @@ export const Section = styled.div`
         justify-content: center;
         width: 100%;
     }
-`
+`;
+
 export const NavContainer = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding-left: 10px;
+    
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         padding-left: 0;
     }
@@ -48,16 +51,19 @@ export const NavContainer = styled.div`
         justify-content: center;
         padding-left: 12px;
     }
-`
+`;
+
 export const IconVideo = styled(Camera)`
     height: 40px;
     width: 40px;
     top: calc(50% - 40px / 2);
+    
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 17px;
         height: 17px;
     }
-`
+`;
+
 export const Title = styled(NavLink)`
     font-weight: 500;
     font-size: 24px;
@@ -66,7 +72,6 @@ export const Title = styled(NavLink)`
     text-transform: capitalize;
     margin-left: 16.58px;
     margin-right: 80px;
-
     text-decoration: none;
     color: ${({ theme }) => theme.color.white};
     cursor: pointer;
@@ -74,6 +79,7 @@ export const Title = styled(NavLink)`
     &:hover {
         opacity: 0.8;
     }
+    
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         margin-right: 65px;
     }
@@ -86,7 +92,8 @@ export const Title = styled(NavLink)`
         margin-right: 10px;
         letter-spacing: -0.5px;
     }
-`
+`;
+
 export const StyledNavLink = styled(NavLink)`
     width: 102px;
     font-weight: 600;
@@ -109,6 +116,7 @@ export const StyledNavLink = styled(NavLink)`
     &.active {
         border: 1px solid ${({ theme }) => theme.color.white};
     }
+    
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
         align-items: center;
@@ -119,19 +127,22 @@ export const StyledNavLink = styled(NavLink)`
         padding: 8px 12px;
         border-radius: 29px;
     }
-`
+`;
+
 export const Label = styled.div`
     display: flex;
     align-items: center;
     position: relative;
     left: -450px;
+    
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         top: 30px;
     }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         position: static;
     }
-`
+`;
+
 export const SearchIcon = styled(Magnifier)`
     position: absolute;
     right: -45px;
@@ -139,6 +150,7 @@ export const SearchIcon = styled(Magnifier)`
     height: 19.22px;
     margin-left: 26.76px;
     z-index: 1000;
+    
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         left: calc(50% + 216px);
     }
@@ -149,7 +161,8 @@ export const SearchIcon = styled(Magnifier)`
         left: calc(50% - 144px);
         top: 95px;
     }
-`
+`;
+
 export const Input = styled.input`
     position: absolute;
     padding-left: 64px;
@@ -163,7 +176,6 @@ export const Input = styled.input`
     font-weight: 400;
     font-size: 16px;
 
-
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         left: calc(50% + 216px);
     }
@@ -176,7 +188,8 @@ export const Input = styled.input`
         top: 82px;
         font-weight: 400;
     }
-`
+`;
+
 export const ClearInput = styled(ClearIcon)`  
     position: absolute;
     right: -418px;
@@ -185,8 +198,6 @@ export const ClearInput = styled(ClearIcon)`
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         left: calc(50% + 610px);
     }
-
-
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         margin-left: 18px;
         width: 16px;

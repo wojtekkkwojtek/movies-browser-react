@@ -40,5 +40,4 @@ export const {
 } = personPageSlice.actions;
 
 export const selectPersonPage = (state) => state.personOne;
-
 export const personPageReducer = personPageSlice.reducer;

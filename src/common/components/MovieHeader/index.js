@@ -16,7 +16,6 @@ export const MovieHeader = ({
                 <Title> {original_title}</Title>
                 <Container>
                     <Title subtitle>
-                        {' '}
                         <Star src={star} alt="" /> {vote_average}/10
                     </Title>
                     <VoteCount>{vote_count} votes</VoteCount>

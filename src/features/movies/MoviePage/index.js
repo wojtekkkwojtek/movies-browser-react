@@ -21,22 +21,19 @@ import { ReactComponent as ArrowUp } from '../../../common/components/ShowAllBut
 const MoviePage = () => {
     const [isShownAll, setIsShownAll] = useState(false);
     const [isShownAllCrew, setIsShownAllCrew] = useState(false);
-
     const dispatch = useDispatch();
     const { id } = useParams();
 
     useEffect(() => {
         dispatch(fetchMoviePage(id))
     }, [dispatch, id]);
+
     const { error, loading, moviePage, actors, crew } =
         useSelector(selectMoviePage);
-
     const navigate = useNavigate();
-
     const routeChange = (id) => {
         navigate(`/people/${id}`)
     };
-
     const shownTiles = isShownAll ? actors.length : 12;
     const shownTilesCrew = isShownAllCrew ? crew.length : 12;
     const toggleShown = () => setIsShownAll((isShownAll) => !isShownAll);

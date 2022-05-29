@@ -18,7 +18,7 @@ const peopleListSlice = createSlice({
         fetchPeopleListError: (state, action) => {
             state.error = true
             state.loading = false
-            
+
         },
         setPeopleList: (state, { payload: fetchedData }) => {
             state.error = false

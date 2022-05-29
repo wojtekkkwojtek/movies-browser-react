@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components'
-import { ReactComponent as NoPhoto } from './noPhoto.svg'
+import styled, { css } from 'styled-components';
+import { ReactComponent as NoPhoto } from './noPhoto.svg';
 
 export const TileContainer = styled.div`
     width: 208px;
@@ -23,16 +23,19 @@ export const TileContainer = styled.div`
         height: 245px;
         padding: 8px;
     }
-`
+`;
+
 export const Poster = styled.img`
     border-radius: 5px;
     width: 155px;
     max-height: 232px;
+    
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 120px;
         height: 178px;
     }
-`
+`;
+
 export const StyledNoPhoto = styled(NoPhoto)`
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 120px;
@@ -45,7 +48,8 @@ export const InfoWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-`
+`;
+
 export const InfoDetails = styled.div`
     display: flex;
     flex-direction: column;
@@ -61,15 +65,17 @@ export const InfoDetails = styled.div`
 
     ${({ gray }) =>
         gray &&
-        css`
-            color: ${({ theme }) => theme.color.stormGray};
-            font-weight: 400;
-            font-size: 15px;
-            line-height: 150%;
-            margin: 0px;
-            @media (max-width: ${({ theme }) =>
-                theme.breakpoints.mobileNormal}) {
-                font-size: 12px;
-            }
-        `}
-`
+            css`
+                color: ${({ theme }) => theme.color.stormGray};
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 150%;
+                margin: 0px;
+            
+                @media (max-width: ${({ theme }) =>
+                    theme.breakpoints.mobileNormal}) {
+                        font-size: 12px;
+                    }
+            `
+    }
+`;
