@@ -1,6 +1,6 @@
-import React from 'react'
-import { Poster, TileContainer, InfoWrapper, InfoDetails, StyledNoPhoto } from './styled'
-import { URLimageSmall } from '../../../assets/generalData/fetchedData'
+import React from 'react';
+import { Poster, TileContainer, InfoWrapper, InfoDetails, StyledNoPhoto } from './styled';
+import { URLimageSmall } from '../../../assets/generalData/fetchedData';
 
 export const PersonTile = ({
     personTile,
@@ -22,7 +22,6 @@ export const PersonTile = ({
             ) : (
                 <StyledNoPhoto />
             )}
-
             <InfoWrapper>
                 <InfoDetails>{original_name}</InfoDetails>
                 <InfoDetails>{person_name}</InfoDetails>
@@ -30,4 +29,4 @@ export const PersonTile = ({
             </InfoWrapper>
         </TileContainer>
     )
-}
+};

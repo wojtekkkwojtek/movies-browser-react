@@ -3,7 +3,6 @@ import {
     URLmovieSearch,
     URLpopularMovies,
 } from '../../../common/assets/generalData/fetchedData';
-
 import { getData } from '../../getApiData';
 import {
     setMovieList,
@@ -14,6 +13,7 @@ import {
 function* fetchMovieListHandler({ payload: { query, page } }) {
     const searchedMovies = `${URLmovieSearch}&query=${query}&page=${page}`
     const popularMovies = `${URLpopularMovies}&page=${page}`
+    
     try {
         yield delay(500)
 
@@ -21,6 +21,7 @@ function* fetchMovieListHandler({ payload: { query, page } }) {
             getData,
             query ? searchedMovies : popularMovies
         )
+        
         yield put(setMovieList(movies))
     } catch (error) {
         yield put(fetchMovieListError())

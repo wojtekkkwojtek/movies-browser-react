@@ -26,8 +26,8 @@ function* fetchPeopleListHandler({ payload: { query, page } }) {
         console.error(error);
 
     }
-}
+};
 
 export function* peopleListSaga() {
     yield debounce(2000, fetchPeopleList.type, fetchPeopleListHandler);
-}
+};

@@ -18,4 +18,4 @@ export const theme = {
         mobileMax: '767px',
         tablet: '1000px',
     },
-}
+};

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 import { Title } from '../../../common/components/Title';
 import { Tile } from '../../../common/components/Tiles/Tile';
@@ -10,35 +10,33 @@ import { Loader } from '../../../common/components/Loader';
 import { Section } from '../../../common/components/Section';
 import { fetchPersonPage, selectPersonPage } from './personPageSlice';
 import { ErrorMessage } from '../../../common/components/ErrorMessage';
-import { StyledButton, Wrapper } from "../../../common/components/ShowAllButton/styled";
-import { ReactComponent as ArrowDown } from "../../../common/components/ShowAllButton/Arrow_down.svg";
-import { ReactComponent as ArrowUp } from "../../../common/components/ShowAllButton/Arrow_up.svg";
+import { StyledButton, Wrapper } from '../../../common/components/ShowAllButton/styled';
+import { ReactComponent as ArrowDown } from '../../../common/components/ShowAllButton/Arrow_down.svg';
+import { ReactComponent as ArrowUp } from '../../../common/components/ShowAllButton/Arrow_up.svg';
 
 const PersonPage = () => {
     const [isShownAll, setIsShownAll] = useState(false);
     const [isShownAllCrew, setIsShownAllCrew] = useState(false);
     const dispatch = useDispatch();
- 
-    const { id } = useParams()
+    const { id } = useParams();
 
     useEffect(() => {
         dispatch(fetchPersonPage(id))
-    }, [id, dispatch])
+    }, [id, dispatch]);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const routeChange = (id) => {
         navigate(`/movie/${id}`)
-    }
-
+    };
     const routeToMoviePage = (id) => {
         routeChange(id)
-    }
-
+    };
     const { personPage, loading, error, cast, crew } = useSelector(selectPersonPage);
     const shownTiles = isShownAll ? cast.length : 8;
     const shownTilesCrew = isShownAllCrew ? crew.length : 8;
     const toggleShown = () => setIsShownAll(isShownAll => !isShownAll);
     const toggleShownCrew = () => setIsShownAllCrew(isShownAllCrew => !isShownAllCrew);
+    
     return (
         <>
             {error && !loading && <ErrorMessage />}

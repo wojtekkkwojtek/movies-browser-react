@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 export const Section = styled.div`
     max-width: 1368px;
@@ -14,9 +14,10 @@ export const Section = styled.div`
         gap: 16px;
 
         ${({ isList }) =>
-        isList &&
-        css`
-          gap:0;
-        `}
+          isList &&
+            css`
+              gap:0;
+            `
+          }
     }
-`
+`;

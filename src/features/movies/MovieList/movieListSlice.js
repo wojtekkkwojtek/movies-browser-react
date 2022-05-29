@@ -27,12 +27,10 @@ const movieListSlice = createSlice({
             state.totalPages = payload.total_pages
             state.totalMoviesResult = payload.total_results
         },
-    
     },
 })
 
 export const {
-  
     setMovieList,
     fetchMovieList,
     fetchMovieListSuccess,

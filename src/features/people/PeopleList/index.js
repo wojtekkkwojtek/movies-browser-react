@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PersonTile } from '../../../common/components/Tiles/PersonTile';
 import { Title } from '../../../common/components/Title';
 import { Loader } from '../../../common/components/Loader';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Section } from '../../../common/components/Section';
 import {
     selectPeopleList,
@@ -19,12 +19,12 @@ import { queryKeys } from '../../queryKeys';
 import { NoResultMessage } from '../../../common/components/NoResultMessage';
 
 const PeopleList = () => {
-  const { loading, peopleList, error } = useSelector(selectPeopleList);
-  const totalPeopleResults = useSelector(selectTotalPeopleResults);
-  const totalPeoplePages = useSelector(selectTotalPeoplePages);
-  
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+    const { loading, peopleList, error } = useSelector(selectPeopleList);
+    const totalPeopleResults = useSelector(selectTotalPeopleResults);
+    const totalPeoplePages = useSelector(selectTotalPeoplePages);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const query = useSearch(queryKeys.search);
     const page = useSearch(queryKeys.page);
 
@@ -42,9 +42,8 @@ const PeopleList = () => {
                 {!error && !loading && totalPeopleResults === 0 ? (
                     <>
                         <Title
-                            title={`Sorry, no result for "${
-                                query[0].toUpperCase() + query.slice(1)
-                            }"`}
+                            title={`Sorry, no result for "${query[0].toUpperCase() + query.slice(1)
+                                }"`}
                         />
                         <NoResultMessage />
                     </>
@@ -52,12 +51,10 @@ const PeopleList = () => {
                     <Title
                         title={
                             query
-                                ? `Search results for "${
-                                      query[0].toUpperCase() + query.slice(1)
-                                  }" ${
-                                      totalPeopleResults &&
-                                      '(' + totalPeopleResults + ')'
-                                  } `
+                                ? `Search results for "${query[0].toUpperCase() + query.slice(1)
+                                }" ${totalPeopleResults &&
+                                '(' + totalPeopleResults + ')'
+                                } `
                                 : `Popular people`
                         }
                     />

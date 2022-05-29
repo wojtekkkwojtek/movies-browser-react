@@ -22,18 +22,14 @@ const MovieList = () => {
     const { loading, movieList, error } = useSelector(selectMovieList);
     const totalMoviesResults = useSelector(selectTotalMoviesResults);
     const totalMoviesPages = useSelector(selectTotalMoviesPages);
-
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
     const query = useSearch(queryKeys.search);
     const page = useSearch(queryKeys.page);
 
-    
     useEffect(() => {
-       dispatch(fetchMovieList({ query, page }))
+        dispatch(fetchMovieList({ query, page }))
     }, [dispatch, query, page]);
-
 
     const routeToMoviePage = (id) => {
         navigate(`/movie/${id}`)
@@ -46,7 +42,7 @@ const MovieList = () => {
                     <Title
                         title={`Sorry, no result for "${query &&
                             query[0].toUpperCase() + query.slice(1)
-                        }"`}
+                            }"`}
                     />
                     <NoResultMessage />
                 </>
@@ -54,18 +50,15 @@ const MovieList = () => {
                 <Title
                     title={
                         query
-                            ? `Search results for "${
-                                  query[0].toUpperCase() + query.slice(1)
-                              }" ${
-                                  totalMoviesResults &&
-                                  '(' + totalMoviesResults + ')'
-                              }  `
+                            ? `Search results for "${query[0].toUpperCase() + query.slice(1)
+                            }" ${totalMoviesResults &&
+                            '(' + totalMoviesResults + ')'
+                            }  `
                             : `Popular movies`
                     }
                 />
             )}
             {error && !loading && <ErrorMessage />}
-           
             {!error && loading && <Loader />}
             {!error &&
                 !loading &&

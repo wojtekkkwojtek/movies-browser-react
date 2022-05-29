@@ -38,5 +38,4 @@ export const {
 } = moviePageSlice.actions;
 
 export const selectMoviePage = (state) => state.movieOne;
-
 export const moviePageReducer = moviePageSlice.reducer;
