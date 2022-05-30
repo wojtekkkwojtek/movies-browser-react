@@ -122,7 +122,7 @@ export const Tile = ({
                     <InfoWrapper nonInList={nonInList} person={person}>
                         {genres &&
                             genres.map((genre) => (
-                                <Genres>{genre.name}</Genres>
+                                <Genres key={nanoid()}>{genre.name}</Genres>
                             ))
                         }
                     </InfoWrapper>
