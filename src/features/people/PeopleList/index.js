@@ -42,7 +42,7 @@ const PeopleList = () => {
                 {!error && !loading && totalPeopleResults === 0 ? (
                     <>
                         <Title
-                            title={`Sorry, no result for "${query[0].toUpperCase() + query.slice(1)
+                            title={`Sorry, no result for "${query && query[0].toUpperCase() + query.slice(1)
                                 }"`}
                         />
                         <NoResultMessage />
