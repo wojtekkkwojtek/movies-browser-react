@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { ReactComponent as NoPoster } from './Tile/noPoster.svg';
+import { ReactComponent as NoPoster } from './noPoster.svg';
 
 export const TileContainer = styled.div`
     background: ${({ theme }) => theme.color.white};

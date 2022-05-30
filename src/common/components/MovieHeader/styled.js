@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Icon } from '../Tiles/styled';
+import { Icon } from '../Tiles/Tile/styled';
 
 export const Wrapper = styled.div`
     height: 770px;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
-import star from '../star.svg';
+import star from './star.svg';
 import { URLimageSmall } from '../../../assets/generalData/fetchedData';
 import { ReactComponent as NoPhoto } from '../PersonTile/noPhoto.svg';
 import {
@@ -24,7 +24,7 @@ import {
     Tag1,
     Tag2,
     Overview
-} from '../styled';
+} from './styled';
 import { selectMoviesGenresList } from '../../../../features/movies/MovieGenres/moviesGenresSlice';
 
 export const Tile = ({
