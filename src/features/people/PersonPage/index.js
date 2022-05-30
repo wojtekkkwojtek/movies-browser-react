@@ -41,7 +41,6 @@ const PersonPage = () => {
         <>
             {error && !loading && <ErrorMessage />}
             {!error && loading && <Loader />}
-            {!error && !loading}
             {!error && !loading && personPage && (
                 <>
                     <Section>
