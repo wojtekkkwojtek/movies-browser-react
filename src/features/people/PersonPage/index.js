@@ -64,7 +64,7 @@ const PersonPage = () => {
                             title={`Movies  - cast (${cast && cast.length})`}
                         />                        {cast &&
                             cast.slice(0, shownTiles).map((movie) => (
-                                <React.Fragment key={cast.id}>
+                                <React.Fragment key={nanoid()}>
                                     <Tile
                                         isList
                                         nonInList

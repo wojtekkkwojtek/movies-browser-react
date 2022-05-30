@@ -17,6 +17,7 @@ import { Pagination } from '../../../common/components/Pagination';
 import { useSearch } from '../../useParameters';
 import { queryKeys } from '../../queryKeys';
 import { NoResultMessage } from '../../../common/components/NoResultMessage';
+import {nanoid} from "nanoid";
 
 const PeopleList = () => {
     const { loading, peopleList, error } = useSelector(selectPeopleList);
@@ -67,7 +68,7 @@ const PeopleList = () => {
                     peopleList.map((people) => (
                         <>
                             <PersonTile
-                                key={people.id}
+                                key={nanoid()}
                                 onClick={() => routeChange(people.id)}
                                 person_name={people.name}
                                 poster={people.profile_path}

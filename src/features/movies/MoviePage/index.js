@@ -78,7 +78,7 @@ const MoviePage = () => {
                                 .slice(0, shownTiles)
                                 .map((actor) => (
                                     <PersonTile
-                                        key={actor.id}
+                                        key={nanoid()}
                                         personTile={true}
                                         onClick={() => routeChange(actor.id)}
                                         original_name={actor.original_name}
@@ -106,7 +106,7 @@ const MoviePage = () => {
                                 .slice(0, shownTilesCrew)
                                 .map((person) => (
                                     <PersonTile
-                                        key={person.id}
+                                        key={nanoid()}
                                         personTile={true}
                                         gray
                                         original_name={person.original_name}
