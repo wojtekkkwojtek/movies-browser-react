@@ -5,13 +5,6 @@ export const Wrapper = styled.div`
     display: flex;
     flex-basis: auto;
     justify-content: center;
-  
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-      
-    }
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    
-    }
 `;
 
 export const NoResultImage = styled(NoResult)`
