@@ -95,7 +95,7 @@ export const Tile = ({
                         </Tag>
                     </Info>
                     <Info inline isList={isList} movie={movie}>
-                        <Tag1>Date of birth&nbsp;</Tag1>
+                        <Tag1>Date of birth:&nbsp;</Tag1>
                         <Tag2 mobile>Birth:&nbsp;</Tag2>
                         <Tag>{date_of_birth ? date_of_birth : 'Unknown'}</Tag>
                     </Info>
