@@ -44,6 +44,9 @@ export const TileContainer = styled.div`
                 `
         }
     }
+    @media (orientation: landscape) and (max-width: 900px)  {
+      margin: 5px 0;
+    }
 `;
 
 export const Poster = styled.img`
