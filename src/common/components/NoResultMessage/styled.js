@@ -8,7 +8,20 @@ export const Wrapper = styled.div`
 `;
 
 export const NoResultImage = styled(NoResult)`
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
+          height: 500px;
+          width: 500px;
+      }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        height: 50%;
+        height: 300px;
+        width: 300px;
     }
+
+
+
+    @media (orientation: landscape) and (max-width: 900px) {
+      position:absolute;
+      top: 15%;
+      height: 350px;
+        width: 350px;    }
 `;
