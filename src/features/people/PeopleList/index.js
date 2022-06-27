@@ -38,7 +38,6 @@ const PeopleList = () => {
     };
 
     return (
-        <>
             <Section>
                 {!error && !loading && totalPeopleResults === 0 ? (
                     <>
@@ -75,9 +74,8 @@ const PeopleList = () => {
                             />
                         </>
                     ))}
-            </Section>
             {!error && !loading && totalPeoplePages > 1 && <Pagination />}
-        </>
+            </Section>
     );
 }
 

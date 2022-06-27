@@ -3,15 +3,16 @@ import { ReactComponent as Spinner } from '../../assets/icons/spinner.svg';
 
 export const Wrapper = styled.div`
     display: flex;
+    height: 50vh;
     justify-content: center;
-    margin-top: 120px;
+    align-items: center;
 `;
 
 const loaderAnimation = keyframes`
-    from{
+    from {
         transform:rotate(0deg);
     }
-    to{
+    to {
         transform:rotate(360deg);
     }
 `;
@@ -19,6 +20,9 @@ const loaderAnimation = keyframes`
 export const StyledSpinner = styled(Spinner)`
     animation: 1.8s infinite linear ${loaderAnimation};
 
+    @media (orientation: landscape) and (max-width: 900px) {
+      height: 45px;
+    }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
         height: 35px;
     }

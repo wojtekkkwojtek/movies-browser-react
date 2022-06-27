@@ -22,6 +22,14 @@ export const Wrapper = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         padding-top: 0;
     }
+    @media (orientation: landscape) and (max-width: 900px) {
+        /* background-color: yellow; */
+        position: static;
+        height: fit-content;
+        padding: 10px 0;
+        /* padding-bottom: 10px; */
+    }
+   
 `;
 
 export const Section = styled.div`
@@ -35,6 +43,11 @@ export const Section = styled.div`
         height: fit-content;
         justify-content: center;
         width: 100%;
+    }
+    @media (orientation: landscape) and (max-width: 900px)  {
+      flex-direction: row;
+      justify-content: flex-start;
+
     }
 `;
 
@@ -51,6 +64,11 @@ export const NavContainer = styled.div`
         justify-content: center;
         padding-left: 12px;
     }
+    @media (orientation: landscape) and (max-width: 900px)  {
+      padding-left: 20px;
+
+    }
+
 `;
 
 export const IconVideo = styled(Camera)`
@@ -62,6 +80,7 @@ export const IconVideo = styled(Camera)`
         width: 17px;
         height: 17px;
     }
+
 `;
 
 export const Title = styled(NavLink)`
@@ -92,6 +111,9 @@ export const Title = styled(NavLink)`
         margin-right: 10px;
         letter-spacing: -0.5px;
     }
+    @media (orientation: landscape) and (max-width: 900px)  {
+      display: none;
+    }
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -116,12 +138,24 @@ export const StyledNavLink = styled(NavLink)`
     &.active {
         border: 1px solid ${({ theme }) => theme.color.white};
     }
+
+    // to samo dwa razy niżej:
     
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
         align-items: center;
         width: 70px;
         margin: 24px 6px;
+        height: 34px;
+        font-size: 12px;
+        padding: 8px 12px;
+        border-radius: 29px;
+    }
+    @media (orientation: landscape) and (max-width: 900px) {
+      display: flex;
+        align-items: center;
+        width: 70px;
+        margin: 4px 6px;
         height: 34px;
         font-size: 12px;
         padding: 8px 12px;
@@ -140,6 +174,12 @@ export const Label = styled.div`
     }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         position: static;
+    }
+
+
+    @media (orientation: landscape) and (max-width: 900px) {
+      left: 0;
+
     }
 `;
 
@@ -160,6 +200,11 @@ export const SearchIcon = styled(Magnifier)`
         height: 16px;
         left: calc(50% - 144px);
         top: 95px;
+    }
+    @media (orientation: landscape) and (max-width: 900px) {
+       top: -42px;
+       left: calc(50% + 50px);
+
     }
 `;
 
@@ -188,7 +233,15 @@ export const Input = styled.input`
         top: 82px;
         font-weight: 400;
     }
-`;
+    @media (orientation: landscape) and (max-width: 900px) {
+      font-size: 13px;
+        padding-left: 45px;
+        width: 288px;
+        height: 40px;
+        left: calc(100% + 60px);
+        top: -50px;
+        font-weight: 400;
+}`;
 
 export const ClearInput = styled(ClearIcon)`  
     position: absolute;
@@ -205,4 +258,6 @@ export const ClearInput = styled(ClearIcon)`
         left: calc(50% + 100px);
         top: 95px;
     }
+
+   
 `;
