@@ -27,8 +27,8 @@ export const TileContainer = styled.div`
 
 export const Poster = styled.img`
     border-radius: 5px;
-    width: 155px;
-    max-height: 232px;
+    width: 177px;
+    max-height: 254px;
     
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 120px;
@@ -37,17 +37,24 @@ export const Poster = styled.img`
 `;
 
 export const StyledNoPhoto = styled(NoPhoto)`
+    width: 177px;
+    height: 254px;
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 120px;
         height: 178px;
     }
+    ${({ person }) =>
+        person &&
+            css`
+            width: 399px;
+            height: 564px;
+            `}
 `;
 
 export const InfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden;
 `;
 
 export const InfoDetails = styled.div`

@@ -12,12 +12,12 @@ export const PersonTile = ({
     onClick,
 }) => {
     return (
-        <TileContainer personTile={personTile} onClick={onClick}>
+        <TileContainer onClick={onClick}>
             {poster ? (
                 <Poster
                     src={`${URLimageSmall}${poster}`}
                     alt=""
-                    personTile={personTile}
+                    
                 />
             ) : (
                 <StyledNoPhoto />

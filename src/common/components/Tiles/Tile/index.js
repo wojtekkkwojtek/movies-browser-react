@@ -25,6 +25,7 @@ import {
     Tag2,
     Overview
 } from './styled';
+import {StyledNoPhoto} from "../PersonTile/styled"
 import { selectMoviesGenresList } from '../../../../features/movies/MovieGenres/moviesGenresSlice';
 
 export const Tile = ({
@@ -57,6 +58,7 @@ export const Tile = ({
             isList={isList} 
             details={details} 
             onClick={onClick}
+            person={person}
         >
             {poster ? (
                 <Poster
@@ -65,13 +67,13 @@ export const Tile = ({
                     src={`${URLimageSmall}${poster}`}
                     alt=""
                 />
-            ) : !person ? (
-                <StyledNoPoster />
+            ) : person ? (
+                <StyledNoPhoto person={person}/>
             ) : (
-                <NoPhoto />
+                <StyledNoPoster />
             )}
-            <Content isList={isList}>
-                <Wrapper>
+            <Content isList={isList} person={person}>
+                {/* <Wrapper> */}
                     <Title isList={isList} details={details} person={person}>
                         {title}
                     </Title>
@@ -126,7 +128,7 @@ export const Tile = ({
                             ))
                         }
                     </InfoWrapper>
-                </Wrapper>
+                {/* </Wrapper> */}
                 <InfoWrapper rates>
                     <Icon isList={isList} person={person} src={star} alt="" />
                     <Rate person={person} isList={isList}> {rate}</Rate>

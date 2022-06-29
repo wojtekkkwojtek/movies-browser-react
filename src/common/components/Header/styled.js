@@ -41,12 +41,12 @@ export const Section = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         flex-direction: column;
         height: fit-content;
-        justify-content: center;
+        justify-content: end;
         width: 100%;
     }
     @media (orientation: landscape) and (max-width: 900px)  {
       flex-direction: row;
-      justify-content: flex-start;
+      justify-content: start;
 
     }
 `;
@@ -178,8 +178,7 @@ export const Label = styled.div`
 
 
     @media (orientation: landscape) and (max-width: 900px) {
-      left: 0;
-
+        left: -20px;
     }
 `;
 
@@ -234,7 +233,7 @@ export const Input = styled.input`
         font-weight: 400;
     }
     @media (orientation: landscape) and (max-width: 900px) {
-      font-size: 13px;
+        font-size: 13px;
         padding-left: 45px;
         width: 288px;
         height: 40px;

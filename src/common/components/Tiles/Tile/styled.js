@@ -28,6 +28,15 @@ export const TileContainer = styled.div`
             `
     }
     ${({ details }) => details && css``} 
+    ${({ person }) => person && css`
+    max-width: 1368px;
+    ${({ person }) => person && css`
+    display: flex;
+    flex-direction: row;
+    min-height: 644px;
+    `} 
+    `} 
+
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         padding: 16px;
@@ -120,6 +129,7 @@ export const Content = styled.div`
                 `
         }
     }
+  
 `;
 
 export const Wrapper = styled.div``;
@@ -417,6 +427,7 @@ export const Overview = styled.p`
     font-size: 20px;
     line-height: 1.6;
     text-align: justify;
+    /* min-width: 600px; */
 
     ${({ isList }) =>
         isList &&
