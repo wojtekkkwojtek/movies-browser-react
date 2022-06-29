@@ -432,12 +432,12 @@ export const Overview = styled.p`
     ${({ isList }) =>
         isList &&
             css`
-                display: none;
+                 display: none;
             `
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        font-size: 14px;
+         font-size: 14px;
     }
 `;
 

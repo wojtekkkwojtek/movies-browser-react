@@ -1,9 +1,14 @@
 import React from 'react';
-import { Poster, TileContainer, InfoWrapper, InfoDetails, StyledNoPhoto } from './styled';
+import {
+    Poster,
+    TileContainer,
+    InfoWrapper,
+    InfoDetails,
+    StyledNoPhoto,
+} from './styled';
 import { URLimageSmall } from '../../../assets/generalData/fetchedData';
 
 export const PersonTile = ({
-    personTile,
     poster,
     original_name,
     person_name,
@@ -14,11 +19,7 @@ export const PersonTile = ({
     return (
         <TileContainer onClick={onClick}>
             {poster ? (
-                <Poster
-                    src={`${URLimageSmall}${poster}`}
-                    alt=""
-                    
-                />
+                <Poster src={`${URLimageSmall}${poster}`} alt="" />
             ) : (
                 <StyledNoPhoto />
             )}
@@ -28,5 +29,5 @@ export const PersonTile = ({
                 <InfoDetails gray={gray}>{as}</InfoDetails>
             </InfoWrapper>
         </TileContainer>
-    )
+    );
 };
