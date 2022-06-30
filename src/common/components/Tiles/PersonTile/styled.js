@@ -46,8 +46,8 @@ export const StyledNoPhoto = styled(NoPhoto)`
     ${({ person }) =>
         person &&
         css`
-            width: 399px;
-            height: 564px;
+            width: 312px;
+            height: 464px;
         `}
 `;
 

@@ -142,8 +142,8 @@ export const Tile = ({
                         &nbsp;votes
                     </Score>
                 </InfoWrapper>
+                <Overview isList={isList}>{overview}</Overview>
             </Content>
-            <Overview isList={isList}>{overview}</Overview>
         </TileContainer>
     );
 };
