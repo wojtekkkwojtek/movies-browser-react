@@ -25,10 +25,20 @@ export const TileContainer = styled.div`
     }
 `;
 
+export const PhotoWrapper = styled.div`
+    width: 177px;
+    height: 240px;
+    overflow: hidden;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        width: 120px;
+        height: 178px;
+    }
+`;
 export const Poster = styled.img`
     border-radius: 5px;
     width: 177px;
-    max-height: 254px;
+    max-height: 250px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 120px;
@@ -38,7 +48,7 @@ export const Poster = styled.img`
 
 export const StyledNoPhoto = styled(NoPhoto)`
     width: 177px;
-    height: 254px;
+    height: 240px;
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 120px;
         height: 178px;
@@ -55,16 +65,18 @@ export const InfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin-top: 5%;
 `;
 
 export const InfoDetails = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
+
     font-weight: 500;
     font-size: 18px;
     line-height: 130%;
-    margin-top: 5px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 14px;

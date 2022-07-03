@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { ReactComponent as NoPoster } from './noPoster.svg';
 
 export const TileContainer = styled.div`
+    width: 100%;
     background: ${({ theme }) => theme.color.white};
     padding: 40px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
@@ -75,15 +76,22 @@ export const Poster = styled.img`
 `;
 
 export const StyledNoPoster = styled(NoPoster)`
-    min-height: 434px;
+    width: 312px;
+    height: 464px;
+    display: block;
+    border-radius: 5px;
+    float: left;
+    margin-right: 40px;
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 114px;
-        height: 169px;
-        min-height: 0;
+        height: auto;
+        margin-right: 16px;
+        flex-shrink: 0;
     }
 `;
 
 export const Content = styled.div`
+    width: 100%;
     ${({ isList }) =>
         isList &&
         css`
@@ -259,6 +267,8 @@ export const Score = styled.div`
 export const InfoWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
     padding-left: 0;
 
     ${({ person }) =>
@@ -352,19 +362,6 @@ export const NoInfoTag = styled.div`
     }
 `;
 
-export const Overview = styled.p`
-    font-size: 20px;
-    line-height: 1.6;
-    text-align: justify;
-    ${({ isList }) =>
-        isList &&
-        css`
-            display: none;
-        `}
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        font-size: 14px;
-    }
-`;
 export const Tag = styled.div`
     display: flex;
     flex-direction: row;
@@ -388,5 +385,20 @@ export const Tag2 = styled.div`
         `}
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
+    }
+`;
+
+export const Overview = styled.p`
+    width: 100%;
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: justify;
+    ${({ isList }) =>
+        isList &&
+        css`
+            display: none;
+        `}
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        font-size: 14px;
     }
 `;

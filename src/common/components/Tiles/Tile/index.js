@@ -116,7 +116,10 @@ export const Tile = ({
                 </Info>
                 <Info isList={isList} person={person} details={details}>
                     <NoInfoTag>Release date:&nbsp; </NoInfoTag>
-                    <Tag> {release_date ? release_date : 'Unknown'}</Tag>
+                    <TagBlack>
+                        {' '}
+                        {release_date ? release_date : 'Unknown'}
+                    </TagBlack>
                 </Info>
                 <InfoWrapper isList={isList} person={person}>
                     {genres &&

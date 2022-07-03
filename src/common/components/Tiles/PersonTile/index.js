@@ -5,6 +5,7 @@ import {
     InfoWrapper,
     InfoDetails,
     StyledNoPhoto,
+    PhotoWrapper,
 } from './styled';
 import { URLimageSmall } from '../../../assets/generalData/fetchedData';
 
@@ -18,11 +19,13 @@ export const PersonTile = ({
 }) => {
     return (
         <TileContainer onClick={onClick}>
-            {poster ? (
-                <Poster src={`${URLimageSmall}${poster}`} alt="" />
-            ) : (
-                <StyledNoPhoto />
-            )}
+            <PhotoWrapper>
+                {poster ? (
+                    <Poster src={`${URLimageSmall}${poster}`} alt="" />
+                ) : (
+                    <StyledNoPhoto />
+                )}
+            </PhotoWrapper>
             <InfoWrapper>
                 <InfoDetails>{original_name}</InfoDetails>
                 <InfoDetails>{person_name}</InfoDetails>

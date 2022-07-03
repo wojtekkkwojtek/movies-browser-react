@@ -17,7 +17,7 @@ import { Pagination } from '../../../common/components/Pagination';
 import { useSearch } from '../../useParameters';
 import { queryKeys } from '../../queryKeys';
 import { NoResultMessage } from '../../../common/components/NoResultMessage';
-import {nanoid} from "nanoid";
+import { nanoid } from 'nanoid';
 
 const PeopleList = () => {
     const { loading, peopleList, error } = useSelector(selectPeopleList);
@@ -30,53 +30,56 @@ const PeopleList = () => {
     const page = useSearch(queryKeys.page);
 
     useEffect(() => {
-        dispatch(fetchPeopleList({ query, page }))
+        dispatch(fetchPeopleList({ query, page }));
     }, [dispatch, query, page]);
 
     const routeChange = (id) => {
-        navigate(`/people/${id}`)
+        navigate(`/people/${id}`);
     };
 
     return (
-            <Section>
-                {!error && !loading && totalPeopleResults === 0 ? (
-                    <>
-                        <Title
-                            title={`Sorry, no result for "${query && query[0].toUpperCase() + query.slice(1)
-                                }"`}
-                        />
-                        <NoResultMessage />
-                    </>
-                ) : (
+        <Section>
+            {!error && !loading && totalPeopleResults === 0 ? (
+                <>
                     <Title
-                        title={
-                            query
-                                ? `Search results for "${query[0].toUpperCase() + query.slice(1)
-                                }" ${totalPeopleResults &&
-                                '(' + totalPeopleResults + ')'
-                                } `
-                                : `Popular people`
-                        }
+                        title={`Sorry, no result for "${
+                            query && query[0].toUpperCase() + query.slice(1)
+                        }"`}
                     />
-                )}
-                {error && !loading && <ErrorMessage />}
-                {!error && loading && <Loader />}
-                {!error &&
-                    !loading &&
-                    peopleList &&
-                    peopleList.map((people) => (
-                        <>
-                            <PersonTile
-                                key={nanoid()}
-                                onClick={() => routeChange(people.id)}
-                                person_name={people.name}
-                                poster={people.profile_path}
-                            />
-                        </>
-                    ))}
+                    <NoResultMessage />
+                </>
+            ) : (
+                <Title
+                    title={
+                        query
+                            ? `Search results for "${
+                                  query[0].toUpperCase() + query.slice(1)
+                              }" ${
+                                  totalPeopleResults &&
+                                  '(' + totalPeopleResults + ')'
+                              } `
+                            : `Popular people`
+                    }
+                />
+            )}
+            {error && !loading && <ErrorMessage />}
+            {!error && loading && <Loader />}
+            {!error &&
+                !loading &&
+                peopleList &&
+                peopleList.map((people) => (
+                    <>
+                        <PersonTile
+                            key={nanoid()}
+                            onClick={() => routeChange(people.id)}
+                            person_name={people.name}
+                            poster={people.profile_path}
+                        />
+                    </>
+                ))}
             {!error && !loading && totalPeoplePages > 1 && <Pagination />}
-            </Section>
+        </Section>
     );
-}
+};
 
 export default PeopleList;
