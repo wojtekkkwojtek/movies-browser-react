@@ -10,7 +10,10 @@ import { Loader } from '../../../common/components/Loader';
 import { Section } from '../../../common/components/Section';
 import { fetchPersonPage, selectPersonPage } from './personPageSlice';
 import { ErrorMessage } from '../../../common/components/ErrorMessage';
-import { StyledButton, Wrapper } from '../../../common/components/ShowAllButton/styled';
+import {
+    StyledButton,
+    Wrapper,
+} from '../../../common/components/ShowAllButton/styled';
 import { ReactComponent as ArrowDown } from '../../../common/components/ShowAllButton/Arrow_down.svg';
 import { ReactComponent as ArrowUp } from '../../../common/components/ShowAllButton/Arrow_up.svg';
 
@@ -21,22 +24,24 @@ const PersonPage = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        dispatch(fetchPersonPage(id))
+        dispatch(fetchPersonPage(id));
     }, [id, dispatch]);
 
     const navigate = useNavigate();
     const routeChange = (id) => {
-        navigate(`/movie/${id}`)
+        navigate(`/movie/${id}`);
     };
     const routeToMoviePage = (id) => {
-        routeChange(id)
+        routeChange(id);
     };
-    const { personPage, loading, error, cast, crew } = useSelector(selectPersonPage);
+    const { personPage, loading, error, cast, crew } =
+        useSelector(selectPersonPage);
     const shownTiles = isShownAll ? cast.length : 8;
     const shownTilesCrew = isShownAllCrew ? crew.length : 8;
-    const toggleShown = () => setIsShownAll(isShownAll => !isShownAll);
-    const toggleShownCrew = () => setIsShownAllCrew(isShownAllCrew => !isShownAllCrew);
-    
+    const toggleShown = () => setIsShownAll((isShownAll) => !isShownAll);
+    const toggleShownCrew = () =>
+        setIsShownAllCrew((isShownAllCrew) => !isShownAllCrew);
+
     return (
         <>
             {error && !loading && <ErrorMessage />}
@@ -52,7 +57,6 @@ const PersonPage = () => {
                             date_of_birth={new Date(
                                 personPage.birthday
                             ).toLocaleDateString()}
-                            place="Place of birth:&nbsp;"
                             place_of_birth={personPage.place_of_birth}
                             poster={personPage.profile_path}
                             overview={personPage.biography}
@@ -61,7 +65,8 @@ const PersonPage = () => {
                     <Section isList>
                         <Title
                             title={`Movies  - cast (${cast && cast.length})`}
-                        />                        {cast &&
+                        />{' '}
+                        {cast &&
                             cast.slice(0, shownTiles).map((movie) => (
                                 <React.Fragment key={nanoid()}>
                                     <Tile
@@ -86,17 +91,17 @@ const PersonPage = () => {
                                 </React.Fragment>
                             ))}
                     </Section>
-                    {cast && cast.length > 8 && <Wrapper>
-                        <StyledButton
-                            onClick={toggleShown}
-                        >
-                            {isShownAll && <ArrowUp />}
-                            <div>
-                                {isShownAll ? 'show less' : 'show all'}
-                                {!isShownAll && <ArrowDown />}
-                            </div>
-                        </StyledButton>
-                    </Wrapper>}
+                    {cast && cast.length > 8 && (
+                        <Wrapper>
+                            <StyledButton onClick={toggleShown}>
+                                {isShownAll && <ArrowUp />}
+                                <div>
+                                    {isShownAll ? 'show less' : 'show all'}
+                                    {!isShownAll && <ArrowDown />}
+                                </div>
+                            </StyledButton>
+                        </Wrapper>
+                    )}
                     <Section>
                         <Title
                             title={`Movies  - crew (${crew && crew.length})`}
@@ -127,21 +132,21 @@ const PersonPage = () => {
                                 </React.Fragment>
                             ))}
                     </Section>
-                    {crew && crew.length > 8 && <Wrapper>
-                        <StyledButton
-                            onClick={toggleShownCrew}
-                        >
-                            {isShownAllCrew && <ArrowUp />}
-                            <div>
-                                {isShownAllCrew ? "show less" : "show all"}
-                                {!isShownAllCrew && <ArrowDown />}
-                            </div>
-                        </StyledButton>
-                    </Wrapper>}
+                    {crew && crew.length > 8 && (
+                        <Wrapper>
+                            <StyledButton onClick={toggleShownCrew}>
+                                {isShownAllCrew && <ArrowUp />}
+                                <div>
+                                    {isShownAllCrew ? 'show less' : 'show all'}
+                                    {!isShownAllCrew && <ArrowDown />}
+                                </div>
+                            </StyledButton>
+                        </Wrapper>
+                    )}
                 </>
             )}
         </>
-    )
+    );
 };
 
 export default PersonPage;

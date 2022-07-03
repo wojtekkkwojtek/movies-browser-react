@@ -24,6 +24,7 @@ import {
     Tag1,
     Tag2,
     Overview,
+    TagBlack,
 } from './styled';
 import { StyledNoPhoto } from '../PersonTile/styled';
 import { selectMoviesGenresList } from '../../../../features/movies/MovieGenres/moviesGenresSlice';
@@ -90,18 +91,28 @@ export const Tile = ({
                 <Year isList={isList}>{year}</Year>
                 <Info isList={isList} person={person}>
                     <NoInfoTag>Production:&nbsp; </NoInfoTag>
-                    <Tag>
+                    <TagBlack>
                         {country && country.map(({ name }) => name).join(', ')}
-                    </Tag>
+                    </TagBlack>
                 </Info>
                 <Info inline isList={isList} movie={movie}>
-                    <Tag1>Date of birth:&nbsp;</Tag1>
-                    <Tag2 mobile>Birth:&nbsp;</Tag2>
-                    <Tag>{date_of_birth ? date_of_birth : 'Unknown'}</Tag>
+                    <Tag>
+                        {' '}
+                        <Tag1>Date of birth:&nbsp; </Tag1>
+                        <Tag2 mobile>Birth:&nbsp;</Tag2>
+                        <TagBlack>
+                            {' '}
+                            {date_of_birth ? date_of_birth : 'Unknown'}
+                        </TagBlack>
+                    </Tag>{' '}
                 </Info>
                 <Info isList={isList} movie={movie}>
-                    {place}
-                    <Tag>{place_of_birth ? place_of_birth : 'Unknown'}</Tag>
+                    <Tag>
+                        Place of birth:&nbsp;
+                        <TagBlack>
+                            {place_of_birth ? place_of_birth : 'Unknown'}
+                        </TagBlack>{' '}
+                    </Tag>
                 </Info>
                 <Info isList={isList} person={person} details={details}>
                     <NoInfoTag>Release date:&nbsp; </NoInfoTag>
