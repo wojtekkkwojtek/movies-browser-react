@@ -2,14 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import star from './star.svg';
-import errorImg from './posterError.png';
-import errorPerson from './personError.jpeg';
+import errorPoster from '../../../assets/icons/posterError.png';
+import errorPerson from '../../../assets/icons/personError.jpeg';
 import { URLimageSmall } from '../../../assets/generalData/fetchedData';
 import {
     TileContainer,
     Poster,
-    StyledNoPoster,
-    StyledNoPhoto,
     Content,
     Title,
     Subtitle,
@@ -68,7 +66,7 @@ export const Tile = ({
                         ? `${URLimageSmall}${poster}`
                         : person
                         ? errorPerson
-                        : errorImg
+                        : errorPoster
                 }
                 alt=""
             />

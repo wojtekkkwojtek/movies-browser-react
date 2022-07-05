@@ -4,10 +4,10 @@ import {
     TileContainer,
     InfoWrapper,
     InfoDetails,
-    StyledNoPhoto,
     PhotoWrapper,
 } from './styled';
 import { URLimageSmall } from '../../../assets/generalData/fetchedData';
+import errorPerson from '../../../assets/icons/personError.jpeg';
 
 export const PersonTile = ({
     poster,
@@ -20,11 +20,10 @@ export const PersonTile = ({
     return (
         <TileContainer onClick={onClick}>
             <PhotoWrapper>
-                {poster ? (
-                    <Poster src={`${URLimageSmall}${poster}`} alt="" />
-                ) : (
-                    <StyledNoPhoto />
-                )}
+                <Poster
+                    src={poster ? `${URLimageSmall}${poster}` : errorPerson}
+                    alt=""
+                />
             </PhotoWrapper>
             <InfoWrapper>
                 <InfoDetails>{original_name}</InfoDetails>
