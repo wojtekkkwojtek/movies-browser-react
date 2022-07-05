@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { ReactComponent as NoPhoto } from './noPhoto.svg';
+import { ReactComponent as NoPhoto } from '../../../assets/icons/noPhoto.svg';
 
 export const TileContainer = styled.div`
     width: 208px;

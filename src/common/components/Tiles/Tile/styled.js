@@ -1,12 +1,15 @@
 import styled, { css } from 'styled-components';
-import { ReactComponent as NoPoster } from './noPoster.svg';
+// import {NoPoster} from './posterError.png';
+import { ReactComponent as NoPhoto } from '../../../assets/icons/noPhoto.svg';
 
 export const TileContainer = styled.div`
+    /* display: flex;
+    flex-direction: row; */
     width: 100%;
     background: ${({ theme }) => theme.color.white};
     padding: 40px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
-    display: block;
+    /* display: inline-block; */
     grid-gap: 40px;
     margin: 64px auto 0;
     ${({ isList }) =>
@@ -25,7 +28,11 @@ export const TileContainer = styled.div`
                 transform: scale(1.03);
             }
         `}
-    ${({ details }) => details && css``} 
+    /* ${({ person }) =>
+        person &&
+        css`
+            display: block;
+        `}  */
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         padding: 16px;
         margin: 16px auto 0;
@@ -44,10 +51,57 @@ export const TileContainer = styled.div`
     }
 `;
 
-export const Poster = styled.img`
+const noImage = css`
     width: 312px;
     height: 464px;
-    display: block;
+    display: flex;
+    border-radius: 5px;
+    float: left;
+    margin: 0 40px 20px 0;
+
+    /* ${({ details }) =>
+        details &&
+        css`
+            float: left;
+            margin-right: 40px;
+        `} */
+    ${({ isList }) =>
+        isList &&
+        css`
+            height: 434px;
+            width: 292px;
+            margin: 0;
+        `}
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        width: 114px;
+        height: 169px;
+        margin: 0 16px 8px 0;
+        flex-shrink: 0;
+        ${({ isList }) =>
+            isList &&
+            css`
+                margin: 0;
+            `}
+    }
+    /* width: 100%;
+    height: auto; */
+    /* width: 312px;
+    height: 464px;
+    display: flex;
+    border-radius: 5px;
+    float: left;
+    margin-right: 40px;
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        width: 114px;
+        height: auto;
+        margin-right: 16px;
+        /* flex-shrink: 0; */
+`;
+
+export const Poster = styled.img`
+    ${noImage}/* width: 312px;
+    height: 464px;
+    display: flex;
     border-radius: 5px;
     float: left;
     ${({ details }) =>
@@ -64,40 +118,32 @@ export const Poster = styled.img`
         `}    
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 114px;
-        height: auto;
+        height: 100%;
         margin-right: 16px;
         flex-shrink: 0;
         ${({ isList }) =>
-            isList &&
-            css`
-                margin: 0;
-            `}
-    }
+        isList &&
+        css`
+            margin: 0;
+        `}
+    } */
 `;
 
-export const StyledNoPoster = styled(NoPoster)`
-    width: 312px;
-    height: 464px;
-    display: block;
-    border-radius: 5px;
-    float: left;
-    margin-right: 40px;
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        width: 114px;
-        height: auto;
-        margin-right: 16px;
-        flex-shrink: 0;
-    }
-`;
+// export const StyledNoPoster = styled(NoPoster)`
+//     ${noImage}
+// `;
+// export const StyledNoPhoto = styled(NoPhoto)`
+//     ${noImage}
+// `;
 
 export const Content = styled.div`
-    width: 100%;
+    /* width: 30%; */
     ${({ isList }) =>
         isList &&
         css`
+            display: flex;
             text-align: left;
             padding: 0px;
-            display: flex;
             flex-direction: column;
             height: 100%;
             justify-content: space-between;
@@ -136,7 +182,7 @@ export const Subtitle = styled.p`
     ${({ isList }) =>
         isList &&
         css`
-            display: block;
+            display: inline-block;
             color: ${({ theme }) => theme.color.stormGray};
             font-size: 16px;
             font-weight: 400;
@@ -322,6 +368,10 @@ export const InfoWrapper = styled.div`
 `;
 
 export const Info = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
     font-size: 18px;
     line-height: 1.2;
     color: ${({ theme }) => theme.color.stormGray};
@@ -362,11 +412,6 @@ export const NoInfoTag = styled.div`
     }
 `;
 
-export const Tag = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-`;
 export const TagBlack = styled.div`
     color: black;
 `;

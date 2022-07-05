@@ -2,14 +2,15 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import star from './star.svg';
+import errorImg from './posterError.png';
+import errorPerson from './personError.jpeg';
 import { URLimageSmall } from '../../../assets/generalData/fetchedData';
-import { ReactComponent as NoPhoto } from '../PersonTile/noPhoto.svg';
 import {
     TileContainer,
     Poster,
     StyledNoPoster,
+    StyledNoPhoto,
     Content,
-    Wrapper,
     Title,
     Subtitle,
     Year,
@@ -20,13 +21,11 @@ import {
     Icon,
     Rate,
     Score,
-    Tag,
     Tag1,
     Tag2,
     Overview,
     TagBlack,
 } from './styled';
-import { StyledNoPhoto } from '../PersonTile/styled';
 import { selectMoviesGenresList } from '../../../../features/movies/MovieGenres/moviesGenresSlice';
 
 export const Tile = ({
@@ -61,18 +60,19 @@ export const Tile = ({
             onClick={onClick}
             person={person}
         >
-            {poster ? (
-                <Poster
-                    details={details}
-                    isList={isList}
-                    src={`${URLimageSmall}${poster}`}
-                    alt=""
-                />
-            ) : person ? (
-                <StyledNoPhoto person={person} />
-            ) : (
-                <StyledNoPoster />
-            )}
+            <Poster
+                details={details}
+                isList={isList}
+                src={
+                    poster
+                        ? `${URLimageSmall}${poster}`
+                        : person
+                        ? errorPerson
+                        : errorImg
+                }
+                alt=""
+            />
+
             <Content isList={isList} person={person}>
                 {/* <Wrapper> */}
                 <Title isList={isList} details={details} person={person}>
@@ -95,25 +95,6 @@ export const Tile = ({
                         {country && country.map(({ name }) => name).join(', ')}
                     </TagBlack>
                 </Info>
-                <Info inline isList={isList} movie={movie}>
-                    <Tag>
-                        {' '}
-                        <Tag1>Date of birth:&nbsp; </Tag1>
-                        <Tag2 mobile>Birth:&nbsp;</Tag2>
-                        <TagBlack>
-                            {' '}
-                            {date_of_birth ? date_of_birth : 'Unknown'}
-                        </TagBlack>
-                    </Tag>{' '}
-                </Info>
-                <Info isList={isList} movie={movie}>
-                    <Tag>
-                        Place of birth:&nbsp;
-                        <TagBlack>
-                            {place_of_birth ? place_of_birth : 'Unknown'}
-                        </TagBlack>{' '}
-                    </Tag>
-                </Info>
                 <Info isList={isList} person={person} details={details}>
                     <NoInfoTag>Release date:&nbsp; </NoInfoTag>
                     <TagBlack>
@@ -121,6 +102,22 @@ export const Tile = ({
                         {release_date ? release_date : 'Unknown'}
                     </TagBlack>
                 </Info>
+                <Info inline isList={isList} movie={movie}>
+                    {' '}
+                    <Tag1>Date of birth:&nbsp; </Tag1>
+                    <Tag2 mobile>Birth:&nbsp;</Tag2>
+                    <TagBlack>
+                        {' '}
+                        {date_of_birth ? date_of_birth : 'Unknown'}
+                    </TagBlack>
+                </Info>
+                <Info isList={isList} movie={movie}>
+                    Place of birth:&nbsp;
+                    <TagBlack>
+                        {place_of_birth ? place_of_birth : 'Unknown'}
+                    </TagBlack>{' '}
+                </Info>
+
                 <InfoWrapper isList={isList} person={person}>
                     {genres &&
                         genres.map((genre) => {
