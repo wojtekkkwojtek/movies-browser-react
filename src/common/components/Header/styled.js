@@ -29,7 +29,6 @@ export const Wrapper = styled.div`
         padding: 10px 0;
         /* padding-bottom: 10px; */
     }
-   
 `;
 
 export const Section = styled.div`
@@ -44,10 +43,9 @@ export const Section = styled.div`
         justify-content: end;
         width: 100%;
     }
-    @media (orientation: landscape) and (max-width: 900px)  {
-      flex-direction: row;
-      justify-content: start;
-
+    @media (orientation: landscape) and (max-width: 900px) {
+        flex-direction: row;
+        justify-content: start;
     }
 `;
 
@@ -56,7 +54,7 @@ export const NavContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     padding-left: 10px;
-    
+
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         padding-left: 0;
     }
@@ -64,23 +62,20 @@ export const NavContainer = styled.div`
         justify-content: center;
         padding-left: 12px;
     }
-    @media (orientation: landscape) and (max-width: 900px)  {
-      padding-left: 20px;
-
+    @media (orientation: landscape) and (max-width: 900px) {
+        padding-left: 20px;
     }
-
 `;
 
 export const IconVideo = styled(Camera)`
     height: 40px;
     width: 40px;
     top: calc(50% - 40px / 2);
-    
+
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 17px;
         height: 17px;
     }
-
 `;
 
 export const Title = styled(NavLink)`
@@ -98,7 +93,7 @@ export const Title = styled(NavLink)`
     &:hover {
         opacity: 0.8;
     }
-    
+
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         margin-right: 65px;
     }
@@ -111,8 +106,8 @@ export const Title = styled(NavLink)`
         margin-right: 10px;
         letter-spacing: -0.5px;
     }
-    @media (orientation: landscape) and (max-width: 900px)  {
-      display: none;
+    @media (orientation: landscape) and (max-width: 900px) {
+        display: none;
     }
 `;
 
@@ -140,7 +135,7 @@ export const StyledNavLink = styled(NavLink)`
     }
 
     // to samo dwa razy niżej:
-    
+
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         display: flex;
         align-items: center;
@@ -152,7 +147,7 @@ export const StyledNavLink = styled(NavLink)`
         border-radius: 29px;
     }
     @media (orientation: landscape) and (max-width: 900px) {
-      display: flex;
+        display: flex;
         align-items: center;
         width: 70px;
         margin: 4px 6px;
@@ -168,14 +163,13 @@ export const Label = styled.div`
     align-items: center;
     position: relative;
     left: -450px;
-    
+
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         top: 30px;
     }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         position: static;
     }
-
 
     @media (orientation: landscape) and (max-width: 900px) {
         left: -20px;
@@ -189,7 +183,7 @@ export const SearchIcon = styled(Magnifier)`
     height: 19.22px;
     margin-left: 26.76px;
     z-index: 1000;
-    
+
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         left: calc(50% + 216px);
     }
@@ -201,9 +195,8 @@ export const SearchIcon = styled(Magnifier)`
         top: 95px;
     }
     @media (orientation: landscape) and (max-width: 900px) {
-       top: -42px;
-       left: calc(50% + 50px);
-
+        top: -42px;
+        left: calc(50% + 50px);
     }
 `;
 
@@ -211,7 +204,7 @@ export const Input = styled.input`
     position: absolute;
     padding-left: 64px;
     padding-right: 10px;
-    width: 432px;
+    width: 412px;
     height: 48px;
     background-color: ${({ theme }) => theme.color.white};
     border: 1px solid ${({ theme }) => theme.color.mystic};
@@ -240,15 +233,20 @@ export const Input = styled.input`
         left: calc(100% + 60px);
         top: -50px;
         font-weight: 400;
-}`;
+    }
+`;
 
-export const ClearInput = styled(ClearIcon)`  
+export const ClearInput = styled(ClearIcon)`
     position: absolute;
-    right: -418px;
+    right: -400px;
     cursor: pointer;
-              
+    @media (orientation: landscape) and (max-width: 900px) {
+        right: -200px;
+        left: calc(50% + 300px);
+    }
+
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-        left: calc(50% + 610px);
+        left: calc(50% + 600px);
     }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         margin-left: 18px;
@@ -257,6 +255,4 @@ export const ClearInput = styled(ClearIcon)`
         left: calc(50% + 100px);
         top: 95px;
     }
-
-   
 `;

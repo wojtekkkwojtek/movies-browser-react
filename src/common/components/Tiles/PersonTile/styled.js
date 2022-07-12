@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-// import { ReactComponent as NoPhoto } from '../../../assets/icons/noPhoto.svg';
 
 export const TileContainer = styled.div`
     width: 208px;
@@ -25,16 +24,6 @@ export const TileContainer = styled.div`
     }
 `;
 
-// export const PhotoWrapper = styled.div`
-//     width: 177px;
-//     height: 240px;
-//     /* overflow: hidden; */
-
-//     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-//         width: 120px;
-//         height: 178px;
-//     }
-// `;
 export const Poster = styled.img`
     border-radius: 5px;
     width: 177px;
@@ -45,21 +34,6 @@ export const Poster = styled.img`
         height: 175px;
     }
 `;
-
-// export const StyledNoPhoto = styled(NoPhoto)`
-//     width: 177px;
-//     height: 240px;
-//     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-//         width: 120px;
-//         height: 178px;
-//     }
-//     ${({ person }) =>
-//         person &&
-//         css`
-//             width: 312px;
-//             height: 464px;
-//         `}
-// `;
 
 export const InfoWrapper = styled.div`
     display: flex;
