@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { ReactComponent as NoPhoto } from '../../../assets/icons/noPhoto.svg';
+// import { ReactComponent as NoPhoto } from '../../../assets/icons/noPhoto.svg';
 
 export const TileContainer = styled.div`
     width: 208px;
@@ -25,48 +25,49 @@ export const TileContainer = styled.div`
     }
 `;
 
-export const PhotoWrapper = styled.div`
-    width: 177px;
-    height: 240px;
-    overflow: hidden;
+// export const PhotoWrapper = styled.div`
+//     width: 177px;
+//     height: 240px;
+//     /* overflow: hidden; */
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        width: 120px;
-        height: 178px;
-    }
-`;
+//     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+//         width: 120px;
+//         height: 178px;
+//     }
+// `;
 export const Poster = styled.img`
     border-radius: 5px;
     width: 177px;
-    max-height: 250px;
+    max-height: 245px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 120px;
-        height: 178px;
+        height: 175px;
     }
 `;
 
-export const StyledNoPhoto = styled(NoPhoto)`
-    width: 177px;
-    height: 240px;
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        width: 120px;
-        height: 178px;
-    }
-    ${({ person }) =>
-        person &&
-        css`
-            width: 312px;
-            height: 464px;
-        `}
-`;
+// export const StyledNoPhoto = styled(NoPhoto)`
+//     width: 177px;
+//     height: 240px;
+//     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+//         width: 120px;
+//         height: 178px;
+//     }
+//     ${({ person }) =>
+//         person &&
+//         css`
+//             width: 312px;
+//             height: 464px;
+//         `}
+// `;
 
 export const InfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 7%;
+    overflow: hidden;
 `;
 
 export const InfoDetails = styled.div`

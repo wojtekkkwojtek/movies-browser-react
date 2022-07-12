@@ -19,12 +19,12 @@ export const PersonTile = ({
 }) => {
     return (
         <TileContainer onClick={onClick}>
-            <PhotoWrapper>
-                <Poster
-                    src={poster ? `${URLimageSmall}${poster}` : errorPerson}
-                    alt=""
-                />
-            </PhotoWrapper>
+            {/* <PhotoWrapper> */}
+            <Poster
+                src={poster ? `${URLimageSmall}${poster}` : errorPerson}
+                alt=""
+            />
+            {/* </PhotoWrapper> */}
             <InfoWrapper>
                 <InfoDetails>{original_name}</InfoDetails>
                 <InfoDetails>{person_name}</InfoDetails>

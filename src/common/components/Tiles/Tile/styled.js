@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 // import {NoPoster} from './posterError.png';
-import { ReactComponent as NoPhoto } from '../../../assets/icons/noPhoto.svg';
+// import { ReactComponent as NoPhoto } from '../../../assets/icons/noPhoto.svg';
 
 export const TileContainer = styled.div`
     /* display: flex;
