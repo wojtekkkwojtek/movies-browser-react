@@ -1,9 +1,11 @@
 import styled, { css } from 'styled-components';
 import { Icon } from '../Tiles/Tile/styled';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div``;
+
+export const Content = styled.div`
     height: 770px;
-    background-color: ${({ theme }) => theme.color.black};
+    background: ${({ theme }) => theme.color.black} 100% no-repeat;
     position: relative;
     justify-content: center;
     display: flex;
@@ -27,14 +29,17 @@ export const Backdrop = styled.div`
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
+    /* background: ${({ theme }) => theme.color.black} no-repeat; */
+
     text-align: center;
     align-items: start;
     display: flex;
     flex-direction: column;
     justify-content: end;
-    box-shadow: inset 0px 0px 60px 50px black;
+    box-shadow: inset 15px 15px 40px 70px black;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+        padding: 0 20px;
         width: 100%;
         object-fit: contain;
     }
@@ -70,7 +75,7 @@ export const Title = styled.p`
         subtitle &&
         css`
             text-transform: uppercase;
-    `}
+        `}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 24px;
@@ -78,9 +83,9 @@ export const Title = styled.p`
 
         ${({ subtitle }) =>
             subtitle &&
-                css`
-                    font-size: 14px;
-        `}
+            css`
+                font-size: 14px;
+            `}
     }
 `;
 
@@ -102,7 +107,7 @@ export const VoteCount = styled.div`
 export const Star = styled(Icon)`
     width: 40px;
     height: 38.12px;
-    
+
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 24px;
         height: 24px;
