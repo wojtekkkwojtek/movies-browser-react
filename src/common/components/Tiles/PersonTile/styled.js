@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const TileContainer = styled.div`
     width: 208px;
     height: 339px;
-    padding: 16px;
+    padding: 19px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@ export const TileContainer = styled.div`
 
 export const Poster = styled.img`
     border-radius: 5px;
-    width: 177px;
+    width: 167px;
     max-height: 245px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
@@ -39,7 +39,7 @@ export const InfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     margin-top: 7%;
     overflow: hidden;
 `;
@@ -51,7 +51,7 @@ export const InfoDetails = styled.div`
 
     font-weight: 500;
     font-size: 18px;
-    line-height: 130%;
+    line-height: 120%;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         font-size: 14px;
