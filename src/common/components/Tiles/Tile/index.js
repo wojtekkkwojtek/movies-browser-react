@@ -75,6 +75,9 @@ export const Tile = ({
                 {/* <Wrapper> */}
                 <Title isList={isList} details={details} person={person}>
                     {title}
+                    {/* {title && title.length > 43
+                        ? `${title.slice(0, 43)}` + ` (...) `
+                        : title} */}
                 </Title>
                 <Subtitle isList={isList}>
                     {character || job ? (
