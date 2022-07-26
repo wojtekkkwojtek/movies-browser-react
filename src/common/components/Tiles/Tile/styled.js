@@ -2,10 +2,11 @@ import styled, { css } from 'styled-components';
 // import {NoPoster} from './posterError.png';
 // import { ReactComponent as NoPhoto } from '../../../assets/icons/noPhoto.svg';
 
-export const TileContainer = styled.div`
+export const TileContainer = styled.li`
     /* display: flex;
     flex-direction: row; */
-    width: 100%;
+    display: inline-block;
+    width: 40%;
     background: ${({ theme }) => theme.color.white};
     padding: 40px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);

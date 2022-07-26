@@ -28,11 +28,11 @@ const MovieList = () => {
     const page = useSearch(queryKeys.page);
 
     useEffect(() => {
-        dispatch(fetchMovieList({ query, page }))
+        dispatch(fetchMovieList({ query, page }));
     }, [dispatch, query, page]);
 
     const routeToMoviePage = (id) => {
-        navigate(`/movie/${id}`)
+        navigate(`/movie/${id}`);
     };
 
     return (
@@ -40,9 +40,9 @@ const MovieList = () => {
             {!error && !loading && totalMoviesResults === 0 ? (
                 <>
                     <Title
-                        title={`Sorry, no result for "${query &&
-                            query[0].toUpperCase() + query.slice(1)
-                            }"`}
+                        title={`Sorry, no result for "${
+                            query && query[0].toUpperCase() + query.slice(1)
+                        }"`}
                     />
                     <NoResultMessage />
                 </>
@@ -50,43 +50,47 @@ const MovieList = () => {
                 <Title
                     title={
                         query
-                            ? `Search results for "${query[0].toUpperCase() + query.slice(1)
-                            }" ${totalMoviesResults &&
-                            '(' + totalMoviesResults + ')'
-                            }  `
+                            ? `Search results for "${
+                                  query[0].toUpperCase() + query.slice(1)
+                              }" ${
+                                  totalMoviesResults &&
+                                  '(' + totalMoviesResults + ')'
+                              }  `
                             : `Popular movies`
                     }
                 />
             )}
             {error && !loading && <ErrorMessage />}
             {!error && loading && <Loader />}
-            {!error &&
-                !loading &&
-                movieList &&
-                movieList.map((movie) => (
-                    <React.Fragment key={movie.id}>
-                        <Tile
-                            isList
-                            nonInList
-                            key={nanoid()}
-                            onClick={() => routeToMoviePage(movie.id)}
-                            title={movie.title}
-                            poster={movie.poster_path}
-                            year={
-                                movie.release_date
-                                    ? movie.release_date.slice(0, 4)
-                                    : 'Unknown'
-                            }
-                            rate={movie.vote_average}
-                            votes={movie.vote_count}
-                            genres={movie.genre_ids}
-                            country={movie.production_countries}
-                        />
-                    </React.Fragment>
-                ))}
+            {!error && !loading && movieList && (
+                <ul>
+                    {movieList.map((movie) => (
+                        <React.Fragment key={movie.id}>
+                            <Tile
+                                isList
+                                nonInList
+                                key={nanoid()}
+                                onClick={() => routeToMoviePage(movie.id)}
+                                title={movie.title}
+                                poster={movie.poster_path}
+                                year={
+                                    movie.release_date
+                                        ? movie.release_date.slice(0, 4)
+                                        : 'Unknown'
+                                }
+                                rate={movie.vote_average}
+                                votes={movie.vote_count}
+                                genres={movie.genre_ids}
+                                country={movie.production_countries}
+                            />
+                        </React.Fragment>
+                    ))}
+                </ul>
+            )}
+
             {!error && !loading && totalMoviesPages > 1 && <Pagination />}
         </Section>
-    )
+    );
 };
 
 export default MovieList;
