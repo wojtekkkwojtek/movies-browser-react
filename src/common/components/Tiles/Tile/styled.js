@@ -10,19 +10,20 @@ export const TileContainer = styled.div`
     padding: 40px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     /* display: inline-block; */
-    grid-gap: 40px;
+    /* grid-gap: 40px; */
     margin: 64px auto 0;
     ${({ isList }) =>
         isList &&
         css`
             width: 324px;
-            min-height: 650px;
+            min-height: 660px;
             padding: 16px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            /* gap: 16px; */
             margin: 0px;
             transition: 1s;
+            overflow: hidden;
             &:hover {
                 cursor: pointer;
                 transform: scale(1.03);
@@ -33,9 +34,23 @@ export const TileContainer = styled.div`
         css`
             display: block;
         `}  */
+    @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
+        ${({ details }) =>
+            details &&
+            css`
+                margin: 10px;
+            `}
+    }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         padding: 16px;
-        margin: 16px auto 0;
+        /* ${({ details }) =>
+            details &&
+            css`
+                margin: 10px;
+            `} */
+        /* margin: 10px; */
+
+        /* margin: 16px auto 0; */
         ${({ isList }) =>
             isList &&
             css`
@@ -47,7 +62,7 @@ export const TileContainer = styled.div`
             `}
     }
     @media (orientation: landscape) and (max-width: 900px) {
-        margin: 5px 0;
+        margin: 10px;
     }
 `;
 
@@ -72,6 +87,7 @@ const noImage = css`
             width: 292px;
             margin: 0;
         `}
+
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 114px;
         height: 169px;
@@ -80,7 +96,7 @@ const noImage = css`
         ${({ isList }) =>
             isList &&
             css`
-                margin: 0;
+                margin: 0 10px 0 0;
             `}
     }
     /* width: 100%;
@@ -144,6 +160,7 @@ export const Content = styled.div`
             display: flex;
             text-align: left;
             padding: 0px;
+            margin-top: -3px;
             flex-direction: column;
             height: 100%;
             justify-content: space-between;
@@ -163,6 +180,7 @@ export const Content = styled.div`
 export const Wrapper = styled.div``;
 
 export const Title = styled.header`
+    margin-top: 5%;
     font-weight: 600;
     font-size: 36px;
     ${({ isList }) =>

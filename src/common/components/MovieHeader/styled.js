@@ -36,12 +36,13 @@ export const Backdrop = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: end;
-    box-shadow: inset 15px 15px 40px 70px black;
+    box-shadow: inset 0 0 40px 70px black;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         padding: 0 20px;
         width: 100%;
         object-fit: contain;
+        box-shadow: inset 0 -10px 40px 50px black;
     }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         background-position: top;

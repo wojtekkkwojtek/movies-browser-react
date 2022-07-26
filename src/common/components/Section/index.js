@@ -10,16 +10,15 @@ export const Section = styled.div`
     flex-wrap: wrap;
     gap: 24px;
     padding-bottom: 16px;
-   
+
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         padding: 0 16px;
         gap: 16px;
 
         ${({ isList }) =>
-          isList &&
+            isList &&
             css`
-              gap:0;
-            `
-          }
+                gap: 10px;
+            `}
     }
 `;

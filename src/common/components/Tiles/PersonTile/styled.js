@@ -30,8 +30,8 @@ export const Poster = styled.img`
     max-height: 245px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        width: 120px;
-        height: 175px;
+        width: 115px;
+        height: 170px;
     }
 `;
 
@@ -40,7 +40,7 @@ export const InfoWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    margin-top: 7%;
+    margin-top: 6%;
     overflow: hidden;
 `;
 
