@@ -1,14 +1,16 @@
 import styled, { css } from 'styled-components';
-export const Wrapper = styled.ul`
+export const TileWrapper = styled.ul`
+    list-style: none;
     height: 100%;
     max-width: 1368px;
-    margin: auto;
+    /* margin: auto ; */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     flex-wrap: wrap;
     gap: 24px;
-    padding-bottom: 16px;
+    padding: 3%;
+    margin-bottom: 3%;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         padding: 0 16px;
@@ -18,6 +20,7 @@ export const Wrapper = styled.ul`
             isList &&
             css`
                 gap: 10px;
+                align-items: center;
             `}
     }
 `;

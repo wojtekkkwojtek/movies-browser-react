@@ -17,7 +17,7 @@ import { Pagination } from '../../../common/components/Pagination';
 import { Section } from '../../../common/components/Section';
 import { queryKeys } from '../../queryKeys';
 import { NoResultMessage } from '../../../common/components/NoResultMessage';
-import { Wrapper } from '../../../common/components/Tiles/TileWrapper';
+import { TileWrapper } from '../../../common/components/Tiles/TileWrapper';
 
 const MovieList = () => {
     const { loading, movieList, error } = useSelector(selectMovieList);
@@ -64,7 +64,7 @@ const MovieList = () => {
             {error && !loading && <ErrorMessage />}
             {!error && loading && <Loader />}
             {!error && !loading && movieList && (
-                <Wrapper>
+                <TileWrapper>
                     {movieList.map((movie) => (
                         <React.Fragment key={movie.id}>
                             <Tile
@@ -86,7 +86,7 @@ const MovieList = () => {
                             />
                         </React.Fragment>
                     ))}
-                </Wrapper>
+                </TileWrapper>
             )}
 
             {!error && !loading && totalMoviesPages > 1 && <Pagination />}

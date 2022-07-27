@@ -16,6 +16,7 @@ import {
 } from '../../../common/components/ShowAllButton/styled';
 import { ReactComponent as ArrowDown } from '../../../common/components/ShowAllButton/Arrow_down.svg';
 import { ReactComponent as ArrowUp } from '../../../common/components/ShowAllButton/Arrow_up.svg';
+import { TileWrapper } from '../../../common/components/Tiles/TileWrapper';
 
 const PersonPage = () => {
     const [isShownAll, setIsShownAll] = useState(false);
@@ -65,31 +66,36 @@ const PersonPage = () => {
                     <Section isList>
                         <Title
                             title={`Movies  - cast (${cast && cast.length})`}
-                        />{' '}
-                        {cast &&
-                            cast.slice(0, shownTiles).map((movie) => (
-                                <React.Fragment key={nanoid()}>
-                                    <Tile
-                                        isList
-                                        nonInList
-                                        key={nanoid()}
-                                        title={movie.title}
-                                        genres={movie.genre_ids}
-                                        rate={movie.vote_average}
-                                        poster={movie.poster_path}
-                                        release_date={
-                                            movie.release_date
-                                                ? movie.release_date.slice(0, 4)
-                                                : 'Unknown'
-                                        }
-                                        votes={movie.vote_count}
-                                        character={movie.character}
-                                        onClick={() =>
-                                            routeToMoviePage(movie.id)
-                                        }
-                                    />
-                                </React.Fragment>
-                            ))}
+                        />
+                        <TileWrapper>
+                            {cast &&
+                                cast.slice(0, shownTiles).map((movie) => (
+                                    <React.Fragment key={nanoid()}>
+                                        <Tile
+                                            isList
+                                            nonInList
+                                            key={movie.id}
+                                            title={movie.title}
+                                            genres={movie.genre_ids}
+                                            rate={movie.vote_average}
+                                            poster={movie.poster_path}
+                                            release_date={
+                                                movie.release_date
+                                                    ? movie.release_date.slice(
+                                                          0,
+                                                          4
+                                                      )
+                                                    : 'Unknown'
+                                            }
+                                            votes={movie.vote_count}
+                                            character={movie.character}
+                                            onClick={() =>
+                                                routeToMoviePage(movie.id)
+                                            }
+                                        />
+                                    </React.Fragment>
+                                ))}
+                        </TileWrapper>
                     </Section>
                     {cast && cast.length > 8 && (
                         <Wrapper>
@@ -106,31 +112,36 @@ const PersonPage = () => {
                         <Title
                             title={`Movies  - crew (${crew && crew.length})`}
                         />
-                        {crew &&
-                            crew.slice(0, shownTilesCrew).map((movie) => (
-                                <React.Fragment key={crew.id}>
-                                    <Tile
-                                        isList
-                                        nonInList
-                                        key={nanoid()}
-                                        title={movie.title}
-                                        genres={movie.genre_ids}
-                                        rate={movie.vote_average}
-                                        poster={movie.poster_path}
-                                        year={
-                                            movie.release_date
-                                                ? movie.release_date.slice(0, 4)
-                                                : 'Unknown'
-                                        }
-                                        score="/10"
-                                        votes={movie.vote_count}
-                                        job={movie.job}
-                                        onClick={() =>
-                                            routeToMoviePage(movie.id)
-                                        }
-                                    />
-                                </React.Fragment>
-                            ))}
+                        <TileWrapper>
+                            {crew &&
+                                crew.slice(0, shownTilesCrew).map((movie) => (
+                                    <React.Fragment key={crew.id}>
+                                        <Tile
+                                            isList
+                                            nonInList
+                                            key={nanoid()}
+                                            title={movie.title}
+                                            genres={movie.genre_ids}
+                                            rate={movie.vote_average}
+                                            poster={movie.poster_path}
+                                            year={
+                                                movie.release_date
+                                                    ? movie.release_date.slice(
+                                                          0,
+                                                          4
+                                                      )
+                                                    : 'Unknown'
+                                            }
+                                            score="/10"
+                                            votes={movie.vote_count}
+                                            job={movie.job}
+                                            onClick={() =>
+                                                routeToMoviePage(movie.id)
+                                            }
+                                        />
+                                    </React.Fragment>
+                                ))}
+                        </TileWrapper>
                     </Section>
                     {crew && crew.length > 8 && (
                         <Wrapper>

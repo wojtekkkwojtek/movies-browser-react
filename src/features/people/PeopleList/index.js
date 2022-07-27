@@ -17,7 +17,7 @@ import { Pagination } from '../../../common/components/Pagination';
 import { useSearch } from '../../useParameters';
 import { queryKeys } from '../../queryKeys';
 import { NoResultMessage } from '../../../common/components/NoResultMessage';
-import { nanoid } from 'nanoid';
+import { TileWrapper } from '../../../common/components/Tiles/TileWrapper';
 
 const PeopleList = () => {
     const { loading, peopleList, error } = useSelector(selectPeopleList);
@@ -64,19 +64,18 @@ const PeopleList = () => {
             )}
             {error && !loading && <ErrorMessage />}
             {!error && loading && <Loader />}
-            {!error &&
-                !loading &&
-                peopleList &&
-                peopleList.map((people) => (
-                    <>
+            {!error && !loading && peopleList && (
+                <TileWrapper>
+                    {peopleList.map((people) => (
                         <PersonTile
-                            key={nanoid()}
+                            key={people.id}
                             onClick={() => routeChange(people.id)}
                             person_name={people.name}
                             poster={people.profile_path}
                         />
-                    </>
-                ))}
+                    ))}
+                </TileWrapper>
+            )}
             {!error && !loading && totalPeoplePages > 1 && <Pagination />}
         </Section>
     );

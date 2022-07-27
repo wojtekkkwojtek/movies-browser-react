@@ -17,6 +17,7 @@ import {
 } from '../../../common/components/ShowAllButton/styled';
 import { ReactComponent as ArrowDown } from '../../../common/components/ShowAllButton/Arrow_down.svg';
 import { ReactComponent as ArrowUp } from '../../../common/components/ShowAllButton/Arrow_up.svg';
+import { TileWrapper } from '../../../common/components/Tiles/TileWrapper';
 
 const MoviePage = () => {
     const [isShownAll, setIsShownAll] = useState(false);
@@ -25,14 +26,14 @@ const MoviePage = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        dispatch(fetchMoviePage(id))
+        dispatch(fetchMoviePage(id));
     }, [dispatch, id]);
 
     const { error, loading, moviePage, actors, crew } =
         useSelector(selectMoviePage);
     const navigate = useNavigate();
     const routeChange = (id) => {
-        navigate(`/people/${id}`)
+        navigate(`/people/${id}`);
     };
     const shownTiles = isShownAll ? actors.length : 12;
     const shownTilesCrew = isShownAllCrew ? crew.length : 12;
@@ -72,21 +73,25 @@ const MoviePage = () => {
                         />
                     </Section>
                     <Section>
-                        <Title title="Cast" />
-                        {actors &&
-                            actors
-                                .slice(0, shownTiles)
-                                .map((actor) => (
-                                    <PersonTile
-                                        key={nanoid()}
-                                        personTile={true}
-                                        onClick={() => routeChange(actor.id)}
-                                        original_name={actor.original_name}
-                                        as={actor.character}
-                                        poster={actor.profile_path}
-                                        gray
-                                    />
-                                ))}
+                        <TileWrapper>
+                            <Title title="Cast" />
+                            {actors &&
+                                actors
+                                    .slice(0, shownTiles)
+                                    .map((actor) => (
+                                        <PersonTile
+                                            key={nanoid()}
+                                            personTile={true}
+                                            onClick={() =>
+                                                routeChange(actor.id)
+                                            }
+                                            original_name={actor.original_name}
+                                            as={actor.character}
+                                            poster={actor.profile_path}
+                                            gray
+                                        />
+                                    ))}
+                        </TileWrapper>
                     </Section>
                     {actors && actors.length > 12 && (
                         <Wrapper>
@@ -100,21 +105,25 @@ const MoviePage = () => {
                         </Wrapper>
                     )}
                     <Section>
-                        <Title title="Crew" />
-                        {crew &&
-                            crew
-                                .slice(0, shownTilesCrew)
-                                .map((person) => (
-                                    <PersonTile
-                                        key={nanoid()}
-                                        personTile={true}
-                                        gray
-                                        original_name={person.original_name}
-                                        as={person.job}
-                                        poster={person.profile_path}
-                                        onClick={() => routeChange(person.id)}
-                                    />
-                                ))}
+                        <TileWrapper>
+                            <Title title="Crew" />
+                            {crew &&
+                                crew
+                                    .slice(0, shownTilesCrew)
+                                    .map((person) => (
+                                        <PersonTile
+                                            key={nanoid()}
+                                            personTile={true}
+                                            gray
+                                            original_name={person.original_name}
+                                            as={person.job}
+                                            poster={person.profile_path}
+                                            onClick={() =>
+                                                routeChange(person.id)
+                                            }
+                                        />
+                                    ))}
+                        </TileWrapper>
                     </Section>
                     {crew && crew.length > 8 && (
                         <Wrapper>
@@ -130,7 +139,7 @@ const MoviePage = () => {
                 </>
             )}
         </>
-    )
+    );
 };
 
 export default MoviePage;

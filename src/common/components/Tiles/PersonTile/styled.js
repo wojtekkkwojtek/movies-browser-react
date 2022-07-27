@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const TileContainer = styled.div`
     width: 208px;
-    height: 339px;
+    /* height: 339px; */
     padding: 19px;
     border-radius: 5px;
     display: flex;
@@ -19,7 +19,7 @@ export const TileContainer = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 136px;
-        height: 245px;
+        /* height: 245px; */
         padding: 8px;
     }
 `;
@@ -40,7 +40,7 @@ export const InfoWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    margin-top: 6%;
+    margin: 6% 0;
     overflow: hidden;
 `;
 

@@ -3,39 +3,44 @@ import styled, { css } from 'styled-components';
 // import { ReactComponent as NoPhoto } from '../../../assets/icons/noPhoto.svg';
 
 export const TileContainer = styled.li`
-    /* display: flex;
-    flex-direction: row; */
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* flex-grow: 1; */
+    /* justify-content: center; */
+    /* align-items: center; */
+
     display: inline-block;
-    width: 40%;
+    /* width: 40%; */
     background: ${({ theme }) => theme.color.white};
     padding: 40px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     /* display: inline-block; */
     /* grid-gap: 40px; */
-    align-items: stretch;
-    margin: 64px auto 0;
+    /* margin: 64px auto 0; */
     ${({ isList }) =>
         isList &&
         css`
             width: 324px;
-            min-height: 660px;
+            /* min-height: 660px; */
             padding: 16px;
             display: flex;
             flex-direction: column;
-            /* gap: 16px; */
             margin: 0px;
             transition: 1s;
             overflow: hidden;
+            align-items: ;
+
             &:hover {
                 cursor: pointer;
                 transform: scale(1.03);
             }
         `}
-    /* ${({ person }) =>
+    ${({ person }) =>
         person &&
         css`
             display: block;
-        `}  */
+            min-height: 540px;
+        `} 
     @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
         ${({ details }) =>
             details &&
@@ -62,30 +67,35 @@ export const TileContainer = styled.li`
                 width: 100%;
                 padding: 16px;
             `}
+        ${({ person }) =>
+            person &&
+            css`
+                min-height: 200px;
+            `}
     }
-    @media (orientation: landscape) and (max-width: 900px) {
+    @media (orientation: landscape) and (max-width: 700px) {
         margin: 10px;
     }
 `;
 
-const noImage = css`
+const Image = css`
     width: 312px;
-    height: 464px;
+    height: 450px;
     display: flex;
     border-radius: 5px;
     float: left;
     margin: 0 40px 20px 0;
 
-    /* ${({ details }) =>
+    ${({ details }) =>
         details &&
         css`
             float: left;
             margin-right: 40px;
-        `} */
+        `}
     ${({ isList }) =>
         isList &&
         css`
-            height: 434px;
+            height: 420px;
             width: 292px;
             margin: 0;
         `}
@@ -117,17 +127,20 @@ const noImage = css`
 `;
 
 export const Poster = styled.img`
-    ${noImage}/* width: 312px;
+    ${Image}/* width: 312px;
     height: 464px;
     display: flex;
     border-radius: 5px;
     float: left;
+    
     ${({ details }) =>
         details &&
         css`
             float: left;
             margin-right: 40px;
-        `}
+        `} 
+
+        
     ${({ isList }) =>
         isList &&
         css`
@@ -165,22 +178,22 @@ export const Content = styled.div`
             margin-top: -3px;
             flex-direction: column;
             height: 100%;
-            justify-content: space-between;
-            align-content: flex-start;
-        `}
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+            justify-content: start;
+            /* align-items: flex-start; */
+        `}/* @media (max-width: ${({ theme }) =>
+        theme.breakpoints.mobileNormal}) {
         ${({ isList }) =>
-            isList &&
-            css`
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-            `}
-    }
+        isList &&
+        css`
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        `}
+    } */
 `;
 
 export const Title = styled.header`
-    margin-top: 5%;
+    margin-top: 4%;
     font-weight: 600;
     font-size: 36px;
     ${({ isList }) =>
@@ -195,7 +208,7 @@ export const Title = styled.header`
     }
 `;
 
-export const Subtitle = styled.p`
+export const Subtitle = styled.h2`
     display: none;
     ${({ isList }) =>
         isList &&
@@ -204,7 +217,7 @@ export const Subtitle = styled.p`
             color: ${({ theme }) => theme.color.stormGray};
             font-size: 16px;
             font-weight: 400;
-            margin: 0;
+            margin: 2% 0 0 0;
             line-height: 1.5;
         `}
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
@@ -220,7 +233,7 @@ export const Year = styled.p`
         css`
             font-weight: 400;
             font-size: 16px;
-            margin: 8px 0 0 0;
+            margin: 6px 0 0 0;
         `}
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         color: ${({ theme }) => theme.color.darkerGray};

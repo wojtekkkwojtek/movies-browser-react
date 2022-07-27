@@ -72,12 +72,8 @@ export const Tile = ({
             />
 
             <Content isList={isList} person={person}>
-                {/* <Wrapper> */}
                 <Title isList={isList} details={details} person={person}>
                     {title}
-                    {/* {title && title.length > 43
-                        ? `${title.slice(0, 43)}` + ` (...) `
-                        : title} */}
                 </Title>
                 <Subtitle isList={isList}>
                     {character || job ? (
@@ -137,7 +133,6 @@ export const Tile = ({
                             <Genres key={nanoid()}>{genre.name}</Genres>
                         ))}
                 </InfoWrapper>
-                {/* </Wrapper> */}
                 <InfoWrapper rates>
                     <Icon isList={isList} person={person} src={star} alt="" />
                     <Rate person={person} isList={isList}>

@@ -10,12 +10,11 @@ export const Container = styled.h1`
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         text-align: center;
         margin-top: 30px;
-    };
+    }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         text-align: left;
         font-size: 18px;
-        margin-top: 24px;
-        margin-bottom: 0;
-    };
+        margin: 3% auto 3% 16px;
+    } ;
 `;
