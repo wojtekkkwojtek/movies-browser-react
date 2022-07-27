@@ -12,6 +12,7 @@ export const TileContainer = styled.li`
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     /* display: inline-block; */
     /* grid-gap: 40px; */
+    align-items: stretch;
     margin: 64px auto 0;
     ${({ isList }) =>
         isList &&
@@ -177,8 +178,6 @@ export const Content = styled.div`
             `}
     }
 `;
-
-export const Wrapper = styled.div``;
 
 export const Title = styled.header`
     margin-top: 5%;
