@@ -10,6 +10,6 @@ export const URLpersonDetails = (personId) =>
 export const URLpersonCredits = (personId) =>
     `${URL}/person/${personId}/credits?api_key=${API_KEY}`;
 export const URLimage = `https://image.tmdb.org/t/p/original`;
-export const URLimageSmall = `https://image.tmdb.org/t/p/w500`;
+export const URLimageSmall = `https://image.tmdb.org/t/p/w400`;
 export const URLmovieSearch = `${URL}/search/movie?api_key=${API_KEY}`;
 export const URLpeopleSearch = `${URL}/search/person?api_key=${API_KEY}`;
