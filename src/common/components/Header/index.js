@@ -11,6 +11,7 @@ import {
     SearchIcon,
     StyledNavLink,
     ClearInput,
+    TitleWrapper,
 } from './styled';
 import { useReplaceQueryParameter } from '../../../features/useParameters';
 import { queryKeys } from '../../../features/queryKeys';
@@ -22,25 +23,27 @@ const Header = () => {
     const [inputValue, setInputValue] = useState('');
     const replaceQueryParameter = useReplaceQueryParameter(location, navigate);
     const searchMovie = (e) => {
-        setInputValue(e.target.value)
+        setInputValue(e.target.value);
         replaceQueryParameter({
             key: queryKeys.search,
             value: e.target.value.trim(),
-        })
+        });
     };
     const deleteInput = () => {
-        setInputValue('')
+        setInputValue('');
         location.pathname.indexOf('/movie') !== -1
             ? navigate(toMovies())
-            : navigate(toPeople())
+            : navigate(toPeople());
     };
-    
+
     return (
         <Wrapper>
             <Section>
                 <NavContainer>
-                    <IconVideo />
-                    <Title to={toMovies()}>movies browser</Title>
+                    <TitleWrapper>
+                        <IconVideo />
+                        <Title to={toMovies()}>movies browser</Title>
+                    </TitleWrapper>
                     <StyledNavLink
                         className={
                             location.pathname.indexOf('/movie') !== -1
@@ -52,23 +55,26 @@ const Header = () => {
                     >
                         movies
                     </StyledNavLink>
-                    <StyledNavLink to={toPeople()} onClick={deleteInput}>people</StyledNavLink>
+                    <StyledNavLink to={toPeople()} onClick={deleteInput}>
+                        people
+                    </StyledNavLink>
                 </NavContainer>
                 <Label>
                     <SearchIcon />
                     <Input
                         onChange={searchMovie}
                         value={inputValue}
-                        placeholder={`Search for ${location.pathname.indexOf('/movie') !== -1
+                        placeholder={`Search for ${
+                            location.pathname.indexOf('/movie') !== -1
                                 ? 'movies...'
                                 : 'people...'
-                            } `}
+                        } `}
                     />
                     {inputValue && <ClearInput onClick={deleteInput} />}
                 </Label>
             </Section>
         </Wrapper>
-    )
+    );
 };
 
 export default Header;

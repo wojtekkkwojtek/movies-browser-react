@@ -12,6 +12,7 @@ export const theme = {
         gray: '#E4E6F0',
         darkGray: '#333333',
         darkerGray: '#7E839A',
+        gold: '#FFD700',
     },
     breakpoints: {
         mobileNormal: '550px',

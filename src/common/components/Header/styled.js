@@ -67,14 +67,23 @@ export const NavContainer = styled.div`
     }
 `;
 
+export const TitleWrapper = styled.div`
+    transition: all 0.6s;
+    display: flex;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.5;
+    }
+`;
 export const IconVideo = styled(Camera)`
     height: 40px;
     width: 40px;
     top: calc(50% - 40px / 2);
-
+    color: red;
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         width: 17px;
-        height: 17px;
+        /* height: 17px; */
     }
 `;
 
@@ -88,11 +97,6 @@ export const Title = styled(NavLink)`
     margin-right: 80px;
     text-decoration: none;
     color: ${({ theme }) => theme.color.white};
-    cursor: pointer;
-
-    &:hover {
-        opacity: 0.8;
-    }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         margin-right: 65px;
@@ -125,13 +129,14 @@ export const StyledNavLink = styled(NavLink)`
     border: 1px solid ${({ theme }) => theme.color.black};
     background-color: ${({ theme }) => theme.color.black};
     color: ${({ theme }) => theme.color.white};
+    transition: all 0.6s;
     cursor: pointer;
 
-    &:hover {
-        opacity: 0.8;
-    }
     &.active {
         border: 1px solid ${({ theme }) => theme.color.white};
+    }
+    &:hover {
+        opacity: 0.5;
     }
 
     // to samo dwa razy niżej:
