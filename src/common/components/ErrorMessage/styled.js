@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as ErrorImage } from './error.svg';
 
@@ -65,7 +66,7 @@ export const Announcement = styled.p`
     }
 `;
 
-export const GoBackButton = styled.button`
+export const GoBackButton = styled(NavLink)`
     text-decoration: none;
     display: inline-block;
     padding: 16px 24px;
