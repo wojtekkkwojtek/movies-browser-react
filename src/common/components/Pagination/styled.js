@@ -26,7 +26,7 @@ export const Button = styled.button`
     color: ${({ theme }) => theme.color.darkGray};
     transition: 0.5s filter;
 
-    &:hover {
+    &:hover:enabled {
         filter: brightness(110%);
         cursor: pointer;
     }
