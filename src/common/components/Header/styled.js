@@ -17,12 +17,12 @@ export const Wrapper = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         padding-top: 20px;
-        height: 142px;
+        height: 130px;
     }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         padding-top: 0;
     }
-    @media (orientation: landscape) and (max-width: 900px) {
+    @media (orientation: landscape) and (min-width: 550px) and (max-width: 1000px) {
         /* background-color: yellow; */
         position: static;
         height: fit-content;
@@ -43,7 +43,7 @@ export const Section = styled.div`
         justify-content: end;
         width: 100%;
     }
-    @media (orientation: landscape) and (max-width: 900px) {
+    @media (orientation: landscape) and (min-width: 550px) and (max-width: 1000px) {
         flex-direction: row;
         justify-content: start;
     }
@@ -62,7 +62,7 @@ export const NavContainer = styled.div`
         justify-content: center;
         padding-left: 12px;
     }
-    @media (orientation: landscape) and (max-width: 900px) {
+    @media (orientation: landscape) and (min-width: 550px) and (max-width: 1000px) {
         padding-left: 20px;
     }
 `;
@@ -110,9 +110,19 @@ export const Title = styled(NavLink)`
         margin-right: 10px;
         letter-spacing: -0.5px;
     }
-    @media (orientation: landscape) and (max-width: 900px) {
+    @media (orientation: landscape) and (min-width: 550px) and (max-width: 1000px) {
         display: none;
     }
+`;
+const StyledNavLinkMediaStyles = `
+ display: flex;
+ align-items: center;
+ width: 70px;
+ margin: 24px 6px;
+ height: 34px;
+ font-size: 12px;
+ padding: 8px 12px;
+ border-radius: 29px;
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -139,49 +149,14 @@ export const StyledNavLink = styled(NavLink)`
         opacity: 0.5;
     }
 
-    // to samo dwa razy niżej:
-
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        display: flex;
-        align-items: center;
-        width: 70px;
-        margin: 24px 6px;
-        height: 34px;
-        font-size: 12px;
-        padding: 8px 12px;
-        border-radius: 29px;
+        ${StyledNavLinkMediaStyles}
     }
-    @media (orientation: landscape) and (max-width: 900px) {
-        display: flex;
-        align-items: center;
-        width: 70px;
-        margin: 4px 6px;
-        height: 34px;
-        font-size: 12px;
-        padding: 8px 12px;
-        border-radius: 29px;
+    @media (orientation: landscape) and (max-width: 1000px) {
+        ${StyledNavLinkMediaStyles}
     }
 `;
-
-export const Label = styled.div`
-    display: flex;
-    align-items: center;
-    position: relative;
-    left: -450px;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-        top: 30px;
-    }
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        position: static;
-    }
-
-    @media (orientation: landscape) and (max-width: 900px) {
-        left: -20px;
-    }
-`;
-
-export const SearchIcon = styled(Magnifier)`
+const LabelIconsStyles = `
     position: absolute;
     right: -45px;
     width: 18.76px;
@@ -189,6 +164,31 @@ export const SearchIcon = styled(Magnifier)`
     margin-left: 26.76px;
     z-index: 1000;
 
+    
+`;
+export const Label = styled.div`
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: -415px;
+
+    @media (orientation: landscape) and (min-width: 550px) and (max-width: 1000px) {
+        left: -20px;
+        top: 40px;
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+        top: 30px;
+        /* left: -100px; */
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        top: -80px;
+        left: 0;
+        /* position: static; */
+    }
+`;
+
+export const SearchIcon = styled(Magnifier)`
+    ${LabelIconsStyles}
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         left: calc(50% + 216px);
     }
@@ -197,9 +197,9 @@ export const SearchIcon = styled(Magnifier)`
         width: 16px;
         height: 16px;
         left: calc(50% - 144px);
-        top: 95px;
+        top: 85px;
     }
-    @media (orientation: landscape) and (max-width: 900px) {
+    @media (orientation: landscape) and (min-width: 550px) and (max-width: 1000px) {
         top: -42px;
         left: calc(50% + 50px);
     }
@@ -227,10 +227,10 @@ export const Input = styled.input`
         width: 288px;
         height: 44px;
         left: calc(50% - 144px);
-        top: 82px;
+        top: 72px;
         font-weight: 400;
     }
-    @media (orientation: landscape) and (max-width: 900px) {
+    @media (orientation: landscape) and (min-width: 550px) and (max-width: 1000px) {
         font-size: 13px;
         padding-left: 45px;
         width: 288px;
@@ -242,22 +242,44 @@ export const Input = styled.input`
 `;
 
 export const ClearInput = styled(ClearIcon)`
-    position: absolute;
-    right: -400px;
-    cursor: pointer;
-    @media (orientation: landscape) and (max-width: 900px) {
-        right: -200px;
-        left: calc(50% + 300px);
-    }
+    ${LabelIconsStyles}
+
+    right: -390px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-        left: calc(50% + 600px);
+        left: calc(50% + 560px);
     }
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        left: calc(50% + 100px);
+    }
+    @media (orientation: landscape) and (min-width: 550px) and (max-width: 1000px) {
+        top: -38px;
+        left: calc(50% + 280px);
+    }
+    /* position: absolute; */
+    /* right: -400px; */
+    /* cursor: pointer;
+    left: 10px; */
+
+    /* @media (orientation: landscape) and (min-width: 550px) and (max-width: 1000px) {
+        right: -20px;
+        left: calc(50% + 300px);
+    } */
+
+    /* @media (min-width: 550px) and (max-width: 1000px) {
+        top: 20px;
+        left: calc(50% + 300px);
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+        top: -40px;
+        left: calc(50% + 320px);
+    }
+
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         margin-left: 18px;
         width: 16px;
         height: 16px;
         left: calc(50% + 100px);
-        top: 95px;
-    }
+        top: 85px;
+    } */
 `;

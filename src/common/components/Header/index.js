@@ -25,6 +25,10 @@ const Header = () => {
     const searchMovie = (e) => {
         setInputValue(e.target.value);
         replaceQueryParameter({
+            key: queryKeys.page,
+            value: 1,
+        });
+        replaceQueryParameter({
             key: queryKeys.search,
             value: e.target.value.trim(),
         });

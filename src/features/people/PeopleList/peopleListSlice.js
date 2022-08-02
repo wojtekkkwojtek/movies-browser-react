@@ -6,29 +6,28 @@ const peopleListSlice = createSlice({
         error: false,
         loading: false,
         totalPages: 1,
-        totalPeopleResult: '',
+        totalPeopleResult: null,
         peopleList: [],
     },
     reducers: {
         fetchPeopleList: (state) => {
-            state.error = false
-            state.loading = true
-            state.totalPeopleResult = ''
+            state.error = false;
+            state.loading = true;
+            state.totalPeopleResult = '';
         },
         fetchPeopleListError: (state, action) => {
-            state.error = true
-            state.loading = false
-
+            state.error = true;
+            state.loading = false;
         },
         setPeopleList: (state, { payload: fetchedData }) => {
-            state.error = false
-            state.loading = false
-            state.peopleList = fetchedData.results
-            state.totalPages = fetchedData.total_pages
-            state.totalPeopleResult = fetchedData.total_results
+            state.error = false;
+            state.loading = false;
+            state.peopleList = fetchedData.results;
+            state.totalPages = fetchedData.total_pages;
+            state.totalPeopleResult = fetchedData.total_results;
         },
     },
-})
+});
 
 export const {
     setPeopleList,

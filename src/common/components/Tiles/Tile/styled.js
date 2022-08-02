@@ -10,13 +10,13 @@ export const TileContainer = styled.li`
     /* align-items: center; */
 
     display: inline-block;
-    /* width: 40%; */
+    width: 100%;
     background: ${({ theme }) => theme.color.white};
     padding: 40px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     /* display: inline-block; */
     /* grid-gap: 40px; */
-    /* margin: 64px auto 0; */
+    margin: 64px auto 0;
     ${({ isList }) =>
         isList &&
         css`
@@ -41,20 +41,20 @@ export const TileContainer = styled.li`
             display: block;
             min-height: 540px;
         `} 
-    @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    /* @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
+        ${({ details }) =>
+        details &&
+        css`
+            margin: 10px;
+        `}
+    } */
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        padding: 16px;
         ${({ details }) =>
             details &&
             css`
-                margin: 10px;
+                margin-top: 10px;
             `}
-    }
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        padding: 16px;
-        /* ${({ details }) =>
-            details &&
-            css`
-                margin: 10px;
-            `} */
         /* margin: 10px; */
 
         /* margin: 16px auto 0; */

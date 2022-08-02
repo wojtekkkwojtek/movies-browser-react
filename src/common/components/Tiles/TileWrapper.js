@@ -2,11 +2,11 @@ import styled, { css } from 'styled-components';
 export const TileWrapper = styled.ul`
     list-style: none;
     height: 100%;
-    max-width: 1368px;
-    /* margin: auto ; */
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: stretch;
+    margin: 0 auto;
     flex-wrap: wrap;
     gap: 24px;
     padding: 3%;
