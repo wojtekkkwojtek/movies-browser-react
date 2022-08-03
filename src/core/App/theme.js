@@ -10,12 +10,14 @@ export const theme = {
         blue: '#0044CC',
         lightBlue: '#D6E4FF',
         gray: '#E4E6F0',
-        darkGray: "#333333",
-        darkerGray: "#7E839A",
+        darkGray: '#333333',
+        darkerGray: '#7E839A',
+        gold: '#FFD700',
     },
     breakpoints: {
         mobileNormal: '550px',
         mobileMax: '767px',
         tablet: '1000px',
+        laptop: '1400px',
     },
 };

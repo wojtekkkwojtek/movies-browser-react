@@ -1,32 +1,36 @@
 # Movies browser
 
-![Demonstration](/Demo2.gif)
+![Demonstration](/DemoGif.gif)
 
 https://wojtekkkwojtek.github.io/movies-browser-react/
 
 ## About the app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and was created by YouCode students: 
-* [Dorota Borowska](https://github.com/IT2021db) 
-* [Miłosz Zajączkowski](https://github.com/miloszzaj)
-* [Wojciech Kurdzielewicz](https://github.com/wojtekkkwojtek)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and was created by YouCode students:
+
+-   [Dorota Borowska](https://github.com/IT2021db)
+-   [Miłosz Zajączkowski](https://github.com/miloszzaj)
+-   [Wojciech Kurdzielewicz](https://github.com/wojtekkkwojtek)
 
 Our web application enables you to search and browse movies and people (actors and crew).
 
-We implemented a wide range of technologies such as: 
+We implemented a wide range of technologies such as:
 
-- HTML,
-- CSS,
-- JavaScript (ES6+),
-- Styled Components,
-- React,
-- React Router,
-- React Redux,
-- Redux Saga,
-- and more...
+-   HTML,
+-   CSS,
+-   JavaScript (ES6+),
+-   Styled Components,
+-   React,
+-   React Router,
+-   React Redux,
+-   Redux Saga,
+-   and more...
 
 The data comes from external [API](https://www.themoviedb.org/).
 
+You can download this repository, but remember that to run the application you must have your own individual API Key.
+To generate it, visit https://developers.themoviedb.org/3/getting-started/introduction and create your key. Detailed instructions can be found at the link provided.
+Then create an .env file in the main folder and create a variable called "REACT_APP_API_KEY" and enter your key there.
 
 ### Available Scripts
 

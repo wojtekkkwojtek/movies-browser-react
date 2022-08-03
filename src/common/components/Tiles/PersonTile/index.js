@@ -1,9 +1,9 @@
 import React from 'react';
-import { Poster, TileContainer, InfoWrapper, InfoDetails, StyledNoPhoto } from './styled';
+import { Poster, TileContainer, InfoWrapper, InfoDetails } from './styled';
 import { URLimageSmall } from '../../../assets/generalData/fetchedData';
+import errorPerson from '../../../assets/icons/personError.jpeg';
 
 export const PersonTile = ({
-    personTile,
     poster,
     original_name,
     person_name,
@@ -12,21 +12,16 @@ export const PersonTile = ({
     onClick,
 }) => {
     return (
-        <TileContainer personTile={personTile} onClick={onClick}>
-            {poster ? (
-                <Poster
-                    src={`${URLimageSmall}${poster}`}
-                    alt=""
-                    personTile={personTile}
-                />
-            ) : (
-                <StyledNoPhoto />
-            )}
+        <TileContainer onClick={onClick}>
+            <Poster
+                src={poster ? `${URLimageSmall}${poster}` : errorPerson}
+                alt=""
+            />
             <InfoWrapper>
                 <InfoDetails>{original_name}</InfoDetails>
                 <InfoDetails>{person_name}</InfoDetails>
                 <InfoDetails gray={gray}>{as}</InfoDetails>
             </InfoWrapper>
         </TileContainer>
-    )
+    );
 };
