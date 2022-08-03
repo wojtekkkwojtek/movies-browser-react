@@ -29,7 +29,6 @@ export const Backdrop = styled.div`
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
-    /* background: ${({ theme }) => theme.color.black} no-repeat; */
 
     text-align: center;
     align-items: start;
