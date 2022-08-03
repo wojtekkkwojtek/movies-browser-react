@@ -28,6 +28,10 @@ We implemented a wide range of technologies such as:
 
 The data comes from external [API](https://www.themoviedb.org/).
 
+You can download this repository, but remember that to run the application you must have your own individual API Key.
+To generate it, visit https://developers.themoviedb.org/3/getting-started/introduction and create your key. Detailed instructions can be found at the link provided.
+Then create an .env file in the main folder and create a variable called "REACT_APP_API_KEY" and enter your key there.
+
 ### Available Scripts
 
 In the project directory, you can run:
