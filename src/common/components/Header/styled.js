@@ -178,12 +178,10 @@ export const Label = styled.div`
     }
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         top: 30px;
-        /* left: -100px; */
     }
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
         top: -80px;
         left: 0;
-        /* position: static; */
     }
 `;
 
@@ -204,7 +202,23 @@ export const SearchIcon = styled(Magnifier)`
         left: calc(50% + 50px);
     }
 `;
+export const ClearInput = styled(ClearIcon)`
+    ${LabelIconsStyles}
 
+    right: -390px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+        left: calc(50% + 560px);
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
+        top: 85px;
+        left: calc(50% + 80px);
+    }
+    @media (orientation: landscape) and (min-width: 550px) and (max-width: 1000px) {
+        top: -38px;
+        left: calc(50% + 280px);
+    }
+`;
 export const Input = styled.input`
     position: absolute;
     padding-left: 64px;
@@ -239,47 +253,4 @@ export const Input = styled.input`
         top: -50px;
         font-weight: 400;
     }
-`;
-
-export const ClearInput = styled(ClearIcon)`
-    ${LabelIconsStyles}
-
-    right: -390px;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-        left: calc(50% + 560px);
-    }
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        left: calc(50% + 100px);
-    }
-    @media (orientation: landscape) and (min-width: 550px) and (max-width: 1000px) {
-        top: -38px;
-        left: calc(50% + 280px);
-    }
-    /* position: absolute; */
-    /* right: -400px; */
-    /* cursor: pointer;
-    left: 10px; */
-
-    /* @media (orientation: landscape) and (min-width: 550px) and (max-width: 1000px) {
-        right: -20px;
-        left: calc(50% + 300px);
-    } */
-
-    /* @media (min-width: 550px) and (max-width: 1000px) {
-        top: 20px;
-        left: calc(50% + 300px);
-    }
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-        top: -40px;
-        left: calc(50% + 320px);
-    }
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileNormal}) {
-        margin-left: 18px;
-        width: 16px;
-        height: 16px;
-        left: calc(50% + 100px);
-        top: 85px;
-    } */
 `;
