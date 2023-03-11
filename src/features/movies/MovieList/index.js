@@ -25,7 +25,7 @@ const MovieList = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const query = useSearch(queryKeys.search);
-    const page = useSearch(queryKeys.page);
+    const page = useSearch(queryKeys.page)||1;
 
     useEffect(() => {
         dispatch(fetchMovieList({ query, page }))

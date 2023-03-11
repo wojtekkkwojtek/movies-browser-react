@@ -27,7 +27,7 @@ const PeopleList = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const query = useSearch(queryKeys.search);
-    const page = useSearch(queryKeys.page);
+    const page = useSearch(queryKeys.page)||1;
 
     useEffect(() => {
         dispatch(fetchPeopleList({ query, page }))
